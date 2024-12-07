@@ -1,8 +1,8 @@
 import { BUY, SELL } from "./const.js";
 // 当前股价
-const maraCurrentPrice = 26.410;
+const currentPrice = 26.410;
 // 交易数据
-const maraData = [
+const data = [
   {
     month: "202312",
     trans: [
@@ -63,7 +63,7 @@ const maraData = [
   {
     month: "202404",
     trans: [
-      { day: 2, price: 19.6, number: 23, direction: BUY, fee: 0.44, t:'12' }, // 0.63 USD 抵扣 + 5HKD 返现
+      { day: 2, price: 19.6, number: 23, direction: BUY, fee: 0.44, t: '12' }, // 0.63 USD 抵扣 + 5HKD 返现
       { day: 10, price: 17.43, number: 77, direction: BUY, fee: 1.23, t: '12' },
       { day: 24, price: 19.95, number: 100, direction: SELL, fee: 1.34, t: '12 收益 1995-(19.6*23+17.43*77) = 202.09' },
       { day: 29, price: 18, number: 50, direction: BUY, fee: 1.15, t: '13' },
@@ -111,7 +111,7 @@ const maraData = [
       { day: 30, price: 20.2, number: 50, direction: BUY, fee: 1.15 },
 
       { day: 31, price: 19.8, number: 50, direction: BUY, fee: 1.15 },
-      { day: 31, price: 19, number: 27, direction: BUY, fee: 1.08, t: '22'},
+      { day: 31, price: 19, number: 27, direction: BUY, fee: 1.08, t: '22' },
     ],
   },
   {
@@ -181,7 +181,7 @@ const maraData = [
       { day: 7, price: 16, number: 65, direction: BUY, fee: 1.2, t: '65.a' },
       { day: 8, price: 17, number: 65, direction: SELL, fee: 1.24, t: '65.a 收益 65' },
       { day: 8, price: 18, number: 50, direction: SELL, fee: 1.19, t: '50.c' },
-      { day: 9, price: 17, number: 50, direction: BUY, fee: 1.15, t: '50.c 收益 50'},
+      { day: 9, price: 17, number: 50, direction: BUY, fee: 1.15, t: '50.c 收益 50' },
       { day: 12, price: 16, number: 60, direction: BUY, fee: 1.18, t: '60.c' },
       { day: 13, price: 15, number: 66, direction: BUY, fee: 1.2, t: '66.c' },
       { day: 14, price: 16, number: 66, direction: SELL, fee: 1.24, t: '66.c 收益 66' },
@@ -211,7 +211,7 @@ const maraData = [
       { day: 23, price: 16, number: 66, direction: SELL, fee: 1.24, t: '66.a 收益 66' },
       { day: 26, price: 17, number: 62, direction: SELL, fee: 1.23, t: '62.a 收益 62' },
       { day: 26, price: 17.555, number: 100, direction: SELL, fee: 1.37, t: '100.d 收益 1.655*100=165.5' },
-      { day: 26, price: 18, number: 60, direction: SELL, fee: 1.22, t:'60.a 收益 60' },
+      { day: 26, price: 18, number: 60, direction: SELL, fee: 1.22, t: '60.a 收益 60' },
       { day: 27, price: 17, number: 100, direction: BUY, fee: 1.3, t: '100.a' },
     ],
   },
@@ -240,10 +240,10 @@ const maraData = [
       { day: 5, price: 18.1, number: 50, direction: SELL, fee: 1.19, t: '50.a 收益 1.1*50 = 55' },
       { day: 6, price: 19, number: 50, direction: SELL, fee: 1.19, t: '50.b 收益 50' },
       { day: 11, price: 21.22, number: 100, direction: SELL, fee: 1.38 },
-      { day: 11, price: 22, number: 50, direction: SELL, fee: 1.19},
+      { day: 11, price: 22, number: 50, direction: SELL, fee: 1.19 },
       { day: 11, price: 23, number: 50, direction: SELL, fee: 1.19 },
-      { day: 11, price: 21.9, number: 50, direction: BUY, fee: 1.15, t: '24'},
-      { day: 11, price: 22.7, number: 50, direction: SELL, fee: 1.19, t: '24 收益 0.8 * 50 = 40'},
+      { day: 11, price: 21.9, number: 50, direction: BUY, fee: 1.15, t: '24' },
+      { day: 11, price: 22.7, number: 50, direction: SELL, fee: 1.19, t: '24 收益 0.8 * 50 = 40' },
       { day: 11, price: 24, number: 100, direction: SELL, fee: 1.39, t: '100.c 收益 9*100=900' },
       { day: 11, price: 25, number: 100, direction: SELL, fee: 1.39, t: '100.b 收益 9*100=900' },
       { day: 11, price: 26, number: 100, direction: SELL, fee: 1.39, t: '100.a 收益 9*100=900' },
@@ -251,7 +251,7 @@ const maraData = [
       { day: 13, price: 24, number: 50, direction: SELL, fee: 1.19, t: '25 收益 50' },
       { day: 13, price: 23, number: 50, direction: BUY, fee: 1.15, t: '34' },
       { day: 13, price: 22, number: 50, direction: BUY, fee: 1.15, t: '33' },
-      { day: 14, price: 21, number: 50, direction: BUY, fee: 1.15, t: '32'},
+      { day: 14, price: 21, number: 50, direction: BUY, fee: 1.15, t: '32' },
       { day: 18, price: 20, number: 50, direction: BUY, fee: 1.15, t: '26' },
       { day: 18, price: 19, number: 50, direction: BUY, fee: 1.15, t: '27' },
       { day: 18, price: 20, number: 50, direction: SELL, fee: 1.19, t: '27 收益 50' },
@@ -290,24 +290,25 @@ const maraData = [
       { day: 2, price: 27, number: 50, direction: BUY, fee: 0.51, t: 'grid6', desc: '5HKD 平台费抵用' },
       { day: 2, price: 26, number: 50, direction: BUY, fee: 1.15, t: 'grid5' },
       { day: 2, price: 25, number: 50, direction: BUY, fee: 1.15, t: 'grid3' },
-      { day: 2, price: 24, number: 50, direction: BUY, fee: 1.15, t: 'grid2'},
-      { day: 2, price: 25, number: 50, direction: SELL, fee: 1.19, t: 'grid2 收益 50'},
+      { day: 2, price: 24, number: 50, direction: BUY, fee: 1.15, t: 'grid2' },
+      { day: 2, price: 25, number: 50, direction: SELL, fee: 1.19, t: 'grid2 收益 50' },
       { day: 2, price: 26, number: 50, direction: SELL, fee: 0.56, t: 'grid3 收益 50', desc: '5 HKD 平台费抵用' },
       { day: 3, price: 25, number: 50, direction: BUY, fee: 1.15, t: 'grid4' },
       // 以上数据经校验与 LongBridge 无差
       { day: 4, price: 26, number: 50, direction: SELL, fee: 1.20, t: 'grid4 收益 50' },
-      { day: 4, price: 27.55, number: 50, direction: SELL, fee: 0, t: 'grid5 收益 77.5' },
-      { day: 4, price: 28, number: 50, direction: SELL, fee: 0, t: 'grid6 收益 50' },
-      { day: 5, price: 27, number: 50, direction: BUY, fee: 0, t: 'grid7' },
-      { day: 5, price: 28, number: 50, direction: SELL, fee: 0, t: 'grid7 收益 50' },
-      { day: 5, price: 27, number: 50, direction: BUY, fee: 0 },
-      { day: 5, price: 26, number: 50, direction: BUY, fee: 0 },
-      { day: 5, price: 25, number: 50, direction: BUY, fee: 0 },
+      { day: 4, price: 27.55, number: 50, direction: SELL, fee: 1.20, t: 'grid5 收益 77.5' },
+      { day: 4, price: 28, number: 50, direction: SELL, fee: 1.20, t: 'grid6 收益 50' },
+      { day: 5, price: 27, number: 50, direction: BUY, fee: 1.15, t: 'grid7' },
+      { day: 5, price: 28, number: 50, direction: SELL, fee: 1.20, t: 'grid7 收益 50' },
+      { day: 5, price: 27, number: 50, direction: BUY, fee: 1.15 },
+      { day: 5, price: 26, number: 50, direction: BUY, fee: 1.15 },
+      { day: 5, price: 25, number: 50, direction: BUY, fee: 1.15, t: 'grid8' },
+      { day: 6, price: 26, number: 50, direction: SELL, fee: 0, t: 'grid8 收益 50' },
     ]
   }
 ];
 
-export { 
-  maraCurrentPrice,
-  maraData,
+export {
+  currentPrice,
+  data,
 };

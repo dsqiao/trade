@@ -1,6 +1,6 @@
 import { BUY, SELL } from "./const.js";
-const sqCurrentPrice = 0
-const sqData = [{
+const currentPrice = 0
+const data = [{
     month: '202412',
     trans: [
         { day: 4, price: 96, number: 21, direction: BUY, fee: 1.06 },
@@ -9,6 +9,6 @@ const sqData = [{
 }]
 
 export {
-    sqData,
-    sqCurrentPrice,
+    data,
+    currentPrice,
 }
