@@ -18,7 +18,6 @@
 .tab {
   display: flex;
   flex-direction: row;
-  margin: 15px 10px;
 }
 
 .link {
@@ -31,8 +30,6 @@
 }
 
 .window {
-  width: 100vw;
   min-height: 100vh;
-  padding: 5px 20px;
 }
 </style>
