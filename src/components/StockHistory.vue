@@ -1,7 +1,7 @@
 <script>
-import { onMounted, reactive, ref } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { BUY } from '../data/const.js';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 const mData = reactive([]);
 const mCurrentPrice = ref(0);   // 当前股价
@@ -12,6 +12,8 @@ const incomeAmount = ref(0);    // 入账金额（股票卖出金额，不含手
 const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手续费）
 const totalFee = ref(0);        // 手续费总开支
 const monthlyReport = reactive([]);  // 月度总结
+
+// 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
   mCurrentPrice.value = 0
@@ -23,6 +25,8 @@ const clearData = () => {
   totalFee.value = 0
   monthlyReport.length = 0
 }
+
+// 动态加载数据
 const loadData = async (stock) => {
   try {
     const { data, currentPrice } = await import(`../data/${stock.value}.js`);
@@ -32,16 +36,20 @@ const loadData = async (stock) => {
     console.error(`Error loading stock data for ${stock}:`, error);
   }
 }
+
+// 计算数据
 const calculateData = () => {
   for (const month of mData) {
     for (const tran of month.trans) {
       totalFee.value += tran.fee
       if (tran.direction === BUY) {
+        // 买入
         holdingNum.value += tran.number
         cost.value += tran.price * tran.number
         outcomeAmount.value += tran.price * tran.number
         costWithFee.value += (tran.price * tran.number + tran.fee)
-      } else { // 卖出，cost 降低
+      } else {
+        // 卖出
         holdingNum.value -= tran.number
         cost.value -= tran.price * tran.number
         incomeAmount.value += tran.price * tran.number
@@ -54,22 +62,17 @@ const calculateData = () => {
 export default {
   setup() {
     const route = useRoute();
-    const router = useRouter();
     const stock = ref(route.params.stock);
-    router.beforeEach(async (to, from, next) => {
-      if (to.name === 'History' && to.params.stock !== from.params.stock) {
-        stock.value = to.params.stock;
+    watch(
+      () => route.params.stock,
+      async (newStock) => {
+        stock.value = newStock;
         clearData();
         await loadData(stock);
         calculateData();
-      }
-      next();
-    });
-    onMounted(async () => {
-      // clearData()
-      // await loadData(stock)
-      // calculateData()
-    })
+      },
+      { immediate: true }
+    )
     return {
       mData,
       mCurrentPrice,
@@ -99,8 +102,12 @@ export default {
   <div class="emphasis">{{ `当前成本线(不含手续费): $ ${(cost / holdingNum).toFixed(3)}` }}</div>
   <div class="emphasis">{{ `当前成本线(包括手续费): $ ${(costWithFee / holdingNum).toFixed(3)}` }}</div>
 </div>
-<div class="emphasis">{{ `fee total: $ ${totalFee.toFixed(3)}` }}</div>
-<div>{{ `总盈利: $ ${(mCurrentPrice * holdingNum - costWithFee).toFixed(3)}` }}</div>
+<div class="emphasis">
+  {{ `fee total: $ ${totalFee.toFixed(3)}` }}
+</div>
+<div class="emphasis">
+  {{ `总盈利: $ ${(mCurrentPrice * holdingNum - costWithFee).toFixed(3)}` }}
+</div>
 
 <!-- 每月月底持仓总结 -->
 <div class="monthlyReport">

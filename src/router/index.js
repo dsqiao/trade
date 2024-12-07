@@ -3,6 +3,9 @@ import History from "../components/StockHistory.vue";
 import Trade from '../components/TradeHistory.vue'
 const routes = [
   {
+    path: "/",
+  },
+  {
     path: "/history/:stock",
     name: "History",
     component: History,
