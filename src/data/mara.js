@@ -1,6 +1,6 @@
 import { BUY, SELL } from "./const.js";
 // 当前股价
-const currentPrice = 26.410;
+const currentPrice = 26.2;
 // 交易数据
 const data = [
   {
@@ -303,7 +303,9 @@ const data = [
       { day: 5, price: 27, number: 50, direction: BUY, fee: 1.15 },
       { day: 5, price: 26, number: 50, direction: BUY, fee: 1.15 },
       { day: 5, price: 25, number: 50, direction: BUY, fee: 1.15, t: 'grid8' },
-      { day: 6, price: 26, number: 50, direction: SELL, fee: 0, t: 'grid8 收益 50' },
+      { day: 6, price: 26, number: 50, direction: SELL, fee: 1.20, t: 'grid8 收益 50' },
+      { day: 9, price: 25, number: 50, direction: BUY, fee: 0 },
+      { day: 9, price: 24, number: 50, direction: BUY, fee: 0 },
     ]
   }
 ];
