@@ -9,6 +9,7 @@
     <div class="link"><router-link to="/history/riot">RIOT</router-link></div>
     <div class="link"><router-link to="/history/tsla">TSLA</router-link></div>
     <div class="link"><router-link to="/history/sq">SQ</router-link></div>
+    <div class="link"><router-link to="/cashflow">cashflow</router-link></div>
   </div>
   <router-view :key="$route.fullPath" />
 </div>

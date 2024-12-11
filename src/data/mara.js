@@ -1,4 +1,6 @@
 import { BUY, SELL } from "./const.js";
+// eslint-disable-next-line no-unused-vars
+import { direction } from "./sui.js";
 // 当前股价
 const currentPrice = 26.2;
 // 交易数据
@@ -306,7 +308,9 @@ const data = [
       { day: 6, price: 26, number: 50, direction: SELL, fee: 1.20, t: 'grid8 收益 50' },
       { day: 9, price: 25, number: 50, direction: BUY, fee: 0.51, desc: '5 HKD 抵扣' },
       { day: 9, price: 24, number: 50, direction: BUY, fee: 1.15 },
-      { day: 10, price: 23, number: 50, direction: BUY, fee: 0 },
+      { day: 10, price: 23, number: 50, direction: BUY, fee: 1.15, t: 'grid9' },
+      { day: 11, price: 24, number: 50, direction: SELL, fee: 0, t: 'grid9 收益 50' },
+      { day: 11, price: 23, number: 50, direction: BUY, fee: 0, },
     ]
   }
 ];

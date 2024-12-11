@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import History from "../components/StockHistory.vue";
-import Trade from '../components/TradeHistory.vue'
+import Trade from '../components/TradeHistory.vue';
+import CashFlow from "../components/CashFlow.vue";
 const routes = [
   {
     path: "/",
@@ -14,6 +15,11 @@ const routes = [
     path: "/trade/:coin" ,
     name: "trade",
     component: Trade
+  },
+  {
+    path: "/cashflow",
+    name: "cashflow",
+    component: CashFlow,
   }
 ];
 
