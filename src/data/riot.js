@@ -35,7 +35,7 @@ const data = [{
   trans: [
     { day: 9, price: 11.9, number: 100, direction: BUY, fee: 1.30 },
     { day: 9, price: 11.1, number: 100, direction: BUY, fee: 1.30 },
-    { day: 11, price: 12, number: 100, direction: SELL, fee: 0 },
+    { day: 11, price: 12, number: 100, direction: SELL, fee: 1.35 },
   ]
 }]
 export {
