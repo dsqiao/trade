@@ -33,9 +33,12 @@ const data = [{
 }, {
   month: '202412',
   trans: [
-    { day: 9, price: 11.9, number: 100, direction: BUY, fee: 1.30 },
-    { day: 9, price: 11.1, number: 100, direction: BUY, fee: 1.30 },
-    { day: 11, price: 12, number: 100, direction: SELL, fee: 1.35 },
+    { day: 9, price: 11.9, number: 100, direction: BUY, fee: 1.30, t: '3' },
+    { day: 9, price: 11.1, number: 100, direction: BUY, fee: 1.30, t: '4' },
+    { day: 11, price: 12, number: 100, direction: SELL, fee: 1.35, t: '4 收益 90' },
+    { day: 12, price: 13.05, number: 100, direction: SELL, fee: 0, t: '3 收益 115' },
+    { day: 12, price: 12, number: 100, direction: BUY, fee: 0, t: '5' },
+    { day: 12, price: 13, number: 100, direction: SELL, fee: 0, t: '5 收益 100' },
   ]
 }]
 export {
