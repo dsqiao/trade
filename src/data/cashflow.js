@@ -31,7 +31,7 @@ const cashflow = [{
     { day: 4, unitPrice: 7.35, num: 200, platform: PLATFORM.OKX, direction: BUY },
   ],
 }, {
-  month: '202310', 
+  month: '202310',
   record: [
     { day: 22, unitPrice: 7.34, num: 41.77, platform: PLATFORM.OKX, direction: SELL, desc: '退圈' },
   ],
@@ -72,7 +72,7 @@ const cashflow = [{
     { day: 19, unitPrice: 7.16, num: 400, platform: PLATFORM.AC, direction: BUY, desc: '宋秀莲/User-08e7a, bn 收款 | 中国银行转账 2864' },
     { day: 28, unitPrice: 7.20, num: 200, platform: PLATFORM.AC, direction: SELL, desc: 'cpk/figureair bn 转账 | wx收款 1440', }
   ]
-},{
+}, {
   month: '202403',
   record: [
     { day: 1, unitPrice: 7.39, num: 45.22, platform: PLATFORM.OKX, direction: SELL, desc: 'OKX出, 凑整' },
@@ -136,9 +136,9 @@ const cashflow = [{
 }, {
   month: '202411',
   record: [
-    { day: 13, unitPrice: 7.2, num: 1200, platform: PLATFORM.AC, direction: BUY, desc: 'Leo okx 充值 1200 | wx转账 8640'},
-    { day: 14, unitPrice: 7.1, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/User-880fa bn 转账 | wx转账710'},
-    { day: 25, unitPrice: 7.15, num: 500, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/User-880fa bn 转账 | 招行转账 3575'},
+    { day: 13, unitPrice: 7.2, num: 1200, platform: PLATFORM.AC, direction: BUY, desc: 'Leo okx 充值 1200 | wx转账 8640' },
+    { day: 14, unitPrice: 7.1, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/User-880fa bn 转账 | wx转账710' },
+    { day: 25, unitPrice: 7.15, num: 500, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/User-880fa bn 转账 | 招行转账 3575' },
     { day: 27, unitPrice: 7.15, num: 260, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/User-880fa bn 转账 | wx转账 1859' },
   ]
 }, {

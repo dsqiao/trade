@@ -150,7 +150,7 @@ export default {
   line-height: 5rem;
 }
 
-.in>span{
+.in>span {
   background-color: rgb(33, 83, 33);
 }
 

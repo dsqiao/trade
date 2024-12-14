@@ -11,8 +11,8 @@ const routes = [
     name: "History",
     component: History,
   },
-  { 
-    path: "/trade/:coin" ,
+  {
+    path: "/trade/:coin",
     name: "trade",
     component: Trade
   },

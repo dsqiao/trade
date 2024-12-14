@@ -1,33 +1,33 @@
 <template>
-  <div>出入金记录</div>
-  <div>入金累积(CNY) {{ totalInflowInCNY.toFixed(2)}}</div>
-  <div>入金累积(USDC) {{ totalInflowInUSDC.toFixed(2) }}</div>
-  <div>入金均价 {{ (totalInflowInCNY / totalInflowInUSDC ).toFixed(3) }}</div>
-  <div>出金累积(CNY) {{ totalOutflowInCNY.toFixed(2) }}</div>
-  <div>出金累积(USDC) {{ totalOutflowInUSDC.toFixed(2) }}</div>
-  <div>出金均价 {{ (totalOutflowInCNY / totalOutflowInUSDC).toFixed(3) }}</div>
-  
-  <div class="divider"></div>
+<div>出入金记录</div>
+<div>入金累积(CNY) {{ totalInflowInCNY.toFixed(2) }}</div>
+<div>入金累积(USDC) {{ totalInflowInUSDC.toFixed(2) }}</div>
+<div>入金均价 {{ (totalInflowInCNY / totalInflowInUSDC).toFixed(3) }}</div>
+<div>出金累积(CNY) {{ totalOutflowInCNY.toFixed(2) }}</div>
+<div>出金累积(USDC) {{ totalOutflowInUSDC.toFixed(2) }}</div>
+<div>出金均价 {{ (totalOutflowInCNY / totalOutflowInUSDC).toFixed(3) }}</div>
 
-  <div>净入金(CNY) {{ (totalInflowInCNY - totalOutflowInCNY).toFixed(2) }}</div>
-  <div>净入金(USDC) {{ (totalInflowInUSDC - totalOutflowInUSDC).toFixed(2) }}</div>
-  <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
-  <div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
-    <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
-    <div v-for="(item, index) in month.record" :key="index" >
-      <!-- 筛选 BN v-if="item.platform === 1" -->
-      <div 
-        :class="item.direction === BUY ? 'in' : 'out'" class="transaction"
-      >
-        <span class="date">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}</span>
-        <span class="unit">{{ item.unitPrice }}</span>
-        <span class="num">{{ item.num }}</span>
-        <span class="total">{{ (item.unitPrice * item.num).toFixed(2) }}</span><span class="direction">{{ item.direction === BUY ? '入金' : '出金' }}</span>
-        <span class="platform" :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')">{{ parsePlatform(item.platform) }}</span>
-        <span class="desc">{{  item.desc || '/'}}</span>
-      </div>
+<div class="divider"></div>
+
+<div>净入金(CNY) {{ (totalInflowInCNY - totalOutflowInCNY).toFixed(2) }}</div>
+<div>净入金(USDC) {{ (totalInflowInUSDC - totalOutflowInUSDC).toFixed(2) }}</div>
+<div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
+<div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
+  <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
+  <div v-for="(item, index) in month.record" :key="index">
+    <!-- 筛选 BN v-if="item.platform === 1" -->
+    <div :class="item.direction === BUY ? 'in' : 'out'" class="transaction">
+      <span class="date">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}</span>
+      <span class="unit">{{ item.unitPrice }}</span>
+      <span class="num">{{ item.num }}</span>
+      <span class="total">{{ (item.unitPrice * item.num).toFixed(2) }}</span><span class="direction">{{ item.direction
+        === BUY ? '入金' : '出金' }}</span>
+      <span class="platform" :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')">{{
+        parsePlatform(item.platform) }}</span>
+      <span class="desc">{{ item.desc || '/' }}</span>
     </div>
   </div>
+</div>
 </template>
 <script setup>
 import { cashflow } from '../data/cashflow.js';
@@ -47,20 +47,21 @@ for (let month of cashflow) {
     if (item.direction === BUY) {
       // 买入
       totalInflowInCNY.value += item.num * item.unitPrice
-      totalInflowInUSDC.value  += item.num
+      totalInflowInUSDC.value += item.num
     } else {
       // 卖出
       totalOutflowInCNY.value += item.num * item.unitPrice
       totalOutflowInUSDC.value += item.num
     }
   }
-} 
+}
 
 </script>
 <style>
 .divider {
   height: 2rem;
 }
+
 .transaction>span {
   display: inline-block;
   border: 1px black solid;
@@ -68,10 +69,12 @@ for (let month of cashflow) {
   line-height: 2rem;
   padding-left: 1rem;
 }
+
 .monthTitle {
   height: 4rem;
   line-height: 5rem;
 }
+
 .in>span {
   background-color: rgb(33, 83, 33);
 }
@@ -83,32 +86,41 @@ for (let month of cashflow) {
 .date {
   width: 10rem;
 }
+
 .unit {
   width: 3rem;
 }
+
 .num {
   width: 4rem;
 }
+
 .total {
   width: 5rem;
 }
+
 .direction {
   width: 6rem;
 }
+
 .platform {
   width: 6rem;
 }
+
 .okx {
   background-color: black;
   color: white;
 }
+
 .bn {
   background-color: orange;
   color: white;
 }
+
 .ac {
   background-color: white;
 }
+
 .desc {
   width: 30rem;
 }
