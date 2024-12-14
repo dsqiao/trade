@@ -145,6 +145,8 @@ const cashflow = [{
   month: '202412',
   record: [
     { day: 5, unitPrice: 7.23, num: 100, platform: PLATFORM.BN, direction: BUY },
+    { day: 14, unitPrice: 7.25, num: 200, platform: PLATFORM.OKX, direction: BUY },
+    { day: 14, unitPrice: 7.25, num: 700, platform: PLATFORM.OKX, direction: BUY },
   ]
 }]
 

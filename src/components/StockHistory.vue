@@ -126,7 +126,7 @@ export default {
       <span class="date">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${tran.day} 日 ` }}</span>
       <span class="direction">{{ tran.direction === 0 ? '买入' : '卖出' }}</span>
       <span class="price">{{ tran.price }}</span>
-      *
+      <span class="sign">*</span>
       <span class="number">{{ tran.number }}</span>
       <span class="fee">{{ tran.fee }}</span>
       <span class="t">{{ tran.t || '\\' }}</span>
@@ -150,11 +150,11 @@ export default {
   line-height: 5rem;
 }
 
-.in {
+.in>span{
   background-color: rgb(33, 83, 33);
 }
 
-.out {
+.out>span {
   background-color: rgb(85, 23, 23);
 }
 
@@ -163,15 +163,23 @@ export default {
 }
 
 .direction {
-  width: 5rem;
+  width: 3.2rem;
 }
 
 .price {
   width: 4rem;
+  border-right: 0 !important;
 }
 
 .number {
   width: 4rem;
+  border-left: 0 !important;
+}
+
+.sign {
+  width: 1.2rem;
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
 
 .fee {
@@ -183,7 +191,10 @@ export default {
 }
 
 .desc {
-  width: 20rem;
+  /* width: 30rem; */
+  background-color: transparent !important;
+  border: none !important;
+
 }
 
 .monthlyReport {

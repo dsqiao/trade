@@ -39,10 +39,10 @@ for (const trans of suiTradeData) {
   line-height: 2rem;
   padding-left: 1rem;
 }
-.sell {
+.sell>span {
   background-color: rgb(85, 23, 23);
 }
-.buy {
+.buy>span {
   background-color: rgb(33, 83, 33);
 }
 .digest {

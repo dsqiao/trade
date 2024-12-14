@@ -72,11 +72,11 @@ for (let month of cashflow) {
   height: 4rem;
   line-height: 5rem;
 }
-.in {
+.in>span {
   background-color: rgb(33, 83, 33);
 }
 
-.out {
+.out>span {
   background-color: rgb(85, 23, 23);
 }
 
