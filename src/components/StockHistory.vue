@@ -2,7 +2,7 @@
 import { reactive, ref, watch } from 'vue';
 import { BUY } from '../data/const.js';
 import { useRoute } from 'vue-router';
-
+import { getDayOfWeek } from '../utils/index.js';
 const mData = reactive([]);
 const mCurrentPrice = ref(0);   // 当前股价
 const holdingNum = ref(0);      // 当前持股数量
@@ -84,6 +84,7 @@ export default {
       costWithFee,
       totalFee,
       monthlyReport,
+      getDayOfWeek,
     };
   }
 };
@@ -123,7 +124,12 @@ export default {
   <div v-for="(tran, tranIndex) in month.trans" :key="tranIndex">
     <!-- 隐藏 t: 添加属性 v-if="!tran.t"-->
     <div class="transaction" :class="tran.direction === 0 ? 'in' : 'out'">
-      <span class="date">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${tran.day} 日 ` }}</span>
+      <span class="date">
+        {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${tran.day} 日` }}
+      </span>
+      <span class="date2">
+        {{ `${getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day)}` }}
+      </span>
       <span class="direction">{{ tran.direction === 0 ? '买入' : '卖出' }}</span>
       <span class="price">{{ tran.price }}</span>
       <span class="sign">*</span>
@@ -159,7 +165,13 @@ export default {
 }
 
 .date {
-  width: 10rem;
+  width: 9.8rem;
+  border-right: 0 !important;
+}
+
+.date2 {
+  width: 2.5rem;
+  border-left: 0 !important;
 }
 
 .direction {
