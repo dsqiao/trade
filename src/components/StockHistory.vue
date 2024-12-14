@@ -29,7 +29,7 @@ const clearData = () => {
 // 动态加载数据
 const loadData = async (stock) => {
   try {
-    const { data, currentPrice } = await import(`../data/${stock.value}.js`);
+    const { data, currentPrice } = await import(`../data/stock/${stock.value}.js`);
     mData.push(...data); // 使用 .push 方法来更新 reactive 数组
     mCurrentPrice.value = currentPrice;
   } catch (error) {

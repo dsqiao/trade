@@ -1,4 +1,4 @@
-import { BUY, SELL } from "./const.js";
+import { BUY, SELL } from "../const.js";
 const currentPrice = 24;
 const data = [{
   month: '202311',

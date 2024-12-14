@@ -1,6 +1,6 @@
-import { BUY, SELL } from "./const.js";
+import { BUY, SELL } from "../const.js";
 // eslint-disable-next-line no-unused-vars
-import { direction } from "./sui.js";
+import { direction } from "../sui.js";
 // 当前股价
 const currentPrice = 26.2;
 // 交易数据
