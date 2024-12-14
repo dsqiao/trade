@@ -1,12 +1,12 @@
-import { BUY, SELL } from "./const"
+import { BUY, SELL } from "./const";
 // eslint-disable-next-line no-unused-vars
-import { direction } from "./sui"
+import { direction } from "./sui";
 
 const PLATFORM = {
   OKX: 0,
   BN: 1,
   AC: 2,
-}
+};
 const cashflow = [{
   month: '202307',
   record: [
@@ -148,8 +148,8 @@ const cashflow = [{
     { day: 14, unitPrice: 7.25, num: 200, platform: PLATFORM.OKX, direction: BUY },
     { day: 14, unitPrice: 7.25, num: 700, platform: PLATFORM.OKX, direction: BUY },
   ]
-}]
+}];
 
 export {
   cashflow,
-}
+};

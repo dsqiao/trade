@@ -17,13 +17,13 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { suiTradeData, direction } from '../data/sui.js'
+import { suiTradeData, direction } from '../data/sui.js';
 
 const jump = (digest) => {
-  window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`)
-}
-const suiGain = ref(0)
-const usdcGain = ref(0)
+  window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
+};
+const suiGain = ref(0);
+const usdcGain = ref(0);
 for (const trans of suiTradeData) {
   if (trans.direction === direction.SELL) { // 卖 sui，买 usdc
     suiGain.value -= trans.sui;

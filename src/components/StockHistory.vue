@@ -16,15 +16,15 @@ const monthlyReport = reactive([]);  // 月度总结
 // 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
-  mCurrentPrice.value = 0
-  holdingNum.value = 0
-  cost.value = 0
-  costWithFee.value = 0
-  incomeAmount.value = 0
-  outcomeAmount.value = 0
-  totalFee.value = 0
-  monthlyReport.length = 0
-}
+  mCurrentPrice.value = 0;
+  holdingNum.value = 0;
+  cost.value = 0;
+  costWithFee.value = 0;
+  incomeAmount.value = 0;
+  outcomeAmount.value = 0;
+  totalFee.value = 0;
+  monthlyReport.length = 0;
+};
 
 // 动态加载数据
 const loadData = async (stock) => {
@@ -35,30 +35,30 @@ const loadData = async (stock) => {
   } catch (error) {
     console.error(`Error loading stock data for ${stock}:`, error);
   }
-}
+};
 
 // 计算数据
 const calculateData = () => {
   for (const month of mData) {
     for (const tran of month.trans) {
-      totalFee.value += tran.fee
+      totalFee.value += tran.fee;
       if (tran.direction === BUY) {
         // 买入
-        holdingNum.value += tran.number
-        cost.value += tran.price * tran.number
-        outcomeAmount.value += tran.price * tran.number
-        costWithFee.value += (tran.price * tran.number + tran.fee)
+        holdingNum.value += tran.number;
+        cost.value += tran.price * tran.number;
+        outcomeAmount.value += tran.price * tran.number;
+        costWithFee.value += (tran.price * tran.number + tran.fee);
       } else {
         // 卖出
-        holdingNum.value -= tran.number
-        cost.value -= tran.price * tran.number
-        incomeAmount.value += tran.price * tran.number
-        costWithFee.value -= (tran.price * tran.number - tran.fee)
+        holdingNum.value -= tran.number;
+        cost.value -= tran.price * tran.number;
+        incomeAmount.value += tran.price * tran.number;
+        costWithFee.value -= (tran.price * tran.number - tran.fee);
       }
     }
-    monthlyReport.push(`${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月结束时，持股：${holdingNum.value}, 成本线 $ ${(costWithFee.value / holdingNum.value).toFixed(3)}`)
+    monthlyReport.push(`${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月结束时，持股：${holdingNum.value}, 成本线 $ ${(costWithFee.value / holdingNum.value).toFixed(3)}`);
   }
-}
+};
 export default {
   setup() {
     const route = useRoute();
@@ -72,7 +72,7 @@ export default {
         calculateData();
       },
       { immediate: true }
-    )
+    );
     return {
       mData,
       mCurrentPrice,
@@ -86,7 +86,7 @@ export default {
       monthlyReport,
     };
   }
-}
+};
 </script>
 
 <template>

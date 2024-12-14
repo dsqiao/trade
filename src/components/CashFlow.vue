@@ -31,27 +31,27 @@
 </template>
 <script setup>
 import { cashflow } from '../data/cashflow.js';
-import { BUY } from "../data/const.js"
+import { BUY } from "../data/const.js";
 import { ref } from 'vue';
 const parsePlatform = (platform) => {
   if (platform === 0) return 'OKX';
   if (platform === 1) return 'BN';
-  return '熟人'
-}
-const totalInflowInCNY = ref(0)   // 入金（人民币单位）
-const totalInflowInUSDC = ref(0)  // 入金（USDC 单位）
-const totalOutflowInCNY = ref(0)  // 出金（人民币单位）
-const totalOutflowInUSDC = ref(0) // 出金（USDC 单位）
+  return '熟人';
+};
+const totalInflowInCNY = ref(0);   // 入金（人民币单位）
+const totalInflowInUSDC = ref(0);  // 入金（USDC 单位）
+const totalOutflowInCNY = ref(0);  // 出金（人民币单位）
+const totalOutflowInUSDC = ref(0); // 出金（USDC 单位）
 for (let month of cashflow) {
   for (let item of month.record) {
     if (item.direction === BUY) {
       // 买入
-      totalInflowInCNY.value += item.num * item.unitPrice
-      totalInflowInUSDC.value += item.num
+      totalInflowInCNY.value += item.num * item.unitPrice;
+      totalInflowInUSDC.value += item.num;
     } else {
       // 卖出
-      totalOutflowInCNY.value += item.num * item.unitPrice
-      totalOutflowInUSDC.value += item.num
+      totalOutflowInCNY.value += item.num * item.unitPrice;
+      totalOutflowInUSDC.value += item.num;
     }
   }
 }

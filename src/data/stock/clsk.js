@@ -1,6 +1,6 @@
-import { BUY, SELL } from '../const.js'
+import { BUY, SELL } from '../const.js';
 // eslint-disable-next-line no-unused-vars
-import { direction } from '../sui.js'
+import { direction } from '../sui.js';
 
 const currentPrice = 12.00;
 const data = [{
@@ -12,8 +12,8 @@ const data = [{
     { day: 12, price: 12.50, number: 200, direction: BUY, fee: 1.60 },
     { day: 12, price: 12, number: 100, direction: BUY, fee: 0 },
   ]
-}]
+}];
 export {
   currentPrice,
   data,
-}
+};

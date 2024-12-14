@@ -41,8 +41,8 @@ const data = [{
     { day: 12, price: 13, number: 100, direction: SELL, fee: 1.36, t: '5 收益 100' },
     // 以上数据经校验与 LongBridge 无差
   ]
-}]
+}];
 export {
   currentPrice,
   data,
-}
+};
