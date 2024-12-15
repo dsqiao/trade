@@ -108,17 +108,18 @@ for (let month of cashflow) {
 }
 
 .okx {
-  background-color: black;
+  background-color: rgb(29, 29, 29) !important;
   color: white;
 }
 
 .bn {
-  background-color: orange;
+  background-color: rgb(255, 180, 40) !important;
   color: white;
 }
 
 .ac {
-  background-color: white;
+  background-color: rgb(220, 220, 220) !important;
+  color: rgb(45, 45, 45);
 }
 
 .desc {

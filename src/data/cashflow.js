@@ -57,7 +57,7 @@ const cashflow = [{
     { day: 10, unitPrice: 7.20, num: 200, platform: PLATFORM.BN, direction: BUY },
     { day: 11, unitPrice: 7.19, num: 90, platform: PLATFORM.BN, direction: BUY },
     { day: 11, unitPrice: 7.19, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'cpk/figureair bn收款 | wx转账 719' },
-    { day: 12, unitPrice: 7.19, num: 100, platform: PLATFORM.BN, direction: BUY, desc: 'cpk/figureair bn收款 | wx转账 719' },
+    { day: 12, unitPrice: 7.19, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'cpk/figureair bn收款 | wx转账 719' },
     { day: 14, unitPrice: 7.20, num: 210, platform: PLATFORM.BN, direction: BUY },
     { day: 16, unitPrice: 7.18, num: 200, platform: PLATFORM.OKX, direction: BUY },
     { day: 25, unitPrice: 7.23, num: 200, platform: PLATFORM.BN, direction: BUY },

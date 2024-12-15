@@ -55,6 +55,7 @@ const calculateData = () => {
         incomeAmount.value += tran.price * tran.number;
         costWithFee.value -= (tran.price * tran.number - tran.fee);
       }
+      tran.currentHolding = holdingNum.value
     }
     monthlyReport.push(`${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月结束时，持股：${holdingNum.value}, 成本线 $ ${(costWithFee.value / holdingNum.value).toFixed(3)}`);
   }
@@ -135,6 +136,7 @@ export default {
       <span class="sign">*</span>
       <span class="number">{{ tran.number }}</span>
       <span class="fee">{{ tran.fee }}</span>
+      <span class="current">{{ tran.currentHolding }}</span>
       <span class="t">{{ tran.t || '\\' }}</span>
       <span class="desc" v-if="tran.desc">{{ tran.desc }}</span>
     </div>
@@ -195,6 +197,10 @@ export default {
 }
 
 .fee {
+  width: 4rem;
+}
+
+.current {
   width: 4rem;
 }
 
