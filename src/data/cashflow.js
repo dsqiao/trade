@@ -67,7 +67,7 @@ const cashflow = [{
 }, {
   month: '202402',
   record: [
-    { day: 5, unitPrice: 7.16, num: 300, platform: PLATFORM.BN, direction: BUY },
+    { day: 5, unitPrice: 7.16, num: 300, platform: PLATFORM.BN, direction: BUY, desc: '支付宝小荷包' },
     { day: 8, unitPrice: 7.16, num: 300, platform: PLATFORM.BN, direction: BUY },
     { day: 19, unitPrice: 7.16, num: 400, platform: PLATFORM.AC, direction: BUY, desc: '宋秀莲/User-08e7a, bn 收款 | 中国银行转账 2864' },
     { day: 28, unitPrice: 7.20, num: 200, platform: PLATFORM.AC, direction: SELL, desc: 'cpk/figureair bn 转账 | wx收款 1440', }

@@ -314,6 +314,7 @@ const data = [
       { day: 12, price: 24, number: 50, direction: SELL, fee: 1.19, t: 'grid10 收益 50' },
       { day: 12, price: 23, number: 50, direction: BUY, fee: 1.15, },
       // 以上数据经校验与 LongBridge 无差
+      { day: 15, price: 24.1, number: 50, direction: SELL, fee: 0 },
     ]
   }
 ];
