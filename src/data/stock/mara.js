@@ -307,14 +307,15 @@ const data = [
       { day: 5, price: 25, number: 50, direction: BUY, fee: 1.15, t: 'grid8' },
       { day: 6, price: 26, number: 50, direction: SELL, fee: 1.20, t: 'grid8 收益 50' },
       { day: 9, price: 25, number: 50, direction: BUY, fee: 0.51, desc: '5 HKD 抵扣' },
-      { day: 9, price: 24, number: 50, direction: BUY, fee: 1.15 },
+      { day: 9, price: 24, number: 50, direction: BUY, fee: 1.15, t: 'grid12' },
       { day: 10, price: 23, number: 50, direction: BUY, fee: 1.15, t: 'grid9' },
       { day: 11, price: 24, number: 50, direction: SELL, fee: 0.55, t: 'grid9 收益 50', desc: '5 HKD 折扣' },
       { day: 11, price: 23, number: 50, direction: BUY, fee: 1.15, t: 'grid10' },
       { day: 12, price: 24, number: 50, direction: SELL, fee: 1.19, t: 'grid10 收益 50' },
-      { day: 12, price: 23, number: 50, direction: BUY, fee: 1.15, },
+      { day: 12, price: 23, number: 50, direction: BUY, fee: 1.15, t: 'grid11' },
       // 以上数据经校验与 LongBridge 无差
-      { day: 15, price: 24.1, number: 50, direction: SELL, fee: 0 },
+      { day: 15, price: 24.1, number: 50, direction: SELL, fee: 0, t: 'grid11 收益 55' },
+      { day: 16, price: 25, number: 50, direction: SELL, fee: 0, t: 'grid12 收益 50' }
     ]
   }
 ];
