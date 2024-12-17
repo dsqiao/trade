@@ -11,8 +11,8 @@ const data = [{
     // ======================== 清仓 ========================
     { day: 12, price: 12.50, number: 200, direction: BUY, fee: 1.60 },
     { day: 13, price: 12, number: 100, direction: BUY, fee: 1.30 },
-    { day: 16, price: 13, number: 100, direction: SELL, fee: 0 },
-    { day: 16, price: 12.48, number: 100, direction: BUY, fee: 0 },
+    { day: 16, price: 13, number: 100, direction: SELL, fee: 1.36 },
+    { day: 16, price: 12.48, number: 100, direction: BUY, fee: 1.30 },
   ]
 }];
 export {

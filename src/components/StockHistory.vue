@@ -124,14 +124,14 @@ export default {
 
   <div v-for="(tran, tranIndex) in month.trans" :key="tranIndex">
     <!-- 隐藏 t: 添加属性 v-if="!tran.t"-->
-    <div class="transaction" :class="tran.direction === 0 ? 'in' : 'out'">
+    <div class="transaction" :class="tran.direction === 0 ? 'in' : (tran.direction === 1 ? 'out' : 'other')">
       <span class="date">
         {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${tran.day} 日` }}
       </span>
       <span class="date2">
         {{ `${getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day)}` }}
       </span>
-      <span class="direction">{{ tran.direction === 0 ? '买入' : '卖出' }}</span>
+      <span class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : '其他') }}</span>
       <span class="price">{{ tran.price }}</span>
       <span class="sign">*</span>
       <span class="number">{{ tran.number }}</span>

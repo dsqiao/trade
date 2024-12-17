@@ -1,4 +1,4 @@
-import { BUY, SELL } from "../const.js";
+import { BUY, OTHER, SELL } from "../const.js";
 // eslint-disable-next-line no-unused-vars
 import { direction } from "../sui.js";
 const currentPrice = 0;
@@ -17,7 +17,7 @@ const data = [{
 }, {
   month: '202402',
   trans: [
-    { day: 16, price: 0, number: 0, direction: SELL, fee: 1.32, desc: '2024-01-30持有900股NIO, ADR 托管费1.32USD' },
+    { day: 16, price: 0, number: 0, direction: OTHER, fee: 1.32, desc: '2024-01-30持有900股NIO, ADR 托管费1.32USD' },
     { day: 25, price: 5.46, number: 72, direction: BUY, fee: 1.22 },
   ]
 }, {

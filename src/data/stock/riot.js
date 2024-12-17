@@ -40,7 +40,7 @@ const data = [{
     { day: 12, price: 12, number: 100, direction: BUY, fee: 1.30, t: '5' },
     { day: 12, price: 13, number: 100, direction: SELL, fee: 1.36, t: '5 收益 100' },
     // 以上数据经校验与 LongBridge 无差
-    { day: 16, price: 14, number: 100, direction: SELL, fee: 0 }
+    { day: 16, price: 14, number: 100, direction: SELL, fee: 1.36 }
   ]
 }];
 export {
