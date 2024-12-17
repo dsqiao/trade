@@ -181,7 +181,7 @@ export default {
 }
 
 .price {
-  width: 4rem;
+  width: 4.2rem;
   border-right: 0 !important;
 }
 
