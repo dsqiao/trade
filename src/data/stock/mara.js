@@ -315,7 +315,8 @@ const data = [
       { day: 12, price: 23, number: 50, direction: BUY, fee: 1.15, t: 'grid11' },
       // 以上数据经校验与 LongBridge 无差
       { day: 15, price: 24.1, number: 50, direction: SELL, fee: 1.19, t: 'grid11 收益 55' },
-      { day: 16, price: 25, number: 50, direction: SELL, fee: 0.55, t: 'grid12 收益 50', desc: '5 HKD 抵扣' }
+      { day: 16, price: 25, number: 50, direction: SELL, fee: 0.55, t: 'grid12 收益 50', desc: '5 HKD 抵扣' },
+      { day: 17, price: 24, number: 50, direction: BUY, fee: 0 },
     ]
   }
 ];
