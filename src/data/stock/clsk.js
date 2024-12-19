@@ -14,13 +14,13 @@ const data = [{
     { day: 16, price: 13, number: 100, direction: SELL, fee: 1.36, t: 't1 收益 100' },
     { day: 16, price: 12.48, number: 100, direction: BUY, fee: 1.30 },
     { day: 17, price: 12.3, number: 100, direction: BUY, fee: 1.30, t: 't2' },
-    { day: 18, price: 13, number: 100, direction: SELL, fee: 0, t: 't2 收益 70' },
-    { day: 18, price: 12.48, number: 100, direction: BUY, fee: 0 },
-    { day: 18, price: 12.2, number: 100, direction: BUY, fee: 0 },
-    { day: 18, price: 12.1, number: 100, direction: BUY, fee: 0 },
-    { day: 18, price: 12, number: 100, direction: BUY, fee: 0 },
-    { day: 18, price: 11.7, number: 100, direction: BUY, fee: 0 },
-    { day: 18, price: 11.3, number: 100, direction: BUY, fee: 0 },
+    { day: 18, price: 13, number: 100, direction: SELL, fee: 1.36, t: 't2 收益 70' },
+    { day: 18, price: 12.48, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 12.2, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 12.1, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 11.7, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 11.3, number: 100, direction: BUY, fee: 1.30 },
   ]
 }];
 export {
