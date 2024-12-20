@@ -21,6 +21,7 @@ const data = [{
     { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 11.7, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 11.3, number: 100, direction: BUY, fee: 1.30 },
+    { day: 19, price: 11, number: 100, direction: BUY, fee: 0 },
   ]
 }];
 export {
