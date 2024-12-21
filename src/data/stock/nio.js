@@ -1,7 +1,7 @@
 import { BUY, OTHER, SELL } from "../const.js";
 // eslint-disable-next-line no-unused-vars
 import { direction } from "../sui.js";
-const currentPrice = 0;
+const currentPrice = 4.56;
 const data = [{
   month: '202312',
   trans: [
@@ -41,6 +41,7 @@ const data = [{
   month: '202409',
   trans: [
     { day: 5, price: 4.83, number: 207, direction: SELL, fee: 1.72 },
+    // 以上数据经校验与 LongBeidge 无差
   ]
 }];
 

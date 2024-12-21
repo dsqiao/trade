@@ -2,12 +2,12 @@ import { BUY, SELL } from '../const.js';
 // eslint-disable-next-line no-unused-vars
 import { direction } from '../sui.js';
 
-const currentPrice = 12.00;
+const currentPrice = 11.299;
 const data = [{
   month: '202412',
   trans: [
-    // { day: 11, price: 12.65, number: 200, direction: BUY, fee: 1.60, t: 't0' },
-    // { day: 11, price: 13, number: 200, direction: SELL, fee: 1.70, t: 't0 收益 70' },
+    { day: 11, price: 12.65, number: 200, direction: BUY, fee: 1.60, t: 't0' },
+    { day: 11, price: 13, number: 200, direction: SELL, fee: 1.70, t: 't0 收益 70' },
     // ======================== 清仓 ========================
     { day: 12, price: 12.50, number: 200, direction: BUY, fee: 1.60 },
     { day: 13, price: 12, number: 100, direction: BUY, fee: 1.30, t: 't1' },
@@ -22,6 +22,7 @@ const data = [{
     { day: 18, price: 11.7, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 11.3, number: 100, direction: BUY, fee: 1.30 },
     { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30 },
+    // 以上数据经校验与长桥无差
   ]
 }];
 export {

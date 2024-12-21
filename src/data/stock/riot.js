@@ -1,7 +1,7 @@
 import { BUY, SELL } from "../const.js";
 // eslint-disable-next-line no-unused-vars
 import { direction } from "../sui.js";
-const currentPrice = 24;
+const currentPrice = 11.67;
 const data = [{
   month: '202312',
   trans: [
@@ -44,6 +44,7 @@ const data = [{
     { day: 18, price: 13.1, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30 },
     { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30 },
+    // 以上数据经校验与 LongBridge 无差
   ]
 }];
 export {
