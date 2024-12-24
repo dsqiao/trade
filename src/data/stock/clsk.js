@@ -23,6 +23,7 @@ const data = [{
     { day: 18, price: 11.3, number: 100, direction: BUY, fee: 1.30 },
     { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30 },
     // 以上数据经校验与长桥无差
+    { day: 23, price: 10.33, number: 100, direction: BUY, fee: 0 }
   ]
 }];
 export {
