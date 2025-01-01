@@ -151,6 +151,11 @@ const cashflow = [{
     { day: 29, unitPrice: 7.27, num: 500, platform: PLATFORM.OKX, direction: BUY },
     { day: 31, unitPrice: 7.25, num: 200, platform: PLATFORM.OKX, direction: BUY },
   ]
+}, {
+  month: '202501',
+  record: [
+    { day: 1, unitPrice: 7.15, num: 200, platform: PLATFORM.OKX, direction: BUY, desc: 'jyh | wx 转账 1430' },
+  ]
 }];
 
 export {
