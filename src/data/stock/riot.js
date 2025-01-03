@@ -46,6 +46,11 @@ const data = [{
     { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30 },
     // 以上数据经校验与 LongBridge 无差
   ]
+}, {
+  month: '202501',
+  trans: [
+    { day: 3, price: 12, number: 100, direction: SELL, fee: 0 },
+  ]
 }];
 export {
   currentPrice,
