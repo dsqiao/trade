@@ -329,6 +329,11 @@ const data = [
       { day: 20, price: 20.2, number: 80, direction: SELL, fee: 1.29, t: 'grid13 收益 88' },
       // 以上数据经过校验与 LongBridge 无差
     ]
+  }, {
+    month: '202501',
+    trans: [
+      { day: 14, price: 17, number: 100, direction: BUY, fee: 0 },
+    ]
   }
 ];
 
