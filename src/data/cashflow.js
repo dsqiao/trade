@@ -158,6 +158,7 @@ const cashflow = [{
     { day: 5, unitPrice: 7.24, num: 300, platform: PLATFORM.OKX, direction: BUY },
     { day: 13, unitPrice: 7.26, num: 300, platform: PLATFORM.OKX, direction: BUY },
     { day: 14, unitPrice: 7.30, num: 300, platform: PLATFORM.OKX, direction: BUY },
+    { day: 14, unitPrice: 7.20, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 720' }
   ]
 }];
 
