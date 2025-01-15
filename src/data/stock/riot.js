@@ -42,14 +42,15 @@ const data = [{
     // 以上数据经校验与 LongBridge 无差
     { day: 16, price: 14, number: 100, direction: SELL, fee: 1.36, t: '6' },
     { day: 18, price: 13.1, number: 100, direction: BUY, fee: 1.30, t: '6 收益 90' },
-    { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30 },
+    { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30, t: '8' },
     { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30, t: '7' },
     // 以上数据经校验与 LongBridge 无差
   ]
 }, {
   month: '202501',
   trans: [
-    { day: 3, price: 12, number: 100, direction: SELL, fee: 0.71, t: '7 收益 100' },
+    { day: 3, price: 12, number: 100, direction: SELL, fee: 0.71, t: '7 收益 100', desc: '5 HKD 抵扣' },
+    { day: 15, price: 13.2, number: 100, direction: SELL, fee: 0, t: '8 收益 120' }
   ]
 }];
 export {
