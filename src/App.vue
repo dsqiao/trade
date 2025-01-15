@@ -11,6 +11,7 @@
     <div class="link"><router-link to="/history/sq">SQ</router-link></div>
     <div class="link"><router-link to="/history/tsla">TSLA</router-link></div>
     <div class="link"><router-link to="/history/nio">NIO</router-link></div>
+    <div class="link"><router-link to="/history/mstr">MSTR</router-link></div>
   </div>
   <div class="tab">
     其他:
