@@ -332,10 +332,11 @@ const data = [
   }, {
     month: '202501',
     trans: [
-      { day: 13, price: 17, number: 100, direction: BUY, fee: 0.66, desc: '5 HKD 抵扣' },
+      { day: 13, price: 17, number: 100, direction: BUY, fee: 0.66, t: 'grid15', desc: '5 HKD 抵扣' },
       { day: 14, price: 18, number: 50, direction: SELL, fee: 0.55, t: 'grid14', desc: '5 HKD 抵扣' },
       { day: 14, price: 17, number: 50, direction: BUY, fee: 0.51, t: 'grid14 收益 50', desc: '5 HKD 抵扣' },
-      { day: 15, price: 18, number: 50, direction: SELL, fee: 0, },
+      { day: 15, price: 18, number: 50, direction: SELL, fee: 1.19, t: 'grid15 收益 50' },
+      { day: 17, price: 19, number: 50, direction: SELL, fee: 0, t: 'grid15 收益 100' },
     ]
   }
 ];
