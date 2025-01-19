@@ -16,6 +16,7 @@
 <div>{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</div>
 <div>------------------------</div>
 <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
+
 <div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
   <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
   <div v-for="(item, index) in month.record" :key="index">
