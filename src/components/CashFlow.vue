@@ -1,16 +1,20 @@
 <template>
 <div>出入金记录</div>
-<div>入金累积(CNY) {{ totalInflowInCNY.toFixed(2) }}</div>
-<div>入金累积(USDC) {{ totalInflowInUSDC.toFixed(2) }}</div>
+<div>入金累积(CNY) {{ parseNumber(totalInflowInCNY) }}</div>
+<div>入金累积(USDC) {{ parseNumber(totalInflowInUSDC) }}</div>
 <div>入金均价 {{ (totalInflowInCNY / totalInflowInUSDC).toFixed(3) }}</div>
-<div>出金累积(CNY) {{ totalOutflowInCNY.toFixed(2) }}</div>
-<div>出金累积(USDC) {{ totalOutflowInUSDC.toFixed(2) }}</div>
+<div>出金累积(CNY) {{ parseNumber(totalOutflowInCNY) }}</div>
+<div>出金累积(USDC) {{ parseNumber(totalOutflowInUSDC) }}</div>
 <div>出金均价 {{ (totalOutflowInCNY / totalOutflowInUSDC).toFixed(3) }}</div>
 
 <div class="divider"></div>
 
-<div>净入金(CNY) {{ (totalInflowInCNY - totalOutflowInCNY).toFixed(2) }}</div>
-<div>净入金(USDC) {{ (totalInflowInUSDC - totalOutflowInUSDC).toFixed(2) }}</div>
+<div>净入金(CNY)</div>
+<div>{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</div>
+<div>------------------------</div>
+<div>净入金(USDC)</div>
+<div>{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</div>
+<div>------------------------</div>
 <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
 <div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
   <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
@@ -55,7 +59,12 @@ for (let month of cashflow) {
     }
   }
 }
-
+const parseNumber = (num) => {
+  return num.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+};
 </script>
 <style>
 .divider {
