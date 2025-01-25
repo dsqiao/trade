@@ -51,7 +51,7 @@ const data = [{
   trans: [
     { day: 3, price: 12, number: 100, direction: SELL, fee: 0.71, t: '7 收益 100', desc: '5 HKD 抵扣' },
     { day: 15, price: 13.2, number: 100, direction: SELL, fee: 1.36, t: '8 收益 120' },
-    { day: 17, price: 14, number: 100, direction: SELL, fee: 0 },
+    { day: 17, price: 14, number: 100, direction: SELL, fee: 1.36 },
   ]
 }];
 export {

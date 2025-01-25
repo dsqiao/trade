@@ -29,7 +29,7 @@ const data = [{
 }, {
   month: '202501',
   trans: [
-    { day: 17, price: 12, number: 100, direction: SELL, t: 't3 收益 167', fee: 0, },
+    { day: 17, price: 12, number: 100, direction: SELL, t: 't3 收益 167', fee: 1.35, },
   ]
 }];
 export {
