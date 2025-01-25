@@ -1,41 +1,63 @@
 <template>
-<div>出入金记录</div>
-<div>入金累积(CNY) {{ parseNumber(totalInflowInCNY) }}</div>
-<div>入金累积(USDC) {{ parseNumber(totalInflowInUSDC) }}</div>
-<div>入金均价 {{ (totalInflowInCNY / totalInflowInUSDC).toFixed(3) }}</div>
-<div>出金累积(CNY) {{ parseNumber(totalOutflowInCNY) }}</div>
-<div>出金累积(USDC) {{ parseNumber(totalOutflowInUSDC) }}</div>
-<div>出金均价 {{ (totalOutflowInCNY / totalOutflowInUSDC).toFixed(3) }}</div>
+  <div>出入金记录</div>
+  <div>入金累积(CNY) {{ parseNumber(totalInflowInCNY) }}</div>
+  <div>入金累积(USDC) {{ parseNumber(totalInflowInUSDC) }}</div>
+  <div>入金均价 {{ (totalInflowInCNY / totalInflowInUSDC).toFixed(3) }}</div>
+  <div>出金累积(CNY) {{ parseNumber(totalOutflowInCNY) }}</div>
+  <div>出金累积(USDC) {{ parseNumber(totalOutflowInUSDC) }}</div>
+  <div>出金均价 {{ (totalOutflowInCNY / totalOutflowInUSDC).toFixed(3) }}</div>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<div>净入金(CNY)</div>
-<div>{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</div>
-<div>------------------------</div>
-<div>净入金(USDC)</div>
-<div>{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</div>
-<div>------------------------</div>
-<div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
+  <div>净入金(CNY)</div>
+  <div>{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</div>
+  <div>------------------------</div>
+  <div>净入金(USDC)</div>
+  <div>{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</div>
+  <div>------------------------</div>
+  <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
 
-<div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
-  <div class="monthTitle">
-    {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 净入金：` }}
-    {{ `${month.record.reduce((sum, item) => item.direction === BUY ? sum + item.num : sum - item.num, 0)} U` }}
-  </div>
-  <div v-for="(item, index) in month.record" :key="index">
-    <!-- 筛选 BN v-if="item.platform === 1" -->
-    <div :class="item.direction === BUY ? 'in' : 'out'" class="transaction">
-      <span class="date">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}</span>
-      <span class="unit">{{ item.unitPrice }}</span>
-      <span class="num">{{ item.num }}</span>
-      <span class="total">{{ (item.unitPrice * item.num).toFixed(2) }}</span><span class="direction">{{ item.direction
-        === BUY ? '入金' : '出金' }}</span>
-      <span class="platform" :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')">{{
-        parsePlatform(item.platform) }}</span>
-      <span class="desc">{{ item.desc || '/' }}</span>
+  <div v-for="(month, monthIndex) in cashflow"
+       :key="monthIndex"
+  >
+    <div class="monthTitle">
+      {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 净入金：` }}
+      {{ `${month.record.reduce((sum, item) => item.direction === BUY ? sum + item.num : sum - item.num, 0)} U` }}
+    </div>
+    <div v-for="(item, index) in month.record"
+         :key="index"
+    >
+      <!-- 筛选 BN v-if="item.platform === 1" -->
+      <div :class="item.direction === BUY ? 'in' : 'out'"
+           class="transaction"
+      >
+        <span class="date">
+          {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}
+        </span>
+        <span class="unit">
+          {{ item.unitPrice }}
+        </span>
+        <span class="num">
+          {{ item.num }}
+        </span>
+        <span class="total">
+          {{ (item.unitPrice * item.num).toFixed(2) }}
+        </span>
+        <span class="direction">
+          {{ item.direction === BUY ? '入金' : '出金' }}
+        </span>
+        <span 
+          class="platform"
+          :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')"
+        >
+          {{ parsePlatform(item.platform) }}
+        </span>
+        <span class="desc">
+          {{ item.desc || '/' }}
+        </span>
+      </div>
     </div>
   </div>
-</div>
 </template>
 <script setup>
 import { cashflow } from '../data/cashflow.js';
