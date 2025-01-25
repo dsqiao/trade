@@ -18,7 +18,10 @@
 <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
 
 <div v-for="(month, monthIndex) in cashflow" :key="monthIndex">
-  <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
+  <div class="monthTitle">
+    {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 净入金：` }}
+    {{ `${month.record.reduce((sum, item) => item.direction === BUY ? sum + item.num : sum - item.num, 0)} U` }}
+  </div>
   <div v-for="(item, index) in month.record" :key="index">
     <!-- 筛选 BN v-if="item.platform === 1" -->
     <div :class="item.direction === BUY ? 'in' : 'out'" class="transaction">
