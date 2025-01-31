@@ -164,6 +164,7 @@ const cashflow = [{
     { day: 25, unitPrice: 7.26, num: 300, platform: PLATFORM.OKX, direction: BUY },
     { day: 27, unitPrice: 7.3, num: 300, platform: PLATFORM.OKX, direction: BUY },
     { day: 27, unitPrice: 7.31, num: 500, platform: PLATFORM.OKX, direction: BUY },
+    { day: 31, unitPrice: 7.33, num: 500, platform: PLATFORM.OKX, direction: BUY },
   ]
 }];
 
