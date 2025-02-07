@@ -342,6 +342,11 @@ const data = [
       { day: 27, price: 18, number: 50, direction: BUY, fee: 1.15, t: 'grid17' },
       { day: 30, price: 19, number: 50, direction: SELL, fee: 1.19, t: 'grid17 收益 50'},
     ]
+  }, {
+    month: '202502',
+    trans: [
+      { day: 7, price: 17, number: 150, direction: BUY, fee: 1.45 },
+    ]
   }
 ];
 
