@@ -21,7 +21,7 @@ const data = [{
     { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 11.7, number: 100, direction: BUY, fee: 1.30 },
     { day: 18, price: 11.3, number: 100, direction: BUY, fee: 1.30 },
-    { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30 },
+    { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30, t: 't5' },
     // 以上数据经校验与长桥无差
     { day: 23, price: 10.33, number: 100, direction: BUY, fee: 0.66, t: 't3', desc: '5 HKD 抵扣' }
     // 以上数据经校验与长桥无差
@@ -32,6 +32,11 @@ const data = [{
     { day: 17, price: 12, number: 100, direction: SELL, t: 't3 收益 167', fee: 1.35, },
     { day: 27, price: 10, number: 100, direction: BUY, fee: 1.30, t: 't4' },
     { day: 30, price: 11, number: 100, direction: SELL, fee: 1.35, t: 't4 收益 100' },
+  ]
+}, {
+  month: '202502',
+  trans: [
+    { day: 7, price: 12, number: 100, direction: SELL, fee: 1.35, t: 't5 收益 100' },
   ]
 }];
 export {
