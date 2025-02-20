@@ -347,7 +347,8 @@ const data = [
     trans: [
       { day: 7, price: 17, number: 150, direction: BUY, fee: 1.45 },
       { day: 13, price: 15.92, number: 50, direction: BUY, fee: 1.15, t: 'grid18' },
-      { day: 14, price: 17, number: 50, direction: SELL, fee: 0, t: 'grid18 收益 54' },
+      { day: 14, price: 17, number: 50, direction: SELL, fee: 1.18, t: 'grid18 收益 54' },
+      { day: 18, price: 16, number: 50, direction: BUY, fee: 0 },
     ]
   }
 ];
