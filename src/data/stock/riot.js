@@ -56,6 +56,11 @@ const data = [{
     { day: 28, price: 11, number: 100, direction: BUY, fee: 1.30, t: '10' },
     { day: 30, price: 12, number: 100, direction: SELL, fee: 1.35, t: '10 收益 100' },
   ]
+}, {
+  month: '202502',
+  trans: [
+    { day: 21, price: 10.58, number: 100, direction: BUY, fee: 0 },
+  ]
 }];
 export {
   currentPrice,
