@@ -174,6 +174,7 @@ const cashflow = [{
     { day: 11, unitPrice: 7.32, num: 2600, platform: PLATFORM.AC, direction: BUY, desc: 'Leo okx 转账|wx 转账 19032' },
     { day: 12, unitPrice: 7.3, num: 700, platform: PLATFORM.AC, direction: BUY, desc: '宋秀莲 BN 转账|招商银行 5110' },
     { day: 17, unitPrice: 7.32, num: 200, platform: PLATFORM.OKX, direction: BUY },
+    { day: 24, unitPrice: 7.30, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 730' },
   ]
 }];
 
