@@ -43,7 +43,7 @@ const data = [{
     { day: 16, price: 14, number: 100, direction: SELL, fee: 1.36, t: '6' },
     { day: 18, price: 13.1, number: 100, direction: BUY, fee: 1.30, t: '6 收益 90' },
     { day: 18, price: 12, number: 100, direction: BUY, fee: 1.30, t: '8' },
-    { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30, t: '7' },
+    { day: 19, price: 11, number: 100, direction: BUY, fee: 1.30, t: '7', desc: '12月收益 395' },
     // 以上数据经校验与 LongBridge 无差
   ]
 }, {
@@ -54,12 +54,17 @@ const data = [{
     { day: 17, price: 14, number: 100, direction: SELL, fee: 1.36, t: '9' },
     { day: 27, price: 12, number: 100, direction: BUY, fee: 1.30, t: '9 收益 200' },
     { day: 28, price: 11, number: 100, direction: BUY, fee: 1.30, t: '10' },
-    { day: 30, price: 12, number: 100, direction: SELL, fee: 1.35, t: '10 收益 100' },
+    { day: 30, price: 12, number: 100, direction: SELL, fee: 1.35, t: '10 收益 100', desc: '1月收益 520' },
   ]
 }, {
   month: '202502',
   trans: [
     { day: 21, price: 10.58, number: 100, direction: BUY, fee: 1.30 },
+  ]
+}, {
+  month: '202503',
+  trans: [
+    { day: 5, price: 8.7, number: 100, direction: BUY, fee: 0 },
   ]
 }];
 export {
