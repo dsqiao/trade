@@ -349,7 +349,7 @@ const data = [
       { day: 13, price: 15.92, number: 50, direction: BUY, fee: 1.15, t: 'grid18' },
       { day: 14, price: 17, number: 50, direction: SELL, fee: 1.18, t: 'grid18 收益 54' },
       { day: 18, price: 16, number: 50, direction: BUY, fee: 1.15 },
-      { day: 21, price: 15, number: 50, direction: BUY, fee: 1.15 },
+      { day: 21, price: 15, number: 50, direction: BUY, fee: 1.15, t: 'grid 24' },
       { day: 24, price: 14, number: 100, direction: BUY, fee: 0.66, t: 'grid21' },
       { day: 25, price: 13, number: 69, direction: BUY, fee: 1.21, t: 'grid19' },
       { day: 25, price: 12.45, number: 16, direction: BUY, fee: 1.05, t: 'grid19' },
@@ -365,6 +365,7 @@ const data = [
       { day: 5, price: 15, number: 100, direction: SELL, fee: 1.36, t: 'grid22 收益 100' },
       { day: 6, price: 14, number: 100, direction: BUY, fee: 1.30, t: 'grid23' },
       { day: 7, price: 15, number: 100, direction: SELL, fee: 0, t: 'grid23 收益 100' },
+      { day: 7, price: 16, number: 50, direction: SELL, fee: 0, t: 'grid24 收益 50' },
     ]
   }
 ];
