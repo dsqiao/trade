@@ -287,6 +287,7 @@ const data = [
   },
   {
     month: "202412",
+    monthlyProfit: 737.5,
     trans: [
       { day: 1, price: 28.34, number: 50, direction: SELL, fee: 1.20, t: 'grid1 收益 67' },
       { day: 2, price: 27, number: 50, direction: BUY, fee: 0.51, t: 'grid6', desc: '5HKD 平台费抵用' },
@@ -326,11 +327,12 @@ const data = [
       { day: 19, price: 20.5, number: 60, direction: BUY, fee: 1.18 },
       { day: 19, price: 20, number: 80, direction: BUY, fee: 1.24 },
       { day: 20, price: 19.1, number: 80, direction: BUY, fee: 1.24, t: 'grid13' },
-      { day: 20, price: 20.2, number: 80, direction: SELL, fee: 1.29, t: 'grid13 收益 88', desc: '12 月收益 737.5' },
+      { day: 20, price: 20.2, number: 80, direction: SELL, fee: 1.29, t: 'grid13 收益 88' },
       // 以上数据经过校验与 LongBridge 无差
     ]
   }, {
     month: '202501',
+    monthlyProfit: 355,
     trans: [
       { day: 13, price: 17, number: 100, direction: BUY, fee: 0.66, t: 'grid15', desc: '5 HKD 抵扣' },
       { day: 14, price: 18, number: 50, direction: SELL, fee: 0.55, t: 'grid14', desc: '5 HKD 抵扣' },
@@ -340,10 +342,11 @@ const data = [
       { day: 24, price: 21.1, number: 50, direction: SELL, fee: 1.19, t: 'grid16' },
       { day: 26, price: 19, number: 50, direction: BUY, fee: 1.15, t: 'grid16 收益 105' },
       { day: 27, price: 18, number: 50, direction: BUY, fee: 1.15, t: 'grid17' },
-      { day: 30, price: 19, number: 50, direction: SELL, fee: 1.19, t: 'grid17 收益 50', desc: '1月收益 355'},
+      { day: 30, price: 19, number: 50, direction: SELL, fee: 1.19, t: 'grid17 收益 50' },
     ]
   }, {
     month: '202502',
+    monthlyProfit: 264.8,
     trans: [
       { day: 7, price: 17, number: 150, direction: BUY, fee: 1.45 },
       { day: 13, price: 15.92, number: 50, direction: BUY, fee: 1.15, t: 'grid18' },
@@ -355,10 +358,11 @@ const data = [
       { day: 25, price: 12.45, number: 16, direction: BUY, fee: 1.05, t: 'grid19' },
       { day: 27, price: 14, number: 85, direction: SELL, fee: 1.30, t: 'grid19 收益 93.8' },
       { day: 27, price: 12.70, number: 90, direction: BUY, fee: 1.27, t: 'grid20' },
-      { day: 28, price: 14, number: 90, direction: SELL, fee: 1.32, t: 'grid20 收益 117', desc: '2月收益 264.8' },
+      { day: 28, price: 14, number: 90, direction: SELL, fee: 1.32, t: 'grid20 收益 117' },
     ]
   }, {
     month: '202503',
+    monthlyProfit: 415,
     trans: [
       { day: 2, price: 15.65, number: 100, direction: SELL, fee: 1.36, t: 'grid21 收益 165' },
       { day: 3, price: 14, number: 100, direction: BUY, fee: 0.66, t: 'grid22' },

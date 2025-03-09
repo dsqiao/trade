@@ -126,8 +126,8 @@ export default {
     :key="index"
   >
     <!-- 月份文案 -->
-    <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}</div>
-    <div 
+    <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
+    <div
       v-for="(tran, tranIndex) in month.trans"
       :key="tranIndex"
     >
