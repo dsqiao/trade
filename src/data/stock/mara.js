@@ -368,9 +368,12 @@ const data = [
       { day: 3, price: 14, number: 100, direction: BUY, fee: 0.66, t: 'grid22' },
       { day: 5, price: 15, number: 100, direction: SELL, fee: 1.36, t: 'grid22 收益 100' },
       { day: 6, price: 14, number: 100, direction: BUY, fee: 1.30, t: 'grid23' },
-      { day: 7, price: 15, number: 100, direction: SELL, fee: 0, t: 'grid23 收益 100' },
-      { day: 7, price: 16, number: 50, direction: SELL, fee: 0, t: 'grid24 收益 50' },
-      { day: 9, price: 15, number: 50, direction: BUY, fee: 0 },
+      { day: 7, price: 15, number: 100, direction: SELL, fee: 1.36, t: 'grid23 收益 100' },
+      { day: 7, price: 16, number: 50, direction: SELL, fee: 1.18, t: 'grid24 收益 50' },
+      { day: 9, price: 15, number: 50, direction: BUY, fee: 1.15 },
+      { day: 10, price: 14, number: 100, direction: BUY, fee: 1.30 },
+      { day: 10, price: 13, number: 95, direction: BUY, fee: 1.29 },
+      { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, desc: '5 HKD 抵扣'}
     ]
   }
 ];

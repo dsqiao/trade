@@ -43,6 +43,11 @@ const data = [{
     { day: 5, price: 4.83, number: 207, direction: SELL, fee: 1.72 },
     // 以上数据经校验与 LongBeidge 无差
   ]
+}, {
+  month: '202503',
+  trans: [
+    { day: 12, price: 0, number: 0, direction: OTHER, fee: 1.32, desc: '2025-01-06持有1035股NIO, ADR 托管费0.24USD' },
+  ]
 }];
 
 export {
