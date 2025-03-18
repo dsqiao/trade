@@ -182,7 +182,9 @@ const cashflow = [{
     { day: 3, unitPrice: 7.25, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 7250'},
     { day: 9, unitPrice: 7.35, num: 1000, platform: PLATFORM.BN, direction: BUY },
     { day: 9, unitPrice: 7.25, num: 100, platform: PLATFORM.AC, direction: BUY },
-    { day: 9, unitPrice: 7.40, num: 1000, platform: PLATFORM.BN, direction: BUY },
+    { day: 9, unitPrice: 7.4, num: 1000, platform: PLATFORM.BN, direction: BUY },
+    { day: 11, unitPrice: 7.36, num: 300, platform: PLATFORM.AC, direction: BUY },
+    { day: 17, unitPrice: 7.2, num: 300, platform: PLATFORM.AC, direction: BUY, desc: 'jyh' },
   ]
 }];
 
