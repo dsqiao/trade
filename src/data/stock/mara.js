@@ -362,7 +362,7 @@ const data = [
     ]
   }, {
     month: '202503',
-    monthlyProfit: 415,
+    monthlyProfit: 546,
     trans: [
       { day: 2, price: 15.65, number: 100, direction: SELL, fee: 1.36, t: 'grid21 收益 165' },
       { day: 3, price: 14, number: 100, direction: BUY, fee: 0.66, t: 'grid22' },
@@ -372,8 +372,9 @@ const data = [
       { day: 7, price: 16, number: 50, direction: SELL, fee: 1.18, t: 'grid24 收益 50' },
       { day: 9, price: 15, number: 50, direction: BUY, fee: 1.15 },
       { day: 10, price: 14, number: 100, direction: BUY, fee: 1.30 },
-      { day: 10, price: 13, number: 95, direction: BUY, fee: 1.29 },
-      { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, desc: '5 HKD 抵扣'}
+      { day: 10, price: 13, number: 95, direction: BUY, fee: 1.29, t: 'grid 25'},
+      { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, t: 'grid25', desc: '5 HKD 抵扣'},
+      { day: 24, price: 14, number: 125, direction: SELL, fee: 0, t: 'grid25 收益 131'},
     ]
   }
 ];
