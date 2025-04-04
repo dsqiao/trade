@@ -376,7 +376,7 @@ const data = [
       { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, t: 'grid25', desc: '5 HKD 抵扣'},
       { day: 24, price: 14, number: 125, direction: SELL, fee: 0.81, t: 'grid25 收益 131'},
       { day: 28, price: 12.9, number: 100, direction: BUY, fee: 0.66 },
-      { day: 30, price: 11.8, number: 83, direction: BUY, fee: 0 },
+      { day: 30, price: 11.8, number: 83, direction: BUY, fee: 0.61 },
     ]
   }
 ];
