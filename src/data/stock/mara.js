@@ -378,6 +378,13 @@ const data = [
       { day: 28, price: 12.9, number: 100, direction: BUY, fee: 0.66 },
       { day: 30, price: 11.8, number: 83, direction: BUY, fee: 0.61 },
     ]
+  }, {
+    month: '202504',
+    monthlyProfit: 186.32,
+    trans: [
+      { day: 8, price: 9.9368, number: 100, direction: BUY, fee: 0.66, t: 'grid26' },
+      { day: 9, price: 11.8, number: 100, direction: SELL, fee: 0.71, t: 'grid26 收益 186.32' },
+    ]
   }
 ];
 
