@@ -3,6 +3,7 @@ import History from "../components/StockHistory.vue";
 import Trade from '../components/TradeHistory.vue';
 import CashFlow from "../components/CashFlow.vue";
 import DeepUsdc from "../components/deep-usdc.vue";
+import DeepSui from '../components/deep-sui.vue';
 const routes = [
   {
     path: "/",
@@ -21,6 +22,11 @@ const routes = [
     path: '/deep-usdc',
     name: "deep-usdc",
     component: DeepUsdc
+  },
+  {
+    path: '/deep-sui',
+    name: "deep-sui",
+    component: DeepSui
   },
   {
     path: "/cashflow",
