@@ -1,6 +1,6 @@
 import { BUY, SELL } from "./const";
 // eslint-disable-next-line no-unused-vars
-import { direction } from "./sui";
+import { direction } from "./sui-usdc";
 
 const PLATFORM = {
   OKX: 0,

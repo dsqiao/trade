@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import History from "../components/StockHistory.vue";
 import Trade from '../components/TradeHistory.vue';
 import CashFlow from "../components/CashFlow.vue";
+import DeepUsdc from "../components/deep-usdc.vue";
 const routes = [
   {
     path: "/",
@@ -15,6 +16,11 @@ const routes = [
     path: "/trade/:coin",
     name: "trade",
     component: Trade
+  },
+  {
+    path: '/deep-usdc',
+    name: "deep-usdc",
+    component: DeepUsdc
   },
   {
     path: "/cashflow",

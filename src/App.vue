@@ -19,6 +19,7 @@
     <div class="tab">
       其他:
       <div class="link"><router-link to="/trade/sui">trade sui</router-link></div>
+      <div class="link"><router-link to="/deep-usdc">deep-usdc</router-link></div>
       <div class="link"><router-link to="/cashflow">crypto出入金</router-link></div>
     </div>
     <router-view :key="$route.fullPath" />
