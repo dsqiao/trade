@@ -66,7 +66,7 @@ for (const trans of deepTradeData) {
   }
 }
 </script>
-<style>
+<style scoped>
 .title {
   font-size: 2rem;
   font-weight: bold;
