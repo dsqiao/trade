@@ -22,11 +22,15 @@
       digest
     </span>
     <span class="date">{{ tran.date }}</span>
-    <span class="direction">{{ tran.direction === direction.SELL ? '卖出' : '买入' }}</span>
+    <span class="direction">
+      {{ tran.direction === direction.SELL ? '卖出' : '买入' }}
+    </span>
     <span class="detail">
-      {{ tran.direction === direction.SELL 
-        ? `${tran.deep.toFixed(6)} DEEP => ${tran.usdc.toFixed(6)} USDC` 
-        : `${tran.usdc.toFixed(6)} USDC => ${tran.deep.toFixed(6)} DEEP` }}
+      {{ 
+        tran.direction === direction.SELL 
+          ? `${tran.deep.toFixed(6)} DEEP => ${tran.usdc.toFixed(6)} USDC` 
+          : `${tran.usdc.toFixed(6)} USDC => ${tran.deep.toFixed(6)} DEEP` 
+      }}
     </span>
     <span class="price">
       {{ `均价 ${(tran.usdc / tran.deep).toFixed(6)}` }}

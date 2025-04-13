@@ -23,12 +23,22 @@
     >
       digest
     </span>
-    <span class="direction">{{ tran.direction === direction.SELL ? '卖出' : '买入' }}</span>
-    <span class="detail">
-      {{ tran.direction === direction.SELL ? `${tran.sui} SUI => ${tran.usdc} USDC` : `${tran.usdc} USDC => ${tran.sui} SUI` }}
+    <span class="direction">
+      {{ tran.direction === direction.SELL ? '卖出' : '买入' }}
     </span>
-    <span class="price">{{ `均价 ${(tran.usdc / tran.sui).toFixed(4)}` }}</span>
-    <span class="t">{{ tran.t || 'null' }}</span>
+    <span class="detail">
+      {{ 
+        tran.direction === direction.SELL 
+          ? `${tran.sui} SUI => ${tran.usdc} USDC` 
+          : `${tran.usdc} USDC => ${tran.sui} SUI` 
+      }}
+    </span>
+    <span class="price">
+      {{ `均价 ${(tran.usdc / tran.sui).toFixed(4)}` }}
+    </span>
+    <span class="t">
+      {{ tran.t || 'null' }}
+    </span>
   </div>
 </template>
 <script setup>

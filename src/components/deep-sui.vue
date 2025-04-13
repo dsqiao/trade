@@ -27,9 +27,11 @@
     <span class="date">{{ tran.date }}</span>
     <span class="direction">{{ tran.direction === direction.SELL ? '卖出' : '买入' }}</span>
     <span class="detail">
-      {{ tran.direction === direction.SELL 
-        ? `${tran.deep.toFixed(6)} DEEP => ${tran.sui.toFixed(6)} sui` 
-        : `${tran.sui.toFixed(6)} sui => ${tran.deep.toFixed(6)} DEEP` }}
+      {{ 
+        tran.direction === direction.SELL 
+          ? `${tran.deep.toFixed(6)} DEEP => ${tran.sui.toFixed(6)} sui` 
+          : `${tran.sui.toFixed(6)} sui => ${tran.deep.toFixed(6)} DEEP` 
+      }}
     </span>
     <span class="price">
       {{ `均价 ${(tran.sui / tran.deep).toFixed(6)}` }}
