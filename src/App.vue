@@ -18,7 +18,7 @@
     </div>
     <div class="tab">
       crypto:
-      <div class="link"><router-link to="/trade/sui">sui-usdc</router-link></div>
+      <div class="link"><router-link to="/sui-usdc">sui-usdc</router-link></div>
       <div class="link"><router-link to="/deep-usdc">deep-usdc</router-link></div>
       <div class="link"><router-link to="/deep-sui">deep-sui</router-link></div>
     </div>
