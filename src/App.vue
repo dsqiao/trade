@@ -17,10 +17,13 @@
       <div class="link"><router-link to="/history/sq">SQ</router-link></div>
     </div>
     <div class="tab">
-      其他:
-      <div class="link"><router-link to="/trade/sui">trade sui</router-link></div>
+      crypto:
+      <div class="link"><router-link to="/trade/sui">sui-usdc</router-link></div>
       <div class="link"><router-link to="/deep-usdc">deep-usdc</router-link></div>
       <div class="link"><router-link to="/deep-sui">deep-sui</router-link></div>
+    </div>
+    <div class="tab">
+      其他：
       <div class="link"><router-link to="/cashflow">crypto出入金</router-link></div>
     </div>
     <router-view :key="$route.fullPath" />

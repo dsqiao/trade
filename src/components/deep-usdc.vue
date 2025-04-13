@@ -48,7 +48,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { deepTradeData, direction } from '../data/deep-usdc.js';
+import { deepTradeData, direction } from '../data/crypto/deep-usdc.js';
 
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);

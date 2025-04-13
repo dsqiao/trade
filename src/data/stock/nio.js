@@ -1,6 +1,5 @@
 import { BUY, OTHER, SELL } from "../const.js";
-// eslint-disable-next-line no-unused-vars
-import { direction } from "../sui-usdc.js";
+
 const currentPrice = 4.56;
 const data = [{
   month: '202312',

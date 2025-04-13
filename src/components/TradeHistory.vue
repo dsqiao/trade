@@ -43,7 +43,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { suiTradeData, direction } from '../data/sui-usdc.js';
+import { suiTradeData, direction } from '../data/crypto/sui-usdc.js';
 
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);

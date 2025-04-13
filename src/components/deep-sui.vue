@@ -49,7 +49,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { deepTradeData, direction } from '../data/deep-sui.js';
+import { deepTradeData, direction } from '../data/crypto/deep-sui.js';
 
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
