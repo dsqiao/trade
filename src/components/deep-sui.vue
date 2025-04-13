@@ -13,7 +13,10 @@
     v-for="(tran, index) of deepTradeData"
     :key="index"
     class="transaction"
-    :class="tran.direction === direction.SELL ? 'sell' : 'buy'"
+    :class="[
+      tran.direction === direction.SELL ? 'sell' : 'buy',
+      tran.t ? 'mask' : ''
+    ]"
   >
     <span 
       @click="jump(tran.digest)"
@@ -95,6 +98,10 @@ for (const trans of deepTradeData) {
 
 .buy>span {
   background-color: rgb(33, 83, 33);
+}
+
+.mask > span {
+  opacity: .4;
 }
 
 .digest {
