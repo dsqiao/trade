@@ -1,9 +1,5 @@
-const SELL = 0;
-const BUY = 1;
-const direction = {
-  SELL: 0,
-  BUY: 1,
-};
+import { BUY, SELL } from "../const";
+
 const suiTradeData = [
   { digest: 'AKjgSJtp3m6EmWv4QMyn7RqV1vqdntRBNZ9JahVNcASW', direction: SELL, sui: 1000.006227092, usdc: 4346, t: '1' },
   { digest: 'EFvBDYsRq5xuHbBCib126Tsqn3Dsosd4EQ8Mykw3aBgJ', direction: BUY, sui: 1007.311626443, usdc: 4300, t: '1' },
@@ -30,6 +26,5 @@ const suiTradeData = [
 ];
 
 export {
-  direction,
   suiTradeData,
 };

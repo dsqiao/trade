@@ -15,7 +15,7 @@
     v-for="(tran, index) of suiTradeData"
     :key="index"
     class="transaction"
-    :class="tran.direction === direction.SELL ? 'sell' : 'buy'"
+    :class="tran.direction === SELL ? 'sell' : 'buy'"
   >
     <span 
       @click="jump(tran.digest)"
@@ -24,11 +24,11 @@
       digest
     </span>
     <span class="direction">
-      {{ tran.direction === direction.SELL ? '卖出' : '买入' }}
+      {{ tran.direction === SELL ? '卖出' : '买入' }}
     </span>
     <span class="detail">
       {{ 
-        tran.direction === direction.SELL 
+        tran.direction === SELL 
           ? `${tran.sui} SUI => ${tran.usdc} USDC` 
           : `${tran.usdc} USDC => ${tran.sui} SUI` 
       }}
@@ -43,7 +43,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { suiTradeData, direction } from '../data/crypto/sui-usdc.js';
+import { suiTradeData } from '../data/crypto/sui-usdc.js';
+import { SELL } from '@/data/const.js';
 
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
@@ -51,7 +52,7 @@ const jump = (digest) => {
 const suiGain = ref(0);
 const usdcGain = ref(0);
 for (const trans of suiTradeData) {
-  if (trans.direction === direction.SELL) { // 卖 sui，买 usdc
+  if (trans.direction === SELL) { // 卖 sui，买 usdc
     suiGain.value -= trans.sui;
     usdcGain.value += trans.usdc;
   } else { // 卖 usdc，买 sui

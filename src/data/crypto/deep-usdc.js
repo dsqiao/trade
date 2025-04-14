@@ -1,9 +1,5 @@
-const SELL = 0;
-const BUY = 1;
-const direction = {
-  SELL: 0,
-  BUY: 1,
-};
+import { BUY, SELL } from "../const";
+
 const deepTradeData = [
   { date: '2025.2.24', digest: 'BmvDQpaMn42QrFH9vy5FfZoZVGsFc7EPM7d38N8PicsS', direction: BUY, deep: 10300.034878, usdc: 1500.000141, gas: 0.020188604 },
   { date: '2025.2.25', digest: '7836KpAdeLhJbFdmFUVHhgkRkNf4y6h2x41wMhpNcy6k', direction: BUY, deep: 3593.238095, usdc: 500.000011, gas: 0.035215102 },
@@ -37,6 +33,5 @@ const deepTradeData = [
 ];
 
 export {
-  direction,
   deepTradeData,
 };

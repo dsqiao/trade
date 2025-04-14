@@ -14,7 +14,7 @@
     :key="index"
     class="transaction"
     :class="[
-      tran.direction === direction.SELL ? 'sell' : 'buy',
+      tran.direction === SELL ? 'sell' : 'buy',
       tran.t ? 'mask' : ''
     ]"
   >
@@ -25,10 +25,10 @@
       digest
     </span>
     <span class="date">{{ tran.date }}</span>
-    <span class="direction">{{ tran.direction === direction.SELL ? '卖出' : '买入' }}</span>
+    <span class="direction">{{ tran.direction === SELL ? '卖出' : '买入' }}</span>
     <span class="detail">
       {{ 
-        tran.direction === direction.SELL 
+        tran.direction === SELL 
           ? `${tran.deep.toFixed(6)} DEEP => ${tran.sui.toFixed(6)} sui` 
           : `${tran.sui.toFixed(6)} sui => ${tran.deep.toFixed(6)} DEEP` 
       }}
@@ -49,7 +49,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { deepTradeData, direction } from '../data/crypto/deep-sui.js';
+import { deepTradeData } from '../data/crypto/deep-sui.js';
+import { SELL } from '@/data/const.js';
 
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
@@ -62,7 +63,7 @@ const suiGain = ref(0);
 const totalGas = ref(0);
 for (const trans of deepTradeData) {
   totalGas.value += trans.gas;
-  if (trans.direction === direction.SELL) { // 卖 deep， 买 sui
+  if (trans.direction === SELL) { // 卖 deep， 买 sui
     deepGain.value -= trans.deep;
     suiGain.value += trans.sui;
   } else { // 卖 sui，买 deep
