@@ -188,6 +188,7 @@ const cashflow = [{
   month: '202504',
   record: [
     { day: 4, unitPrice: 7.28, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 7280' },
+    { day: 18, unitPrice: 7.28, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'okx/wx' },
   ]
 }];
 
