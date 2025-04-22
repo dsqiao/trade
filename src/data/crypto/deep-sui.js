@@ -1,8 +1,8 @@
 import { BUY, SELL } from "../const";
 
 const deepTradeData = [
-  { date: '2025.3.9', digest: 'GbtZH6sWcvpsPJPtR1Z58TQUff3y253H6my9sdKzkn8r', direction: BUY, deep: 13739.661339, sui: 500.000004248, gas: 0.01943382 },
-  { date: '2025.3.9', digest: 'CAkvqUt1AWMQDndcvu6yvTGkWHSnPB3i9Mt97L7ft1CG', direction: BUY, deep: 14012.660319, sui: 500, gas: 0.00352034 },
+  { date: '2025.3.9', digest: 'GbtZH6sWcvpsPJPtR1Z58TQUff3y253H6my9sdKzkn8r', direction: BUY, deep: 13739.661339, sui: 500.000004248, gas: 0.01943382, t: '15' },
+  { date: '2025.3.9', digest: 'CAkvqUt1AWMQDndcvu6yvTGkWHSnPB3i9Mt97L7ft1CG', direction: BUY, deep: 14012.660319, sui: 500, gas: 0.00352034, t: '14' },
   { date: '2025.3.11', digest: 'GntASenaq8WVQLPKUjhe9yLs1tYqTCKYJ6w7BjtH2TYR', direction: BUY, deep: 15057.522011, sui: 500.000000002, gas: 0.015839532, t: '1' },
   { date: '2025.3.11', digest: 'F9R9jYaSeaYS2jaLNij5x3Tn95SQdBG6XCELkwK8wR99', direction: BUY, deep: 15698.087528, sui: 500.000000002, gas: 0.024860168, t: '2' },
   { date: '2025.3.12', digest: '6Q6AphNXsuj1JShJeoX6mLW4CuSgcKrzApjTcEcwBFa1', direction: SELL, deep: 15000.00073, sui: 552.604131908, gas: 0.018902, t: '2' },
@@ -29,6 +29,8 @@ const deepTradeData = [
   { date: '2025.4.12', digest: 'BkviQnpfuPWeEA8C9drwV3m2U8Lg4JRkADVsiJQfsacA', direction: SELL, deep: 17131.00069, sui: 528.194978312, gas: 0.02227424, t: '11' },
   { date: '2025.4.15', digest: 'DZUfRQxzcZFsRjJcTTYqzrFw28BbKFZpNhgUoEdrkxEK', direction: SELL, deep: 16000.000926, sui: 571.023310004, gas: 0.02227424, t: '12'},
   { date: '2025.4.16', digest: '83ekhc5iY6PXqJMm8ka64dTpc3SMPqdE9KewgcwVZs5', direction: SELL, deep: 15000.000897, sui: 614.153882866, gas: 0.026080244, t: '13'},
+  { date: '2025.4.22', digest: '3gu8PHhQHDqExHDe5hUh7BA7g5Ri2ChaJVhpyhSyvqq3', direction: SELL, deep: 14000.000336, sui: 928.283900135, gas: 0.081698914, t: '14'},
+  { date: '2025.4.22', digest: 'GbDSEJwDvJBtUzwGhNXWhQPjcy8QjfxQJsnNFyKenRSm', direction: SELL, deep: 13000.000491, sui: 739.709583809, gas: 0.028807044, t: '15'},
 ];
 
 export {
