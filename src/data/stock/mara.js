@@ -384,7 +384,7 @@ const data = [
       { day: 8, price: 9.9368, number: 100, direction: BUY, fee: 0.66, t: 'grid26' },
       { day: 9, price: 11.8, number: 100, direction: SELL, fee: 0.71, t: 'grid26 收益 186.32' },
       // 以上数据经过校验与 LongBridge 无差
-      { day: 14, price: 13, number: 83, direction: SELL, fee: 0, t: 'grid27 收益 99.6'},
+      { day: 14, price: 13, number: 83, direction: SELL, fee: 0.65, t: 'grid27 收益 99.6'},
       { day: 22, price: 14, number: 100, direction: SELL, fee: 0, t: 'grid28 收益 110' },
     ]
   }
