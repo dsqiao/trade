@@ -92,7 +92,7 @@ const parseNumber = (num) => {
   });
 };
 </script>
-<style>
+<style scoped>
 .divider {
   height: 2rem;
 }
