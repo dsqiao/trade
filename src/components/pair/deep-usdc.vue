@@ -1,11 +1,11 @@
 <template>
-  <div class="title">DEEP-sui</div>
+  <div class="title">DEEP-USDC</div>
   <div class="desc">
     <div class="para">{{ `deep 收益: ${deepGain.toFixed(9)}` }}</div>
-    <div class="para">{{ `sui 收益: ${suiGain.toFixed(9)}` }}</div>
+    <div class="para">{{ `usdc 收益: ${usdcGain.toFixed(9)}` }}</div>
     <div class="para"
-         v-if="deepGain < 0 && suiGain > 0 || deepGain > 0 && suiGain < 0"
-    >{{ `均价 ${- suiGain / deepGain}` }}</div>
+         v-if="deepGain < 0 && usdcGain > 0 || deepGain > 0 && usdcGain < 0"
+    >{{ `均价 ${- usdcGain / deepGain}` }}</div>
     <div class="para">{{ `total gas: ${totalGas.toFixed(9)}` }}</div>
   </div>
 
@@ -13,10 +13,7 @@
     v-for="(tran, index) of deepTradeData"
     :key="index"
     class="transaction"
-    :class="[
-      tran.direction === SELL ? 'sell' : 'buy',
-      tran.t ? 'mask' : ''
-    ]"
+    :class="[tran.direction === SELL ? 'sell' : 'buy', tran.t ? 'mask' : '']"
   >
     <span 
       @click="jump(tran.digest)"
@@ -25,16 +22,18 @@
       digest
     </span>
     <span class="date">{{ tran.date }}</span>
-    <span class="direction">{{ tran.direction === SELL ? '卖出' : '买入' }}</span>
+    <span class="direction">
+      {{ tran.direction === SELL ? '卖出' : '买入' }}
+    </span>
     <span class="detail">
       {{ 
         tran.direction === SELL 
-          ? `${tran.deep.toFixed(6)} DEEP => ${tran.sui.toFixed(6)} sui` 
-          : `${tran.sui.toFixed(6)} sui => ${tran.deep.toFixed(6)} DEEP` 
+          ? `${tran.deep.toFixed(6)} DEEP => ${tran.usdc.toFixed(6)} USDC` 
+          : `${tran.usdc.toFixed(6)} USDC => ${tran.deep.toFixed(6)} DEEP` 
       }}
     </span>
     <span class="price">
-      {{ `均价 ${(tran.sui / tran.deep).toFixed(6)}` }}
+      {{ `均价 ${(tran.usdc / tran.deep).toFixed(6)}` }}
     </span>
     <span 
       class="gas"
@@ -49,9 +48,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { deepTradeData } from '../data/crypto/deep-sui.js';
+import { deepTradeData } from '../../data/crypto/deep-usdc.js';
 import { SELL } from '@/data/const.js';
-
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
 };
@@ -59,16 +57,16 @@ const jumpGas = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
 };
 const deepGain = ref(0);
-const suiGain = ref(0);
+const usdcGain = ref(0);
 const totalGas = ref(0);
 for (const trans of deepTradeData) {
   totalGas.value += trans.gas;
-  if (trans.direction === SELL) { // 卖 deep， 买 sui
+  if (trans.direction === SELL) { // 卖 deep， 买 usdc
     deepGain.value -= trans.deep;
-    suiGain.value += trans.sui;
-  } else { // 卖 sui，买 deep
+    usdcGain.value += trans.usdc;
+  } else { // 卖 usdc，买 deep
     deepGain.value += trans.deep;
-    suiGain.value -= trans.sui;
+    usdcGain.value -= trans.usdc;
   }
 }
 </script>
@@ -102,11 +100,9 @@ for (const trans of deepTradeData) {
 .buy>span {
   background-color: rgb(33, 83, 33);
 }
-
 .mask > span {
   opacity: .4;
 }
-
 .digest {
   cursor: pointer;
   width: 5rem;
