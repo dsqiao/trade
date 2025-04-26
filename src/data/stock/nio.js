@@ -45,7 +45,7 @@ const data = [{
 }, {
   month: '202503',
   trans: [
-    { day: 12, price: 0, number: 0, direction: OTHER, fee: 1.32, desc: '2025-01-06持有1035股NIO, ADR 托管费0.24USD' },
+    { day: 12, price: 0, number: 0, direction: OTHER, fee: 0.24, desc: '2025-01-06持有1035股NIO, ADR 托管费0.24USD' },
   ]
 }];
 
