@@ -4,6 +4,7 @@ import SuiUsdc from '../components/pair/sui-usdc.vue';
 import CashFlow from "../components/CashFlow.vue";
 import DeepUsdc from "../components/pair/deep-usdc.vue";
 import DeepSui from '../components/pair/deep-sui.vue';
+import NsSui from '../components/pair/ns-usdc.vue';
 const routes = [
   {
     path: "/",
@@ -22,6 +23,11 @@ const routes = [
     path: '/deep-usdc',
     name: "deep-usdc",
     component: DeepUsdc
+  },
+  {
+    path: '/ns-usdc',
+    name: 'NsSui',
+    component: NsSui
   },
   {
     path: '/deep-sui',
