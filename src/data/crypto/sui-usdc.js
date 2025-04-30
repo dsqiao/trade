@@ -28,6 +28,7 @@ const suiTradeData = [
   { date: '2025.4.27', digest: 'J1qNKBXv3UEafxGdtRSM8JHKRqwQVLq5FSYmYk7PNnUq', direction: SELL, sui: 200.000002686, usdc: 718.256889, gas: 0.026149386 },
   { date: '2025.4.28', digest: '4YBEyZjHA3ZTM96f4ZvrXHkRKh9RZrAuV2fxKeA7kwKL', direction: BUY, sui: 200.401500648, usdc: 695.000017, gas: 0.025449208 },
   { date: '2025.4.28', digest: 'G8tGkU7fvfoGUkaM2Rs48TRovn2LpQMVsh5PgbS6ZHvH', direction: SELL, sui: 200.000002162, usdc: 712.545617, gas: 0.02326197 },
+  { date: '2025.4.30', digest: '2v7D7xbq7u79VkPHkN2N96bXRdhhq5n25EHDirWC5VVS', direction: BUY, sui: 201.344526296, usdc: 705.000032, gas: 0.06102937 },
 ];
 
 export {
