@@ -49,7 +49,8 @@ const deepTradeData = [
   { date: '2025.5.5', digest: 'GVdUYLSwW7Fyva1pBHaGCDWAWjaW9rdNSJZGa4dwkUxa', direction: SELL, deep: 2688.638801, usdc: 514.947039, gas: 0.01773103, t: '20' },
   { date:' 2025.5.5', digest: 'GRYxzCqNX9iTT6Kw147iitRt9thpac5KVADnLnrQQwEf', direction: BUY, deep: 2626.623418, usdc: 500.000019, gas: 0.019328236 },
   { date: '2025.5.6', digest: 'HaDwz9xd2VCtQw8PFHG1q6kZmmiFxz4Z7X5iNDuTXyzt', direction: BUY, deep: 2890.425249, usdc: 500.000025, gas: 0.021403661, t: '21' },
-  { date: '2025.5.7', digest: 'GJp4kePET9iXs26Lk721w6cZLgwZ5pPSnVpDVEeR4J9k', direction: SELL, deep: 2890.000153, usdc: 522.435924, gas: 0.023196764, t: '21' }
+  { date: '2025.5.7', digest: 'GJp4kePET9iXs26Lk721w6cZLgwZ5pPSnVpDVEeR4J9k', direction: SELL, deep: 2890.000153, usdc: 522.435924, gas: 0.023196764, t: '21' },
+  { date: '2025.5.7', digest: 'Ci4P6zWC59vstMADi6veUHVPCbtJ5A6VgqTJ3w9YfPsu', direction: BUY, deep: 2721.02039, usdc: 460.000014, gas: 0.016963432 },
 ];
 
 export {
