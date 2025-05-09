@@ -12,7 +12,7 @@ const incomeAmount = ref(0);    // 入账金额（股票卖出金额，不含手
 const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手续费）
 const totalFee = ref(0);        // 手续费总开支
 const monthlyReport = reactive([]);  // 月度总结
-
+const showT = ref(false);       // 展示配对交易
 // 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
@@ -86,6 +86,7 @@ export default {
       totalFee,
       monthlyReport,
       getDayOfWeek,
+      showT,
     };
   }
 };
@@ -110,7 +111,7 @@ export default {
   <div class="emphasis">
     {{ `总盈利: $ ${(mCurrentPrice * holdingNum - costWithFee).toFixed(3)}` }}
   </div>
-
+  是否展示已配对交易 <t-switch v-model="showT"/>
   <!-- 每月月底持仓总结 -->
   <div class="monthlyReport">
     <div 
@@ -133,6 +134,7 @@ export default {
     >
       <!-- 隐藏 t: 添加属性 v-if="!tran.t"-->
       <div
+        v-if="!tran.t || showT"
         class="transaction"
         :class="tran.direction === 0 ? 'in' : (tran.direction === 1 ? 'out' : 'other')"
       >
