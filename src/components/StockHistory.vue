@@ -12,7 +12,7 @@ const incomeAmount = ref(0);    // 入账金额（股票卖出金额，不含手
 const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手续费）
 const totalFee = ref(0);        // 手续费总开支
 const monthlyReport = reactive([]);  // 月度总结
-const showT = ref(false);       // 展示配对交易
+const showT = ref(true);       // 展示配对交易
 // 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
