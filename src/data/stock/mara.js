@@ -6,6 +6,7 @@ const currentPrice = 20.35;
 const data = [
   {
     month: "202312",
+    monthlyProfit: 180,
     trans: [
       { day: 19, price: 21.45, number: 100, direction: BUY, fee: 1.3 },
       { day: 22, price: 26.9, number: 50, direction: BUY, fee: 1.15, t: '1' },
@@ -38,6 +39,7 @@ const data = [
   },
   {
     month: "202402",
+    monthlyProfit: 352.9,
     trans: [
       { day: 8, price: 19.88, number: 19, direction: SELL, fee: 1.08, t: '6 收益 19.88*19-(17.1*12+18.26*7) = 44.7' },
       { day: 28, price: 33.302, number: 100, direction: SELL, fee: 1.35, t: '7' },
@@ -50,7 +52,7 @@ const data = [
   },
   {
     month: "202403",
-    transNum: 7,
+    monthlyProfit: 176.56,
     trans: [
       { day: 1, price: 26.37, number: 200, direction: BUY, fee: 1.6, t: '9' }, // 3 HKD 返现
       { day: 1, price: 26.47, number: 200, direction: SELL, fee: 1.67, t: '9 收益 0.1 * 200 = 20' },
@@ -63,6 +65,7 @@ const data = [
   },
   {
     month: "202404",
+    monthlyProfit: 202.09,
     trans: [
       { day: 2, price: 19.6, number: 23, direction: BUY, fee: 0.44, t: '12' }, // 0.63 USD 抵扣 + 5HKD 返现
       { day: 10, price: 17.43, number: 77, direction: BUY, fee: 1.23, t: '12' },
@@ -73,6 +76,7 @@ const data = [
   },
   {
     month: "202405",
+    monthlyProfit: 427.05,
     trans: [
       { day: 3, price: 18.1, number: 50, direction: SELL, fee: 1.17, t: '13' },
       { day: 6, price: 19.1, number: 50, direction: SELL, fee: 1.17, t: '13 收益  (181+191-180-170) * 5 = 110' },

@@ -93,6 +93,9 @@ export default {
 </script>
 
 <template>
+  <div style="position: fixed; right: 30px; bottom: 30px;">
+    <t-switch v-model="showT"/>
+  </div>
   <h1>{{ stock.toUpperCase() }} general</h1>
   <div>{{ `当前股价 ${mCurrentPrice}` }}</div>
   <div>{{ `当前持有 ${holdingNum} 股` }}</div>
@@ -111,7 +114,6 @@ export default {
   <div class="emphasis">
     {{ `总盈利: $ ${(mCurrentPrice * holdingNum - costWithFee).toFixed(3)}` }}
   </div>
-  是否展示已配对交易 <t-switch v-model="showT"/>
   <!-- 每月月底持仓总结 -->
   <div class="monthlyReport">
     <div 
