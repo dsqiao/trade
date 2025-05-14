@@ -400,7 +400,7 @@ const data = [
       { day: 9, price: 15, number: 100, direction: SELL, fee: 0.72, t: 'grid 30 收益 100'},
       { day: 9, price: 16, number: 50, direction: SELL, fee: 0.54, t: 'grid 31 收益 50'},
       { day: 9, price: 15, number: 50, direction: BUY, fee: 1.15, t: 'grid 32' },
-      { day: 12, price: 16.5, number: 50, direction: SELL, fee: 0, t: 'grid 32 收益 75'},
+      { day: 12, price: 16.5, number: 50, direction: SELL, fee: 1.18, t: 'grid 32 收益 75'},
     ],
   }
 ];
