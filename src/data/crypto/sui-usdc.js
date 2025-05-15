@@ -60,8 +60,15 @@ const suiTradeData = [
   { date: '2025.5.14', digest: '9iamuCmfG7spUg4X1bbKGVTamMLn7smixgdkf7W25m1b', direction: BUY, sui: 201.753187915, usdc: 790.000018, gas: 0.024310428 },
   { date: '2025.5.15', digset: 'GMjt45WxJwdYEkfiEqt64WHgY3vk1ZQZFQ68ugnSurC3', direction: BUY, sui: 200.423460226, usdc: 745, gas: 0, t: '15' },
   { date: '2025.5.15', digest: 'iHeyS2b3RuHnKpzmKJThNbZFQBW9rpKPeJpCyHqgYjQ', direction: SELL, sui: 200.001818656, usdc: 753.718008, gas: 0, t: '15 | + 8.7u' },
-  { date: '2025.5.15', digest: 'AptQoLkBrUhe2UEDcsHM3PqF5E2FgFiUvq2M1js7VMCX', direction: BUY, sui: 199.994141834, usdc: 749.8236, gas: 0 },
-
+  { date: '2025.5.15', digest: 'AptQoLkBrUhe2UEDcsHM3PqF5E2FgFiUvq2M1js7VMCX', direction: BUY, sui: 199.994141834, usdc: 749.8236, gas: 0, t: '16' },
+  { date: '2025.5.15', digest: 'GaBMJDTrQTzQmLMmwEsw81LE2yodiXtDUJzxyT5QFBnM', direction: SELL, sui: 200.022562217, usdc: 753.792018, gas: 0, t: '16 | +3.9u' },
+  { date: '2025.5.15', digest: 'Et9LoeHP9iiNgwRRMW1bfi4uKAKNAHsAJW2hR2UxBTwk', direction: BUY, sui: 200.346128963, usdc: 748, gas: 0, t: '17' },
+  { date: '2025.5.15', digest: 'F5CAGvzhDgXnUaTXRgwYJ4RBQoA8W2iWaBNdMdCLyY2H', direction: SELL, sui: 200.324288153, usdc: 751.404545, gas: 0, t: '17 | +3.4u'},
+  { date: '2025.5.15', digest: '7TCXEjiWgCszwkNYyMdnt81vvuPYQdcZV5kv6B2XGChx', direction: BUY, sui: 200.052316285, usdc: 768, gas: 0, t: '18' },
+  { date: '2025.5.15', digest: 'H1JNyfgdMw8hjwgH2qXi7zMTHzzqLWob4DAD8djEWKZb', direction: SELL, sui: 200.024922602, usdc: 772.55272, gas: 0, t: '18 | + 4.5u' },
+  { date: '2025.5.15', digest: 'G1kP1mWKUGPC5QtzTTLDBL2NKp7VNxm6shXFKcxAVKxQ', direction: BUY, sui: 199.551780242, usdc: 766.73098, gas: 0, t: '19'},
+  { date: '2025.5.15', digest: 'ATteqV5qb6gyYRtsfxCLL8YeEH5fjT5yTs8N3McYFGJk', direction: SELL, sui: 199.526834042, usdc: 770.875932, gas: 0, t: '19 | + 4.14u' },
+  { date:' 2025.5.15', digest: 'GSnbVELtJi6DAK1fqvT6TWRJ1Ry3oanUpJ5F391hnVVv', direction: SELL, sui: 199.52362386, usdc: 770.417521, gas: 0 },
 ];
 
 export {
