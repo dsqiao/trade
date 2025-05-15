@@ -56,7 +56,8 @@ const suiTradeData = [
   { date: '2025.5.13', digest: 'HxSUoyWaJdPzEYEx3q9rJdFAZtkX6RxEgwUb5ow1FWbH', direction: BUY, sui: 200.064242808, usdc: 795.000029, gas: 0.024673456, t: '13' },
   { date: '2025.5.13', digest: '4n3hShaMToyjbrG7DgLvswVEHMMuk68136RUw6ddbR8R', direction: SELL, sui: 200.00001214, usdc: 808.832387, gas: 0.035181248, t: '13 | + 13.8u' },
   { date: '2025.5.14', digest: '4ZuJX3tpnvuCe9hH3Yo8y7xfvGF7HFTYDHPsxCxzX9yP', direction: BUY, sui: 200.292129687, usdc: 795.00003, gas: 0.040468776, t: '14' },
-  { date: '2025.5.14', digest: 'AAZ79pMk1r9UkRn5LqK5ZdV1DsycPTBMRcJ2YABafCiy', direction: SELL, sui: 200.000001684, usdc: 805.911067, gas: 0.030687778, t: '14 | + 10.9 u'}
+  { date: '2025.5.14', digest: 'AAZ79pMk1r9UkRn5LqK5ZdV1DsycPTBMRcJ2YABafCiy', direction: SELL, sui: 200.000001684, usdc: 805.911067, gas: 0.030687778, t: '14 | + 10.9 u'},
+  { date: '2025.5.14', digest: '9iamuCmfG7spUg4X1bbKGVTamMLn7smixgdkf7W25m1b', direction: BUY, sui: 201.753187915, usdc: 790.000018, gas: 0.024310428 },
 ];
 
 export {
