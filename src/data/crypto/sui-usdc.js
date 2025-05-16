@@ -57,7 +57,7 @@ const suiTradeData = [
   { date: '2025.5.13', digest: '4n3hShaMToyjbrG7DgLvswVEHMMuk68136RUw6ddbR8R', direction: SELL, sui: 200.00001214, usdc: 808.832387, gas: 0.035181248, t: '13 | + 13.8u' },
   { date: '2025.5.14', digest: '4ZuJX3tpnvuCe9hH3Yo8y7xfvGF7HFTYDHPsxCxzX9yP', direction: BUY, sui: 200.292129687, usdc: 795.00003, gas: 0.040468776, t: '14' },
   { date: '2025.5.14', digest: 'AAZ79pMk1r9UkRn5LqK5ZdV1DsycPTBMRcJ2YABafCiy', direction: SELL, sui: 200.000001684, usdc: 805.911067, gas: 0.030687778, t: '14 | + 10.9 u'},
-  { date: '2025.5.14', digest: '9iamuCmfG7spUg4X1bbKGVTamMLn7smixgdkf7W25m1b', direction: BUY, sui: 201.753187915, usdc: 790.000018, gas: 0.024310428 },
+  { date: '2025.5.14', digest: '9iamuCmfG7spUg4X1bbKGVTamMLn7smixgdkf7W25m1b', direction: BUY, sui: 201.753187915, usdc: 790.000018, gas: 0.024310428, t: '21' },
   { date: '2025.5.15', digset: 'GMjt45WxJwdYEkfiEqt64WHgY3vk1ZQZFQ68ugnSurC3', direction: BUY, sui: 200.423460226, usdc: 745, gas: 0, t: '15' },
   { date: '2025.5.15', digest: 'iHeyS2b3RuHnKpzmKJThNbZFQBW9rpKPeJpCyHqgYjQ', direction: SELL, sui: 200.001818656, usdc: 753.718008, gas: 0, t: '15 | + 8.7u' },
   { date: '2025.5.15', digest: 'AptQoLkBrUhe2UEDcsHM3PqF5E2FgFiUvq2M1js7VMCX', direction: BUY, sui: 199.994141834, usdc: 749.8236, gas: 0, t: '16' },
@@ -70,7 +70,7 @@ const suiTradeData = [
   { date: '2025.5.15', digest: 'ATteqV5qb6gyYRtsfxCLL8YeEH5fjT5yTs8N3McYFGJk', direction: SELL, sui: 199.526834042, usdc: 770.875932, gas: 0, t: '19 | + 4.14u' },
   { date:' 2025.5.15', digest: 'GSnbVELtJi6DAK1fqvT6TWRJ1Ry3oanUpJ5F391hnVVv', direction: SELL, sui: 199.52362386, usdc: 770.417521, gas: 0, t: '20' },
   { date: '2025.5.15', digest: '3oaEtn1zrJaFheTKAgZfvQ6Ddip5GUZ4AWaS97i1RQHq', direction: BUY, sui: 199.656983223, usdc: 770, gas: 0, t: '20 | + 0.4u' },
-  { date: '2025.5.16', digest: 'BayurRSinZGCL1TfaGAnwQZfPpzM3MkcD7RYzepW6fu5', direction: SELL, sui: 201.707004129, usdc: 793.142186, gas: 0, t: '21 | +3.1u' }
+  { date: '2025.5.16', digest: 'BayurRSinZGCL1TfaGAnwQZfPpzM3MkcD7RYzepW6fu5', direction: SELL, sui: 201.707004129, usdc: 793.142186, gas: 0, t: '21 | +3.1u' },
 ];
 
 export {
