@@ -49,6 +49,7 @@
 <script setup>
 import { ref } from 'vue';
 import { suiTradeData } from '../../data/crypto/sui-usdc.js';
+import { getTransactionTime, toLocalTime } from '../../utils/index.js';
 import { SELL } from '@/data/const.js';
 const jump = (digest) => {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
@@ -60,6 +61,10 @@ const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
 for (const trans of suiTradeData) {
+  const res = await getTransactionTime(trans.digest);
+  const localTime = toLocalTime(res.timestampMs);
+  trans.date = localTime;
+
   totalGas.value += trans.gas;
   if (trans.direction === SELL) { // 卖 sui， 买 usdc
     suiGain.value -= trans.sui;
@@ -108,7 +113,7 @@ for (const trans of suiTradeData) {
   width: 5rem;
 }
 .date {
-  width: 6rem;
+  width: 11rem;
 }
 .direction {
   width: 4rem;
