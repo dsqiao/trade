@@ -5,42 +5,38 @@
     <div class="para">{{ `usdc 收益: ${usdcGain.toFixed(9)}` }}</div>
     <div class="para"
          v-if="suiGain < 0 && usdcGain > 0 || suiGain > 0 && usdcGain < 0"
-    >{{ `均价 ${- usdcGain / suiGain}` }}</div>
+    >
+      {{ `均价 ${- usdcGain / suiGain}` }}
+    </div>
     <div class="para">{{ `total gas: ${totalGas.toFixed(9)}` }}</div>
   </div>
-  <div
-    v-for="(tran, index) of suiTradeData"
-    :key="index"
+  <div v-for="(tran, index) of suiTradeData"
+       :key="index"
   >
     <div 
-      v-if="shouldAddSpace(index)" 
-      class="date-divider"
-    >
-      {{ tran.date.split(' ')[0] }}
-    </div>
-    <div
       class="transaction"
       :class="[
         tran.direction === SELL ? 'sell' : 'buy',
         tran.t ? 'mask' : '',
-        shouldAddSpace(index) ? 'new-date' : ''
       ]"
     >
-      <span 
-        @click="jump(tran.digest)"
+      <span
+        @click="jumpOverview(tran.digest)"
         class="digest"
       >
         digest
       </span>
-      <span class="date">{{ tran.date }}</span>
+      <span class="date">
+        {{ toLocalTime(tran.timestamp) }}
+      </span>
       <span class="direction">
         {{ tran.direction === SELL ? '卖出' : '买入' }}
       </span>
       <span class="detail">
-        {{ 
-          tran.direction === SELL 
-            ? `${tran.sui.toFixed(6)} SUI => ${tran.usdc.toFixed(6)} USDC` 
-            : `${tran.usdc.toFixed(6)} USDC => ${tran.sui.toFixed(6)} SUI` 
+        {{
+          tran.direction === SELL
+            ? `${tran.sui.toFixed(6)} SUI => ${tran.usdc.toFixed(6)} USDC`
+            : `${tran.usdc.toFixed(6)} USDC => ${tran.sui.toFixed(6)} SUI`
         }}
       </span>
       <span class="price">
@@ -48,7 +44,7 @@
       </span>
       <span 
         class="gas"
-        @click="jumpGas(tran.digest)"
+        @click="jumpChanges(tran.digest)"
       >
         {{ `gas: ${tran.gas}` }}
       </span>
@@ -61,22 +57,17 @@
 <script setup>
 import { ref } from 'vue';
 import { suiTradeData } from '../../data/crypto/sui-usdc.js';
-import { getTransactionTime, toLocalTime } from '../../utils/index.js';
+import { getTransactionTime, toLocalTime, jumpOverview, jumpChanges } from '../../utils/index.js';
 import { SELL } from '@/data/const.js';
-const jump = (digest) => {
-  window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
-};
-const jumpGas = (digest) => {
-  window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
-};
+
 const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
 for (const trans of suiTradeData) {
-  const res = await getTransactionTime(trans.digest);
-  const localTime = toLocalTime(res.timestampMs);
-  trans.date = localTime;
-
+  if (!trans.timestamp) {
+    const res = await getTransactionTime(trans.digest);
+    trans.timestamp = res.timestampMs;
+  }
   totalGas.value += trans.gas;
   if (trans.direction === SELL) { // 卖 sui， 买 usdc
     suiGain.value -= trans.sui;
@@ -86,12 +77,6 @@ for (const trans of suiTradeData) {
     usdcGain.value -= trans.usdc;
   }
 }
-const shouldAddSpace = (index) => {
-  if (index === 0) return false;
-  const currentDate = suiTradeData[index].date.split(' ')[0];
-  const prevDate = suiTradeData[index - 1].date.split(' ')[0];
-  return currentDate !== prevDate;
-};
 
 </script>
 <style scoped>
@@ -101,14 +86,17 @@ const shouldAddSpace = (index) => {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
 .desc {
   padding-bottom: 1rem;
 }
+
 .para {
   font-size: 1.2rem;
   height: 2rem;
   line-height: 2rem;
 }
+
 .transaction>span {
   display: inline-block;
   border: 1px black solid;
@@ -124,16 +112,20 @@ const shouldAddSpace = (index) => {
 .buy>span {
   background-color: rgb(33, 83, 33);
 }
-.mask > span {
+
+.mask>span {
   opacity: .4;
 }
+
 .digest {
   cursor: pointer;
   width: 5rem;
 }
+
 .date {
   width: 11rem;
 }
+
 .direction {
   width: 4rem;
 }
@@ -149,15 +141,8 @@ const shouldAddSpace = (index) => {
 .gas {
   width: 10rem;
 }
+
 .t {
   width: 10rem;
 }
-
-.date-divider {
-  margin: 20px 0 10px;
-}
-.new-date {
-  margin-top: 10px;
-}
-
 </style>

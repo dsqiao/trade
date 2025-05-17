@@ -75,9 +75,16 @@ function getDayOfWeek(year, month, day) {
   const daysOfWeek = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
   return daysOfWeek[date.getDay()];
 }
-
+function jumpOverview(digest) {
+  window.open(`https://suivision.xyz/txblock/${digest}?tab=Overview`);
+};
+function jumpChanges(digest) {
+  window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
+};
 export {
   getDayOfWeek,
   getTransactionTime,
   toLocalTime,
+  jumpOverview,
+  jumpChanges,
 };
