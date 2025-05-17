@@ -8,42 +8,54 @@
     >{{ `均价 ${- usdcGain / suiGain}` }}</div>
     <div class="para">{{ `total gas: ${totalGas.toFixed(9)}` }}</div>
   </div>
-
   <div
     v-for="(tran, index) of suiTradeData"
     :key="index"
-    class="transaction"
-    :class="[tran.direction === SELL ? 'sell' : 'buy', tran.t ? 'mask' : '']"
   >
-    <span 
-      @click="jump(tran.digest)"
-      class="digest"
+    <div 
+      v-if="shouldAddSpace(index)" 
+      class="date-divider"
     >
-      digest
-    </span>
-    <span class="date">{{ tran.date }}</span>
-    <span class="direction">
-      {{ tran.direction === SELL ? '卖出' : '买入' }}
-    </span>
-    <span class="detail">
-      {{ 
-        tran.direction === SELL 
-          ? `${tran.sui.toFixed(6)} SUI => ${tran.usdc.toFixed(6)} USDC` 
-          : `${tran.usdc.toFixed(6)} USDC => ${tran.sui.toFixed(6)} SUI` 
-      }}
-    </span>
-    <span class="price">
-      {{ `均价 ${(tran.usdc / tran.sui).toFixed(6)}` }}
-    </span>
-    <span 
-      class="gas"
-      @click="jumpGas(tran.digest)"
+      {{ tran.date.split(' ')[0] }}
+    </div>
+    <div
+      class="transaction"
+      :class="[
+        tran.direction === SELL ? 'sell' : 'buy',
+        tran.t ? 'mask' : '',
+        shouldAddSpace(index) ? 'new-date' : ''
+      ]"
     >
-      {{ `gas: ${tran.gas}` }}
-    </span>
-    <span class="t">
-      {{ tran.t || 'null' }}
-    </span>
+      <span 
+        @click="jump(tran.digest)"
+        class="digest"
+      >
+        digest
+      </span>
+      <span class="date">{{ tran.date }}</span>
+      <span class="direction">
+        {{ tran.direction === SELL ? '卖出' : '买入' }}
+      </span>
+      <span class="detail">
+        {{ 
+          tran.direction === SELL 
+            ? `${tran.sui.toFixed(6)} SUI => ${tran.usdc.toFixed(6)} USDC` 
+            : `${tran.usdc.toFixed(6)} USDC => ${tran.sui.toFixed(6)} SUI` 
+        }}
+      </span>
+      <span class="price">
+        {{ `均价 ${(tran.usdc / tran.sui).toFixed(6)}` }}
+      </span>
+      <span 
+        class="gas"
+        @click="jumpGas(tran.digest)"
+      >
+        {{ `gas: ${tran.gas}` }}
+      </span>
+      <span class="t">
+        {{ tran.t || 'null' }}
+      </span>
+    </div>
   </div>
 </template>
 <script setup>
@@ -74,6 +86,13 @@ for (const trans of suiTradeData) {
     usdcGain.value -= trans.usdc;
   }
 }
+const shouldAddSpace = (index) => {
+  if (index === 0) return false;
+  const currentDate = suiTradeData[index].date.split(' ')[0];
+  const prevDate = suiTradeData[index - 1].date.split(' ')[0];
+  return currentDate !== prevDate;
+};
+
 </script>
 <style scoped>
 .title {
@@ -133,4 +152,12 @@ for (const trans of suiTradeData) {
 .t {
   width: 10rem;
 }
+
+.date-divider {
+  margin: 20px 0 10px;
+}
+.new-date {
+  margin-top: 10px;
+}
+
 </style>
