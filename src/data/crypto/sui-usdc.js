@@ -59,7 +59,8 @@ const suiTradeData = [
   { digest: 'Bu7XRgaLtM2Y9tWjzwsNBPnv4HTtbpmFDCsmFaDfDoFt', direction: BUY, sui: 200.007196937, usdc: 766, gas: 0, t: '25' },
   { digest: '8JQ5Vsa5q2wRS9qQMLArjwryi8nGciiFNkaCgcxTSXi3', direction: SELL, sui: 200.004864964, usdc: 770.123315, gas: 0, t: '25 | + 4u' },
   { digest: '26QyYyKwQp5o5afFpguKaWbjMNUXzyh1h9qvdLNgJGQF', direction: BUY, sui: 200.359498465, usdc: 766, gas: 0, t: '26' },
-  { digest: '4gMbBEkMXLQdDhq8dWQNn1YHD5D8JJtZP2eXKta1sPoH', direction: SELL, sui: 200.300806576, usdc: 771.296325, gas: 0, t: '26 | +5.2u'}
+  { digest: '4gMbBEkMXLQdDhq8dWQNn1YHD5D8JJtZP2eXKta1sPoH', direction: SELL, sui: 200.300806576, usdc: 771.296325, gas: 0, t: '26 | +5.2u'},
+  { digest: '7FEMyEg8QEpcd7e3pZTXBkiNG41AwaNgiSGYWdMsAazz', direction: BUY, sui: 199.251335134, usdc: 760, gas: 0 },
 ];
 
 export {
