@@ -51,6 +51,9 @@
       <span class="t">
         {{ tran.t || 'null' }}
       </span>
+      <span class="gain">
+        {{ tran.gain || '' }}
+      </span>
     </div>
   </div>
 </template>
@@ -58,15 +61,40 @@
 import { ref } from 'vue';
 import { suiTradeData } from '../../data/crypto/sui-usdc.js';
 import { getTransactionTime, toLocalTime, jumpOverview, jumpChanges } from '../../utils/index.js';
-import { SELL } from '@/data/const.js';
+import { BUY, SELL } from '@/data/const.js';
 
 const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
-for (const trans of suiTradeData) {
+
+const transKeySet = [];
+for (let index = 0; index < suiTradeData.length; index += 1) {
+  const trans = suiTradeData[index];
+  trans.gain = '0';
   if (!trans.timestamp) {
     const res = await getTransactionTime(trans.digest);
+    console.log(`txDigest ${trans.digest} time is ${res.timestampMs}`);
     trans.timestamp = res.timestampMs;
+  }
+  if (trans.t) {
+    if (transKeySet.includes(trans.t)) {
+      for (let j = 0; j < index; j += 1) {
+        let prevTrans = suiTradeData[j];
+        if (prevTrans.t === trans.t) {
+          if (prevTrans.direction === BUY && trans.direction === SELL) {
+            const usdcGain = trans.usdc - prevTrans.usdc;
+            const suiGain = prevTrans.sui - trans.sui;
+            trans.gain = `${usdcGain.toFixed(6)} usdc | ${suiGain.toFixed(6)} sui`;
+          } else if (prevTrans.direction === SELL && trans.direction === BUY) {
+            const usdcGain = prevTrans.usdc - trans.usdc;
+            const suiGain = trans.sui - prevTrans.sui;
+            trans.gain = `${usdcGain.toFixed(6)} usdc | ${suiGain.toFixed(6)} sui`;
+          }
+        }
+      }
+    } else {
+      transKeySet.push(trans.t);
+    }
   }
   totalGas.value += trans.gas;
   if (trans.direction === SELL) { // 卖 sui， 买 usdc
@@ -131,7 +159,7 @@ for (const trans of suiTradeData) {
 }
 
 .detail {
-  width: 30rem;
+  width: 18rem;
 }
 
 .price {
@@ -143,6 +171,10 @@ for (const trans of suiTradeData) {
 }
 
 .t {
-  width: 10rem;
+  width: 6rem;
+}
+
+.gain {
+  width: 16rem;
 }
 </style>
