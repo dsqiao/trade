@@ -65,6 +65,11 @@ const suiTradeData = [
   // 以下交易开始，学会了关闭 aggregator mode
   { digest: 'CBAhMrZRcgyXe1MuDsmQPST4MvqTtZeaTBznymMYe9vt', direction: SELL, sui: 200.304378832, usdc: 784.366345, gas: 0, t: 28, timestamp: 1747577472838 },
   { digest: '5gLcY1zu4paMdfXmZA8VakPettj4vpaWpGztQ1SBwi1o', direction: BUY, sui: 200.197642719, usdc: 780, timestamp: 1747589995755 },
+  { digest: 'BscdqKxGsScxQoiHRbWC6FGn1ic3pwKSHxjmCHhDwqj2', direction: BUY, sui: 200.45330076, usdc: 770, timestamp: 1747591145382 },
+  { digest: 'DBF7LzDX1kk4xp7Bmjg8qCKvD7FQJQ1r1JFdQGgm9fT8', direction: BUY, sui: 198.885543724, usdc: 750, timestamp: 1747591862514, t: 29 },
+  { digest: 'ACnk7HEFrcauXYbxDU1F9qQkNqUMsegF34QWYNkTAj2u', direction: SELL, sui: 198.851842216, usdc: 755.697378,  timestamp: 1747592663945, t: 29 },
+  { digest: '9SR9BMCKciRfagzEbJsPvyVJoyxgTnCW6qx8rBUXaY4w', direction: BUY, sui: 200.527015996, usdc: 758, timestamp: 1747593330830, t: 30 },
+  { digest: '2UthCFoHdPzpjvdEXRhVaPhk89dFM3FWBc8oqzn9t3gy', direction: SELL, sui: 200.503654564, usdc: 760.732715, timestamp: 1747594567995, t: 30 },
 ];
 
 export { suiTradeData };

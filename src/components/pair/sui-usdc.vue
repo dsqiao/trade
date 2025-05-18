@@ -73,7 +73,7 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
   trans.gain = '0';
   if (!trans.timestamp) {
     const res = await getTransactionTime(trans.digest);
-    console.log(`txDigest ${trans.digest} time is ${res.timestampMs}`);
+    alert(`txDigest ${trans.digest} time is ${res.timestampMs}`);
     trans.timestamp = res.timestampMs;
   }
   // sui-usdc 交易对，gas 被算到 sui 的变化里去了，这种就不单独记录 gas 了
