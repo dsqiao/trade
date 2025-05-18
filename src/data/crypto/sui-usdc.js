@@ -62,7 +62,9 @@ const suiTradeData = [
   { digest: "4gMbBEkMXLQdDhq8dWQNn1YHD5D8JJtZP2eXKta1sPoH", direction: SELL, sui: 200.300806576, usdc: 771.296325, gas: 0, t: 26, timestamp: 1747419421227 },
   { digest: "7FEMyEg8QEpcd7e3pZTXBkiNG41AwaNgiSGYWdMsAazz", direction: BUY, sui: 199.251335134, usdc: 760, gas: 0, timestamp: 1747468001222, t: 27 },
   { digest: "B8t24ds4pGTs35BcDQ8ruZY5wEgPcxTWkFh9EYKHdAd9", direction: SELL, sui: 199.275160925, usdc: 762.806727, gas: 0, timestamp: 1747547042959, t: 27 },
-  { digest: 'CBAhMrZRcgyXe1MuDsmQPST4MvqTtZeaTBznymMYe9vt', direction: SELL, sui: 200.304378832, usdc: 784.366345, gas: 0, t: 28 },
+  // 以下交易开始，学会了关闭 aggregator mode
+  { digest: 'CBAhMrZRcgyXe1MuDsmQPST4MvqTtZeaTBznymMYe9vt', direction: SELL, sui: 200.304378832, usdc: 784.366345, gas: 0, t: 28, timestamp: 1747577472838 },
+  { digest: '5gLcY1zu4paMdfXmZA8VakPettj4vpaWpGztQ1SBwi1o', direction: BUY, sui: 200.197642719, usdc: 780, timestamp: 1747589995755 },
 ];
 
 export { suiTradeData };

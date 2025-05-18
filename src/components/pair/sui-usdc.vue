@@ -76,6 +76,10 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
     console.log(`txDigest ${trans.digest} time is ${res.timestampMs}`);
     trans.timestamp = res.timestampMs;
   }
+  // sui-usdc 交易对，gas 被算到 sui 的变化里去了，这种就不单独记录 gas 了
+  if (!trans.gas) {
+    trans.gas = 0;
+  }
   if (trans.t) {
     if (transKeySet.includes(trans.t)) {
       for (let j = 0; j < index; j += 1) {
