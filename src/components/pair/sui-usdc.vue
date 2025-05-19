@@ -52,7 +52,7 @@
         {{ tran.t || 'null' }}
       </span>
       <span class="gain">
-        {{ tran.gain || '' }}
+        {{ `| ${tran.gain || ''}` }}
       </span>
     </div>
   </div>
