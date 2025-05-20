@@ -8,6 +8,8 @@ const nsTradeData = [
   { date: '2025.5.14', digest: 'Ao9ppfqEiLChAzKxn6aoMVd3Na66zsPJEVteLRVMjgaj', direction: SELL, ns: 2000, usdc: 565.858921, gas: 0.013378576 + 0.018517308 },
   { date: '2025.5.16', digest: '9csRKpdMcKiTaUDZL8uS1M1Qg8os3V9UFGVnNgGRzS1P', direction: SELL, ns: 2000, usdc: 620.981901, gas: 0.022085624 + 0.018582288 },
   { date: '2025.5.16', digest: '3Dmof4AjZpC3APuyGE97E4C3axyNgvEK93kpG3LCjGKs', direction: BUY, ns: 2017.750534, usdc: 550, gas: 0.01515766 },
+  { date: '2025.5.20', digest: '5uJe9vW1pMejPgg1atCZw7YdaLSyZE8aBxSjx6bRscBo', direction: BUY, ns: 2049.651502, usdc: 500, gas: 0.006589028, t: '2' },
+  { date: '2025.5.20', digest: 'Bd7J9ptorv9Jztva4weFMFhcytHAypZP9yeKKLYuhWhH', direction: SELL, ns: 2049.6, usdc: 507.487836, gas: 0.003493824, t: '2 | + 7.4u' },
 ];
 
 export {
