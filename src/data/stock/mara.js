@@ -354,7 +354,7 @@ const data = [
       { day: 7, price: 17, number: 150, direction: BUY, fee: 1.45 },
       { day: 13, price: 15.92, number: 50, direction: BUY, fee: 1.15, t: 'grid18' },
       { day: 14, price: 17, number: 50, direction: SELL, fee: 1.18, t: 'grid18 收益 54' },
-      { day: 18, price: 16, number: 50, direction: BUY, fee: 1.15 },
+      { day: 18, price: 16, number: 50, direction: BUY, fee: 1.15, t: 'grid33' },
       { day: 21, price: 15, number: 50, direction: BUY, fee: 1.15, t: 'grid 24' },
       { day: 24, price: 14, number: 100, direction: BUY, fee: 0.66, t: 'grid21' },
       { day: 25, price: 13, number: 69, direction: BUY, fee: 1.21, t: 'grid19' },
@@ -375,9 +375,9 @@ const data = [
       { day: 7, price: 16, number: 50, direction: SELL, fee: 1.18, t: 'grid24 收益 50' },
       { day: 9, price: 15, number: 50, direction: BUY, fee: 1.15, t: 'grid 31' },
       { day: 10, price: 14, number: 100, direction: BUY, fee: 1.30, t: 'grid 30' },
-      { day: 10, price: 13, number: 95, direction: BUY, fee: 1.29, t: 'grid 25'},
-      { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, t: 'grid25', desc: '5 HKD 抵扣'},
-      { day: 24, price: 14, number: 125, direction: SELL, fee: 0.81, t: 'grid25 收益 131'},
+      { day: 10, price: 13, number: 95, direction: BUY, fee: 1.29, t: 'grid 25' },
+      { day: 11, price: 12.8, number: 30, direction: BUY, fee: 0.45, t: 'grid25', desc: '5 HKD 抵扣' },
+      { day: 24, price: 14, number: 125, direction: SELL, fee: 0.81, t: 'grid25 收益 131' },
       { day: 28, price: 12.9, number: 100, direction: BUY, fee: 0.66, t: 'grid28' },
       { day: 30, price: 11.8, number: 83, direction: BUY, fee: 0.61, t: 'grid27' },
     ]
@@ -388,7 +388,7 @@ const data = [
       { day: 8, price: 9.9368, number: 100, direction: BUY, fee: 0.66, t: 'grid26' },
       { day: 9, price: 11.8, number: 100, direction: SELL, fee: 0.71, t: 'grid26 收益 186.32' },
       // 以上数据经过校验与 LongBridge 无差
-      { day: 14, price: 13, number: 83, direction: SELL, fee: 0.65, t: 'grid27 收益 99.6'},
+      { day: 14, price: 13, number: 83, direction: SELL, fee: 0.65, t: 'grid27 收益 99.6' },
       { day: 22, price: 14, number: 100, direction: SELL, fee: 0.72, t: 'grid28 收益 110' },
     ]
   }, {
@@ -397,10 +397,11 @@ const data = [
     trans: [
       { day: 6, price: 12.95, number: 100, direction: BUY, fee: 0.66, t: 'grid29' },
       { day: 8, price: 14.05, number: 100, direction: SELL, fee: 0.72, t: 'grid29 收益 110' },
-      { day: 9, price: 15, number: 100, direction: SELL, fee: 0.72, t: 'grid 30 收益 100'},
-      { day: 9, price: 16, number: 50, direction: SELL, fee: 0.54, t: 'grid 31 收益 50'},
+      { day: 9, price: 15, number: 100, direction: SELL, fee: 0.72, t: 'grid 30 收益 100' },
+      { day: 9, price: 16, number: 50, direction: SELL, fee: 0.54, t: 'grid 31 收益 50' },
       { day: 9, price: 15, number: 50, direction: BUY, fee: 1.15, t: 'grid 32' },
-      { day: 12, price: 16.5, number: 50, direction: SELL, fee: 1.18, t: 'grid 32 收益 75'},
+      { day: 12, price: 16.5, number: 50, direction: SELL, fee: 1.18, t: 'grid 32 收益 75' },
+      { day: 21, price: 17, number: 50, direction: SELL, fee: 0, t: 'grid33 收益 50' }
     ],
   }
 ];
