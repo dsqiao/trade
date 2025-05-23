@@ -46,7 +46,7 @@
         class="gas"
         @click="jumpChanges(tran.digest)"
       >
-        {{ `gas: ${tran.gas}` }}
+        {{ `gas: ${tran.gas.toFixed(5)}` }}
       </span>
       <span class="t">
         {{ tran.t || 'null' }}
@@ -163,7 +163,7 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
 }
 
 .detail {
-  width: 18rem;
+  width: 20rem;
 }
 
 .price {
@@ -171,7 +171,7 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
 }
 
 .gas {
-  width: 10rem;
+  width: 8rem;
 }
 
 .t {
