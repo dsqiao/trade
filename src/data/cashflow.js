@@ -5,7 +5,7 @@ const PLATFORM = {
   BN: 1,
   AC: 2,
 };
-const cashflow = [{
+const cashflow = [ {
   month: '202307',
   record: [
     { day: 16, unitPrice: 7.16, num: 10, platform: PLATFORM.OKX, direction: BUY },
@@ -177,7 +177,7 @@ const cashflow = [{
 }, {
   month: '202503',
   record: [
-    { day: 3, unitPrice: 7.25, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|招商银行 7250'},
+    { day: 3, unitPrice: 7.25, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|招商银行 7250' },
     { day: 9, unitPrice: 7.35, num: 1000, platform: PLATFORM.BN, direction: BUY },
     { day: 9, unitPrice: 7.25, num: 100, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 725' },
     { day: 9, unitPrice: 7.4, num: 1000, platform: PLATFORM.BN, direction: BUY },
@@ -193,9 +193,10 @@ const cashflow = [{
 }, {
   month: '202505',
   record: [
-    { day: 8, unitPrice: 7.22, num: 501, platform: PLATFORM.AC, direction: BUY, desc: '张锴/微信 3610'}
+    { day: 8, unitPrice: 7.22, num: 501, platform: PLATFORM.AC, direction: BUY, desc: '张锴/微信 3610' },
+    { day: 27, unitPrice: 7.18, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'Leo/微信 7180' },
   ]
-}];
+} ];
 
 export {
   cashflow,
