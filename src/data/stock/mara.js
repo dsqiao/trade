@@ -411,9 +411,10 @@ const data = [
     ],
   }, {
     month: '202506',
-    monthlyProfit: 0,
+    monthlyProfit: 50,
     trans: [
-      { day: 2, price: 14, number: 50, direction: BUY, fee: 1.15 },
+      { day: 2, price: 14, number: 50, direction: BUY, fee: 1.15, t: 'grid36' },
+      { day: 3, price: 15, number: 50, direction: SELL, fee: 0, t: 'grid16 收益 50' }
     ]
   }
 ];
