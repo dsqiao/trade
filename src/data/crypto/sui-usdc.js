@@ -161,7 +161,10 @@ const suiTradeData = [
   { digest: '6sx5VYaaAy9Lya3TKKjrkAjoXFgkprUPjBP44sxtyx5m', direction: SELL, sui: 256.71, usdc: 810.653765, timestamp: 1748667487376, t: 73 },
   { digest: 'AWLzTbTuL4ELnK3cY73aq6BBuWLwgDryjMZipmsbQXKj', direction: BUY, sui: 317.474989126, usdc: 1000, timestamp: 1748669100981, t: 74 },
   { digest: 'Gkff1v8xXdw8W4JXvq8x4qh9EKkjyC1Y45kFivYusPXX', direction: SELL, sui: 317.47, usdc: 1010.042379, timestamp: 1748696380766, t: 74 },
-  { digest: '3vRQm1mGqxgcsuNtjmd2tNttSYkqjGx2XHdnHXuQsQ4h', direction: BUY, sui: 242.125212799, usdc: 800, timestamp: 1748705908490 },
+  { digest: '3vRQm1mGqxgcsuNtjmd2tNttSYkqjGx2XHdnHXuQsQ4h', direction: BUY, sui: 242.125212799, usdc: 800, timestamp: 1748705908490, t: 75 },
+  { digest: '3W6PU4698ynPVaJ63xv4eq6J6MSuAhqdDLhpTTTvUnpo', direction: SELL, sui: 242.12, usdc: 803.181532, timestamp: 1748889148860, t: 75 },
+  { digest: 'LTYBTYJHBPwvHRdPn429Jrv1zrQtwEyGsDFMqwNZtDN', direction: BUY, sui: 242.968889785, usdc: 800, timestamp: 1748891376126, t: 76 },
+  { digest: '4v1wCMwUVNK5HzqE7Hv22JGzbhDr6suC3g8jTJmR9T1W', direction: SELL, sui: 242.96, usdc: 814.550114, timestamp: 1748913233473, t: 76 },
 ];
 
 export { suiTradeData };
