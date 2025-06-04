@@ -1,7 +1,7 @@
 import { BUY, OTHER, SELL } from "../const.js";
 
 const currentPrice = 4.56;
-const data = [{
+const data = [ {
   month: '202312',
   trans: [
     { day: 19, price: 8.77, number: 300, direction: BUY, fee: 2.40 },
@@ -47,7 +47,12 @@ const data = [{
   trans: [
     { day: 12, price: 0, number: 0, direction: OTHER, fee: 0.24, desc: '2025-01-06持有1035股NIO, ADR 托管费0.24USD' },
   ]
-}];
+}, {
+  month: '202506',
+  trans: [
+    { day: 3, price: 3.4, number: 400, direction: BUY, fee: 2.57 },
+  ]
+} ];
 
 export {
   data,

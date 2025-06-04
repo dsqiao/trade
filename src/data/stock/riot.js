@@ -1,7 +1,7 @@
 import { BUY, SELL } from "../const.js";
 
 const currentPrice = 11.67;
-const data = [{
+const data = [ {
   month: '202312',
   trans: [
     { day: 28, price: 19.43, number: 150, direction: BUY, fee: 1.45 },
@@ -75,7 +75,12 @@ const data = [{
   trans: [
     { day: 9, price: 8.81, number: 100, direction: SELL, fee: 0.70, t: '11 收益 11' },
   ]
-}];
+}, {
+  month: '202506',
+  trans: [
+    { day: 4, price: 9.6007, number: 100, direction: SELL, fee: 0 },
+  ]
+} ];
 export {
   currentPrice,
   data,
