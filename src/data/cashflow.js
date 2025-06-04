@@ -196,6 +196,11 @@ const cashflow = [ {
     { day: 8, unitPrice: 7.22, num: 501, platform: PLATFORM.AC, direction: BUY, desc: '张锴/微信 3610' },
     { day: 27, unitPrice: 7.18, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'Leo/微信 7180' },
   ]
+}, {
+  month: '202506',
+  record: [
+    { day: 4, unitPrice: 7.15, num: 600, platform: PLATFORM.OKX, direction: BUY },
+  ]
 } ];
 
 export {
