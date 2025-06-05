@@ -200,6 +200,7 @@ const cashflow = [ {
   month: '202506',
   record: [
     { day: 4, unitPrice: 7.15, num: 600, platform: PLATFORM.OKX, direction: BUY },
+    { day: 5, unitPrice: 7.13, num: 3000, platform: PLATFORM.AC, direction: BUY, desc: 'Leo/微信 21390' },
   ]
 } ];
 
