@@ -1,6 +1,6 @@
 import { BUY, SELL } from "../const.js";
 const currentPrice = 24;
-const data = [{
+const data = [ {
   month: '202311',
   trans: [
     { day: 9, price: 214, number: 5, direction: BUY, fee: 1.02 }, // 3 HKD 返现
@@ -99,7 +99,7 @@ const data = [{
     { day: 6, price: 286, number: 1, direction: SELL, fee: 1.02 },
     // 以上数据经校验与 LongBridge 无差
   ]
-}];
+} ];
 
 export {
   currentPrice,

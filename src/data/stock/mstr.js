@@ -1,7 +1,7 @@
 import { BUY, SELL } from "../const.js";
 
 const currentPrice = 360;
-const data = [{
+const data = [ {
   month: '202412',
   trans: [
     { day: 20, price: 350, number: 4, direction: BUY, fee: 1.01 },
@@ -12,6 +12,6 @@ const data = [{
   trans: [
     { day: 15, price: 360, number: 5, direction: SELL, fee: 1.08 },
   ]
-}];
+} ];
 
 export { data, currentPrice };
