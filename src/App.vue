@@ -22,6 +22,7 @@
         <div class="link"><router-link to="/deep-usdc">DEEP-USDC</router-link></div>
         <div class="link"><router-link to="/deep-sui">DEEP-SUI</router-link></div>
         <div class="link"><router-link to="/ns-usdc">NS-USDC</router-link></div>
+        <div class="link"><router-link to="/wal-usdc">WAL-USDC</router-link></div>
       </div>
       <div class="tab">
         其他：

@@ -28,6 +28,10 @@ const routes = [
     path: '/ns-usdc',
     name: 'NsSui',
     component: NsSui
+  }, {
+    path: '/wal-usdc',
+    name: 'WalUsdc',
+    component: () => import('../components/pair/wal-usdc.vue')  
   },
   {
     path: '/deep-sui',
