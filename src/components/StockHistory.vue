@@ -94,7 +94,7 @@ export default {
 
 <template>
   <div style="position: fixed; right: 30px; bottom: 30px;">
-    <t-switch v-model="showT"/>
+    <t-switch v-model="showT" />
   </div>
   <h1>{{ stock.toUpperCase() }} general</h1>
   <div>{{ `当前股价 ${mCurrentPrice}` }}</div>

@@ -1,5 +1,8 @@
 <template>
   <div class="title">SUI-USDC</div>
+  <div style="position: fixed; right: 30px; bottom: 30px;">
+    <t-switch v-model="showT" />
+  </div>
   <div class="desc">
     <div class="para">{{ `sui 收益: ${suiGain.toFixed(9)}` }}</div>
     <div class="para">{{ `usdc 收益: ${usdcGain.toFixed(9)}` }}</div>
@@ -13,7 +16,8 @@
   <div v-for="(tran, index) of suiTradeData"
        :key="index"
   >
-    <div 
+    <div
+      v-if="!tran.t || showT"
       class="transaction"
       :class="[
         tran.direction === SELL ? 'sell' : 'buy',
@@ -66,7 +70,7 @@ import { BUY, SELL } from '@/data/const.js';
 const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
-
+const showT = ref(false);
 const transKeySet = [];
 for (let index = 0; index < suiTradeData.length; index += 1) {
   const trans = suiTradeData[index];
