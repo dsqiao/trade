@@ -154,7 +154,7 @@ const suiTradeData = [
   { digest: 'E5aFx3z2Yuyo7ghC8zqJp2zyCFUKHQbeqpiFK9dUTdWC', direction: SELL, sui: 231.78, usdc: 803.175804, timestamp: 1748618205257, t: 70 },
   { digest: 'GEkzVZq6NNfmi9LGEjcwoNMpMbwavZDcRQea1D1h31XV', direction: BUY, sui: 232.100512018, usdc: 800, timestamp: 1748618458363, t: 71 },
   { digest: 'AyNqBcdZNjPMpfSiQmP1Fz21Dq7LnD9yToFQtx82KwMb', direction: SELL, sui: 232.1, usdc: 803.534226, timestamp: 1748618907077, t: 71 },
-  { digest: 'EcP7Tkdact3xYPgdFbqdtcFx3U3VtcYmixCpEhuAQiAj', direction: BUY, sui: 231.844377017, usdc: 800, timestamp: 1748619399320, },
+  { digest: 'EcP7Tkdact3xYPgdFbqdtcFx3U3VtcYmixCpEhuAQiAj', direction: BUY, sui: 231.844377017, usdc: 800, timestamp: 1748619399320, t: 92 },
   { digest: '5Rem9w3qDhHi17kXajkGM9Wuzy4yKAbzWCwns7qeuzjS', direction: BUY, sui: 243.427035949, usdc: 800, timestamp: 1748622850348, t: 72 },
   { digest: '2jP4UozuuyHZyKNdjsGeJu76eaq5HbuNsWtADdBekeju', direction: SELL, sui: 243.42, usdc: 810.254065, timestamp: 1748630081037, t: 72 },
   { digest: 'J4rY4SEFySCGKCo7Jkt4yTyizWdUBWCcobRyPoDrCTge', direction: BUY, sui: 256.711869696, usdc: 800, timestamp: 1748656857056, t: 73 },
@@ -194,7 +194,8 @@ const suiTradeData = [
   { digest: '31ncT1f7eagicmFsuA6AG6D8Q7G9WzFXUkH7ezcAoKqv', direction: SELL, sui: 249.9, usdc: 803.860421, timestamp: 1749395720506, t: 89 },
   { digest: '6eMZV5n6sg8v2YAPkEPmSvLXgc5TvbrjLk4dZ4VPXfUs', direction: BUY, sui: 250.050863717, usdc: 800, timestamp: 1749445150773, t: 90 },
   { digest: '6BNcqYyznr9DxH7dGwFXiR48iMAyXDvD8HMLrUgY3sRj', direction: SELL, sui: 250.05, usdc: 810.143948, timestamp: 1749459592890, t: 90 },
-  { digest: 'BfbQPeRg3Bx54YTNyusSYZfYA8ujAhPHosAoRDsYtRsA', direction: SELL, sui: 243.7, usdc: 805.083954, timestamp: 1749462393344, t: 91 }
+  { digest: 'BfbQPeRg3Bx54YTNyusSYZfYA8ujAhPHosAoRDsYtRsA', direction: SELL, sui: 243.7, usdc: 805.083954, timestamp: 1749462393344, t: 91 },
+  { digest: 'Cq7N3X3StcczB3RC7DpffxbVCLuCv38oaPWrUTKZSBaK', direction: SELL, sui: 231.84, usdc: 819.670581, timestamp: 1749560855560, t: 92 },
 ];
 
 export { suiTradeData };
