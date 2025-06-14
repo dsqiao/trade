@@ -7,6 +7,7 @@ const walTradeData = [
   { date: '2025.6.9', digest: 'HwZKX3435px23TeftNjnYASoVke7dWbDjvuwJDTDFv2p', direction: SELL, usdc: 513.260825, wal: 1000.000109388, gas: 0.009163586 + 0.006226796 },
   { date: '2025.6.9', digest: 'S9ARVTgduffuCHDga1mWjNcEpYaes1Txo4Fu3uwSfAb', direction: SELL, usdc: 520.07366, wal: 1000, gas: 0.007741288 + 0.004241068 },
   { date: '2025.6.9', digest: '5nCvKR1VzT1ciZXKwC3oG1XcPzJgunNdJ4cWw2Nm5W9q', direction: SELL, usdc: 684.457692, wal: 1304.039575128, gas: 0.006370236 + 0.006226796 },
+  { date: '2025.6.13', digest: 'ErtJWmpLAekjGFo78mGB3pFuxQ6Dj3Jx7psdmzESWCrq', direction: BUY, usdc: 1399.884601, wal: 2992.329463626, gas: 0.016065832 },
 ];
 
 export {
