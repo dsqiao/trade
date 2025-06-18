@@ -70,7 +70,7 @@ import { BUY, SELL } from '@/data/const.js';
 const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
-const showT = ref(false);
+const showT = ref(true);
 const transKeySet = [];
 for (let index = 0; index < suiTradeData.length; index += 1) {
   const trans = suiTradeData[index];
