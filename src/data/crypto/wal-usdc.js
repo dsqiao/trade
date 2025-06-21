@@ -9,7 +9,8 @@ const walTradeData = [
   { date: '2025.6.9', digest: '5nCvKR1VzT1ciZXKwC3oG1XcPzJgunNdJ4cWw2Nm5W9q', direction: SELL, usdc: 684.457692, wal: 1304.039575128, gas: 0.006370236 + 0.006226796 },
   // 清仓
   { date: '2025.6.13', digest: 'ErtJWmpLAekjGFo78mGB3pFuxQ6Dj3Jx7psdmzESWCrq', direction: BUY, usdc: 1399.884601, wal: 2992.329463626, gas: 0.016065832 },
-  { date: '2025.6.18', digest: 'Co2QCa8GRkXLLghY9pTACV6udhtEsQ1n9C12rYF4QKLL', direction: BUY, usdc: 1499.99168, wal: 3397.159655836, gas: 0.009904804 }
+  { date: '2025.6.18', digest: 'Co2QCa8GRkXLLghY9pTACV6udhtEsQ1n9C12rYF4QKLL', direction: BUY, usdc: 1499.99168, wal: 3397.159655836, gas: 0.009904804 },
+  { date: '2025.6.21', digest: '7qBjif3iWff3VPcyJyNqRsPF2pmTL2PzoHKFCPxLc3dA', direction: BUY, usdc: 1000, wal: 2395.763730833, gas: 0.01447757 },
 ];
 
 export {
