@@ -1,3 +1,4 @@
+// node src/data/crypto/gain.js
 const gain = [ {
   time: '202505',
   monthGain: {
@@ -48,6 +49,7 @@ const gain = [ {
     '6.20': 7.914153,
     '6.21': 33.995393,
     '6.22': 26.499928,
+    '6.23': 85.943588,
   }
 } ];
 
