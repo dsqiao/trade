@@ -37,17 +37,22 @@ const data = [ {
     { day: 7, price: 12, number: 100, direction: SELL, fee: 1.35, t: 't5 收益 100' },
     { day: 10, price: 11, number: 100, direction: BUY, fee: 1.30 },
     { day: 21, price: 9.34, number: 100, direction: BUY, fee: 1.30 },
-    { day: 24, price: 8.48, number: 100, direction: BUY, fee: 1.30 },
+    { day: 24, price: 8.48, number: 100, direction: BUY, fee: 1.30, t: 't7' },
   ]
 }, {
   month: '202503',
   trans: [
-    { day: 5, price: 7.99, number: 100, direction: BUY, fee: 0.66 },
+    { day: 5, price: 7.99, number: 100, direction: BUY, fee: 0.66, t: 't6' },
   ]
 }, {
   month: '202504',
   trans: [
-    { day: 12, price: 9.85, number: 100, direction: SELL, fee: 1.35 },
+    { day: 12, price: 9.85, number: 100, direction: SELL, fee: 1.35, t: 't6 收益 186' },
+  ]
+}, {
+  month: '202506',
+  trans: [
+    { day: 30, price: 11.11, number: 100, direction: SELL, fee: 0, t: 't7 收益 263' },
   ]
 } ];
 export {

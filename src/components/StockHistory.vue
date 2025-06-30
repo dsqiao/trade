@@ -138,7 +138,10 @@ export default {
       <div
         v-if="!tran.t || showT"
         class="transaction"
-        :class="tran.direction === 0 ? 'in' : (tran.direction === 1 ? 'out' : 'other')"
+        :class="[
+          tran.direction === 0 ? 'in' : (tran.direction === 1 ? 'out' : 'other'),
+          tran.t ? 'mask' : ''
+        ]"
       >
         <span class="date">
           {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${tran.day} 日` }}
@@ -245,5 +248,8 @@ export default {
   font-size: 1.5rem;
   background-color: rgb(19, 15, 15);
   margin: 10px 0;
+}
+.mask>span {
+  opacity: .4;
 }
 </style>
