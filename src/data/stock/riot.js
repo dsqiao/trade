@@ -82,7 +82,7 @@ const data = [ {
     { day: 5, price: 9, number: 50, direction: BUY, fee: 1.15, t: '12' },
     { day: 6, price: 9.7, number: 50, direction: SELL, fee: 1.16, t: '12 收益 35' },
     { day: 6, price: 10, number: 50, direction: SELL, fee: 1.16, t: '13' },
-    { day: 30, price: 11, number: 50, direction: SELL, fee: 0 },
+    { day: 30, price: 11, number: 50, direction: SELL, fee: 0.53 },
   ]
 } ];
 export {
