@@ -26,6 +26,7 @@ const data = [ {
   ]
 }, {
   month: '202501',
+  monthlyProfit: 267,
   trans: [
     { day: 17, price: 12, number: 100, direction: SELL, t: 't3 收益 167', fee: 1.35, },
     { day: 27, price: 10, number: 100, direction: BUY, fee: 1.30, t: 't4' },
@@ -33,6 +34,7 @@ const data = [ {
   ]
 }, {
   month: '202502',
+  monthlyProfit: 100,
   trans: [
     { day: 7, price: 12, number: 100, direction: SELL, fee: 1.35, t: 't5 收益 100' },
     { day: 10, price: 11, number: 100, direction: BUY, fee: 1.30, t: 't8' },
@@ -41,21 +43,25 @@ const data = [ {
   ]
 }, {
   month: '202503',
+  monthlyProfit: 0,
   trans: [
     { day: 5, price: 7.99, number: 100, direction: BUY, fee: 0.66, t: 't6' },
   ]
 }, {
   month: '202504',
+  monthlyProfit: 186,
   trans: [
     { day: 12, price: 9.85, number: 100, direction: SELL, fee: 1.35, t: 't6 收益 186' },
   ]
 }, {
   month: '202506',
+  monthlyProfit: 263,
   trans: [
     { day: 30, price: 11.11, number: 100, direction: SELL, fee: 0.69, t: 't7 收益 263' },
   ]
 }, {
   month: '202607',
+  monthlyProfit: 420,
   trans: [
     { day: 2, price: 12, number: 100, direction: SELL, fee: 0.69, t: 't8 收益 100' },
     { day: 3, price: 12.54, number: 100, direction: SELL, fee: 0, t: 't9 收益 320' },
