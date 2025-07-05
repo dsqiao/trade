@@ -17,7 +17,7 @@
        :key="index"
   >
     <div
-      v-if="!tran.t || showT && !(tran.t < 130)"
+      v-if="!tran.t || showT && !(tran.t < 15)"
       class="transaction"
       :class="[
         tran.direction === SELL ? 'sell' : 'buy',
