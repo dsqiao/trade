@@ -327,8 +327,8 @@ const data = [
       { day: 18, price: 22, number: 50, direction: BUY, fee: 1.15 },
       { day: 19, price: 21.5, number: 60, direction: BUY, fee: 1.18 },
       { day: 19, price: 21, number: 60, direction: BUY, fee: 1.18 },
-      { day: 19, price: 20.5, number: 60, direction: BUY, fee: 1.18 },
-      { day: 19, price: 20, number: 80, direction: BUY, fee: 1.24 },
+      { day: 19, price: 20.5, number: 60, direction: BUY, fee: 1.18, t: 'grid43' },
+      { day: 19, price: 20, number: 80, direction: BUY, fee: 1.24, t: 'grid43' },
       { day: 20, price: 19.1, number: 80, direction: BUY, fee: 1.24, t: 'grid13' },
       { day: 20, price: 20.2, number: 80, direction: SELL, fee: 1.29, t: 'grid13 收益 88' },
       // 以上数据经过校验与 LongBridge 无差
@@ -422,7 +422,7 @@ const data = [
     ]
   }, {
     month: '202507',
-    monthlyProfit: 475,
+    monthlyProfit: 588,
     trans: [
       { day: 1, price: 16, number: 50, direction: SELL, fee: 0.53, t: 'grid39 收益 50' },
       { day: 2, price: 17, number: 50, direction: SELL, fee: 1.16, t: 'grid40 收益 50' },
@@ -431,6 +431,8 @@ const data = [
       { day: 9, price: 18, number: 50, direction: SELL, fee: 1.16, t: 'grid41 收益 75' },
       { day: 10, price: 19, number: 50, direction: SELL, fee: 1.16, t: 'grid42' },
       { day: 14, price: 20, number: 50, direction: SELL, fee: 0, t: 'grid42 收益 50 + 100 + 150 = 300' },
+      { day: 14, price: 21.02, number: 100, direction: SELL, fee: 0, t: 'grid43', desc: '100 * 21.02 = 2102.00 USD' },
+      { day: 14, price: 21.025, number: 40, direction: SELL, fee: 0, t: 'grid43 收益 113', desc: '40 * 21.025 = 841.00 USD' },
     ]
   }
 ];
