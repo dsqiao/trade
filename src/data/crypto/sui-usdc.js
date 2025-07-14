@@ -107,7 +107,7 @@ const suiTradeData = [
   { digest: '72bJCBjtpoG3NTzDEavHouJ3Y5aMZ2yJUKQg2rm2ggE1', direction: SELL, sui: 198.8, usdc: 778.0038, timestamp: 1747924651479, t: 48 }, // Gas Sponsored by NAVI
   { digest: 'FGeed2oTebBaAsvvbrG8NE3WspyyLw5wYhvb5hB4ER4H', direction: BUY, sui: 195.146608577, usdc: 750, timestamp: 1747982110177, t: 49 },
   { digest: '5JeCJygLw22fs9aN8Yf4RuxZYxZx6P4ES2GVwF8ahsa1', direction: SELL, sui: 195.14, usdc: 756.209025, timestamp: 1747992620551, t: 49 },
-  { digest: '3ayN8f31mJd9f5hLScpwNZySV1YusTQW4VdJ7dDgv1Xz', direction: BUY, sui: 198.178268083, usdc: 760, timestamp: 1748000545370 },
+  { digest: '3ayN8f31mJd9f5hLScpwNZySV1YusTQW4VdJ7dDgv1Xz', direction: BUY, sui: 198.178268083, usdc: 760, timestamp: 1748000545370, t: 162 },
   { digest: '4bCgr5HhrbfD69Tu3ACG2NFXsCLPMortQQj2JWKmMeWq', direction: BUY, sui: 207.740775135, usdc: 750, timestamp: 1748001988851, t: 50 },
   { digest: 'E2z1vEwifZt26v5moKb3a3WJWjezgFxA4aSmpW5Xy4Nv', direction: SELL, sui: 207.74, usdc: 769.108273, timestamp: 1748008759086, t: 50 },
   { digest: 'EK2LdT8AaT21LLFRTd8xFDh6RDLjhEFB2G8n8KgCcuyr', direction: BUY, sui: 203.511438031, usdc: 750, timestamp: 1748011104811, t: 51 },
@@ -332,5 +332,6 @@ const suiTradeData = [
   { digest: '8ioeDsGNprCuiuVSrLHXe7rjzxbXMXBA6mttHB49VcyZ', direction: SELL, sui: 230.14, usdc: 805.090974, timestamp: 1752427859972, t: 159 },
   { digest: '2MS6vW3SWPBBWPRv1SziVV3PUYLNNimR2vw8m5yLuiZR', direction: SELL, sui: 224.94, usdc: 817.816629, timestamp: 1752455707699, t: 160 },
   { digest: '92bzgyNPTKQyn5DfzLjKMM95fzFA8k294LNbKLpmJXmg', direction: SELL, sui: 217.15, usdc: 808.157314, timestamp: 1752458434070, t: 161 },
+  { digest: '2w7wUkxiUPpQcdD3ajTAG9Tz8zCXmDoL2vLzkKaLRqTZ', direction: SELL, sui: 198.17, usdc: 781.02528, timestamp: 1752478987504, t: 162 },
 ];
 export { suiTradeData };
