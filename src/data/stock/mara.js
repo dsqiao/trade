@@ -433,6 +433,7 @@ const data = [
       { day: 14, price: 20, number: 50, direction: SELL, fee: 0, t: 'grid42 收益 50 + 100 + 150 = 300' },
       { day: 14, price: 21.02, number: 100, direction: SELL, fee: 0, t: 'grid43', desc: '100 * 21.02 = 2102.00 USD' },
       { day: 14, price: 21.025, number: 40, direction: SELL, fee: 0, t: 'grid43 收益 113', desc: '40 * 21.025 = 841.00 USD' },
+      { day: 14, price: 19.9, number: 50, direction: BUY, fee: 0 },
     ]
   }
 ];
