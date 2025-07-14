@@ -1,5 +1,8 @@
 <template>
   <div class="title">DEEP-USDC</div>
+  <div style="position: fixed; right: 30px; bottom: 30px;">
+    <t-switch v-model="showT" />
+  </div>
   <div class="desc">
     <div class="para">{{ `deep 收益: ${deepGain.toFixed(9)}` }}</div>
     <div class="para">{{ `usdc 收益: ${usdcGain.toFixed(9)}` }}</div>
@@ -12,38 +15,42 @@
   <div
     v-for="(tran, index) of deepTradeData"
     :key="index"
-    class="transaction"
-    :class="[tran.direction === SELL ? 'sell' : 'buy', tran.t ? 'mask' : '']"
   >
-    <span 
-      @click="jump(tran.digest)"
-      class="digest"
+    <div
+      v-if="!tran.t || showT"
+      class="transaction"
+      :class="[tran.direction === SELL ? 'sell' : 'buy', tran.t ? 'mask' : '']"
     >
-      digest
-    </span>
-    <span class="date">{{ tran.date }}</span>
-    <span class="direction">
-      {{ tran.direction === SELL ? '卖出' : '买入' }}
-    </span>
-    <span class="detail">
-      {{ 
-        tran.direction === SELL 
-          ? `${tran.deep.toFixed(6)} DEEP => ${tran.usdc.toFixed(6)} USDC` 
-          : `${tran.usdc.toFixed(6)} USDC => ${tran.deep.toFixed(6)} DEEP` 
-      }}
-    </span>
-    <span class="price">
-      {{ `均价 ${(tran.usdc / tran.deep).toFixed(6)}` }}
-    </span>
-    <span 
-      class="gas"
-      @click="jumpGas(tran.digest)"
-    >
-      {{ `gas: ${tran.gas}` }}
-    </span>
-    <span class="t">
-      {{ tran.t || 'null' }}
-    </span>
+      <span 
+        @click="jump(tran.digest)"
+        class="digest"
+      >
+        digest
+      </span>
+      <span class="date">{{ tran.date }}</span>
+      <span class="direction">
+        {{ tran.direction === SELL ? '卖出' : '买入' }}
+      </span>
+      <span class="detail">
+        {{ 
+          tran.direction === SELL 
+            ? `${tran.deep.toFixed(6)} DEEP => ${tran.usdc.toFixed(6)} USDC` 
+            : `${tran.usdc.toFixed(6)} USDC => ${tran.deep.toFixed(6)} DEEP` 
+        }}
+      </span>
+      <span class="price">
+        {{ `均价 ${(tran.usdc / tran.deep).toFixed(6)}` }}
+      </span>
+      <span 
+        class="gas"
+        @click="jumpGas(tran.digest)"
+      >
+        {{ `gas: ${tran.gas}` }}
+      </span>
+      <span class="t">
+        {{ tran.t || 'null' }}
+      </span>
+    </div>
   </div>
 </template>
 <script setup>
@@ -59,6 +66,8 @@ const jumpGas = (digest) => {
 const deepGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
+const showT = ref(true);
+
 for (const trans of deepTradeData) {
   totalGas.value += trans.gas;
   if (trans.direction === SELL) { // 卖 deep， 买 usdc
