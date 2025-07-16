@@ -60,7 +60,7 @@ const data = [ {
     { day: 30, price: 11.11, number: 100, direction: SELL, fee: 0.69, t: 't7 收益 263' },
   ]
 }, {
-  month: '202607',
+  month: '202507',
   monthlyProfit: 770,
   trans: [
     { day: 2, price: 12, number: 100, direction: SELL, fee: 0.69, t: 't8 收益 100' },

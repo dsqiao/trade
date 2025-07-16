@@ -422,7 +422,7 @@ const data = [
     ]
   }, {
     month: '202507',
-    monthlyProfit: 588,
+    monthlyProfit: 648,
     trans: [
       { day: 1, price: 16, number: 50, direction: SELL, fee: 0.53, t: 'grid39 收益 50' },
       { day: 2, price: 17, number: 50, direction: SELL, fee: 1.16, t: 'grid40 收益 50' },
@@ -430,10 +430,12 @@ const data = [
       { day: 7, price: 16.5, number: 50, direction: BUY, fee: 1.15, t: 'grid41' },
       { day: 9, price: 18, number: 50, direction: SELL, fee: 1.16, t: 'grid41 收益 75' },
       { day: 10, price: 19, number: 50, direction: SELL, fee: 1.16, t: 'grid42' },
-      { day: 14, price: 20, number: 50, direction: SELL, fee: 0, t: 'grid42 收益 50 + 100 + 150 = 300' },
+      { day: 14, price: 20, number: 50, direction: SELL, fee: 1.16, t: 'grid42 收益 50 + 100 + 150 = 300' },
       { day: 14, price: 21.02, number: 100, direction: SELL, fee: 0, t: 'grid43', desc: '100 * 21.02 = 2102.00 USD' },
-      { day: 14, price: 21.025, number: 40, direction: SELL, fee: 0, t: 'grid43 收益 113', desc: '40 * 21.025 = 841.00 USD' },
-      { day: 14, price: 19.9, number: 50, direction: BUY, fee: 0 },
+      { day: 14, price: 21.025, number: 40, direction: SELL, fee: 0.81, t: 'grid43 收益 113', desc: '40 * 21.025 = 841.00 USD' },
+      { day: 14, price: 19.9, number: 50, direction: BUY, fee: 1.15 },
+      { day: 15, price: 18.8, number: 50, direction: BUY, fee: 0.52, t: 'grid44' },
+      { day: 16, price: 20, number: 50, direction: SELL, fee: 0, t: 'grid44 收益 60' },
     ]
   }
 ];
