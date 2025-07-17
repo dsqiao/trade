@@ -61,6 +61,7 @@ const deepTradeData = [
   { date: '2025.7.11', digest: '4ohbzXwpobyU9K94iweNy5mZemMidoB4LFXeE2wXsfPE', direction: SELL, deep: 3695, usdc: 624.289587, gas: 0.00547156, t: '26 | 124.484 u' },
   { date: '2025.7.14', digest: 'JB8eqn8H7k5N6TFhryD6XdU33b44y5GYzT2pFFHsvVqm', direction: SELL, deep: 5000, usdc: 935.447046, gas: 0.002932308 },
   { date: '2025.7.17', digest: '5RBvdGtxSkisEwUuPddtFSv1Z8xnqsJvEEysuPGWRBq3', direction: SELL, deep: 5000, usdc: 967.834112, gas: 0.015060636 },
+  { date: '2025.7.17', digest: 'DRKcqXo1dtiP5KK85Uz2tQhov8MK526XHt5iJavuubFJ', direction: SELL, deep: 5000, usdc: 1008.830459, gas: 0.009925556 },
 ];
 
 export {
