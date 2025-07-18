@@ -210,6 +210,7 @@ const cashflow = [ {
     { day: 5, unitPrice: 7.10, num: 400, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn转账|wx转账 2840' },
     { day: 8, unitPrice: 7.10, num: 550, platform: PLATFORM.AC, direction: BUY, desc: '张锴/微信3905' },
     { day: 11, unitPrice: 7.13, num: 1000, platform: PLATFORM.AC, direction: BUY, desc: 'Leo/微信 7130' },
+    { day: 18, unitPrice: 7.05882353, num: 85, platform: PLATFORM.AC, direction: BUY, desc: 'jyh/bn|微信 600cny', }
   ]
 } ];
 
