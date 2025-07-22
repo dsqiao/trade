@@ -436,6 +436,7 @@ const data = [
       { day: 14, price: 19.9, number: 50, direction: BUY, fee: 1.15 },
       { day: 15, price: 18.8, number: 50, direction: BUY, fee: 0.52, t: 'grid44' },
       { day: 16, price: 20, number: 50, direction: SELL, fee: 1.16, t: 'grid44 收益 60' },
+      { day: 21, price: 19, number: 50, direction: BUY, fee: 0 },
     ]
   }
 ];
