@@ -5,6 +5,7 @@ import CashFlow from "../components/CashFlow.vue";
 import DeepUsdc from "../components/pair/deep-usdc.vue";
 import DeepSui from '../components/pair/deep-sui.vue';
 import NsSui from '../components/pair/ns-usdc.vue';
+import CoinHistory from "@/components/CoinHistory.vue";
 const routes = [
   {
     path: "/",
@@ -13,6 +14,11 @@ const routes = [
     path: "/history/:stock",
     name: "History",
     component: History,
+  },
+  {
+    path: '/coin-history/:coin',
+    name: "coin",
+    component: CoinHistory
   },
   {
     path: "/sui-usdc",
