@@ -71,7 +71,7 @@ const suiGain = ref(0);
 const usdcGain = ref(0);
 const totalGas = ref(0);
 const showT = ref(true);
-const transKeySet = [];
+const transMap = new Map();
 for (let index = 0; index < suiTradeData.length; index += 1) {
   const trans = suiTradeData[index];
   trans.gain = '0';
@@ -84,24 +84,12 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
   if (!trans.gas) {
     trans.gas = 0;
   }
+  // 我们把含有 t 值的交易称为「已结算交易」，对于已结算交易对，我们放到一个 Map 中
   if (trans.t) {
-    if (transKeySet.includes(trans.t)) {
-      for (let j = 0; j < index; j += 1) {
-        let prevTrans = suiTradeData[j];
-        if (prevTrans.t === trans.t) {
-          if (prevTrans.direction === BUY && trans.direction === SELL) {
-            const usdcGain = trans.usdc - prevTrans.usdc;
-            const suiGain = prevTrans.sui - trans.sui;
-            trans.gain = `${usdcGain.toFixed(6)} usdc | ${suiGain.toFixed(6)} sui`;
-          } else if (prevTrans.direction === SELL && trans.direction === BUY) {
-            const usdcGain = prevTrans.usdc - trans.usdc;
-            const suiGain = trans.sui - prevTrans.sui;
-            trans.gain = `${usdcGain.toFixed(6)} usdc | ${suiGain.toFixed(6)} sui`;
-          }
-        }
-      }
+    if (!transMap.has(trans.t))  {
+      transMap.set(trans.t, [ trans ]);
     } else {
-      transKeySet.push(trans.t);
+      transMap.get(trans.t).push(trans);
     }
   }
   totalGas.value += trans.gas;
@@ -114,6 +102,26 @@ for (let index = 0; index < suiTradeData.length; index += 1) {
   }
 }
 
+// 返回来遍历一遍，计算所有已结算交易对的收益
+for (let index = suiTradeData.length - 1; index >= 0; index -= 1) {
+  const trans = suiTradeData[index];
+  if (trans.t && transMap.has(trans.t)) {
+    const transList = transMap.get(trans.t);
+    let suiGain = 0;
+    let usdcGain = 0;
+    for (let singleTran of transList) {
+      if (singleTran.direction === SELL) { // 卖 sui， 买 usdc
+        usdcGain += singleTran.usdc;
+        suiGain -= singleTran.sui;
+      } else if (singleTran.direction === BUY) { // 卖 usdc，买 sui
+        usdcGain -= singleTran.usdc;
+        suiGain += singleTran.sui;
+      }
+    }
+    trans.gain = `${usdcGain.toFixed(6)} usdc | ${suiGain.toFixed(6)} sui`;
+    transMap.delete(trans.t);
+  }
+}
 </script>
 <style scoped>
 .title {
