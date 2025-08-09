@@ -8,7 +8,6 @@
        :key="index"
        class="transaction"
   >
-    <!-- <span>{{ tran.digest }}</span> -->
     <span class="direction">{{ tran.direction === 0 ? '买入' : '卖出' }}</span>
     <span class="detail">
       {{ 
