@@ -54,9 +54,9 @@ const deepTradeData = [
   { date: '2025.5.8', digest: 'BCq6wSBM9NwN6Qa785AfSXJ2J1RiSFSAxrvDzDgEwn4k', direction: SELL, deep: 2721.000154, usdc: 488.331656, gas: 0.027893348, t: '22 | +28u' },
   { date: '2025.5.8', digest: 'G98fxaefYD6LuZiJ8PFhjs2gUdGm3PxBDhWnmDkr79NX', direction: SELL, deep: 2626.00015, usdc: 525.039015, gas: 0.040914198, t: '23 | +25u' },
   { date: '2025.5.31', digest: 'DiUrTrNspSWN8EmyYdZZ8ojsUr7Sh8faAHTb8VntFGBG', direction: BUY, deep: 8388.675444, usdc: 1200.000041, gas: 0.0279619, t: '24' },
-  { date: '2025.5.31', digset: 'YrxFURv1ANKjzwRvsdqNXMQe9AjmCzfz8TvDMXLTscW', direction: SELL, deep: 8389.001939, usdc: 1239.076259, gas: 0.019392228, t: '24 | 39 u' },
+  { date: '2025.5.31', digest: 'YrxFURv1ANKjzwRvsdqNXMQe9AjmCzfz8TvDMXLTscW', direction: SELL, deep: 8389.001939, usdc: 1239.076259, gas: 0.019392228, t: '24 | 39 u' },
   { date: '2025.6.18', digest: '3QaLTcDNZZtsVD3UAvyew5xLe7A8M91PfxmX5nZX6wUT', direction: BUY, deep: 3695.995834, usdc: 499.805306, gas: 0.007980116, t: '26' },
-  { date: '2025.6.18', digst: 'F8AFAmfFXTthxALGmyNghvBxSsn8JVYJQY2njcBSQgKy', direction: BUY, deep: 3857.996446, usdc: 499.73332, gas: 0.017353412, t: '25' },
+  { date: '2025.6.18', digest: 'F8AFAmfFXTthxALGmyNghvBxSsn8JVYJQY2njcBSQgKy', direction: BUY, deep: 3857.996446, usdc: 499.73332, gas: 0.017353412, t: '25' },
   { date: '2025.7.3', digest: '8EhZtZCzoW45MvxTzZEPj2hivVga57GaEmca4yTmU6FJ', direction: SELL, deep: 3857.268197, usdc: 595.623936, gas: -0.029830736, t: '25 | 95 u' },
   { date: '2025.7.11', digest: '4ohbzXwpobyU9K94iweNy5mZemMidoB4LFXeE2wXsfPE', direction: SELL, deep: 3695, usdc: 624.289587, gas: 0.00547156, t: '26 | 124.484 u' },
   { date: '2025.7.14', digest: 'JB8eqn8H7k5N6TFhryD6XdU33b44y5GYzT2pFFHsvVqm', direction: SELL, deep: 5000, usdc: 935.447046, gas: 0.002932308 },
@@ -64,6 +64,7 @@ const deepTradeData = [
   { date: '2025.7.17', digest: 'DRKcqXo1dtiP5KK85Uz2tQhov8MK526XHt5iJavuubFJ', direction: SELL, deep: 5000, usdc: 1008.830459, gas: 0.009925556 },
   { date: '2025.7.18', digest: 'uG2d2LLBHk4zPFmTshuf6381FinbkADLVVcrJmL7yBZ', direction: SELL, deep: 5000, usdc: 1065.027587, gas: 0.009929556 },
   { date: '2025.8.10', digest: 'DZQDRsJtSwiS39pcwKbPUuZyyQcT9RAVC8u6gj34YR5x', direction: SELL, deep: 19999.999999, usdc: 3140.57603, gas: 0.005799316 },
+  { date: '2025.8.11', digest: '3sjtQyWFGRBCPdLAWZeeaeoadHBJ944zPNTvDE8NqBJJ', direction: BUY, deep: 19989.036613, usdc: 3047.0, gas: 0.05594906 },
 ];
 
 export {
