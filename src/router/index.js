@@ -1,10 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import History from "../components/StockHistory.vue";
-import SuiUsdc from '../components/pair/sui-usdc.vue';
 import CashFlow from "../components/CashFlow.vue";
-import DeepUsdc from "../components/pair/deep-usdc.vue";
 import DeepSui from '../components/pair/deep-sui.vue';
-import NsSui from '../components/pair/ns-usdc.vue';
 import CoinHistory from "@/components/CoinHistory.vue";
 const routes = [
   {
@@ -19,25 +16,6 @@ const routes = [
     path: '/coin-history/:coin',
     name: "coin",
     component: CoinHistory
-  },
-  {
-    path: "/sui-usdc",
-    name: "sui-usdc",
-    component: SuiUsdc
-  },
-  {
-    path: '/deep-usdc',
-    name: "deep-usdc",
-    component: DeepUsdc
-  },
-  {
-    path: '/ns-usdc',
-    name: 'NsSui',
-    component: NsSui
-  }, {
-    path: '/wal-usdc',
-    name: 'WalUsdc',
-    component: () => import('../components/pair/wal-usdc.vue')  
   },
   {
     path: '/deep-sui',

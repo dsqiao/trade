@@ -18,12 +18,12 @@
       </div>
       <div class="tab">
         crypto:
-        <div class="link"><router-link to="/sui-usdc">SUI-USDC</router-link></div>
-        <div class="link"><router-link to="/deep-usdc">DEEP-USDC</router-link></div>
+        <div class="link"><router-link to="/coin-history/sui">SUI-USDC</router-link></div>
+        <div class="link"><router-link to="/coin-history/deep">DEEP-USDC</router-link></div>
         <div class="link"><router-link to="/deep-sui">DEEP-SUI</router-link></div>
-        <div class="link"><router-link to="/ns-usdc">NS-USDC</router-link></div>
-        <div class="link"><router-link to="/wal-usdc">WAL-USDC</router-link></div>
-        <div class="link"><RouterLink to="/coin-history/jitosol">JitoSOL</RouterLink></div>
+        <div class="link"><router-link to="/coin-history/ns">NS-USDC</router-link></div>
+        <div class="link"><router-link to="/coin-history/wal">WAL-USDC</router-link></div>
+        <div class="link"><RouterLink to="/coin-history/jitosol">JitoSOL-USDC</RouterLink></div>
       </div>
       <div class="tab">
         其他：
