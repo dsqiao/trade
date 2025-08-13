@@ -99,8 +99,7 @@ const calculateData = async () => {
     if (!tran.timestamp) {
       try {
         const res = await getTransactionTime(tran.digest);
-        // alert(`txDigest ${tran.digest} time is ${res.timestampMs}`);
-        console.log(`txDigest ${tran.digest} time is timestamp:${res.timestampMs},`);
+        alert(`txDigest ${tran.digest} time is ${res.timestampMs}`);
         tran.timestamp = res.timestampMs;
       } catch (e) {
         console.error(`获取交易时间失败, txDigest: ${tran.digest}, error: ${e}`);
