@@ -378,7 +378,7 @@ const data = [
   { digest: 'G152fpdUBuE6TANCV2hwZLjaiyMKCCWisGvVmoN2Sjx9', direction: BUY, coin: 154.999289941, u: 570.110296, timestamp: 1754988856174, t: 181 },
   { digest: 'NYd2Y8g2foDbb9K9ggC4cCv4ruLfnsg1CnuTdiRqSu1', direction: SELL, coin: 154.9, u: 576.576945, timestamp: 1755001901100, t: 181 },
   { digest: '4iSE6MViszgX2L5Mi2CZWWs1zQ22c4eMAuMqJopQGpGF', direction: SELL, coin: 200, u: 760.892518, timestamp: 1755012388852, },
-  { digest: 'Gw9UbqnMmjMKTcRuBEjM7cm4rHZvkgxeQ5kM9obhuS6U', direction: SELL, coin: 150, u: 586.452907, timestamp: 1755030634204 },
+  { digest: 'Gw9UbqnMmjMKTcRuBEjM7cm4rHZvkgxeQ5kM9obhuS6U', direction: SELL, coin: 150, u: 586.452907, timestamp: 1755030634204, t: 190 },
   { digest: '2eueYNRzgSbnt1MPbhuf86454gGNwD458ajBPVeQtBZf', direction: SELL, coin: 150, u: 605.795039, timestamp: 1755084852406, t: 182 },
   { digest: 'GugGWpbvFUuugb1kk4XsceLc6W8ULv4cTmNuQemEXmzt', direction: BUY, coin: 150.348870491, u: 590, timestamp: 1755097851345, t: 182 },
   { digest: 'A38FWgaSwtUMd2w3yTweBSfXXdSGGB7541X29C9ADEd6', direction: BUY, u: 500, coin: 126.211263732, timestamp: 1755101244839, t: 183 },
@@ -393,6 +393,10 @@ const data = [
   { digest: 'DvAZoKGxvVJAGBsXis5pSEPcuVM8mnB7KDrxVfCtHcbk', direction: BUY, u: 568, coin: 150.216767444, timestamp: 1755178872235, t: 187 },
   { digest: '37Yr6zwP1FzmX42cX4qobjt19S3WYRw6SxdKpvL5dQkC', direction: SELL, u: 570.348668, coin: 150.21, timestamp: 1755179094756, t: 187 },
   { digest: '3Mhznh4Ty2HgpHLsxtuomBnbUXSHcoXP7ycE14srFJZm', direction: BUY, u: 567, coin: 150.184840592, timestamp: 1755188638193, t: 188 },
-  { digest: 'FSMJAFXdnwFTszen7z26sc7kq3C8JU9J95JQ9MXcmEfk', direction: SELL, u: 573.162657, coin: 150, timestamp: 1755233429758, },
+  { digest: 'FSMJAFXdnwFTszen7z26sc7kq3C8JU9J95JQ9MXcmEfk', direction: SELL, u: 573.162657, coin: 150, timestamp: 1755233429758, t: 189 },
+  { digest: 'C3s674KhvpVzgB1mHKVs7FAR3aJWHY5n7JnxJJYiFJZt', direction: BUY, u: 568, coin: 150.292374944, timestamp: 1755266566392, t: 189 },
+  { digest: 'D5vY1inwRg2UUhvvk3rgByC7Mhp2TX6yUeLfQPrpoKqp', direction: BUY, u: 555, coin: 150.182606673, timestamp: 1755269810011, t: 190 },
+  { digest: '8XX85Eg9TxmRJ9NQL2UHD9PEMn5TX9818VUv7j8yreNp', direction: BUY, u: 733, coin: 200.143016788, timestamp: 1755284391429, t: 191 },
+  { digest: '5yDfsmYPjQTDR2yniKWYha2Qg2KhKmDfhedNkPcCSr98', direction: SELL, u: 736.396952, coin: 200.14, timestamp: 1755289893356, t: 191 },
 ];
 export { data };
