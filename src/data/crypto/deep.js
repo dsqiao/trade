@@ -74,6 +74,7 @@ const data = [
   { timestamp: 1755287108124, digest: 'Hy4FM5zpmi6GkAhEFLkmkreRAewDYvobxkLciARwhR7j', direction: BUY,  coin: 5001.896127, u: 830, fee: -0.000519696, t: 30 },
   { timestamp: 1755309178531, digest: 'FSwHuknXAhLu6P7kMPoLdNsZhe4waMT5zTDsrsmKivwm', direction: SELL, coin: 5000, u: 867.645339, fee: 0.001092264, t: 30 },
   { timestamp: 1755503713669, digest: '4KsTRYyhqjZRGxr21kLmFt3iZcTqWuRcPbLBWNtDd7EN', direction: BUY, coin: 5005.895999, u: 794, fee: 0.002414664, t: 31 },
+  { timestamp: 1755690320538, digest: 'AhuWbMz2PbZJUZqxm82VHkamWtdmy4GDh2vLcgHr84AK', direction: BUY, coin: 5006.65771, u: 766, fee: -0.031623912 },
 ];
 
 export {
