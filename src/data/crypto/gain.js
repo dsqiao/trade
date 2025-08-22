@@ -84,13 +84,23 @@ const gain = [ {
     '8.13': 15.795039,
     '8.14': 20.436780,
     '8.15': 75.917556,
+    '8.16': 3.396952,
+    '8.17': 4.288766,
+    '8.18': 4.165819,
+    '8.19': 0,
+    '8.20': 3.164822,
+    '8.21': 21.404981,
+    '8.22': 66.964291,
   },
 } ];
 
+let totalGain = 0;
 for (let i of gain) {
   let sum = 0;
   for (let j of Object.values(i.monthGain)) {
     sum += j;
+    totalGain += j;
   }
   console.log(`Gain for ${i.time}: ${sum.toFixed(3)}`);
 };
+console.log(`total gain ${totalGain.toFixed(3)}`);
