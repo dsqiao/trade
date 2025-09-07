@@ -442,7 +442,7 @@ const data = [
     ]
   }, {
     month: '202508',
-    monthlyProfit: 0,
+    monthlyProfit: 101.5,
     trans: [
       { day: 1, price: 15.5, number: 50, direction: BUY, fee: 0.52 },
       { day: 14, price: 15, number: 50, direction: BUY, fee: 1.16, t: 'grid 45' },
