@@ -233,7 +233,7 @@ watch(
 }
 
 .gain {
-  width: 18rem;
+  width: 20rem;
 }
 .des {
   width: 7rem;
