@@ -72,7 +72,12 @@ const data = [ {
   month: '202508',
   trans: [
     { day: 8, price: 10, number: 100, direction: BUY, fee: 1.31 },
-    { day: 20, price: 9, number: 100, direction: BUY, fee: 1.31 },
+    { day: 20, price: 9, number: 100, direction: BUY, fee: 1.31, t: '12' },
+  ]
+}, {
+  month: '202509',
+  trans: [
+    { day: 10, price: 10, number: 100, direction: SELL, fee: 0, t: '12 | 收益 100' },
   ]
 } ];
 export {
