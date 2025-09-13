@@ -487,5 +487,9 @@ const data = [
   { digest: 'ESPqNWCNz4XTfG5MW4khpX3LybBEysanFEicVp1fQnMX', direction: SELL, u: 1054.16434, coin: 300.5, timestamp: 1757469798457, t: 217 },
   { digest: '61nAVFfcfkAmDqHz8E4saZZhQ3gtTLiGebHNxbR5Buey', direction: SELL, u: 929.487532, coin: 260.002434804, timestamp: 1757528356748, t: 218 },
   { digest: '13pxJruGrMfNqtMwoVtGVbu3zDWHjDkouiRAGs6gCi1R', direction: BUY, u: 926, coin: 260.048026886, timestamp: 1757532226536, t: 218 },
+  { digest: '5bzQvAv2vT3Ni2JB8Y61DtEkd8VieDig7TdtXJaULRuk', direction: SELL, u: 1089.272975, coin: 300, timestamp: 1757563484569, t: 219 },
+  { digest: '9DLfvbYxohHgjaX54yedxfihsobJ5EdK1GfPZT3FMcip', direction: BUY, u: 1083, coin: 300.079884212, timestamp: 1757571000835, t: 219 },
+  { digest: '43Ahz8gS61tRWHdggS35EAMfCRfTZoMmP9QspHa7WiBt', direction: SELL, u: 1848.603999, coin: 500.041904562, timestamp: 1757703622047, t: 216 },
+  { digest: '5cVmonVsUHG1qJwzHtPyJRsoGebVMmFsfohjszrx2i4B', direction: SELL, u: 1909.105795, coin: 501.028749742, timestamp: 1757755575226, t: 216 },
 ];
 export { data };
