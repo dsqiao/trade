@@ -501,5 +501,8 @@ const data = [
   { digest: '3mXSMzAjWxtavjF9hwbLRhpETZeybq5ZeV6jKj3hzF9P', direction: BUY, u: 741.98, coin: 199.991693584, timestamp: 1757874041360, t: 221 },
   { digest: 'FMLYxUUb8iAz6LHLhLfBrDFVuAQUU4a5ZmobTtmQpjJs', direction: BUY, u: 371, coin: 99.937494977, timestamp: 1757874773185, t: 221 },
   { digest: 'Bc4XWMof15TydKWSHZzgdZ5TgoT4QYu5LTqmX3fUU2T1', direction: BUY, u: 734, coin: 200.27270273, timestamp: 1757898869976, t: 221 },
+  { digest: '2KYhwLzRm1Z2wqb3Xcs8uKPeDKhpm9vvAZjeDriWA2Rk', direction: BUY, u: 1081, coin: 300.412887913, timestamp: 1757922523990, t: 221 },
+  { digest: 'BuAbH6JGzMkVNyv22bXPVynWyNVMSn6MbWsmUkB6L24g', direction: BUY, u: 702.892656, coin: 197.862241714, timestamp: 1757923576077, t: 221 },
+  { digest: '9c77kQw6ofQhUKw48Vtu99HL2mi3hv9PDdNfJwwgFLPK', direction: BUY, u: 710, coin: 202.307942734, timestamp: 1757943895294, t: 221 },
 ];
 export { data };
