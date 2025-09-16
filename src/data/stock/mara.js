@@ -444,7 +444,7 @@ const data = [
     month: '202508',
     monthlyProfit: 101.5,
     trans: [
-      { day: 1, price: 15.5, number: 50, direction: BUY, fee: 0.52 },
+      { day: 1, price: 15.5, number: 50, direction: BUY, fee: 0.52, t: 'grid 48' },
       { day: 14, price: 15, number: 50, direction: BUY, fee: 1.16, t: 'grid 45' },
       { day: 18, price: 16, number: 50, direction: SELL, fee: 1.17, t: 'grid 45 收益 50' },
       { day: 20, price: 15, number: 50, direction: BUY, fee: 1.16, t: 'grid 46' },
@@ -455,7 +455,8 @@ const data = [
     monthlyProfit: 0,
     trans: [
       { day: 5, price: 14.8, number: 50, direction: BUY, fee: 1.16, t: 'grid 47' },
-      { day: 9, price: 16, number: 50, direction: SELL, fee: 0, t: 'grid 47 收益 60' },
+      { day: 9, price: 16, number: 50, direction: SELL, fee: 1.17, t: 'grid 47 收益 60' },
+      { day: 16, price: 17, number: 50, direction: SELL, fee: 0, t: 'grid 48 收益 75' },
     ]
   }
 ];
