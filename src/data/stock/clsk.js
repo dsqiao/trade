@@ -79,8 +79,9 @@ const data = [ {
   trans: [
     { day: 10, price: 10, number: 100, direction: SELL, fee: 1.33, t: '12 | 收益 100' },
     { day: 16, price: 11, number: 100, direction: SELL, fee: 1.33, t: '13 | 收益 100' },
-    { day: 18, price: 12.5, number: 100, direction: SELL, fee: 0, t: 't14 | 收益 50' },
-    { day: 18, price: 13.5, number: 100, direction: SELL, fee: 0, t: 't15 | 收益 140' },
+    { day: 18, price: 12.5, number: 100, direction: SELL, fee: 1.33, t: 't14 | 收益 50' },
+    { day: 18, price: 13.5, number: 100, direction: SELL, fee: 1.33, t: 't15 | 收益 140' },
+    { day: 19, price: 14, number: 100, direction: SELL, fee: 0, },
   ]
 } ];
 export {
