@@ -16,6 +16,7 @@
       tran.t ? 'mask' : '',
     ]"
   >
+    <span class="date">{{ tran.date }}</span>
     <span class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</span>
     <span class="price">{{ tran.price }}</span>
     <span class="amount">{{ tran.amount }}</span>
@@ -143,5 +144,8 @@ watch(
 }
 .t {
   width: 3rem;
+}
+.date {
+  width: 6rem;
 }
 </style>
