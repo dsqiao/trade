@@ -20,6 +20,8 @@
     <span class="price">{{ tran.price }}</span>
     <span class="amount">{{ tran.amount }}</span>
     <span class="value">{{ (tran.price * tran.amount).toFixed(5) }}</span>
+    <span class="t">{{ tran.t || '\\' }}</span>
+    <span class="gain">{{ tran.gain || '0' }}</span>
   </div>
 </template>
 <script setup>
@@ -43,7 +45,20 @@ const clearData = () => {
 };
 
 const calculateData = () => {
+
+  const transMap = new Map();
+
   for (const tran of mData) {
+
+    // 我们把含有 t 值的交易称为「已结算交易」，对于已结算交易对，我们放到一个 Map 中
+    if (tran.t) {
+      if (!transMap.has(tran.t))  {
+        transMap.set(tran.t, [ tran ]);
+      } else {
+        transMap.get(tran.t).push(tran);
+      }
+    }
+
     if (tran.direction === 0) {
       btcAccumulation.value += tran.amount;
       cost.value += tran.price * tran.amount;
@@ -52,6 +67,25 @@ const calculateData = () => {
       cost.value -= tran.price * tran.amount;
     }
   }
+
+  // 返回来遍历一遍，计算所有已结算交易对的收益
+  for (let index = mData.length - 1; index >= 0; index -= 1) {
+    const trans = mData[index];
+    if (trans.t && transMap.has(trans.t)) {
+      const transList = transMap.get(trans.t);
+      let gain = 0;
+      for (let singleTran of transList) {
+        console.log(singleTran);
+        if (singleTran.direction === 0) { // open
+          gain -= (singleTran.amount * singleTran.price);
+        } else if (singleTran.direction === 1) { // close
+          gain += (singleTran.amount * singleTran.price);
+        }
+      }
+      trans.gain = `${gain.toFixed(3)} usdc`;
+      transMap.delete(trans.t);
+    }
+  }  
 };
 watch(
   () => route.params.coin,
@@ -103,5 +137,11 @@ watch(
 }
 .title-line > span {
   display: inline-block;
+}
+.gain {
+  width: 6rem;
+}
+.t {
+  width: 3rem;
 }
 </style>

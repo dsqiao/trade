@@ -13,6 +13,7 @@ const data = [
   { price: 112700, amount: 0.025, direction: OPEN, t: 2 },
   { price: 112900, amount: 0.025, direction: CLOSE, t: 2 },
   { price: 112700, amount: 0.025, direction: OPEN },
-  { price: 112300, amount: 0.020, direction: OPEN },
+  { price: 112300, amount: 0.020, direction: OPEN, t: 3 },
+  { price: 112700, amount: 0.020, direction: CLOSE, t: 3 },
 ];
 export { data };
