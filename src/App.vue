@@ -28,6 +28,7 @@
       <div class="tab">
         其他：
         <div class="link"><router-link to="/cashflow">crypto出入金</router-link></div>
+        <div class="link"><router-link to="/future/btc">long btc</router-link></div>
       </div>
       <router-view :key="$route.fullPath" />
     </div>
