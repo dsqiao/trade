@@ -7,6 +7,10 @@
     <span class="title-span">成本</span>
     <span class="content-span">{{ (cost / btcAccumulation).toFixed(3) }}</span>
   </div>
+  <div class="title-line">
+    <span class="title-span">资金费</span>
+    <span class="content-span">{{ totalFee.toFixed(8) }}</span>
+  </div>
   <div 
     v-for="(tran, index) in mData"
     :key="index"
@@ -31,6 +35,8 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const coin = ref(route.params.coin);
 const mData = reactive([]);
+const mFundingFee = reactive([]);
+const totalFee = ref(0);
 const btcAccumulation = ref(0);
 const cost = ref(0);
 /**
@@ -38,8 +44,9 @@ const cost = ref(0);
  * @param coin { value: string } 需要加载的币种
  */
 const loadData = async (coin) => {
-  const { data } = await import(`../data/future/${coin.value}-usdc.js`);
+  const { data, fundingFee } = await import(`../data/future/${coin.value}-usdc.js`);
   mData.push(...data);
+  mFundingFee.push(...fundingFee);
 };
 const clearData = () => {
 
@@ -87,6 +94,12 @@ const calculateData = () => {
       transMap.delete(trans.t);
     }
   }  
+  for (let day of mFundingFee) {
+    for (const fee of day.fee) {
+      totalFee.value += fee;
+    }
+  }
+
 };
 watch(
   () => route.params.coin,
