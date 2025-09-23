@@ -21,5 +21,8 @@ const data = [
   { date: '2025.9.23', price: 112700, amount: 0.051, direction: CLOSE, t: 4 },
   { date: '2025.9.23', price: 113000, amount: 0.025, direction: CLOSE, t: 5 },
   { date: '2025.9.23', price: 112750, amount: 0.025, direction: OPEN, },
+  { date: '2025.9.23', price: 112400, amount: 0.025, direction: OPEN },
+  { date: '2025.9.23', price: 112000, amount: 0.025, direction: OPEN, t: 6 },
+  { date: '2025.9.23', price: 112250, amount: 0.025, direction: CLOSE, t: 6 },
 ];
 export { data };
