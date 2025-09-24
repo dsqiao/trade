@@ -11,11 +11,11 @@
 
   <div class="title-line">
     <span class="title-span">净入金(CNY)</span>
-    <span class="content-span">{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</span>
+    <span class="content-span">¥ {{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</span>
   </div>
   <div class="title-line">
     <span class="title-span">净入金(USDC)</span>
-    <span class="content-span">{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</span>
+    <span class="content-span">$ {{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</span>
   </div>
   <div class="title-line">
     <span class="title-span">净入金均价</span>

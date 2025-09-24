@@ -220,7 +220,7 @@ const cashflow = [ {
   month: '202509',
   record: [
     { day: 2, num: 124.5, cny: 887, platform: PLATFORM.AC, direction: BUY, desc: '张锴/微信 887 cny' },
-    { day: 23, num: 1408, cny: 10000, platform: PLATFORM.AC, direction: BUY, desc: '宋秀连/招行 10000 cny' },
+    { day: 23, num: 1408, cny: 10000, platform: PLATFORM.AC, direction: BUY, desc: '宋秀莲/招行 10000 cny' },
   ]
 } ];
 
