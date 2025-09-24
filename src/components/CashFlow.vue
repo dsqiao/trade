@@ -9,13 +9,18 @@
 
   <div class="divider"></div>
 
-  <div>净入金(CNY)</div>
-  <div>{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</div>
-  <div>------------------------</div>
-  <div>净入金(USDC)</div>
-  <div>{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</div>
-  <div>------------------------</div>
-  <div>净入金均价 {{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }} </div>
+  <div class="title-line">
+    <span class="title-span">净入金(CNY)</span>
+    <span class="content-span">{{ parseNumber(totalInflowInCNY - totalOutflowInCNY) }}</span>
+  </div>
+  <div class="title-line">
+    <span class="title-span">净入金(USDC)</span>
+    <span class="content-span">{{ parseNumber(totalInflowInUSDC - totalOutflowInUSDC) }}</span>
+  </div>
+  <div class="title-line">
+    <span class="title-span">净入金均价</span>
+    <span class="content-span">{{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }}</span>
+  </div>
 
   <div v-for="(month, monthIndex) in cashflow"
        :key="monthIndex"
@@ -96,7 +101,19 @@ const parseNumber = (num) => {
 .divider {
   height: 2rem;
 }
-
+.title-line {
+  margin: .3rem 0;
+  font-size: large;
+}
+.title-line > span {
+  display: inline-block;
+}
+.content-span {
+  width: 10rem;
+}
+.title-span {
+  width: 10rem;
+}
 .transaction>span {
   display: inline-block;
   border: 1px black solid;
