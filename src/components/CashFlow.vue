@@ -35,13 +35,13 @@
           {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}
         </span>
         <span class="unit">
-          {{ item.unitPrice }}
+          {{ (item.cny / item.num).toFixed(4) }}
         </span>
         <span class="num">
           {{ item.num }}
         </span>
         <span class="total">
-          {{ (item.unitPrice * item.num).toFixed(2) }}
+          {{ (item.cny || 0).toFixed(3) }}
         </span>
         <span class="direction">
           {{ item.direction === BUY ? '入金' : '出金' }}
@@ -76,11 +76,11 @@ for (let month of cashflow) {
   for (let item of month.record) {
     if (item.direction === BUY) {
       // 买入
-      totalInflowInCNY.value += item.num * item.unitPrice;
+      totalInflowInCNY.value += item.cny;
       totalInflowInUSDC.value += item.num;
     } else {
       // 卖出
-      totalOutflowInCNY.value += item.num * item.unitPrice;
+      totalOutflowInCNY.value += item.cny;
       totalOutflowInUSDC.value += item.num;
     }
   }
@@ -123,7 +123,7 @@ const parseNumber = (num) => {
 }
 
 .unit {
-  width: 3rem;
+  width: 5rem;
 }
 
 .num {
