@@ -28,13 +28,14 @@ const data = [
   { date: '2025.9.23', price: 112600, amount: 0.03, direction: CLOSE, t: 7 },
   { date: '2025.9.23', price: 113000, amount: 0.025, direction: CLOSE, t: 8 },
   { date: '2025.9.24', price: 112700, amount: 0.025, direction: OPEN, },
-  { date: '2025.9.24', price: 112400, amount: 0.025, direction: OPEN },
+  { date: '2025.9.24', price: 112400, amount: 0.025, direction: OPEN, t: 12 },
   { date: '2025.9.24', price: 112000, amount: 0.028, direction: OPEN, t: 11 },
   { date: '2025.9.24', price: 111500, amount: 0.03, direction: OPEN, t: 9 },
   { date: '2025.9.24', price: 111850, amount: 0.03, direction: CLOSE, t: 9 },
   { date: '2025.9.24', price: 111500, amount: 0.03, direction: OPEN, t: 10 },
   { date: '2025.9.24', price: 112350, amount: 0.03, direction: CLOSE, t: 10 },
   { date: '2025.9.24', price: 112600, amount: 0.028, direction: CLOSE, t: 11 },
+  { date: '2025.9.24', price: 113000, amount: 0.025, direction: CLOSE, t: 12 }
 ];
 
 const fundingFee = [

@@ -11,22 +11,31 @@
     <span class="title-span">资金费</span>
     <span class="content-span">{{ totalFee.toFixed(8) }}</span>
   </div>
+  <br />
   <div 
     v-for="(tran, index) in mData"
     :key="index"
-    class="transaction"
-    :class="[
-      tran.direction === 0 ? 'open' : 'close',
-      tran.t ? 'mask' : '',
-    ]"
   >
-    <span class="date">{{ tran.date }}</span>
-    <span class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</span>
-    <span class="price">{{ tran.price }}</span>
-    <span class="amount">{{ tran.amount }}</span>
-    <span class="value">{{ (tran.price * tran.amount).toFixed(5) }}</span>
-    <span class="t">{{ tran.t || '\\' }}</span>
-    <span class="gain">{{ tran.gain || '0' }}</span>
+    <div
+      v-if="!tran.t || showT"  
+      class="transaction"
+      :class="[
+        tran.direction === 0 ? 'open' : 'close',
+        tran.t ? 'mask' : '',
+      ]"
+    >
+      <span class="date">{{ tran.date }}</span>
+      <span class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</span>
+      <span class="price">{{ tran.price }}</span>
+      <span class="amount">{{ tran.amount }}</span>
+      <span class="value">{{ (tran.price * tran.amount).toFixed(5) }}</span>
+      <span class="t">{{ tran.t || '\\' }}</span>
+      <span class="gain">{{ tran.gain || '0' }}</span>
+    </div>
+  </div>
+
+  <div style="position: fixed; right: 30px; bottom: 30px;">
+    <t-switch v-model="showT" />
   </div>
 </template>
 <script setup>
@@ -39,6 +48,8 @@ const mFundingFee = reactive([]);
 const totalFee = ref(0);
 const btcAccumulation = ref(0);
 const cost = ref(0);
+const showT = ref(true);
+
 /**
  * 从本地 js 文件中读取交易数据
  * @param coin { value: string } 需要加载的币种
@@ -148,6 +159,10 @@ watch(
 }
 .content-span {
   width: 10rem;
+}
+.title-line {
+  margin: .3rem 0;
+  font-size: large;
 }
 .title-line > span {
   display: inline-block;
