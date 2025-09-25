@@ -94,7 +94,6 @@ const calculateData = () => {
       const transList = transMap.get(trans.t);
       let gain = 0;
       for (let singleTran of transList) {
-        console.log(singleTran);
         if (singleTran.direction === 0) { // open
           gain -= (singleTran.amount * singleTran.price);
         } else if (singleTran.direction === 1) { // close
