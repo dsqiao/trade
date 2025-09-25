@@ -7,11 +7,11 @@
       <div class="tab">
         <span>美股:</span>
         <div class="link"><router-link to="/history/mara">MARA</router-link></div>
-        <div class="link"><router-link to="/history/riot">RIOT</router-link></div>
         <div class="link"><router-link to="/history/clsk">CLSK</router-link></div>
         <div class="link"><router-link to="/history/nio">NIO</router-link></div>
         <span>（已清仓：</span>
         <div class="link"><router-link to="/history/tsla">TSLA</router-link></div>
+        <div class="link"><router-link to="/history/riot">RIOT</router-link></div>
         <div class="link"><router-link to="/history/mstr">MSTR</router-link></div>
         <div class="link"><router-link to="/history/sq">SQ</router-link></div>
         <span>）</span>

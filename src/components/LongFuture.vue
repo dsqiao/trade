@@ -174,6 +174,6 @@ watch(
   width: 3rem;
 }
 .date {
-  width: 6rem;
+  width: 10rem;
 }
 </style>
