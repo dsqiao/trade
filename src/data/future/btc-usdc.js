@@ -55,4 +55,10 @@ const fundingFee = [
   { time: '09-24', fee: [ -1.04129087, -1.57612329, -1.47552938 ] },
   { time: '09-25', fee: [ -0.73809926, 0.77273758 ] }
 ];
-export { data, fundingFee };
+
+const gain = [
+  { date: '9.22', t: 5 },
+  { date: '9.23', t: 77.75 },
+  { date: '9.24', t: 111.55 },
+];
+export { data, fundingFee, gain };
