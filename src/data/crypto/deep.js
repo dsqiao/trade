@@ -87,6 +87,8 @@ const data = [
   { timestamp: 1758823522430, digest: 'FKGD2fKaxEkrPwX6bDhrhsb5SW5jdVxpH9EM734xmXkz', direction: BUY, coin: 9653.293771, u: 1000, fee: 0, t: 33 }, // astro
 ];
 
+const showThreshold = 0;
 export {
-  data
+  data,
+  showThreshold,
 };

@@ -48,7 +48,7 @@ const mFundingFee = reactive([]);
 const totalFee = ref(0);
 const btcAccumulation = ref(0);
 const cost = ref(0);
-const showT = ref(true);
+const showT = ref(false); // 默认不展示已成交交易对
 
 /**
  * 从本地 js 文件中读取交易数据

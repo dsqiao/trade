@@ -569,4 +569,9 @@ const data = [
   { digest: 'FdPmKUfCSG855YKD3pW5yQ7gwPbap3u4KD6mWjoMx23V', direction: SELL, u: 656.125926, coin: 200, timestamp: 1759161062556, t: 242 },
   { digest: 'DAJHVoJogcc8ZcYfADJNksDsReiFY7LM21qiggqawKYh', direction: BUY, u: 656.125926, coin: 200.441947212, timestamp: 1759164930777, t: 242 },
 ];
-export { data };
+const showThreshold = 200;
+
+export { 
+  data,
+  showThreshold,
+};

@@ -25,7 +25,7 @@
     :key="index"
   >
     <div
-      v-if="!tran.t || showT && !(tran.t < 0)"
+      v-if="!tran.t || showT && !(tran.t < threshold)"
       class="transaction"
       :class="[
         tran.direction === SELL ? 'sell' : 'buy',
@@ -82,7 +82,7 @@ const coinAccumulation = ref(0);
 const uAccumulation = ref(0);
 const totalFee = ref(0);
 const showT = ref(true);
-
+const threshold = ref(0);
 const clearData = () => {
   mData.length = 0;
   coinAccumulation.value = 0;
@@ -157,8 +157,10 @@ const calculateData = async () => {
  * @param coin { value: string } 需要加载的币种
  */
 const loadData = async (coin) => {
-  const { data } = await import(`../data/crypto/${coin.value}.js`);
+  const { data, showThreshold = 0 } = await import(`../data/crypto/${coin.value}.js`);
   mData.push(...data);
+  threshold.value = showThreshold;
+
 };
 watch(
   () => route.params.coin,
