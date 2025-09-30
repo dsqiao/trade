@@ -37,7 +37,7 @@ let sum = 0;
 data.forEach(item => {
   sum += item.mount;
 });
-console.log('总计：', sum);
+console.log('总计：', sum.toFixed(3));
 
 export {
   data
