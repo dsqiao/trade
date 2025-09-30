@@ -11,6 +11,20 @@
     <span class="title-span">资金费</span>
     <span class="content-span">{{ totalFee.toFixed(8) }}</span>
   </div>
+  <div class="title-line">
+    <span class="title-span">当前价格</span>
+    <input 
+      type="number"
+      name="price-input"
+      class="price-input"
+      v-model="currentPrice" 
+      placeholder="请输入当前价格"
+    />
+  </div>
+  <div class="title-line">
+    <span class="title-span">PnL</span>
+    <span class="title-span">{{ (currentPrice * btcAccumulation - cost + totalFee).toFixed(3) }}</span>
+  </div>
   <br />
   <div 
     v-for="(tran, index) in mData"
@@ -49,6 +63,7 @@ const totalFee = ref(0);
 const btcAccumulation = ref(0);
 const cost = ref(0);
 const showT = ref(false); // 默认不展示已成交交易对
+const currentPrice = ref(114000);
 
 /**
  * 从本地 js 文件中读取交易数据
@@ -174,5 +189,11 @@ watch(
 }
 .date {
   width: 10rem;
+}
+.price-input {
+  width: 7rem;
+  border: rgb(172, 172, 172) 1px solid;
+  background-color: rgb(35, 35, 35);
+  color: rgb(172, 172, 172);
 }
 </style>
