@@ -25,6 +25,11 @@ const data = [
   { month: '2025-03', mount: 1977, desc: '' },
   { month: '2025-04', mount: 2006, desc: '' },
   { month: '2025-05', mount: 1998, desc: '' },
+  { month: '2025-06', mount: 1985, desc: '' },
+  { month: '2025-07', mount: 1933, desc: '' },
+  { month: '2025-08', mount: 1903, desc: '' },
+  { month: '2025-09', mount: 1912, desc: '' },
+  { month: '2025-10', mount: 1914, desc: '' },
 ];
 
 // 2023年4月到2024年9月的租金总计：  30500.00
