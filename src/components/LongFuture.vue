@@ -3,7 +3,10 @@
     <span class="title-span">持仓数量(BTC)</span>
     <span class="content-span">{{ btcAccumulation.toFixed(3) }}</span>
   </div>
-  <div class="title-line">
+  <div
+    class="title-line"
+    v-if="btcAccumulation > 0.0001"
+  >
     <span class="title-span">成本</span>
     <span class="content-span">{{ (cost / btcAccumulation).toFixed(3) }}</span>
   </div>
@@ -40,7 +43,7 @@
     >
       <span class="date">{{ tran.date }}</span>
       <span class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</span>
-      <span class="price">{{ tran.price }}</span>
+      <span class="price">{{ parseNumber(tran.price) }}</span>
       <span class="amount">{{ tran.amount }}</span>
       <span class="value">{{ (tran.price * tran.amount).toFixed(5) }}</span>
       <span class="t">{{ tran.t || '\\' }}</span>
@@ -55,6 +58,7 @@
 <script setup>
 import { reactive, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { parseNumber } from '@/utils';
 const route = useRoute();
 const coin = ref(route.params.coin);
 const mData = reactive([]);
