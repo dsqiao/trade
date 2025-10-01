@@ -79,10 +79,23 @@ function jumpOverview(digest) {
 function jumpChanges(digest) {
   window.open(`https://suivision.xyz/txblock/${digest}?tab=Changes`);
 };
+
+/**
+ * 给一个数字，每隔 3 位加上一个逗号，并且强制保留两位小数
+ * @param {*} num 
+ * @returns 格式化后的数字（字符串形式）
+ */
+function parseNumber(num) {
+  return num.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+};
 export { 
   getDayOfWeek,
   getTransactionTime,
   toLocalTime,
   jumpOverview,
-  jumpChanges, 
+  jumpChanges,
+  parseNumber,
 };

@@ -46,4 +46,5 @@ for (const item of data) {
   console.log(`${item.date} usd: ${usdTotal.toFixed(2)}, cny: ${cnyTotal.toFixed(2)}, total: ${(usdTotal * item.exchangeRate + cnyTotal).toFixed(2)}`);
 }
 
+export { data, AssetCategory, AssetCurrency, AssetName };
 // node src/data/assets.js

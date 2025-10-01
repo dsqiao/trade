@@ -4,6 +4,7 @@ import CashFlow from "../components/CashFlow.vue";
 import DeepSui from '../components/pair/deep-sui.vue';
 import CoinHistory from "@/components/CoinHistory.vue";
 import Future from '../components/LongFuture.vue';
+import Asset from "@/components/Asset.vue";
 const routes = [
   {
     path: "/",
@@ -32,6 +33,10 @@ const routes = [
     path: "/future/:coin",
     name: "future",
     component: Future,
+  }, {
+    path: "/asset",
+    name: "asset",
+    component: Asset,
   }
 ];
 

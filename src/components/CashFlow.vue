@@ -68,6 +68,7 @@
 import { cashflow } from '../data/cashflow.js';
 import { BUY } from "../data/const.js";
 import { ref } from 'vue';
+import { parseNumber } from '../utils/index.js';
 const parsePlatform = (platform) => {
   if (platform === 0) return 'OKX';
   if (platform === 1) return 'BN';
@@ -90,12 +91,7 @@ for (let month of cashflow) {
     }
   }
 }
-const parseNumber = (num) => {
-  return num.toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-};
+
 </script>
 <style scoped>
 .divider {
