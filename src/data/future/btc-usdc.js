@@ -60,8 +60,8 @@ const data = [
   { date: '2025.9.26 00:23:23', price: 111300, amount: 0.03, direction: OPEN, t: 34 },
   { date: '2025.9.26 00:40:38', price: 111000, amount: 0.03, direction: OPEN, t: 32 },
   { date: '2025.9.26 01:21:30', price: 110000, amount: 0.03, direction: OPEN, t: 31 },
-  { date: '2025.9.26 01:36:53', price: 109500, amount: 0.032, direction: OPEN },
-  { date: '2025.9.26 01:56:04', price: 109000, amount: 0.034, direction: OPEN },
+  { date: '2025.9.26 01:36:53', price: 109500, amount: 0.032, direction: OPEN, t: 51 },
+  { date: '2025.9.26 01:56:04', price: 109000, amount: 0.034, direction: OPEN, t: 51 },
   { date: '2025.9.26 22:59:46', price: 108800, amount: 0.03, direction: OPEN, t: 22 },
   { date: '2025.9.26 23:04:07', price: 109100, amount: 0.03, direction: CLOSE, t: 22 },
   { date: '2025.9.27 01:42:30', price: 109900, amount: 0.03, direction: OPEN, t: 23 },
@@ -109,10 +109,11 @@ const data = [
   { date: '2025-10-01 19:43:15', price: 116600, amount: 0.025, direction: CLOSE, t: 48 },
   { date: '2025-10-01 19:51:48', price: 116700, amount: 0.022, direction: CLOSE, t: 49 },
   { date: '2025-10-01 22:02:36', price: 117000, amount: 0.03, direction: CLOSE, t: 50 },
-  { date: '2025-10-01 22:18:16', price: 117250, amount: 0.003, direction: CLOSE },
-  { date: '2025-10-01 23:28:01', price: 117500, amount: 0.03, direction: CLOSE },
-  { date: '2025-10-01 23:40:11', price: 117520, amount: 0.03, direction: CLOSE },
-  { date: '2025-10-02 00:08:14', price: 117700, amount: 0.003, direction: CLOSE },
+  { date: '2025-10-01 22:18:16', price: 117250, amount: 0.003, direction: CLOSE, t: 51 },
+  { date: '2025-10-01 23:28:01', price: 117500, amount: 0.03, direction: CLOSE, t: 51 },
+  { date: '2025-10-01 23:40:11', price: 117520, amount: 0.03, direction: CLOSE, t: 51 },
+  { date: '2025-10-02 00:08:14', price: 117700, amount: 0.003, direction: CLOSE, t: 51 },
+  // ================= 清仓 CLOSE POSITION ====================
 ];
 
 const fundingFee = [
