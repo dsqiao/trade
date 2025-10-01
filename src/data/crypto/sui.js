@@ -571,7 +571,9 @@ const data = [
   { digest: 'AZUnqyprRcMqgn32vstcfcRaThWTpoLcvHi7grQeQ9sP', direction: SELL, u: 1020.337221, coin: 300, timestamp: 1759312277361, t: 241 },
   { digest: 'GeKdftPsXjkZLvq8b2rHH3mg7mg5kj6FQE9DvYVmgRXK', direction: SELL, u: 1017.69662, coin: 300, timestamp: 1759313312044, t: 241 },
   { digest: '4Tx4knRknbZVKJeocAbVmDPwPQoB16bkvfjswZzAKB2Z', direction: SELL, u: 869.270588, coin: 253, timestamp: 1759328501016, t: 241 },
-  { digest: 'FqWfxVSGh26TddQGUqdMan2V94zK6SixE7jFvqsZNA1n', direction: SELL, u: 697.408586, coin: 200, timestamp: 1759335300125, t: 241 },
+  { digest: 'FqWfxVSGh26TddQGUqdMan2V94zK6SixE7jFvqsZNA1n', direction: SELL, u: 697.408586, coin: 200, timestamp: 1759335300125, t: 243 },
+  { digest: '93n2dLEzFBvmqHgDeTAUzJ4TGhigHT1gZDCFGstsCP6p', direction: BUY, u: 693, coin: 200.052643547, timestamp: 1759339600647, t: 243 },
+  { digest: '8PapGGSmVvBqtXaTNW28YQwAGDpkdqJn6nDjA3nWiqos', direction: SELL, u: 696.46774, coin: 200, timestamp: 1759343971219, },
 ];
 const showThreshold = 200;
 

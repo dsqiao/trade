@@ -114,6 +114,8 @@ const data = [
   { date: '2025-10-01 23:40:11', price: 117520, amount: 0.03, direction: CLOSE, t: 51 },
   { date: '2025-10-02 00:08:14', price: 117700, amount: 0.003, direction: CLOSE, t: 51 },
   // ================= 清仓 CLOSE POSITION ====================
+  { date: '2025-10-02 01:49:24', price: 117000, amount: 0.025, direction: OPEN, t: 52 },
+  { date: '2025-10-02 03:08:05', price: 117400, amount: 0.025, direction: CLOSE, t: 52 },
 ];
 
 const fundingFee = [
