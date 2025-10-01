@@ -209,7 +209,7 @@ watch(
   line-height: 1.6rem;
 }
 .transaction-table th {
-  background-color: #f5f5f5;
+  background-color: #343434;
   font-weight: bold;
 }
 .transaction-table .digest {
