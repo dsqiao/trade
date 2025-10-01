@@ -3,7 +3,7 @@
   <div class="title">{{ `${coin.toUpperCase()}-USDC` }}</div>
 
   <!-- 展示/隐藏已配对交易对的开关 -->
-  <div style="position: fixed; right: 30px; bottom: 30px;">
+  <div style="position: fixed; right: 30px; bottom: 30px; z-index: 99;">
     <t-switch v-model="showT" />
   </div>
 
@@ -20,50 +20,53 @@
   </div>
 
   <!----------- START 表格 -------------->
-  <div 
-    v-for="(tran, index) of mData"
-    :key="index"
-  >
-    <div
-      v-if="!tran.t || showT && !(tran.t < threshold)"
-      class="transaction"
-      :class="[
-        tran.direction === SELL ? 'sell' : 'buy',
-        tran.t ? 'mask' : '',
-      ]"
-    >
-      <span
-        @click="jumpOverview(tran.digest)"
-        class="digest"
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>digest</th>
+        <th>日期</th>
+        <th>方向</th>
+        <th>详情</th>
+        <th>价格</th>
+        <th>fee</th>
+        <th>t</th>
+        <th>gain</th>
+        <th>des</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr 
+        v-for="(tran, index) of mData"
+        :key="index"
+        v-show="!tran.t || showT && !(tran.t < threshold)"
+        :class="[
+          tran.direction === SELL ? 'sell' : 'buy',
+          tran.t ? 'mask' : '',
+        ]"
       >
-        digest
-      </span>
-      <span class="date">
-        {{ toLocalTime(tran.timestamp) }}
-      </span>
-      <span class="direction">
-        {{ tran.direction === 0 ? '买入' : '卖出' }}
-      </span>
-      <span class="detail">
-        {{ 
-          tran.direction === BUY
-            ? `${tran.u.toFixed(6)} u => ${tran.coin.toFixed(9)} ${coin} `
-            : `${tran.coin.toFixed(9)} ${coin} => ${tran.u.toFixed(6)} u`
-        }}
-      </span>
-      <span class="price">{{ `price: ${(tran.u / tran.coin).toFixed(6)}` }}</span>
-      <span class="fee">{{ `fee: ${tran.fee}` }}</span>
-      <span class="t">
-        {{ tran.t || 'null' }}
-      </span>
-      <span class="gain">
-        {{ `| ${tran.gain || ''}` }}
-      </span>
-      <span class="des">
-        {{ tran.des || '\\' }}
-      </span>
-    </div>
-  </div>
+        <td 
+          @click="jumpOverview(tran.digest)"
+          class="digest"
+        >
+          digest
+        </td>
+        <td class="date">{{ toLocalTime(tran.timestamp) }}</td>
+        <td class="direction">{{ tran.direction === 0 ? '买入' : '卖出' }}</td>
+        <td class="detail">
+          {{ 
+            tran.direction === BUY
+              ? `${tran.u.toFixed(6)} u => ${tran.coin.toFixed(9)} ${coin} `
+              : `${tran.coin.toFixed(9)} ${coin} => ${tran.u.toFixed(6)} u`
+          }}
+        </td>
+        <td class="price">{{ `price: ${(tran.u / tran.coin).toFixed(6)}` }}</td>
+        <td class="fee">{{ `fee: ${tran.fee}` }}</td>
+        <td class="t">{{ tran.t || 'null' }}</td>
+        <td class="gain">{{ `+ ${tran.gain || ''}` }}</td>
+        <td class="des">{{ tran.des || '\\' }}</td>
+      </tr>
+    </tbody>
+  </table>
   <!----------- END 表格 -------------->
 </template>
 <script setup>
@@ -146,7 +149,7 @@ const calculateData = async () => {
           coinGain += singleTran.coin;
         }
       }
-      trans.gain = `${usdcGain.toFixed(6)} usdc | ${coinGain.toFixed(9)} ${coin.value}`;
+      trans.gain = `${usdcGain.toFixed(6)} usdc + ${coinGain.toFixed(9)} ${coin.value}`;
       transMap.delete(trans.t);
     }
   }  
@@ -177,25 +180,7 @@ watch(
 .desc {
   margin-bottom: 15px;
 }
-.transaction>span {
-  display: inline-block;
-  border: 1px black solid;
-  height: 2.2rem;
-  line-height: 2.2rem;
-  padding-left: 1rem;
-}
-.direction {
-  width: 4rem;
-}
-.detail {
-  width: 20rem;
-}
-.price {
-  width: 10rem
-}
-.fee {
-  width: 10rem;
-}
+
 .title {
   font-size: 2rem;
   font-weight: bold;
@@ -209,35 +194,37 @@ watch(
   line-height: 2rem;
 }
 
-.sell>span {
+/* 表格样式 START */
+.transaction-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #333;
+  text-align: center;
+  padding: 4px;
+  height: 1.6rem;
+  line-height: 1.6rem;
+}
+.transaction-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+.transaction-table .digest {
+  cursor: pointer;
+}
+.transaction-table .sell td {
   background-color: rgb(85, 23, 23);
+  color: rgb(172, 172, 172);
 }
-
-.buy>span {
+.transaction-table .buy td {
   background-color: rgb(33, 83, 33);
+  color: rgb(172, 172, 172);
 }
-
-.mask>span {
+.transaction-table .mask td {
   opacity: .4;
 }
-
-.digest {
-  cursor: pointer;
-  width: 5rem;
-}
-
-.date {
-  width: 11rem;
-}
-
-.t {
-  width: 4rem;
-}
-
-.gain {
-  width: 20rem;
-}
-.des {
-  width: 7rem;
-}
+/* 表格样式 END */
 </style>
