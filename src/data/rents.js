@@ -33,7 +33,7 @@ const data = [
 ];
 
 const data2 = [
-  { month: '2024-09', amount: 2484.92, desc: '企鹅公寓押金' },
+  { month: '2024-09', amount: 2484.92, desc: '企鹅公寓押金，应付 2488.8，信用卡实付 2484.92' },
 ];
 
 let sum = 0;

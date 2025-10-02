@@ -86,6 +86,7 @@ function jumpChanges(digest) {
  * @returns 格式化后的数字（字符串形式）
  */
 function parseNumber(num) {
+  if (!num) return 0;
   return num.toLocaleString('en-US', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2

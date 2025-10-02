@@ -40,6 +40,15 @@ const data = [ {
   [AssetName.LONG_BRIDGE]: 78425.03,
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 59266.69,
+}, {
+  date: '2025-10-03 04:54',
+  exchangeRate: 7.14,
+  [AssetName.BINANCE]: 26398.36,
+  [AssetName.SUI]: 88014.29,
+  [AssetName.LONG_BRIDGE]: 79239.45,
+  [AssetName.SOLANA]: 53.06,
+  [AssetName.BOCHK]: 100.08,
+  [AssetName.BOC]: 56238.63,
 } ];
 
 for (const item of data) {
