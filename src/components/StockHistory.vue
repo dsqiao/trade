@@ -35,7 +35,7 @@
     :key="index"
   >
     <!-- 月份文案 -->
-    <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}, ${month.mp}` }}</div>
+    <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
     <table class="transaction-table">
       <thead v-if="month.trans.filter(tran => !tran.t || showT).length">
         <tr>
@@ -190,7 +190,7 @@ const calculateData = () => {
         profit += Number(tran.gain);
       }
     }
-    month.mp = profit.toFixed(3);
+    month.monthlyProfit = profit.toFixed(3);
   }
 };
 export default {
@@ -257,13 +257,13 @@ export default {
   width: 4%;
 }
 .price {
-  width: 8%;
+  width: 7%;
 }
 .sign {
   width: 2%;
 }
 .number {
-  width: 8%;
+  width: 4%;
 }
 .fee {
   width: 8%;
@@ -272,7 +272,7 @@ export default {
   width: 8%;
 }
 .t {
-  width: 10%;
+  width: 7%;
 }
 .gain {
   width: 15%;

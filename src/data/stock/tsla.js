@@ -5,10 +5,10 @@ const data = [ {
   trans: [
     { day: 9, price: 214, number: 5, direction: BUY, fee: 1.02 }, // 3 HKD 返现
     { day: 16, price: 233.94, number: 5, direction: BUY, fee: 1.02 },
-    { day: 28, price: 249.32, number: 10, direction: SELL, fee: 1.06, t: '清仓收益 253.50' },
+    { day: 28, price: 249.32, number: 10, direction: SELL, fee: 1.06, desc: '清仓收益 253.50' },
     // ==================== 清仓 ==================== //
     { day: 29, price: 244, number: 10, direction: BUY, fee: 1.03 },
-    { day: 30, price: 246.5, number: 10, direction: SELL, fee: 1.06, t: '清仓收益 25' },
+    { day: 30, price: 246.5, number: 10, direction: SELL, fee: 1.06, desc: '清仓收益 25' },
     // ==================== 清仓 ==================== //
     { day: 30, price: 245, number: 10, direction: BUY, fee: 1.03 },
   ]
@@ -16,14 +16,14 @@ const data = [ {
   month: '202312',
   transNum: 12,
   trans: [
-    { day: 6, price: 246.32, number: 10, direction: SELL, fee: 1.06, t: '清仓收益 13.2' },
+    { day: 6, price: 246.32, number: 10, direction: SELL, fee: 1.06, desc: '清仓收益 13.2' },
     // ==================== 清仓 ==================== //
     { day: 6, price: 243.9, number: 5, direction: BUY, fee: 1.02 }, // 3 HKD 返现
     { day: 11, price: 241.8, number: 5, direction: BUY, fee: 1.02 },
     { day: 11, price: 238, number: 2, direction: BUY, fee: 1.01 },
     { day: 12, price: 235, number: 10, direction: BUY, fee: 1.03 },
     { day: 13, price: 230.4, number: 10, direction: BUY, fee: 1.03 },
-    { day: 14, price: 244.5, number: 32, direction: SELL, fee: 1.17, t: '清仓收益 265.5' },
+    { day: 14, price: 244.5, number: 32, direction: SELL, fee: 1.17, desc: '清仓收益 265.5' },
     // ==================== 清仓 ==================== //
     { day: 18, price: 255, number: 5, direction: BUY, fee: 1.02 }, // 3 HKD 返现
     { day: 20, price: 248, number: 5, direction: BUY, fee: 1.02 },
