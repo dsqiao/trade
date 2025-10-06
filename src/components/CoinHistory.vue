@@ -194,37 +194,4 @@ watch(
   line-height: 2rem;
 }
 
-/* 表格样式 START */
-.transaction-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 20px;
-}
-.transaction-table th,
-.transaction-table td {
-  border: 1px solid #333;
-  text-align: center;
-  padding: 4px;
-  height: 1.6rem;
-  line-height: 1.6rem;
-}
-.transaction-table th {
-  background-color: #343434;
-  font-weight: bold;
-}
-.transaction-table .digest {
-  cursor: pointer;
-}
-.transaction-table .sell td {
-  background-color: rgb(85, 23, 23);
-  color: rgb(172, 172, 172);
-}
-.transaction-table .buy td {
-  background-color: rgb(33, 83, 33);
-  color: rgb(172, 172, 172);
-}
-.transaction-table .mask td {
-  opacity: .4;
-}
-/* 表格样式 END */
 </style>
