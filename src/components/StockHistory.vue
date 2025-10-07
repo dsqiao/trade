@@ -1,5 +1,5 @@
 <template>
-  <div style="position: fixed; right: 30px; bottom: 30px;">
+  <div style="position: fixed; right: 30px; bottom: 30px; z-index: 99;">
     <t-switch v-model="showT" />
   </div>
   <h1>{{ stock.toUpperCase() }} general</h1>
