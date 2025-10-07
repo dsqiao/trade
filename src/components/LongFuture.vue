@@ -29,27 +29,40 @@
     <span class="title-span">{{ (currentPrice * btcAccumulation - cost + totalFee).toFixed(3) }}</span>
   </div>
   <br />
-  <div 
-    v-for="(tran, index) in mData"
-    :key="index"
-  >
-    <div
-      v-if="!tran.t || showT"  
-      class="transaction"
-      :class="[
-        tran.direction === 0 ? 'open' : 'close',
-        tran.t ? 'mask' : '',
-      ]"
-    >
-      <span class="date">{{ tran.date }}</span>
-      <span class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</span>
-      <span class="price">{{ parseNumber(tran.price) }}</span>
-      <span class="amount">{{ tran.amount }}</span>
-      <span class="value">{{ (tran.price * tran.amount).toFixed(5) }}</span>
-      <span class="t">{{ tran.t || '\\' }}</span>
-      <span class="gain">{{ tran.gain || '0' }}</span>
-    </div>
-  </div>
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>方向</th>
+        <th>价格</th>
+        <th>数量</th>
+        <th>价值</th>
+        <th>持仓</th>
+        <th>t</th>
+        <th>gain</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="(tran, index) in mData"
+        :key="index"
+        v-show="!tran.t || showT"
+        :class="[
+          tran.direction === 0 ? 'buy' : 'sell',
+          tran.t ? 'mask' : '',
+        ]"
+      >
+        <td class="date">{{ tran.date }}</td>
+        <td class="direction">{{ tran.direction === 0 ? 'OPEN LONG' : 'CLOSE LONG' }}</td>
+        <td class="price">{{ parseNumber(tran.price) }}</td>
+        <td class="amount">{{ tran.amount }}</td>
+        <td class="value">{{ (tran.price * tran.amount).toFixed(4) }}</td>
+        <td>{{ tran.current }}</td>
+        <td class="t">{{ tran.t || '\\' }}</td>
+        <td class="gain">{{ tran.gain || '0' }}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <div style="position: fixed; right: 30px; bottom: 30px;">
     <t-switch v-model="showT" />
@@ -104,6 +117,7 @@ const calculateData = () => {
       btcAccumulation.value -= tran.amount;
       cost.value -= tran.price * tran.amount;
     }
+    tran.current = btcAccumulation.value > 0.0001 ? btcAccumulation.value.toFixed(3) : '== 清仓 == ';
   }
 
   // 返回来遍历一遍，计算所有已结算交易对的收益
@@ -144,34 +158,6 @@ watch(
 
 </script>
 <style scoped>
-.transaction>span {
-  display: inline-block;
-  border: 1px black solid;
-  height: 2.2rem;
-  line-height: 2.2rem;
-  padding-left: 1rem;
-}
-.direction {
-  width: 10rem;
-}
-.price {
-  width: 8rem;
-}
-.amount {
-  width: 8rem;
-}
-.value {
-  width: 8rem;
-}
-.close>span {
-  background-color: rgb(85, 23, 23);
-}
-.open>span {
-  background-color: rgb(33, 83, 33);
-}
-.mask>span {
-  opacity: .4;
-}
 .title-span {
   width: 10rem;
 }
@@ -185,19 +171,20 @@ watch(
 .title-line > span {
   display: inline-block;
 }
-.gain {
-  width: 6rem;
-}
-.t {
-  width: 3rem;
-}
-.date {
-  width: 10rem;
-}
 .price-input {
   width: 7rem;
   border: rgb(172, 172, 172) 1px solid;
   background-color: rgb(35, 35, 35);
   color: rgb(172, 172, 172);
+}
+
+.date {
+  width: 15%;
+}
+.direction {
+  width: 13%;
+}
+.price {
+  width: 10%;
 }
 </style>
