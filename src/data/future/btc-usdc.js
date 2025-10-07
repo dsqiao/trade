@@ -121,6 +121,14 @@ const data = [
   { date: '2025-10-03 16:11:42', price: 119600, amount: 0.03, direction: OPEN, t: 53 },
   { date: '2025-10-03 16:34:06', price: 119800, amount: 0.03, direction: CLOSE, t: 53 },
   { date: '2025-10-03 16:52:32', price: 120000, amount: 0.03, direction: CLOSE, t: 53 },
+  // ================= 清仓 CLOSE POSITION ====================
+  { date: '2025-10-08 00:07:31', price: 121600, amount: 0.03, direction: OPEN, t: 54 },
+  { date: '2025-10-08 00:23:43', price: 121300, amount: 0.03, direction: OPEN, t: 54 },
+  { date: '2025-10-08 00:24:46', price: 121000, amount: 0.03, direction: OPEN, t: 54 },
+  { date: '2025-10-08 00:37:35', price: 121800, amount: 0.09, direction: CLOSE, t: 54 },
+  // ================= 清仓 CLOSE POSITION ====================
+  { date: '2025-10-08 01:09:22', price: 121600, amount: 0.03, direction: OPEN, },
+  { date: '2025-10-08 02:03:13', price: 121000, amount: 0.03, direction: OPEN },
 ];
 
 const fundingFee = [

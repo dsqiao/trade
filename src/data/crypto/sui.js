@@ -592,6 +592,7 @@ const data = [
   { digest: '7wj1e69v6j13BvzefDTRY3H5Z7zoXpEVKVoFNjWeG7WT', direction: BUY, u: 730, coin: 200.031467989, timestamp: 1759769344874, t: 250 },
   { digest: '8BEQmoiYcuVEmXNmcKCLd5ZmFE59kJerMVKRZY7nkrRb', direction: SELL, u: 735.165215, coin: 200, timestamp: 1759772018637, t: 251 },
   { digest: 'Bs6MzJFNMtK2vZyiYuUtDN75t2ueqf4a31Fm31oowGes', direction: BUY, u: 730, coin: 200.097892055, timestamp: 1759785623309, t: 251 },
+  { digest: 'CBwssozH53cuy6vTtmJVUYd2Z4r6X2CK5znBG7jFZakR', direction: BUY, u: 698, coin: 200.198921173, timestamp: 1759852476070, },
 ];
 const showThreshold = 200;
 
