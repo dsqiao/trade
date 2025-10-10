@@ -10,7 +10,6 @@
 .transaction-table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 20px;
 }
 
 .transaction-table th,

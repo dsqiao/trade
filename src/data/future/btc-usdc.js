@@ -137,6 +137,13 @@ const data = [
   // ================= 清仓 CLOSE POSITION ====================
   { date: '2025-10-08 15:33:16', price: 121500, amount: 0.03, direction: OPEN, t: 57 },
   { date: '2025-10-08 16:20:32', price: 121900, amount: 0.03, direction: CLOSE, t: 57 },
+  { date: '2025-10-09 22:46:51', price: 121000, amount: 0.03, direction: OPEN, t: 59 },
+  { date: '2025-10-10 21:20:24', price: 122000, amount: 0.03, direction: CLOSE, t: 59 },
+  { date: '2025-10-10 22:57:56', price: 121000, amount: 0.03, direction: OPEN, },
+  { date: '2025-10-10 23:04:20', price: 120000, amount: 0.05, direction: OPEN },
+  { date: '2025-10-10 23:07:26', price: 120400, amount: 0.02, direction: CLOSE, t: 60 },
+  { date: '2025-10-10 23:24:03', price: 119400, amount: 0.02, direction: OPEN, t: 60 },
+  { date: '2025-10-10 23:30:40', price: 119000, amount: 0.05, direction: OPEN },
 ];
 
 const fundingFee = [
@@ -154,7 +161,8 @@ const fundingFee = [
   { time: '10-01', fee: [ -1.80341422, -2.26962286, -1.00799984 ] },
   { time: '10-02', fee: [ -0.01144355 ] },
   { time: '10-03', fee: [ -0.04215671 ] },
-  { time: '10-08', fee: [ 0, -0.36410400 ] },
+  { time: '10-08', fee: [ 0, -0.36410400, -0.36486876 ] },
+  { time: '10-10', fee: [ -0.12631245, -0.20513899, -0.31725627 ] },
 ];
 
 export { data, fundingFee };

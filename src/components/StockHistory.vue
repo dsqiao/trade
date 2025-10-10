@@ -226,8 +226,8 @@ export default {
 </script>
 <style scoped>
 .monthTitle {
-  height: 4rem;
-  line-height: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .desc {

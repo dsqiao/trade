@@ -26,6 +26,8 @@ const data = [
   { timestamp: 1756492925142, digest: '683zKCxBWHm9b73RzXoWaVgJL4g6EBG6r9fhLqkEdT8E', direction: BUY, u: 1000, coin: 2645.998897804, fee: 0.013461096, t: 8 },
   { timestamp: 1757078503238, digest: 'BVbuFJYDDFAUgGM7N3oA8AUi2YpgcKSrPuFp8eMRWfB7', direction: SELL, u: 1167.840643, coin: 2640, fee: 0, t: 8 },
   { timestamp: 1757556193860, digest: 'Haux1EHhXkbA6phbWPvTZdDpQC2WjnDcJzb6HssAoHMu', direction: SELL, u: 1163.630978, coin: 2567, fee: 0, t: 9 }, // astros
+  { timestamp: 1760064628979, digest: 'E1DG8eeZLPy9PZHQt6DfhGJgDoPpHLPECME4X9uWKKzW', direction: BUY, u: 500, coin: 1296.043110537, fee: 0.006443782 },
+  { timestamp: 1760082955104, digest: '5tqQLk7RvtuLH1h3rHLepgZVWe9DiuvCgT1xwzrqh9oR', direction: BUY, u: 1000, coin: 3050.355726665, fee: 0.000577688 },
 ];
 
 export {
