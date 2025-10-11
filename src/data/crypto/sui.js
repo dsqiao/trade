@@ -598,6 +598,14 @@ const data = [
   { digest: 'DbehfxpLD7sjDi9mADBvogT95eAMb1oU5TjGwd6zW5nJ', direction: BUY, u: 678, coin: 200.335368062, timestamp: 1760000250769, },
   { digest: '7zP5PxraeZhhPdpyxPGpmk9ozxigdwvFVnSEBCL68nWQ', direction: BUY, u: 700, coin: 210.425615173, timestamp: 1760111010009 },
   { digest: '6WTRprTm3pz7LNa7LBbyHfktz9f5a4SHCJBL7uQMjcav', direction: BUY, u: 700, coin: 212.667924683, timestamp: 1760118124163 },
+  { digest: 'AZP3Hg6QBsMzAbzjy7582VB4wFUUe8T3DBSs2Y3Po32M', direction: BUY, u: 700, coin: 216.761344929, timestamp: 1760124677653 },
+  { digest: 'ALBBzU1wD2C6Q7g1L2t7XReqL9Y4xcNvVUnewD1iMHzn', direction: BUY, u: 1000, coin: 332.178970259, timestamp: 1760130769436 },
+  { digest: 'E1vQvNhsuyhqo5SmzQufJukYUUTm2xjjhWazeCoUR2SG', direction: BUY, u: 1057.717189, coin: 793.752150741, timestamp: 1760131172633 },
+  { digest: 'J2sQTv27uuPoRo5RgDCKPRM7WEkgsA5fghv47kqmv5Qa', direction: BUY, u: 1000, coin: 441.545266017, timestamp: 1760132730179 },
+  { digest: 'GYtk1cJWhXpXDSPi663HfKWeAtqFs3XeX8gSbNCSFvoM', direction: BUY, u: 1000, coin: 396.880021113, timestamp: 1760133425287 },
+  { digest: 'CA1HAPe3GqcmQJSdp6VP9zD8XGdGJqkNSyg3N1xPD5UU', direction: BUY, u: 1000, coin: 398.655912394, timestamp: 1760133749554 },
+  { digest: '6VNqFwv6tbo4F4kM5WTx1VinWCn5WABvSddFZwNydoFo', direction: BUY, u: 1000, coin: 398.714399573, timestamp: 1760133784460 },
+  { digest: '2GuVwiDqv45Nh2hFQWaMN95Wp8cgcLYRzyzREmctyf1o', direction: BUY, u: 1000, coin: 403.216933684, timestamp: 1760133829530 },
 ];
 const showThreshold = 200;
 

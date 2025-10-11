@@ -117,6 +117,9 @@ const calculateData = () => {
       btcAccumulation.value -= tran.amount;
       cost.value -= tran.price * tran.amount;
     }
+    if (btcAccumulation.value === 0) {
+      cost.value = 0; // 清仓后，成本归零
+    }
     tran.current = btcAccumulation.value > 0.0001 ? btcAccumulation.value.toFixed(3) : '== 清仓 == ';
   }
 
