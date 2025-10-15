@@ -169,7 +169,8 @@ const data = [
   { date: '2025-10-14 22:16:33', price: 112000, amount: 0.03, direction: CLOSE, },
   { date: '2025-10-15 00:20:41', price: 113000, amount: 0.03, direction: CLOSE, t: 63 },
   { date: '2025-10-15 01:01:21', price: 112000, amount: 0.03, direction: OPEN, t: 63 },
-  { date: '2025-10-15 02:05:51', price: 113000, amount: 0.03, direction: CLOSE },
+  { date: '2025-10-15 02:05:51', price: 113000, amount: 0.03, direction: CLOSE, t: 63 },
+  { date: '2025-10-15 11:22:48', price: 112000, amount: 0.03, direction: OPEN, t: 63 },
 ];
 
 const fundingFee = [
@@ -193,7 +194,7 @@ const fundingFee = [
   { time: '10-12', fee: [ -4.36254390, -4.31862210, -4.01752801 ] },
   { time: '10-13', fee: [ -3.73660346, 0.16119784, -0.87320981 ] },
   { time: '10-14', fee: [ -0.47420745, -0.54507942, -1.20151074 ] },
-  { time: '10-15', fee: [ -2.61555599 ] },
+  { time: '10-15', fee: [ -2.61555599, -1.39800966 ] },
 ];
 
 export { data, fundingFee };
