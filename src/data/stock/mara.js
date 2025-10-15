@@ -468,13 +468,13 @@ const data = [
       { day: 10, price: 19.55, number: 200, direction: BUY, fee: 1.61, t: 115 },
       { day: 10, price: 19.3, number: 200, direction: BUY, fee: 1.61, t: 116 },
       { day: 10, price: 19.1, number: 200, direction: BUY, fee: 1.61, t: 117 },
-      { day: 14, price: 19.41, number: 200, direction: SELL, fee: 0, t: 118 },
-      { day: 14, price: 19.05, number: 200, direction: BUY, fee: 0, t: 118 },
-      { day: 14, price: 19.9, number: 200, direction: SELL, fee: 0 },
-      { day: 14, price: 20.9, number: 200, direction: SELL, fee: 0 },
-      { day: 14, price: 21.9, number: 200, direction: SELL, fee: 0 },
-      { day: 14, price: 22.4, number: 200, direction: SELL, fee: 0, t: 119 },
-      { day: 14, price: 22.3, number: 200, direction: BUY, fee: 0, t: 119 },
+      { day: 14, price: 19.41, number: 200, direction: SELL, fee: 1.00, t: 118 },
+      { day: 14, price: 19.05, number: 200, direction: BUY, fee: 0.97, t: 118 },
+      { day: 14, price: 19.9, number: 200, direction: SELL, fee: 1.64 },
+      { day: 14, price: 20.9, number: 200, direction: SELL, fee: 1.64 },
+      { day: 14, price: 21.9, number: 200, direction: SELL, fee: 1.64 },
+      { day: 14, price: 22.4, number: 200, direction: SELL, fee: 1.64, t: 119 },
+      { day: 14, price: 22.3, number: 200, direction: BUY, fee: 1.61, t: 119 },
     ]
   }
 ];
