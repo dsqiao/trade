@@ -11,6 +11,10 @@
     <span class="content-span">{{ (cost / btcAccumulation).toFixed(3) }}</span>
   </div>
   <div class="title-line">
+    <span class="title-span">count history</span>
+    <t-switch v-model="countHistory" />
+  </div>
+  <div class="title-line">
     <span class="title-span">资金费</span>
     <span class="content-span">{{ totalFee.toFixed(8) }}</span>
   </div>
@@ -80,6 +84,7 @@ const totalFee = ref(0);
 const btcAccumulation = ref(0);
 const cost = ref(0);
 const showT = ref(false); // 默认不展示已成交交易对
+const countHistory = ref(false);
 const currentPrice = ref(114000);
 
 /**
@@ -92,7 +97,9 @@ const loadData = async (coin) => {
   mFundingFee.push(...fundingFee);
 };
 const clearData = () => {
-
+  totalFee.value = 0;
+  btcAccumulation.value = 0;
+  cost.value = 0;
 };
 
 const calculateData = () => {
@@ -118,7 +125,7 @@ const calculateData = () => {
       cost.value -= tran.price * tran.amount;
     }
     if (btcAccumulation.value === 0) {
-      cost.value = 0; // 清仓后，成本归零
+      if (!countHistory.value) cost.value = 0; // 清仓后，成本归零
     }
     tran.current = btcAccumulation.value > 0.0001 ? btcAccumulation.value.toFixed(3) : '== 清仓 == ';
   }
@@ -156,6 +163,14 @@ watch(
     calculateData();
   },
   { immediate: true },
+);
+
+watch(
+  countHistory,
+  async () => {
+    clearData();
+    calculateData();
+  }
 );
 
 
