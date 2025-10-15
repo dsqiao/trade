@@ -317,8 +317,8 @@ const data = [
       { day: 18, price: 24, number: 50, direction: BUY, fee: 0.51, t: '', desc: '5 HKD 抵扣' },
       { day: 18, price: 23.5, number: 50, direction: BUY, fee: 1.15 },
       { day: 18, price: 23, number: 50, direction: BUY, fee: 1.15 },
-      { day: 18, price: 22.4, number: 50, direction: BUY, fee: 1.15 },
-      { day: 18, price: 22, number: 50, direction: BUY, fee: 1.15 },
+      { day: 18, price: 22.4, number: 50, direction: BUY, fee: 1.15, t: 120 },
+      { day: 18, price: 22, number: 50, direction: BUY, fee: 1.15, t: 120 },
       { day: 19, price: 21.5, number: 60, direction: BUY, fee: 1.18, t: 113 },
       { day: 19, price: 21, number: 60, direction: BUY, fee: 1.18, t: 113 },
       { day: 19, price: 20.5, number: 60, direction: BUY, fee: 1.18, t: 70 },
@@ -475,6 +475,7 @@ const data = [
       { day: 14, price: 21.9, number: 200, direction: SELL, fee: 1.64 },
       { day: 14, price: 22.4, number: 200, direction: SELL, fee: 1.64, t: 119 },
       { day: 14, price: 22.3, number: 200, direction: BUY, fee: 1.61, t: 119 },
+      { day: 15, price: 23, number: 100, direction: SELL, fee: 0, t: 120 },
     ]
   }
 ];
