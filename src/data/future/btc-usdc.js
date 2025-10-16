@@ -178,6 +178,7 @@ const data = [
   { date: '2025-10-15 22:53:38', price: 111000, amount: 0.03, direction: OPEN, t: 62 },
   { date: '2025-10-16 17:34:54', price: 110000, amount: 0.016, direction: OPEN, t: 63 },
   { date: '2025-10-16 19:02:43', price: 111580, amount: 0.016, direction: CLOSE, t: 63 },
+  { date: '2025-10-16 22:17:34', price: 110000, amount: 0.016, direction: OPEN },
 ];
 
 const fundingFee = [
