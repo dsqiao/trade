@@ -481,9 +481,10 @@ const data = [
       { day: 16, price: 20, number: 150, direction: BUY, fee: 1.46, t: 122 },
       { day: 16, price: 20, number: 150, direction: BUY, fee: 1.46, t: 123, desc: '多委托了一单' },
       { day: 16, price: 20.4, number: 150, direction: SELL, fee: 1.48, t: 123, desc: '一发现就把多委托的赶紧卖了' },
-      { day: 20, price: 21, number: 50, direction: SELL, fee: 0 },
-      { day: 20, price: 22, number: 50, direction: SELL, fee: 0, t: 124 },
-      { day: 20, price: 21, number: 50, direction: BUY, fee: 0, t: 124 },
+      { day: 20, price: 21, number: 50, direction: SELL, fee: 1.17, t: 125 },
+      { day: 20, price: 22, number: 50, direction: SELL, fee: 1.17, t: 124 },
+      { day: 20, price: 21, number: 50, direction: BUY, fee: 1.16, t: 124 },
+      { day: 21, price: 19.9, number: 50, direction: BUY, fee: 0, t: 125 },
     ]
   }
 ];
