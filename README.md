@@ -15,6 +15,7 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 ```sh
 npm install
 ```
+不能使用 pnpm，会造成格式化功能失效。
 
 ### Compile and Hot-Reload for Development
 

@@ -5,6 +5,7 @@ import DeepSui from '../components/pair/deep-sui.vue';
 import CoinHistory from "@/components/CoinHistory.vue";
 import Future from '../components/LongFuture.vue';
 import Asset from "@/components/Asset.vue";
+import Deepbook from "@/components/Deepbook.vue";
 const routes = [
   {
     path: "/",
@@ -37,6 +38,10 @@ const routes = [
     path: "/asset",
     name: "asset",
     component: Asset,
+  }, {
+    path: '/deepbook',
+    name: 'deepbook',
+    component: Deepbook,
   }
 ];
 
