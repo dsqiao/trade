@@ -105,18 +105,4 @@ const data = [ {
   [AssetName.BOC]: 20504.33,
 } ];
 
-for (const item of data) {
-  let usdTotal = 0;
-  let cnyTotal = 0;
-  for (const asset of AssetCategory) {
-    const name = asset.name;
-    if (item[name]) { // 该资产留有余额
-      if (asset.currency === AssetCurrency.USD) usdTotal += item[name];
-      else if (asset.currency === AssetCurrency.CNY) cnyTotal += item[name];
-    }
-  }
-  console.log(`${item.date} usd: ${usdTotal.toFixed(2)}, cny: ${cnyTotal.toFixed(2)}, total: ${(usdTotal * item.exchangeRate + cnyTotal).toFixed(2)}`);
-}
-
 export { data, AssetCategory, AssetCurrency, AssetName };
-// node src/data/assets.js
