@@ -6,6 +6,7 @@ const AssetName = {
   LONG_BRIDGE: 'Long Bridge',
   BOCHK: 'Bank of China, Hong Kong',
   BOC: 'Bank of China',
+  CMB: 'China Merchants Bank'
 };
 
 const AssetCurrency = {
@@ -21,6 +22,7 @@ const AssetCategory = [
   { name: AssetName.SOLANA, currency: AssetCurrency.USD },
   { name: AssetName.LONG_BRIDGE, currency: AssetCurrency.USD },
   { name: AssetName.BOC, currency: AssetCurrency.CNY },
+  { name: AssetName.CMB, currency: AssetCurrency.CNY },
 ];
 const data = [ {
   date: '2025-10-01 05:10',
@@ -31,6 +33,7 @@ const data = [ {
   [AssetName.LONG_BRIDGE]: 77779.74,
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 59266.69,
+  [AssetName.CMB]: 0,
 }, {
   date: '2025-10-02 04:11',
   exchangeRate: 7.14,
@@ -103,6 +106,16 @@ const data = [ {
   [AssetName.LONG_BRIDGE]: 82048.32,
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20504.33,
+}, {
+  date: 'Wed 2025-10-29 19:24',
+  exchangeRate: 7.11,
+  [AssetName.BINANCE]: 16757.49,
+  [AssetName.SOLANA]: 45.42,
+  [AssetName.SUI]: 60861.91,
+  [AssetName.LONG_BRIDGE]: 82573.63,
+  [AssetName.BOCHK]: 100.08,
+  [AssetName.BOC]: 20456.23,
+  [AssetName.CMB]: 7064.14,
 } ];
 
 export { data, AssetCategory, AssetCurrency, AssetName };
