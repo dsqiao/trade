@@ -200,8 +200,8 @@ const data = [
   { date: '2025-10-24 22:21:21', price: 110000, amount: 0.02, direction: OPEN, t: 63 },
   { date: '2025-10-25 01:16:29', price: 110250, amount: 0.02, direction: CLOSE, t: 63 },
   { date: '2025-10-25 05:01:17', price: 111000, amount: 0.02, direction: CLOSE, t: 63 },
-  { date: '2025-10-26 17:22:20', price: 112000, amount: 0.03, direction: CLOSE, },
-  { date: '2025-10-26 19:42:28', price: 113000, amount: 0.03, direction: CLOSE },
+  { date: '2025-10-26 17:22:20', price: 112000, amount: 0.03, direction: CLOSE, t: 62 },
+  { date: '2025-10-26 19:42:28', price: 113000, amount: 0.03, direction: CLOSE, t: 62 },
   { date: '2025-10-27 06:03:22', price: 114000, amount: 0.03, direction: CLOSE, t: 62 },
   { date: '2025-10-27 06:03:37', price: 115000, amount: 0.03, direction: CLOSE, t: 62 },
   { date: '2025-10-27 14:50:25', price: 116000, amount: 0.03, direction: CLOSE, t: 62 },
@@ -212,6 +212,10 @@ const data = [
   { date: '2025-10-28 22:42:09', price: 115000, amount: 0.03, direction: OPEN, t: 62 },
   { date: '2025-10-29 03:20:24', price: 114000, amount: 0.03, direction: OPEN, t: 62 },
   { date: '2025-10-29 04:06:37', price: 113000, amount: 0.03, direction: OPEN, t: 62 },
+  { date: '2025-10-29 23:29:30', price: 112000, amount: 0.03, direction: OPEN, t: 62 },
+  { date: '2025-10-30 00:12:53', price: 111000, amount: 0.03, direction: OPEN, t: 62 },
+  { date: '2025-10-30 02:39:13', price: 110000, amount: 0.03, direction: OPEN, t: 62 },
+  { date: '2025-10-30 03:02:50', price: 111000, amount: 0.03, direction: CLOSE, t: 62 },
 ];
 
 const fundingFee = [
@@ -249,7 +253,8 @@ const fundingFee = [
   { time: '10-26', fee: [ -0.37524101, -1.27591820, -0.42039424 ] },
   { time: '10-27', fee: [ -1.03028942, -2.08697771, -1.44836486 ] },
   { time: '10-28', fee: [ -2.40213626, -2.35194747, -2.85819851 ] },
-  { time: '10-29', fee: [ -1.68099580, -0.07971366 ] },
+  { time: '10-29', fee: [ -1.68099580, -0.07971366, -0.53805709 ] },
+  { time: '10-30', fee: [ -1.92881870 ] },
 ];
 
 export { data, fundingFee };
