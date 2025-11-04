@@ -1,6 +1,6 @@
 import { BUY } from "../const.js";
 
-const currentPrice = 668;
+const currentPrice = 631;
 const data = [ {
   month: '202510',
   trans: [
