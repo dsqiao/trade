@@ -227,6 +227,11 @@ const cashflow = [ {
   record: [
     { day: 5, num: 5000, cny: 35700, platform: PLATFORM.AC, direction: BUY, desc: 'Leo/微信 35700 cny' },
   ]
+}, {
+  month: '202511',
+  record: [
+    { day: 5, num: 1100, cny: 7863, platform: PLATFORM.OKX, direction: BUY, desc: '', },
+  ]
 } ];
 
 export {

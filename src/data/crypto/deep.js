@@ -86,6 +86,7 @@ const data = [
   { timestamp: 1758784583840, digest: 'ErrKoqnxg6i7nMgMMLxs3S2zfyX2NW8SPixo3QWxdKiP', direction: BUY, coin: 9185.432755, u: 1000, fee: 0, t: 33 }, // astro
   { timestamp: 1758823522430, digest: 'FKGD2fKaxEkrPwX6bDhrhsb5SW5jdVxpH9EM734xmXkz', direction: BUY, coin: 9653.293771, u: 1000, fee: 0, t: 33 }, // astro
   { timestamp: 1760792705189, digest: '5tz2KPVmdWJMVWJsCeArCnfKtgSyAbZyJd7fkN5cpeJY', direction: BUY, coin: 3305.478817, u: 278.378735, fee: 0, },
+  { timestamp: 1762332705402, digest: 'CMKMavJfK5MskNrBvso93Cmcch6zHnWdphVyXV96kAg3', direction: BUY, coin: 18243.874631, u: 1099.919081, fee: 0.035134103 },
 ];
 
 const showThreshold = 0;
