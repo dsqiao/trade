@@ -231,6 +231,7 @@ const cashflow = [ {
   month: '202511',
   record: [
     { day: 5, num: 1100, cny: 7863, platform: PLATFORM.OKX, direction: BUY, desc: '', },
+    { day: 5, num: 1300, cny: 9321, platform: PLATFORM.BN, direction: BUY, desc: '' },
   ]
 } ];
 

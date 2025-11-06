@@ -116,6 +116,15 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20456.23,
   [AssetName.CMB]: 7064.14,
+}, {
+  date: 'Wed 2025-11-05 20:37',
+  exchangeRate: 7.14,
+  [AssetName.BINANCE]: 9823.53,
+  [AssetName.SOLANA]: 36.14,
+  [AssetName.SUI]: 51410.71,
+  [AssetName.LONG_BRIDGE]: 78992.84,
+  [AssetName.BOCHK]: 100.08,
+  [AssetName.BOC]: 27127.83,
 } ];
 
 export { data, AssetCategory, AssetCurrency, AssetName };
