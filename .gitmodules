@@ -1,0 +1,6 @@
+[submodule "src/deepbookv3"]
+	path = src/deepbookv3
+	url = https://github.com/MystenLabs/deepbookv3.git
+[submodule "src/sui"]
+	path = src/sui
+	url = https://github.com/MystenLabs/sui.git

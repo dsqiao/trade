@@ -112,22 +112,22 @@ for (const pool of pools) {
       continue;
     }
     orders.value.push(order);
-    // let remainingQuantity = 0;
-    // if (order) {
-    //   remainingQuantity = Number(order.quantity) - Number(order.filled_quantity);
-    // }
+    let remainingQuantity = 0;
+    if (order) {
+      remainingQuantity = Number(order.quantity) - Number(order.filled_quantity);
+    }
 
-    // const orderMap = order.isBid ? bidOrdersMap : askOrdersMap;
-    // const orderPrice = Number(order.normalized_price);
-    // const existingQuantity = orderMap.get(orderPrice) || 0;
-    // orderMap.set(orderPrice, existingQuantity + remainingQuantity);
+    const orderMap = order.isBid ? bidOrdersMap : askOrdersMap;
+    const orderPrice = Number(order.normalized_price);
+    const existingQuantity = orderMap.get(orderPrice) || 0;
+    orderMap.set(orderPrice, existingQuantity + remainingQuantity);
   }
 
-  // const sortedBidOrders = Array.from(bidOrdersMap.entries()).sort((a, b) => b[0] - a[0]);
-  // const sortedAskOrders = Array.from(askOrdersMap.entries()).sort((a, b) => a[0] - b[0]);
+  const sortedBidOrders = Array.from(bidOrdersMap.entries()).sort((a, b) => b[0] - a[0]);
+  const sortedAskOrders = Array.from(askOrdersMap.entries()).sort((a, b) => a[0] - b[0]);
 
-  // console.log(`${pool} bid orders:`, sortedBidOrders);
-  // console.log(`${pool} ask orders:`, sortedAskOrders);
+  console.log(`${pool} bid orders:`, sortedBidOrders);
+  console.log(`${pool} ask orders:`, sortedAskOrders);
 }
 </script>
 

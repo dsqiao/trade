@@ -32,6 +32,7 @@
         <div class="link"><router-link to="/future/btc">long btc</router-link></div>
         <div class="link"><router-link to="/asset">Asset</router-link></div>
         <div class="link"><router-link to="/deepbook">Deepbook</router-link></div>
+        <div class="link"><router-link to="/deepbook/orderbook">OrderBook</router-link></div>
       </div>
       <router-view :key="$route.fullPath" />
     </div>
