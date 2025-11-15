@@ -17,6 +17,18 @@
         <option value="DEEP_SUI">DEEP/SUI</option>
         <option value="DEEP_USDC">DEEP/USDC</option>
       </select>
+      <div class="price-levels-input">
+        <label for="ticks">价格档位:</label>
+        <input 
+          id="ticks"
+          v-model.number="ticks" 
+          type="number" 
+          min="1" 
+          max="200" 
+          step="1"
+          @change="fetchOrderBook"
+        />
+      </div>
     </div>
 
     <!-- 深度图表 -->
@@ -100,6 +112,10 @@
         <span class="label">中间价格:</span>
         <span class="value">{{ poolInfo.midPrice.toFixed(6) }}</span>
       </div>
+      <div class="stat-item">
+        <span class="label">价格档位:</span>
+        <span class="value">{{ ticks }}</span>
+      </div>
     </div>
 
     <!-- 调试信息面板 -->
@@ -146,6 +162,7 @@ import { DeepBookClient } from '@mysten/deepbook-v3';
 // 响应式数据
 const loading = ref(false);
 const selectedPool = ref('SUI_USDC');
+const ticks = ref(100); // 默认价格档位为100
 const bidOrders = ref([]);
 const askOrders = ref([]);
 const chartContainer = ref(null);
@@ -340,8 +357,8 @@ const fetchOrderBookData = async () => {
       addApiLog('getLevel2TicksFromMid', 'info', '尝试获取Level2订单簿数据');
       console.log('尝试使用 getLevel2TicksFromMid 获取订单簿...');
       
-      // 获取从中间价格开始的订单簿数据，获取20个价格档位
-      const level2Data = await dbClient.getLevel2TicksFromMid(selectedPool.value, 20);
+      // 获取从中间价格开始的订单簿数据，使用用户设置的价格档位
+      const level2Data = await dbClient.getLevel2TicksFromMid(selectedPool.value, ticks.value);
       console.log('Level2 data:', level2Data);
       
       if (level2Data && level2Data.bid_prices && level2Data.ask_prices) {
@@ -357,7 +374,7 @@ const fetchOrderBookData = async () => {
           quantity: Number(level2Data.ask_quantities[index] || 0)
         })).filter(order => order.quantity > 0);
         
-        const message = `获取到 ${bidOrders.value.length} 个买单, ${askOrders.value.length} 个卖单`;
+        const message = `获取到 ${bidOrders.value.length} 个买单, ${askOrders.value.length} 个卖单 (档位: ${ticks.value})`;
         addApiLog('getLevel2TicksFromMid', 'success', message);
         console.log(`从 Level2 ${message}`);
         
@@ -462,7 +479,8 @@ const fetchOrderBookData = async () => {
         
         // 生成买单（价格递减）
         bidOrders.value = [];
-        for (let i = 0; i < 15; i++) {
+        const simulatedLevels = Math.min(ticks.value, 50); // 限制模拟数据最多50档
+        for (let i = 0; i < simulatedLevels; i++) {
           const price = midPrice - spread / 2 - (i * tickSize);
           const quantity = Math.random() * 2000 + 500;
           bidOrders.value.push({ 
@@ -473,7 +491,7 @@ const fetchOrderBookData = async () => {
         
         // 生成卖单（价格递增）
         askOrders.value = [];
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < simulatedLevels; i++) {
           const price = midPrice + spread / 2 + (i * tickSize);
           const quantity = Math.random() * 2000 + 500;
           askOrders.value.push({ 
@@ -482,7 +500,7 @@ const fetchOrderBookData = async () => {
           });
         }
         
-        addApiLog('simulateData', 'success', `生成了 ${bidOrders.value.length} 个买单和 ${askOrders.value.length} 个卖单`);
+        addApiLog('simulateData', 'success', `生成了 ${bidOrders.value.length} 个买单和 ${askOrders.value.length} 个卖单 (档位: ${simulatedLevels})`);
         console.log('基于真实价格的模拟数据生成完成');
         return;
       }
@@ -514,7 +532,8 @@ const fetchOrderBookData = async () => {
     
     // 生成买单（价格递减）
     bidOrders.value = [];
-    for (let i = 0; i < 15; i++) {
+    const fallbackLevels = Math.min(ticks.value, 30); // 限制兜底数据最多30档
+    for (let i = 0; i < fallbackLevels; i++) {
       const price = basePrice - spread / 2 - (i * spread / 10);
       const quantity = Math.random() * 2000 + 500;
       bidOrders.value.push({ 
@@ -525,7 +544,7 @@ const fetchOrderBookData = async () => {
     
     // 生成卖单（价格递增）
     askOrders.value = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < fallbackLevels; i++) {
       const price = basePrice + spread / 2 + (i * spread / 10);
       const quantity = Math.random() * 2000 + 500;
       askOrders.value.push({ 
@@ -534,7 +553,7 @@ const fetchOrderBookData = async () => {
       });
     }
     
-    addApiLog('fallbackData', 'success', `生成了完全模拟的订单簿数据: ${bidOrders.value.length} 买单, ${askOrders.value.length} 卖单`);
+    addApiLog('fallbackData', 'success', `生成了完全模拟的订单簿数据: ${bidOrders.value.length} 买单, ${askOrders.value.length} 卖单 (档位: ${fallbackLevels})`);
     console.log('完全模拟数据生成完成');
     
   } catch (error) {
@@ -723,6 +742,34 @@ onMounted(() => {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+.price-levels-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-levels-input label {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.price-levels-input input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.price-levels-input input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .depth-chart {
