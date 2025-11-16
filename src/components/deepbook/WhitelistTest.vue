@@ -51,6 +51,27 @@
           </div>
         </div>
         
+        <!-- 交易参数详情 -->
+        <div v-if="tradeParams"
+             class="trade-params-section"
+        >
+          <h5>池子交易参数:</h5>
+          <div class="params-grid">
+            <div class="param-item">
+              <span class="param-label">Taker 费用:</span>
+              <span class="param-value">{{ formatFee(tradeParams.takerFee) }}</span>
+            </div>
+            <div class="param-item">
+              <span class="param-label">Maker 费用:</span>
+              <span class="param-value">{{ formatFee(tradeParams.makerFee) }}</span>
+            </div>
+            <div class="param-item">
+              <span class="param-label">质押要求:</span>
+              <span class="param-value">{{ tradeParams.stakeRequired.toLocaleString() }} DEEP</span>
+            </div>
+          </div>
+        </div>
+        
         <!-- 详细影响说明 -->
         <div class="impact-explanation">
           <h5>影响说明:</h5>
@@ -156,6 +177,7 @@ import { DeepBookClient } from '@mysten/deepbook-v3';
 const loading = ref(false);
 const selectedPool = ref('SUI_USDC');
 const whitelistResult = ref(null);
+const tradeParams = ref(null);
 const apiLogs = ref([]);
 
 // 添加API日志
@@ -199,15 +221,40 @@ const testWhitelisted = async () => {
     addApiLog('whitelisted', 'success', 
       `池子 ${selectedPool.value} 白名单状态: ${isWhitelisted ? '已白名单' : '未白名单'}`);
     
+    // 调用 poolTradeParams 方法获取交易参数
+    addApiLog('poolTradeParams', 'info', `开始获取池子 ${selectedPool.value} 的交易参数`);
+    
+    try {
+      const params = await dbClient.poolTradeParams(selectedPool.value);
+      tradeParams.value = params;
+      
+      addApiLog('poolTradeParams', 'success', 
+        `获取交易参数成功 - Taker: ${formatFee(params.takerFee)}, Maker: ${formatFee(params.makerFee)}, 质押: ${params.stakeRequired} DEEP`);
+      
+      console.log(`池子 ${selectedPool.value} 交易参数:`, params);
+    } catch (paramError) {
+      console.error('获取交易参数失败:', paramError);
+      addApiLog('poolTradeParams', 'warning', `获取交易参数失败: ${paramError.message}`);
+      tradeParams.value = null;
+    }
+    
     console.log(`池子 ${selectedPool.value} 白名单状态:`, isWhitelisted);
     
   } catch (error) {
     console.error('检查白名单状态失败:', error);
     addApiLog('whitelisted', 'error', `检查失败: ${error.message}`);
     whitelistResult.value = null;
+    tradeParams.value = null;
   } finally {
     loading.value = false;
   }
+};
+
+// 格式化费用显示（将小数转换为基点）
+const formatFee = (fee) => {
+  if (fee === 0) return '0 bps (免费)';
+  const bps = (fee * 10000).toFixed(2);
+  return `${bps} bps (${(fee * 100).toFixed(4)}%)`;
 };
 </script>
 
@@ -332,6 +379,46 @@ const testWhitelisted = async () => {
   font-size: 14px;
   color: #6c757d;
   line-height: 1.5;
+}
+
+.trade-params-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #dee2e6;
+}
+
+.trade-params-section h5 {
+  margin-bottom: 15px;
+  color: #495057;
+  font-size: 16px;
+}
+
+.params-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.param-item {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 4px solid #17a2b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.param-label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 14px;
+}
+
+.param-value {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 14px;
 }
 
 .mechanism-explanation {
