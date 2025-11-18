@@ -9,6 +9,7 @@ import Deepbook from "@/components/deepbook/Deepbook.vue";
 import OrderBook from "@/components/deepbook/OrderBook.vue";
 import WhitelistTest from "@/components/deepbook/WhitelistTest.vue";
 import QuantityCalculator from "@/components/deepbook/QuantityCalculator.vue";
+import GridVisualizer from "@/components/GridVisualizer.vue";
 const routes = [
   {
     path: "/",
@@ -57,6 +58,10 @@ const routes = [
     path: '/deepbook/calculator',
     name: 'quantity-calculator',
     component: QuantityCalculator,
+  }, {
+    path: '/grid/visualizer',
+    name: 'grid-visualizer',
+    component: GridVisualizer,
   }
 ];
 

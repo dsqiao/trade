@@ -35,6 +35,7 @@
         <div class="link"><router-link to="/deepbook/orderbook">OrderBook</router-link></div>
         <div class="link"><router-link to="/deepbook/whitelist">WhitelistTest</router-link></div>
         <div class="link"><router-link to="/deepbook/calculator">QuantityCalculator</router-link></div>
+        <div class="link"><router-link to="/grid/visualizer">Grid Visualizer</router-link></div>
       </div>
       <router-view :key="$route.fullPath" />
     </div>
