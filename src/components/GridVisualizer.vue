@@ -89,6 +89,7 @@ const narrowExample = {
   tickStep: 0.2,
   positions: [
     { id: 'pos-1', from: 1.5, to: 2.5, color: '#10b981', label: '100 格' },
+    { id: 'sui-2', from: 1, to: 2, color: '#3b82f6', label: '100 格' },
   ]
 };
 
