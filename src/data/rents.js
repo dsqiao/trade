@@ -30,6 +30,7 @@ const data = [
   { month: '2025-08', amount: 1903, desc: '' },
   { month: '2025-09', amount: 1912, desc: '' },
   { month: '2025-10', amount: 1914, desc: '' },
+  { month: '2025-11', amount: 1910, desc: '' },
 ];
 
 const data2 = [
