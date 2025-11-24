@@ -1,4 +1,4 @@
-const data = [
+const Anjia_Apartment = [
   { month: '2023-04', amount: 4160, desc: '押金' },
   { month: '2023-05', amount: 1969, desc: '5月租金' },
   { month: '2023-06', amount: 2306.50, desc: '5月水电+6月租金' },
@@ -33,17 +33,19 @@ const data = [
   { month: '2025-11', amount: 1910, desc: '' },
 ];
 
-const data2 = [
+const Penguin_Apartment = [
   { month: '2024-09', amount: 2484.92, desc: '企鹅公寓押金，应付 2488.8，信用卡实付 2484.92' },
+  { month: '2024-12', amount: 2804.92, desc: '企鹅公寓 12 月首期租金，应付 2808.8，宁波银行信用卡实付 2804.92' },
 ];
 
 let sum = 0;
-data.forEach(item => sum += item.amount);
-data2.forEach(item => sum += item.amount);
+Anjia_Apartment.forEach(item => sum += item.amount);
+Penguin_Apartment.forEach(item => sum += item.amount);
 console.log('总计：', sum.toFixed(3));
 
 export {
-  data
+  Anjia_Apartment,
+  Penguin_Apartment
 };
 
 // node src/data/rents.js
