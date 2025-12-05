@@ -36,6 +36,7 @@ const Anjia_Apartment = [
 const Penguin_Apartment = [
   { month: '2025-09', amount: 2484.92, desc: '企鹅公寓押金，应付 2488.8，信用卡实付 2484.92' },
   { month: '2025-12', amount: 2804.92, desc: '企鹅公寓 12 月首期租金，应付 2808.8，宁波银行信用卡实付 2804.92' },
+  { month: '2025-12', amount: 93.62, desc: '11月30号当天租金' },
 ];
 
 let sum = 0;
