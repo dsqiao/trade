@@ -256,6 +256,7 @@ const cashflow = [ {
     { day: 3, num: 1200, cny: 8340, platform: PLATFORM.OKX, direction: BUY, desc: '' },
     { day: 3, num: 1300, cny: 9009, platform: PLATFORM.OKX, direction: BUY, desc: '' },
     { day: 5, num: 1000, cny: 6980, platform: PLATFORM.OKX, direction: BUY, desc: '' },
+    { day: 5, num: 1400, cny: 9786, platform: PLATFORM.OKX, direction: BUY, desc: '' },
   ]
 } ];
 
