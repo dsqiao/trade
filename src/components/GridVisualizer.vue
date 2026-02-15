@@ -84,12 +84,17 @@ const logTickDensity = ref('normal');
 
 // Narrow range example (0-5 USD, good for linear)
 const narrowExample = {
-  minPrice: 1,
-  maxPrice: 5,
-  tickStep: 0.2,
+  minPrice: 0.5,
+  maxPrice: 4,
+  tickStep: 0.1,
   positions: [
-    { id: 'pos-1', from: 1.5, to: 2.5, color: '#10b981', label: '100 格' },
-    { id: 'sui-2', from: 1, to: 2, color: '#3b82f6', label: '100 格' },
+    { id: 'sui-11/16/2025, 22:25:56', from: 1.5, to: 2.5, color: '#10b981', label: '100 格' },
+    { id: 'sui-11/21/2025, 22:02:05', from: 1, to: 2, color: '#3b82f6', label: '100 格' },
+    { id: 'sui-12/05/2025, 19:26:45', form: 1.1, to: 2.1, color: '#f59e0b', label: '100 格' },
+    { id: 'sui-01/05/2026, 14:42:39', from: 1.17, to: 2.17, color: '#ef4444', label: '100 格' },
+    { id: 'sui-01/22/2026, 18:26:38', from: 1.125, to: 2.125, color: '#8b5cf6', label: '100 格' },
+    { id: 'sui-02/03/2026, 21:58:28', from: 0.903, to: 1.903, color: '#ec4899', label: '100 格' },
+    { id: 'sui-02/12/2026, 15:57:23', from: 0.7, to: 1.5, color: '#0ea5e9', label: '100 格' },
   ]
 };
 
