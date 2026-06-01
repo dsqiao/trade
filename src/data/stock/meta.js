@@ -1,4 +1,4 @@
-import { BUY, SELL } from "../const.js";
+import { BUY, OTHER, SELL } from "../const.js";
 
 const currentPrice = 631;
 const data = [ {
@@ -17,6 +17,12 @@ const data = [ {
     { day: 4, price: 630, number: 3, direction: BUY, fee: 1.02 },
     { day: 6, price: 618, number: 3, direction: BUY, fee: 1.02 },
     { day: 7, price: 610, number: 3, direction: BUY, fee: 1.02 },
+  ]
+}, {
+  month: '202512',
+  trans: [
+    { day: 24, price: 0, number: 0, direction: OTHER, fee: -14.18, desc: '现金分红 27 股 * 0.525 USD/股' },
+    { day: 25, price: 0, number: 0, direction: OTHER, fee: 1.42, desc: 'Tax/Dividend Fee' },
   ]
 }, {
   month: '202601',
