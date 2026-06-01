@@ -1,13 +1,7 @@
 <script setup>
 import { BUY } from './data/const.js';
-import { data as maraData } from './data/stock/mara.js';
-import { data as nioData } from './data/stock/nio.js';
-import { data as metaData } from './data/stock/meta.js';
-import { data as clskData } from './data/stock/clsk.js';
-import { data as tslaData } from './data/stock/tsla.js';
-import { data as riotData } from './data/stock/riot.js';
-import { data as mstrData } from './data/stock/mstr.js';
-import { data as sqData } from './data/stock/sq.js';
+
+const modules = import.meta.glob('./data/stock/*.js', { eager: true });
 
 function getHolding(data) {
   let holding = 0;
@@ -23,16 +17,14 @@ function getHolding(data) {
   return holding;
 }
 
-const stocks = [
-  { name: 'MARA', path: '/history/mara', data: maraData },
-  { name: 'NIO', path: '/history/nio', data: nioData },
-  { name: 'META', path: '/history/meta', data: metaData },
-  { name: 'CLSK', path: '/history/clsk', data: clskData },
-  { name: 'TSLA', path: '/history/tsla', data: tslaData },
-  { name: 'RIOT', path: '/history/riot', data: riotData },
-  { name: 'MSTR', path: '/history/mstr', data: mstrData },
-  { name: 'SQ', path: '/history/sq', data: sqData },
-];
+const stocks = Object.entries(modules).map(([ path, mod ]) => {
+  const fileName = path.split('/').pop().replace('.js', '');
+  return {
+    name: fileName.toUpperCase(),
+    path: `/history/${fileName}`,
+    data: mod.data,
+  };
+});
 
 const holdingStocks = stocks.filter(s => getHolding(s.data) > 0);
 const clearedStocks = stocks.filter(s => getHolding(s.data) <= 0);
