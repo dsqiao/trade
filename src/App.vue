@@ -143,8 +143,8 @@ const showCleared = ref(false);
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
+  flex-direction: column;
+  gap: 12px;
   padding: 16px 20px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
