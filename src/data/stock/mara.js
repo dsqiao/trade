@@ -495,9 +495,9 @@ const data = [
     trans: [
       { day: 4, price: 17, number: 50, direction: BUY, fee: 1.16 },
       { day: 6, price: 15.97, number: 50, direction: BUY, fee: 1.16 },
-      { day: 7, price: 15, number: 100, direction: BUY, fee: 1.31 },
+      { day: 7, price: 15, number: 100, direction: BUY, fee: 1.31, t: 132 },
       { day: 11, price: 14.8593, number: 900, direction: BUY, fee: 7.22 },
-      { day: 11, price: 14.5, number: 60, direction: BUY, fee: 1.19 },
+      { day: 11, price: 14.5, number: 60, direction: BUY, fee: 1.19, t: 132 },
       { day: 13, price: 12.97, number: 170, direction: BUY, fee: 0.88, t: 128 },
     ]
   }, {
@@ -509,9 +509,13 @@ const data = [
       { day: 16, price: 15.12, number: 100, direction: SELL, fee: 0.36, t: 129 },
       { day: 16, price: 14.65, number: 100, direction: BUY, fee: 0.31, t: 129 },
       { day: 17, price: 14, number: 100, direction: BUY, fee: 0.31, t: 130 },
-      { day: 18, price: 13.765, number: 100, direction: SELL, fee: 0 },
-      { day: 18, price: 14.06, number: 100, direction: SELL, fee: 0, t: 131 },
-      { day: 18, price: 13.89, number: 100, direction: BUY, fee: 0, t: 131 },
+      { day: 18, price: 13.765, number: 100, direction: SELL, fee: 1.36 },
+      { day: 18, price: 14.06, number: 100, direction: SELL, fee: 1.36, t: 131 },
+      { day: 18, price: 13.89, number: 100, direction: BUY, fee: 1.31, t: 131 },
+      { day: 22, price: 15.6107, number: 100, direction: SELL, fee: 0, },
+      { day: 22, price: 16, number: 160, direction: SELL, fee: 0, t: 132 },
+      { day: 22, price: 16.35, number: 100, direction: SELL, fee: 0, t: 133 },
+      { day: 22, price: 15.75, number: 100, direction: BUY, fee: 0, t: 133 },
     ]
   }
 ];
