@@ -31,6 +31,8 @@ const data = [ {
     { day: 12, price: 0, number: 0, direction: OTHER, fee: -40.04, desc: '现金分红 44 股 * 0.91 USD/股' },
     { day: 12, price: 0, number: 0, direction: OTHER, fee: 4.00, desc: '企业行动费用' },
     { day: 17, price: 378, number: 3, direction: BUY, fee: 0.02 },
+    { day: 22, price: 372, number: 5, direction: BUY, fee: 1.03 },
+    { day: 22, price: 368, number: 5, direction: BUY, fee: 1.03 },
   ]
 } ];
 
