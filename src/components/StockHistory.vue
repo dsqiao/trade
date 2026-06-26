@@ -22,11 +22,24 @@
   </div>
   <!-- 每月月底持仓总结 -->
   <div class="monthlyReport">
-    <div 
-      v-for="(m, index) in monthlyReport"
-      :key="index"
+    <div
+      class="monthlyReport-header"
+      @click="showMonthlyReport = !showMonthlyReport"
     >
-      {{ m }}
+      <span class="arrow">{{ showMonthlyReport ? '▾' : '▸' }}</span>
+      <span>每月月底持仓总结</span>
+      <span class="count">（{{ monthlyReport.length }} 个月）</span>
+    </div>
+    <div
+      v-show="showMonthlyReport"
+      class="monthlyReport-body"
+    >
+      <div
+        v-for="(m, index) in monthlyReport"
+        :key="index"
+      >
+        {{ m }}
+      </div>
     </div>
   </div>
   <h2>交易明细</h2>
@@ -103,6 +116,7 @@ const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手
 const totalFee = ref(0);        // 手续费总开支
 const monthlyReport = reactive([]);  // 月度总结
 const showT = ref(true);       // 展示配对交易
+const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
@@ -220,6 +234,7 @@ export default {
       monthlyReport,
       getDayOfWeek,
       showT,
+      showMonthlyReport,
     };
   }
 };
@@ -239,6 +254,38 @@ export default {
   margin-top: 20px;
 }
 
+.monthlyReport-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
+}
+
+.monthlyReport-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.monthlyReport-header .arrow {
+  font-size: 0.85rem;
+  width: 1em;
+}
+
+.monthlyReport-header .count {
+  font-size: 0.85rem;
+  color: rgb(150, 150, 150);
+}
+
+.monthlyReport-body {
+  margin-top: 10px;
+  padding-left: 14px;
+  line-height: 1.8;
+}
+
 .emphasis {
   font-size: 1.5rem;
   background-color: rgb(19, 15, 15);
@@ -248,33 +295,46 @@ export default {
 /* 定制化每一列的宽度 */
 .date {
   width: 10%;
+  min-width: 130px;
 }
-
 .date2 {
   width: 4%;
+  min-width: 48px;
 }
 .direction {
   width: 4%;
+  min-width: 48px;
 }
 .price {
   width: 7%;
+  min-width: 64px;
 }
 .sign {
   width: 2%;
+  min-width: 20px;
+  text-align: center;
 }
 .number {
   width: 4%;
+  min-width: 56px;
 }
 .fee {
   width: 8%;
+  min-width: 64px;
 }
 .current {
   width: 8%;
+  min-width: 72px;
 }
 .t {
   width: 7%;
+  min-width: 40px;
 }
 .gain {
   width: 15%;
+  min-width: 80px;
+}
+.desc {
+  min-width: 120px;
 }
 </style>
