@@ -5,6 +5,38 @@
   color: rgb(172, 172, 172);
 }
 
+/* 自定义滚动条样式：细窄、深色、科技未来感 */
+/* Chrome / Safari / Edge */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 20, 20, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00e5ff, #0077ff);
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2af5ff, #008cff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.9);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(20, 20, 20, 0.6);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #00b8d4 rgba(20, 20, 20, 0.6);
+}
+
 
 /* 表格样式 START */
 .transaction-table {
