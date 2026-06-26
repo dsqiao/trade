@@ -98,6 +98,9 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="transaction-section">
     <h2 class="section-title">交易明细</h2>
     <div
       v-for="(month, index) in mData"
@@ -300,6 +303,14 @@ export default {
 <style scoped>
 .stock-page {
   max-width: 1200px;
+}
+
+/* 交易明细区域使用全宽，避免表格列被压缩换行 */
+.transaction-section {
+  max-width: 100%;
+}
+.transaction-section .month-block {
+  overflow-x: auto;
 }
 
 /* 浮动开关 */

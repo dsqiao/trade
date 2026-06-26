@@ -51,6 +51,12 @@ html {
   padding: 4px;
   height: 1.6rem;
   line-height: 1.6rem;
+  white-space: nowrap;
+}
+
+/* 备注列允许换行，避免长文案撑爆表格 */
+.transaction-table td.desc {
+  white-space: normal;
 }
 
 /* 表格标题样式 */
