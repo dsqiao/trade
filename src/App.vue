@@ -107,26 +107,6 @@ const showCleared = ref(false);
               to="/asset"
               class="nav-link"
             >Asset</router-link>
-            <router-link
-              to="/deepbook"
-              class="nav-link"
-            >Deepbook</router-link>
-            <router-link
-              to="/deepbook/orderbook"
-              class="nav-link"
-            >OrderBook</router-link>
-            <router-link
-              to="/deepbook/whitelist"
-              class="nav-link"
-            >WhitelistTest</router-link>
-            <router-link
-              to="/deepbook/calculator"
-              class="nav-link"
-            >QuantityCalculator</router-link>
-            <router-link
-              to="/grid/visualizer"
-              class="nav-link"
-            >Grid Visualizer</router-link>
           </div>
         </div>
       </nav>
