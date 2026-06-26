@@ -30,88 +30,107 @@ const stocks = Object.entries(modules).map(([ path, mod ]) => {
 const holdingStocks = stocks.filter(s => getHolding(s.data) > 0);
 const clearedStocks = stocks.filter(s => getHolding(s.data) <= 0);
 const showCleared = ref(false);
+const collapsed = ref(true); // 侧边导航折叠状态，默认折叠
 </script>
 
 <template>
   <Suspense>
-    <div class="window">
-      <nav class="nav">
-        <div class="nav-group">
-          <span class="nav-label">美股</span>
-          <div class="nav-links">
-            <router-link
-              v-for="s in holdingStocks"
-              :key="s.name"
-              :to="s.path"
-              class="nav-link"
-            >{{ s.name }}</router-link>
-            <span
-              class="cleared-toggle"
-              @click="showCleared = !showCleared"
-            >
-              已清仓 {{ showCleared ? '▾' : '▸' }}
-            </span>
-            <template v-if="showCleared">
+    <div
+      class="window"
+      :class="{ 'nav-collapsed': collapsed }"
+    >
+      <aside class="sidebar">
+        <button
+          class="sidebar-toggle"
+          :title="collapsed ? '展开导航' : '收起导航'"
+          @click="collapsed = !collapsed"
+        >
+          <span class="toggle-icon">{{ collapsed ? '☰' : '✕' }}</span>
+        </button>
+
+        <nav
+          v-show="!collapsed"
+          class="nav"
+        >
+          <div class="nav-group">
+            <span class="nav-label">美股</span>
+            <div class="nav-links">
               <router-link
-                v-for="s in clearedStocks"
+                v-for="s in holdingStocks"
                 :key="s.name"
                 :to="s.path"
-                class="nav-link cleared"
+                class="nav-link"
               >{{ s.name }}</router-link>
-            </template>
+              <span
+                class="cleared-toggle"
+                @click="showCleared = !showCleared"
+              >
+                已清仓 {{ showCleared ? '▾' : '▸' }}
+              </span>
+              <template v-if="showCleared">
+                <router-link
+                  v-for="s in clearedStocks"
+                  :key="s.name"
+                  :to="s.path"
+                  class="nav-link cleared"
+                >{{ s.name }}</router-link>
+              </template>
+            </div>
           </div>
-        </div>
 
-        <div class="nav-group">
-          <span class="nav-label">Crypto</span>
-          <div class="nav-links">
-            <router-link
-              to="/coin-history/sui"
-              class="nav-link"
-            >SUI-USDC</router-link>
-            <router-link
-              to="/coin-history/deep"
-              class="nav-link"
-            >DEEP-USDC</router-link>
-            <router-link
-              to="/deep-sui"
-              class="nav-link"
-            >DEEP-SUI</router-link>
-            <router-link
-              to="/coin-history/ns"
-              class="nav-link"
-            >NS-USDC</router-link>
-            <router-link
-              to="/coin-history/wal"
-              class="nav-link"
-            >WAL-USDC</router-link>
-            <router-link
-              to="/coin-history/jitosol"
-              class="nav-link"
-            >JitoSOL-USDC</router-link>
+          <div class="nav-group">
+            <span class="nav-label">Crypto</span>
+            <div class="nav-links">
+              <router-link
+                to="/coin-history/sui"
+                class="nav-link"
+              >SUI-USDC</router-link>
+              <router-link
+                to="/coin-history/deep"
+                class="nav-link"
+              >DEEP-USDC</router-link>
+              <router-link
+                to="/deep-sui"
+                class="nav-link"
+              >DEEP-SUI</router-link>
+              <router-link
+                to="/coin-history/ns"
+                class="nav-link"
+              >NS-USDC</router-link>
+              <router-link
+                to="/coin-history/wal"
+                class="nav-link"
+              >WAL-USDC</router-link>
+              <router-link
+                to="/coin-history/jitosol"
+                class="nav-link"
+              >JitoSOL-USDC</router-link>
+            </div>
           </div>
-        </div>
 
-        <div class="nav-group">
-          <span class="nav-label">其他</span>
-          <div class="nav-links">
-            <router-link
-              to="/cashflow"
-              class="nav-link"
-            >crypto出入金</router-link>
-            <router-link
-              to="/future/btc"
-              class="nav-link"
-            >long btc</router-link>
-            <router-link
-              to="/asset"
-              class="nav-link"
-            >Asset</router-link>
+          <div class="nav-group">
+            <span class="nav-label">其他</span>
+            <div class="nav-links">
+              <router-link
+                to="/cashflow"
+                class="nav-link"
+              >crypto出入金</router-link>
+              <router-link
+                to="/future/btc"
+                class="nav-link"
+              >long btc</router-link>
+              <router-link
+                to="/asset"
+                class="nav-link"
+              >Asset</router-link>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </aside>
 
-      <router-view :key="$route.fullPath" />
+      <main class="content">
+        <router-view :key="$route.fullPath" />
+      </main>
     </div>
   </Suspense>
 </template>
@@ -121,19 +140,75 @@ const showCleared = ref(false);
   min-height: 100vh;
 }
 
+/* 左侧悬浮栏：始终浮于内容之上，不占用主内容区 */
+.sidebar {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 220px;
+  max-height: calc(100vh - 60px);
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  overflow-y: auto;
+  transition: width 0.25s ease, padding 0.25s ease;
+}
+
+.nav-collapsed .sidebar {
+  width: 46px;
+  padding: 10px 7px;
+  gap: 0;
+}
+
+/* 折叠按钮 */
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(99, 130, 255, 0.25);
+  color: #fff;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* 主内容区：全宽，不被侧栏挤压 */
+.content {
+  width: 100%;
+  min-width: 0;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 16px;
 }
 
 .nav-group {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
 }
 
 .nav-label {
@@ -150,16 +225,16 @@ const showCleared = ref(false);
 
 .nav-links {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
 }
 
 .nav-link {
   font-size: 0.85rem;
   color: rgba(200, 200, 220, 0.8);
   text-decoration: none;
-  padding: 5px 12px;
+  padding: 6px 12px;
   border-radius: 6px;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -190,7 +265,7 @@ const showCleared = ref(false);
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.35);
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 5px 12px;
   border-radius: 4px;
   user-select: none;
   transition: all 0.2s ease;
