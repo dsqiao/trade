@@ -12,6 +12,10 @@
       <div class="current-price">
         <span class="price-label">当前股价</span>
         <span class="price-value">${{ mCurrentPrice }}</span>
+        <span
+          v-if="isLive"
+          class="live-badge"
+        >LIVE</span>
       </div>
     </header>
 
@@ -167,6 +171,7 @@ import { reactive, ref, watch } from 'vue';
 import { BUY, SELL } from '../data/const.js';
 import { useRoute } from 'vue-router';
 import { getDayOfWeek } from '../utils/index.js';
+import { useRealtimePrice } from '../utils/realtimePrice.js';
 const mData = reactive([]);
 const mCurrentPrice = ref(0);   // 当前股价
 const holdingNum = ref(0);      // 当前持股数量
@@ -282,6 +287,13 @@ export default {
       },
       { immediate: true }
     );
+
+    // 实时股价：通过 WebSocket 推送，成交时即时更新，自动覆盖写死的价格
+    const { price: livePrice, isLive } = useRealtimePrice(stock);
+    watch(livePrice, (p) => {
+      if (p > 0) mCurrentPrice.value = p;
+    });
+
     return {
       mData,
       mCurrentPrice,
@@ -296,6 +308,7 @@ export default {
       getDayOfWeek,
       showT,
       showMonthlyReport,
+      isLive,
     };
   }
 };
@@ -371,6 +384,21 @@ export default {
   font-weight: 600;
   color: #fff;
   font-variant-numeric: tabular-nums;
+}
+.live-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #2ee59d;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(46, 229, 157, 0.12);
+  border: 1px solid rgba(46, 229, 157, 0.35);
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 
 /* 核心指标卡：总盈利 */
