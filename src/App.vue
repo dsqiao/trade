@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, nextTick, onUnmounted } from 'vue';
 import { BUY } from './data/const.js';
 
 const modules = import.meta.glob('./data/stock/*.js', { eager: true });
@@ -31,6 +31,26 @@ const holdingStocks = stocks.filter(s => getHolding(s.data) > 0);
 const clearedStocks = stocks.filter(s => getHolding(s.data) <= 0);
 const showCleared = ref(false);
 const collapsed = ref(true); // 侧边导航折叠状态，默认折叠
+const sidebarRef = ref(null);
+
+// 点击导航外部区域时关闭导航
+function handleClickOutside(e) {
+  if (sidebarRef.value && !sidebarRef.value.contains(e.target)) {
+    collapsed.value = true;
+  }
+}
+
+// 导航展开时监听全局点击，收起时移除监听
+watch(collapsed, (isCollapsed) => {
+  if (!isCollapsed) {
+    // 延后到下一帧再绑定，避免触发"打开"的本次点击立即把它关掉
+    nextTick(() => document.addEventListener('mousedown', handleClickOutside));
+  } else {
+    document.removeEventListener('mousedown', handleClickOutside);
+  }
+});
+
+onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside));
 </script>
 
 <template>
@@ -39,7 +59,10 @@ const collapsed = ref(true); // 侧边导航折叠状态，默认折叠
       class="window"
       :class="{ 'nav-collapsed': collapsed }"
     >
-      <aside class="sidebar">
+      <aside
+        ref="sidebarRef"
+        class="sidebar"
+      >
         <button
           class="sidebar-toggle"
           :title="collapsed ? '展开导航' : '收起导航'"
