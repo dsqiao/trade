@@ -505,11 +505,11 @@ const data = [
     trans: [
       { day: 1, price: 15, number: 170, direction: SELL, fee: 0.97, t: 128 },
       { day: 15, price: 14.68, number: 100, direction: SELL, fee: 0.36, t: 130 },
-      { day: 15, price: 14.8, number: 100, direction: SELL, fee: 0.36 },
+      { day: 15, price: 14.8, number: 100, direction: SELL, fee: 0.36, t: 139 },
       { day: 16, price: 15.12, number: 100, direction: SELL, fee: 0.36, t: 129 },
       { day: 16, price: 14.65, number: 100, direction: BUY, fee: 0.31, t: 129 },
       { day: 17, price: 14, number: 100, direction: BUY, fee: 0.31, t: 130 },
-      { day: 18, price: 13.765, number: 100, direction: SELL, fee: 1.36 },
+      { day: 18, price: 13.765, number: 100, direction: SELL, fee: 1.36, t: 140 },
       { day: 18, price: 14.06, number: 100, direction: SELL, fee: 1.36, t: 131 },
       { day: 18, price: 13.89, number: 100, direction: BUY, fee: 1.31, t: 131 },
       { day: 22, price: 15.6107, number: 100, direction: SELL, fee: 0.36, },
@@ -526,6 +526,8 @@ const data = [
       { day: 25, price: 13.42, number: 92, direction: BUY, fee: 1.29, t: 137 },
       { day: 26, price: 14, number: 92, direction: SELL, fee: 1.34, t: 137 },
       { day: 26, price: 14.70, number: 100, direction: SELL, fee: 1.36, t: 138 },
+      { day: 29, price: 13.8, number: 100, direction: BUY, fee: 0, t: 139 },
+      { day: 29, price: 13.4, number: 100, direction: BUY, fee: 0, t: 140 },
     ]
   }
 ];
