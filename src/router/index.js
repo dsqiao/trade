@@ -5,6 +5,9 @@ import DeepSui from '../components/pair/deep-sui.vue';
 import CoinHistory from "@/components/CoinHistory.vue";
 import Future from '../components/LongFuture.vue';
 import Asset from "@/components/Asset.vue";
+import SubOverview from "@/components/sub/SubOverview.vue";
+import SubFunding from "@/components/sub/SubFunding.vue";
+import SubExchange from "@/components/sub/SubExchange.vue";
 
 const routes = [
   {
@@ -38,6 +41,23 @@ const routes = [
     path: "/asset",
     name: "asset",
     component: Asset,
+  }, {
+    path: "/sub",
+    name: "sub-overview",
+    component: SubOverview,
+  }, {
+    path: "/sub/funding",
+    name: "sub-funding",
+    component: SubFunding,
+  }, {
+    path: "/sub/exchange",
+    name: "sub-exchange",
+    component: SubExchange,
+  }, {
+    path: "/sub/history/:stock",
+    name: "sub-history",
+    component: History,
+    meta: { account: 'sub' },
   }
 ];
 

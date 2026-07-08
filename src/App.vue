@@ -3,6 +3,7 @@ import { ref, watch, nextTick, onUnmounted } from 'vue';
 import { BUY } from './data/const.js';
 
 const modules = import.meta.glob('./data/stock/*.js', { eager: true });
+const subModules = import.meta.glob('./data/sub/stock/*.js', { eager: true });
 
 function getHolding(data) {
   let holding = 0;
@@ -29,6 +30,19 @@ const stocks = Object.entries(modules).map(([ path, mod ]) => {
 
 const holdingStocks = stocks.filter(s => getHolding(s.data) > 0);
 const clearedStocks = stocks.filter(s => getHolding(s.data) <= 0);
+
+// 子账号股票列表
+const subStocks = Object.entries(subModules).map(([ path, mod ]) => {
+  const fileName = path.split('/').pop().replace('.js', '');
+  return {
+    name: fileName.toUpperCase(),
+    path: `/sub/history/${fileName}`,
+    data: mod.data,
+  };
+});
+const subHoldingStocks = subStocks.filter(s => getHolding(s.data) > 0);
+const subClearedStocks = subStocks.filter(s => getHolding(s.data) <= 0);
+const showSubCleared = ref(false);
 const showCleared = ref(false);
 const collapsed = ref(true); // 侧边导航折叠状态，默认折叠
 const sidebarRef = ref(null);
@@ -146,6 +160,45 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
                 to="/asset"
                 class="nav-link"
               >Asset</router-link>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-label">子账号</span>
+            <div class="nav-links">
+              <router-link
+                to="/sub"
+                class="nav-link"
+              >总览</router-link>
+              <router-link
+                to="/sub/funding"
+                class="nav-link"
+              >出入金</router-link>
+              <router-link
+                to="/sub/exchange"
+                class="nav-link"
+              >货币兑换</router-link>
+              <router-link
+                v-for="s in subHoldingStocks"
+                :key="s.name"
+                :to="s.path"
+                class="nav-link"
+              >{{ s.name }}</router-link>
+              <span
+                v-if="subClearedStocks.length"
+                class="cleared-toggle"
+                @click="showSubCleared = !showSubCleared"
+              >
+                已清仓 {{ showSubCleared ? '▾' : '▸' }}
+              </span>
+              <template v-if="showSubCleared">
+                <router-link
+                  v-for="s in subClearedStocks"
+                  :key="s.name"
+                  :to="s.path"
+                  class="nav-link cleared"
+                >{{ s.name }}</router-link>
+              </template>
             </div>
           </div>
         </nav>

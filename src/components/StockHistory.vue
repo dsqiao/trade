@@ -196,14 +196,16 @@ const clearData = () => {
   monthlyReport.length = 0;
 };
 
-// 动态加载数据
-const loadData = async (stock) => {
+// 动态加载数据（account 为 'sub' 时读取子账号股票数据，否则读取主账号）
+const loadData = async (stock, account) => {
   try {
-    const { data, currentPrice } = await import(`../data/stock/${stock.value}.js`);
+    const { data, currentPrice } = account === 'sub'
+      ? await import(`../data/sub/stock/${stock.value}.js`)
+      : await import(`../data/stock/${stock.value}.js`);
     mData.push(...data); // 使用 .push 方法来更新 reactive 数组
     mCurrentPrice.value = currentPrice;
   } catch (error) {
-    console.error(`Error loading stock data for ${stock}:`, error);
+    console.error(`Error loading stock data for ${stock.value}:`, error);
   }
 };
 
@@ -277,12 +279,13 @@ export default {
   setup() {
     const route = useRoute();
     const stock = ref(route.params.stock);
+    const account = route.meta.account; // 'sub' 表示子账号，undefined 表示主账号
     watch(
       () => route.params.stock,
       async (newStock) => {
         stock.value = newStock;
         clearData();
-        await loadData(stock);
+        await loadData(stock, account);
         calculateData();
       },
       { immediate: true }
