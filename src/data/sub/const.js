@@ -10,8 +10,12 @@ const CCY = {
   USD: 'USD', // 美元
 };
 
+// 港币/美元 参考汇率（1 美元 = ? 港币），用于资产总额折算，按需调整
+const HKD_PER_USD = 7.85;
+
 export {
   DEPOSIT,
   WITHDRAW,
   CCY,
+  HKD_PER_USD,
 };

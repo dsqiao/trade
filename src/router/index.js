@@ -8,6 +8,7 @@ import Asset from "@/components/Asset.vue";
 import SubOverview from "@/components/sub/SubOverview.vue";
 import SubFunding from "@/components/sub/SubFunding.vue";
 import SubExchange from "@/components/sub/SubExchange.vue";
+import SubAsset from "@/components/sub/SubAsset.vue";
 
 const routes = [
   {
@@ -53,6 +54,10 @@ const routes = [
     path: "/sub/exchange",
     name: "sub-exchange",
     component: SubExchange,
+  }, {
+    path: "/sub/asset",
+    name: "sub-asset",
+    component: SubAsset,
   }, {
     path: "/sub/history/:stock",
     name: "sub-history",
