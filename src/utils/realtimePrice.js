@@ -1,4 +1,4 @@
-import { ref, watch, onUnmounted } from 'vue';
+import { ref, reactive, watch, onUnmounted } from 'vue';
 
 // Finnhub API Token，从环境变量读取（在项目根目录 .env 中配置 VITE_FINNHUB_TOKEN=你的key）
 // 免费申请：https://finnhub.io/register
@@ -134,4 +134,115 @@ export function useRealtimePrice(symbolSource) {
   onUnmounted(close);
 
   return { price, isLive, error, close };
+}
+
+/**
+ * 多只美股实时价格（基于 Finnhub，单条 WebSocket 订阅多个代码）
+ * - 通过 WebSocket 订阅所有代码的 trade 事件，成交时即时更新
+ * - 对每个代码额外用一次 REST /quote 拉取初始快照（非交易时段也能显示最近价）
+ * - 代码列表变化时自动增/删订阅
+ * @param {import('vue').Ref<string[]> | (() => string[]) | string[]} symbolsSource 股票代码数组（ref / 函数 / 静态数组）
+ * @returns {{ prices: Record<string, number>, error: import('vue').Ref<any>, close: Function }}
+ */
+export function useRealtimePrices(symbolsSource) {
+  const prices = reactive({}); // { SYMBOL: 最新价 }
+  const error = ref(null);
+
+  let ws = null;
+  let reconnectTimer = null;
+  let manualClosed = false;
+  let current = []; // 当前已订阅的代码（大写）
+
+  const getSymbols = () => {
+    const arr = typeof symbolsSource === 'function'
+      ? symbolsSource()
+      : (symbolsSource && symbolsSource.value !== undefined ? symbolsSource.value : symbolsSource);
+    return (arr || []).map((s) => String(s).toUpperCase());
+  };
+
+  const send = (obj) => {
+    if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(obj));
+  };
+
+  async function fetchSnapshot(symbol) {
+    if (!FINNHUB_TOKEN) return;
+    try {
+      const res = await fetch(
+        `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_TOKEN}`
+      );
+      if (!res.ok) return;
+      const json = await res.json();
+      if (json && typeof json.c === 'number' && json.c > 0) {
+        prices[symbol] = json.c;
+      }
+    } catch (e) {
+      // 快照失败不影响 WS，忽略
+    }
+  }
+
+  function connect() {
+    if (!FINNHUB_TOKEN) return; // 未配置 token，静默跳过，沿用兜底价
+    manualClosed = false;
+    ws = new WebSocket(WS_URL);
+
+    ws.onopen = () => {
+      error.value = null;
+      current.forEach((s) => send({ type: 'subscribe', symbol: s }));
+    };
+
+    ws.onmessage = (evt) => {
+      let msg;
+      try {
+        msg = JSON.parse(evt.data);
+      } catch {
+        return;
+      }
+      if (msg.type === 'trade' && Array.isArray(msg.data)) {
+        for (const t of msg.data) {
+          if (t.s) prices[t.s] = t.p;
+        }
+      }
+    };
+
+    ws.onerror = (e) => {
+      error.value = e;
+      console.error('Finnhub WebSocket 错误:', e);
+    };
+
+    ws.onclose = () => {
+      ws = null;
+      if (!manualClosed) reconnectTimer = setTimeout(connect, 3000);
+    };
+  }
+
+  // 同步订阅列表（新增订阅、移除退订）
+  function sync() {
+    const next = getSymbols();
+    current.filter((s) => !next.includes(s)).forEach((s) => send({ type: 'unsubscribe', symbol: s }));
+    next.filter((s) => !current.includes(s)).forEach((s) => {
+      fetchSnapshot(s);          // 立即取一次最近价
+      send({ type: 'subscribe', symbol: s }); // 已连接则直接订阅
+    });
+    current = next;
+    if (next.length && !ws) connect(); // 未连接：建立连接（onopen 后统一订阅）
+  }
+
+  watch(() => getSymbols().join(','), sync, { immediate: true });
+
+  function close() {
+    manualClosed = true;
+    if (reconnectTimer) {
+      clearTimeout(reconnectTimer);
+      reconnectTimer = null;
+    }
+    if (ws) {
+      current.forEach((s) => send({ type: 'unsubscribe', symbol: s }));
+      ws.close();
+      ws = null;
+    }
+  }
+
+  onUnmounted(close);
+
+  return { prices, error, close };
 }

@@ -90,8 +90,8 @@
         >
           <td class="name">{{ s.name }}</td>
           <td>{{ s.holding }}</td>
-          <td>{{ s.currentPrice ? '$ ' + s.currentPrice : '-' }}</td>
-          <td>$ {{ parseNumber(s.holding * s.currentPrice) }}</td>
+          <td>{{ priceOf(s) ? '$ ' + priceOf(s).toFixed(3) : '-' }}</td>
+          <td>$ {{ parseNumber(s.holding * priceOf(s)) }}</td>
         </tr>
         <tr
           v-if="!holdingRows.length"
@@ -104,17 +104,19 @@
       </tbody>
     </table>
     <p class="note">
-      注：股票现价取自各股票文件的 currentPrice 字段，请在有持仓时手动维护为最新价，市值与总资产将随之更新。
+      注：股票现价通过 Finnhub 实时行情接口获取（成交时即时更新）；若未配置行情 token 或接口暂无数据，则回退使用股票文件中的 currentPrice 兜底价。
     </p>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { funding } from '../../data/sub/funding.js';
 import { exchange } from '../../data/sub/exchange.js';
 import { DEPOSIT, CCY, HKD_PER_USD } from '../../data/sub/const.js';
 import { BUY } from '../../data/const.js';
 import { parseNumber } from '../../utils/index.js';
+import { useRealtimePrices } from '../../utils/realtimePrice.js';
 
 // ---- 出入金汇总 ----
 const f = (() => {
@@ -169,21 +171,27 @@ const stockRows = Object.entries(modules).map(([ path, mod ]) => {
       }
     }
   }
-  return { name, holding, income, outcome, fee, currentPrice: mod.currentPrice || 0 };
+  // fallbackPrice：API 未取到时的兜底价（股票文件里的 currentPrice）
+  return { name, holding, income, outcome, fee, fallbackPrice: mod.currentPrice || 0 };
 });
 const holdingRows = stockRows.filter(s => s.holding > 0);
 
+// 实时行情：订阅持仓股票代码，成交时即时更新价格
+const { prices } = useRealtimePrices(holdingRows.map(s => s.name));
+// 取某只股票的现价：优先实时价，其次兜底价
+const priceOf = (s) => prices[s.name] || s.fallbackPrice || 0;
+
 // 股票带来的美元现金净变动 = 卖出 − 买入 − 手续费（负手续费即分红收入）
 const stockCashDelta = stockRows.reduce((sum, s) => sum + s.income - s.outcome - s.fee, 0);
-// 股票持仓市值
-const stockValue = stockRows.reduce((sum, s) => sum + s.holding * s.currentPrice, 0);
+// 股票持仓市值（随实时价响应式变化）
+const stockValue = computed(() => stockRows.reduce((sum, s) => sum + s.holding * priceOf(s), 0));
 
 // ---- 现金余额 ----
 const hkdCash = f.depositHKD - f.withdrawHKD - e.hkdOut + e.hkdIn;
 const usdCash = f.depositUSD - f.withdrawUSD + e.usdIn - e.usdOut + stockCashDelta;
 
 // ---- 总资产（折算美元）----
-const totalUSD = usdCash + stockValue + hkdCash / HKD_PER_USD;
+const totalUSD = computed(() => usdCash + stockValue.value + hkdCash / HKD_PER_USD);
 </script>
 
 <style scoped>
