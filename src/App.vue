@@ -237,13 +237,22 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   overflow-y: auto;
-  transition: width 0.25s ease, padding 0.25s ease;
+  transition: width 0.25s ease, padding 0.25s ease, top 0.25s ease, left 0.25s ease, transform 0.25s ease;
 }
 
+/* 折叠态：收缩成一个很小的半透明按钮，吸附在屏幕左侧垂直居中，尽量不遮挡内容 */
 .nav-collapsed .sidebar {
-  width: 46px;
-  padding: 10px 7px;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 0;
   gap: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  max-height: none;
+  overflow: visible;
 }
 
 /* 折叠按钮 */
@@ -265,6 +274,27 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
 .sidebar-toggle:hover {
   background: rgba(99, 130, 255, 0.25);
   color: #fff;
+}
+
+/* 折叠态的按钮：更小、半透明，避免存在感过强遮挡内容 */
+.nav-collapsed .sidebar-toggle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  opacity: 0.5;
+  background: rgba(26, 26, 46, 0.65);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.nav-collapsed .sidebar-toggle:hover {
+  opacity: 1;
+  background: rgba(99, 130, 255, 0.5);
+}
+
+.nav-collapsed .toggle-icon {
+  font-size: 0.85rem;
 }
 
 .toggle-icon {
