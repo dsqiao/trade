@@ -536,7 +536,7 @@ const data = [
     trans: [
       { day: 2, price: 12.3, number: 100, direction: BUY, fee: 1.31, t: 142 },
       { day: 6, price: 13.3, number: 100, direction: SELL, fee: 1.36, t: 142 },
-      { day: 7, price: 12, number: 100, direction: BUY, fee: 0 },
+      { day: 7, price: 12, number: 100, direction: BUY, fee: 0.68 },
     ]
   }
 ];
