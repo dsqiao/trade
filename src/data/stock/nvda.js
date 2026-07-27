@@ -74,6 +74,11 @@ const data = [ {
     { day: 29, price: 0, number: 0, direction: OTHER, fee: -15, desc: '0.25 / 股 * 60 股' },
     { day: 29, price: 0, number: 0, direction: OTHER, fee: 1.49, desc: 'Tax/Dividend fee' },
   ]
+}, {
+  month: '202607',
+  trans: [
+    { day: 27, price: 199.9, number: 5, direction: BUY, fee: 0 },
+  ]
 } ];
 
 export { data, currentPrice };
