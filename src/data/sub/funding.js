@@ -24,6 +24,11 @@ const funding = [ {
     { day: 15, amount: 700, ccy: CCY.HKD, direction: DEPOSIT, fee: 0, desc: '' },
     { day: 26, amount: 2500, ccy: CCY.HKD, direction: DEPOSIT, fee: 0, desc: '' },
   ]
+}, {
+  month: '202607',
+  record: [
+    { day: 28, amount: 2500, ccy: CCY.HKD, direction: DEPOSIT, fee: 0, desc: '' },
+  ]
 } ];
 
 export {
