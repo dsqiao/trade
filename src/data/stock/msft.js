@@ -27,12 +27,12 @@ const data = [ {
     { day: 3, price: 436, number: 5, direction: BUY, fee: 1.03 },
     { day: 8, price: 412, number: 1, direction: BUY, fee: 0.01 },
     { day: 9, price: 402, number: 2, direction: BUY, fee: 0.02 },
-    { day: 10, price: 397, number: 2, direction: BUY, fee: 0.02 },
+    { day: 10, price: 397, number: 2, direction: BUY, fee: 0.02, t: 5 },
     { day: 12, price: 0, number: 0, direction: OTHER, fee: -40.04, desc: '现金分红 44 股 * 0.91 USD/股' },
     { day: 12, price: 0, number: 0, direction: OTHER, fee: 4.00, desc: '企业行动费用' },
-    { day: 17, price: 378, number: 3, direction: BUY, fee: 0.02 },
-    { day: 22, price: 372, number: 5, direction: BUY, fee: 1.03 },
-    { day: 22, price: 368, number: 5, direction: BUY, fee: 1.03 },
+    { day: 17, price: 378, number: 3, direction: BUY, fee: 0.02, t: 5 },
+    { day: 22, price: 372, number: 5, direction: BUY, fee: 1.03, t: 5 },
+    { day: 22, price: 368, number: 5, direction: BUY, fee: 1.03, t: 5 },
     { day: 25, price: 351.7, number: 10, direction: BUY, fee: 1.04, t: 3 },
     { day: 25, price: 357, number: 10, direction: SELL, fee: 1.12, t: 3 },
   ]
@@ -41,7 +41,9 @@ const data = [ {
   trans: [
     { day: 2, price: 392, number: 5, direction: SELL, fee: 1.08, t: 4 },
     { day: 6, price: 389, number: 5, direction: BUY, fee: 1.03, t: 4 },
-    { day: 30, price: 428, number: 5, direction: SELL, fee: 0 },
+    { day: 30, price: 428, number: 5, direction: SELL, fee: 0, t: 5 },
+    { day: 30, price: 435, number: 5, direction: SELL, fee: 0, t: 5 },
+    { day: 30, price: 445, number: 5, direction: SELL, fee: 0, t: 5 },
   ]
 } ];
 
