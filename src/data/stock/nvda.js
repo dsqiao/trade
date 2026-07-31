@@ -4,29 +4,29 @@ const currentPrice = 200;
 const data = [ {
   month: '202311',
   trans: [
-    { day: 20, price: 498.5350, number: 3, direction: BUY, fee: 1.01 },
-    { day: 22, price: 489.9, number: 3, direction: BUY, fee: 1.01 },
-    { day: 22, price: 482.7, number: 5, direction: BUY, fee: 1.02 },
-    { day: 28, price: 477.01, number: 3, direction: BUY, fee: 1.01 },
-    { day: 30, price: 473.74, number: 3, direction: BUY, fee: 1.01 },
+    { day: 20, price: 498.5350, number: 3, direction: BUY, fee: 1.01, t: 1 },
+    { day: 22, price: 489.9, number: 3, direction: BUY, fee: 1.01, t: 1 },
+    { day: 22, price: 482.7, number: 5, direction: BUY, fee: 1.02, t: 1 },
+    { day: 28, price: 477.01, number: 3, direction: BUY, fee: 1.01, t: 1 },
+    { day: 30, price: 473.74, number: 3, direction: BUY, fee: 1.01, t: 1 },
   ]
 }, {
   month: '202312',
   trans: [
-    { day: 6, price: 466, number: 3, direction: BUY, fee: 1.01 },
-    { day: 6, price: 458, number: 5, direction: BUY, fee: 1.02 },
-    { day: 18, price: 499, number: 5, direction: SELL, fee: 1.05 },
-    { day: 18, price: 501.1, number: 5, direction: SELL, fee: 1.05 },
+    { day: 6, price: 466, number: 3, direction: BUY, fee: 1.01, t: 1 },
+    { day: 6, price: 458, number: 5, direction: BUY, fee: 1.02, t: 1 },
+    { day: 18, price: 499, number: 5, direction: SELL, fee: 1.05, t: 1 },
+    { day: 18, price: 501.1, number: 5, direction: SELL, fee: 1.05, t: 1 },
     { day: 29, price: 0, number: 0, direction: OTHER, fee: -0.68, desc: '0.04/股 * 17 股' },
     { day: 29, price: 0, number: 0, direction: OTHER, fee: 0.07, desc: 'TAX' },
   ]
 }, {
   month: '202401',
   trans: [
-    { day: 8, price: 510, number: 5, direction: SELL, fee: 1.05 },
-    { day: 8, price: 520, number: 5, direction: SELL, fee: 1.05 },
-    { day: 9, price: 533.35, number: 4, direction: SELL, fee: 1.04 },
-    { day: 9, price: 542.5, number: 1, direction: SELL, fee: 1.02 },
+    { day: 8, price: 510, number: 5, direction: SELL, fee: 1.05, t: 1 },
+    { day: 8, price: 520, number: 5, direction: SELL, fee: 1.05, t: 1 },
+    { day: 9, price: 533.35, number: 4, direction: SELL, fee: 1.04, t: 1 },
+    { day: 9, price: 542.5, number: 1, direction: SELL, fee: 1.02, t: 1 },
   ]
 }, {
   month: '202508',
