@@ -24,7 +24,7 @@ const data = [ {
 }, {
   month: '202606',
   trans: [
-    { day: 3, price: 436, number: 5, direction: BUY, fee: 1.03 },
+    { day: 3, price: 436, number: 5, direction: BUY, fee: 1.03, t: 5 },
     { day: 8, price: 412, number: 1, direction: BUY, fee: 0.01 },
     { day: 9, price: 402, number: 2, direction: BUY, fee: 0.02 },
     { day: 10, price: 397, number: 2, direction: BUY, fee: 0.02, t: 5 },
@@ -44,6 +44,7 @@ const data = [ {
     { day: 30, price: 428, number: 5, direction: SELL, fee: 0, t: 5 },
     { day: 30, price: 435, number: 5, direction: SELL, fee: 0, t: 5 },
     { day: 30, price: 445, number: 5, direction: SELL, fee: 0, t: 5 },
+    { day: 30, price: 455, number: 5, direction: SELL, fee: 0, t: 5 },
   ]
 } ];
 
