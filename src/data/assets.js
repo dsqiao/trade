@@ -132,7 +132,7 @@ const data = [ {
   [AssetName.SOLANA]: 16.64,
   [AssetName.SUI]: 15760.62,
   [AssetName.OKX]: 31260.17,
-  [AssetName.LONG_BRIDGE]: 77801.39,
+  [AssetName.LONG_BRIDGE]: 76041.73,
   [AssetName.BOCHK]: 1.39,
   [AssetName.BOC]: 116.75,
   [AssetName.CMB]: 53.33,
