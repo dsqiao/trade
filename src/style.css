@@ -80,6 +80,11 @@ html {
   color: rgb(172, 172, 172);
 }
 
+.transaction-table .option td {
+  background-color: rgb(28, 55, 90);
+  color: rgb(172, 172, 172);
+}
+
 .transaction-table .mask td {
   opacity: .4;
 }

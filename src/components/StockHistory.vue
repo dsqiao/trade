@@ -10,6 +10,10 @@
         <span class="switch-label">股息</span>
         <t-switch v-model="showDividend" />
       </div>
+      <div class="floating-switch">
+        <span class="switch-label">期权</span>
+        <t-switch v-model="showOption" />
+      </div>
     </div>
 
     <!-- 顶部标题 -->
@@ -57,6 +61,13 @@
       <div class="stat-card">
         <div class="stat-label">手续费总计</div>
         <div class="stat-value">${{ totalFee.toFixed(3) }}</div>
+      </div>
+      <div
+        v-if="optionIncome !== 0"
+        class="stat-card"
+      >
+        <div class="stat-label">期权收益（权益金−费）</div>
+        <div class="stat-value">${{ optionIncome.toFixed(3) }}</div>
       </div>
     </div>
 
@@ -120,7 +131,7 @@
       <!-- 月份文案 -->
       <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
       <table class="transaction-table">
-        <thead v-if="month.trans.filter(tran => (!tran.t || showT) && (tran.direction !== 2 || showDividend)).length">
+        <thead v-if="month.trans.filter(tran => (!tran.t || showT) && (tran.direction !== 2 || showDividend) && (tran.direction !== 3 || showOption)).length">
           <tr>
             <th>日期</th>
             <th>星期</th>
@@ -139,9 +150,9 @@
           <tr
             v-for="(tran, tranIndex) in month.trans"
             :key="tranIndex"
-            v-show="(!tran.t || showT) && (tran.direction !== 2 || showDividend)"
+            v-show="(!tran.t || showT) && (tran.direction !== 2 || showDividend) && (tran.direction !== 3 || showOption)"
             :class="[
-              tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : 'other'),
+              tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : (tran.direction === 3 ? 'option' : 'other')),
               tran.t ? 'mask' : ''
             ]"
           >
@@ -151,8 +162,8 @@
             <td class="date2">
               {{ getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day) }}
             </td>
-            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : '其他') }}</td>
-            <td class="price">{{ tran.price }}</td>
+            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `期权(${tran.optionType || '-'})` : '其他')) }}</td>
+            <td class="price">{{ tran.direction === 3 ? `行权 ${tran.strike} / 权益金 ${tran.premium}` : tran.price }}</td>
             <td class="sign">*</td>
             <td class="number">{{ tran.number }}</td>
             <td class="fee">{{ tran.fee }}</td>
@@ -174,7 +185,7 @@
 
 <script>
 import { reactive, ref, watch } from 'vue';
-import { BUY, SELL } from '../data/const.js';
+import { BUY, SELL, OPTION } from '../data/const.js';
 import { useRoute } from 'vue-router';
 import { getDayOfWeek } from '../utils/index.js';
 import { useRealtimePrice } from '../utils/realtimePrice.js';
@@ -186,9 +197,11 @@ const costWithFee = ref(0);     // 均摊成本（含手续费）
 const incomeAmount = ref(0);    // 入账金额（股票卖出金额，不含手续费）
 const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手续费）
 const totalFee = ref(0);        // 手续费总开支
+const optionIncome = ref(0);    // 期权净收益（权益金 − 手续费），计入总盈利并降低持仓成本
 const monthlyReport = reactive([]);  // 月度总结
 const showT = ref(true);       // 展示配对交易
 const showDividend = ref(false);  // 展示股息（direction 为 OTHER 的交易），默认关闭
+const showOption = ref(true);   // 展示期权交易（direction 为 OPTION），默认开启
 const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
 const clearData = () => {
@@ -200,6 +213,7 @@ const clearData = () => {
   incomeAmount.value = 0;
   outcomeAmount.value = 0;
   totalFee.value = 0;
+  optionIncome.value = 0;
   monthlyReport.length = 0;
 };
 
@@ -224,20 +238,28 @@ const calculateData = () => {
   for (const month of mData) {
     for (const tran of month.trans) {
       totalFee.value += tran.fee;
-      if (tran.direction === BUY) {
+      if (tran.direction === OPTION) {
+        // 期权：净收益 = 权益金(premium) − 手续费。计入期权收益，并降低持仓成本（等效增加总盈利）
+        const net = (tran.premium || 0) - tran.fee;
+        optionIncome.value += net;
+        costWithFee.value -= net;
+        tran.currentHolding = holdingNum.value; // 期权不改变持股数量
+        tran.gain = net.toFixed(3);             // 期权收益即已实现收益，展示在 gain 列
+      } else if (tran.direction === BUY) {
         // 买入
         holdingNum.value += tran.number;
         cost.value += tran.price * tran.number;
         outcomeAmount.value += tran.price * tran.number;
         costWithFee.value += (tran.price * tran.number + tran.fee);
+        tran.currentHolding = holdingNum.value;
       } else {
         // 卖出
         holdingNum.value -= tran.number;
         cost.value -= tran.price * tran.number;
         incomeAmount.value += tran.price * tran.number;
         costWithFee.value -= (tran.price * tran.number - tran.fee);
+        tran.currentHolding = holdingNum.value;
       }
-      tran.currentHolding = holdingNum.value;
       // 我们把含有 t 值的交易称为「已结算交易」，对于已结算交易对，我们放到一个 Map 中
       if (tran.t) {
         if (!transMap.has(tran.t))  {
@@ -314,10 +336,12 @@ export default {
       cost,
       costWithFee,
       totalFee,
+      optionIncome,
       monthlyReport,
       getDayOfWeek,
       showT,
       showDividend,
+      showOption,
       showMonthlyReport,
       isLive,
     };

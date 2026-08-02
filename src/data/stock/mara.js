@@ -1,4 +1,4 @@
-import { BUY, SELL } from "../const.js";
+import { BUY, SELL, OPTION } from "../const.js";
 
 // 当前股价
 const currentPrice = 20.35;
@@ -542,6 +542,10 @@ const data = [
       { day: 10, price: 13, number: 100, direction: BUY, fee: 1.31 },
       { day: 14, price: 11.8, number: 100, direction: BUY, fee: 1.31, t: 144 },
       { day: 23, price: 13.1, number: 100, direction: SELL, fee: 1.36, t: 144 },
+      // 期权：7/31 到期的 11.5 PUT，卖出收权益金 16 USD，手续费 2.06；strike 行权价，premium 权益金
+      { day: 31, direction: OPTION, optionType: 'PUT', strike: 11.5, premium: 16, number: 1, fee: 2.06, desc: '卖出 20260731 11.5 PUT，到期被行权' },
+      // 期权被行权：以行权价 11.5 买入 100 股 MARA（1 张合约 = 100 股）
+      { day: 31, price: 11.5, number: 100, direction: BUY, fee: 0, desc: '11.5 PUT 被行权，买入 100 股' },
     ]
   }
 ];
