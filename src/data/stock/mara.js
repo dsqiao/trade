@@ -547,6 +547,12 @@ const data = [
       // 期权被行权：以行权价 11.5 买入 100 股 MARA（1 张合约 = 100 股）
       { day: 31, price: 11.5, number: 100, direction: BUY, fee: 0, desc: '11.5 PUT 被行权，买入 100 股' },
     ]
+  }, {
+    month: '202608',
+    trans: [
+      // 期权：卖出 260807 到期的 11 PUT1 张，成交价 0.61，收权益金 61 USD，手续费 2.06
+      { day: 3, direction: OPTION, optionType: 'PUT', strike: 11, premium: 61, number: 1, fee: 2.06, desc: '卖出 260807 11 PUT @ 0.61' },
+    ]
   }
 ];
 
