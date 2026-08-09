@@ -217,6 +217,9 @@ const clearData = () => {
   monthlyReport.length = 0;
 };
 
+// 是否需要实时接口更新股价（当数据文件 currentPrice 为 0 时需要）
+const needRealtime = ref(true);
+
 // 动态加载数据（account 为 'sub' 时读取子账号股票数据，否则读取主账号）
 const loadData = async (stock, account) => {
   try {
@@ -225,6 +228,8 @@ const loadData = async (stock, account) => {
       : await import(`../data/stock/${stock.value}.js`);
     mData.push(...data); // 使用 .push 方法来更新 reactive 数组
     mCurrentPrice.value = currentPrice;
+    // currentPrice 不为 0 时直接使用，不再请求实时接口
+    needRealtime.value = currentPrice === 0;
   } catch (error) {
     console.error(`Error loading stock data for ${stock.value}:`, error);
   }
@@ -320,10 +325,11 @@ export default {
       { immediate: true }
     );
 
-    // 实时股价：通过 WebSocket 推送，成交时即时更新，自动覆盖写死的价格
+    // 实时股价：通过 WebSocket 推送，成交时即时更新
+    // 当数据文件中 currentPrice 不为 0 时直接使用，不再请求实时接口覆盖
     const { price: livePrice, isLive } = useRealtimePrice(stock);
     watch(livePrice, (p) => {
-      if (p > 0) mCurrentPrice.value = p;
+      if (p > 0 && needRealtime.value) mCurrentPrice.value = p;
     });
 
     return {
