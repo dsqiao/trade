@@ -171,10 +171,6 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
                 class="nav-link"
               >总览</router-link>
               <router-link
-                to="/sub/asset"
-                class="nav-link"
-              >现有资产</router-link>
-              <router-link
                 to="/sub/funding"
                 class="nav-link"
               >出入金</router-link>
