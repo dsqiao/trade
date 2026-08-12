@@ -115,9 +115,9 @@
             <td v-else>-</td>
             <td
               v-if="priceOf(s) > 0 || s.holding === 0"
-              :class="(priceOf(s) * s.holding + s.income - s.outcome - s.totalFee) >= 0 ? 'positive' : 'negative'"
+              :class="(s.realizedPnl + (priceOf(s) * s.holding - s.costWithFee)) >= 0 ? 'positive' : 'negative'"
             >
-              {{ (priceOf(s) * s.holding + s.income - s.outcome - s.totalFee) >= 0 ? '+' : '' }}$ {{ (priceOf(s) * s.holding + s.income - s.outcome - s.totalFee).toFixed(3) }}
+              {{ (s.realizedPnl + (priceOf(s) * s.holding - s.costWithFee)) >= 0 ? '+' : '' }}$ {{ (s.realizedPnl + (priceOf(s) * s.holding - s.costWithFee)).toFixed(3) }}
             </td>
             <td v-else>-</td>
             <td>
@@ -271,10 +271,11 @@ const modules = import.meta.glob('../../data/sub/stock/*.js', { eager: true });
 const stockRows = Object.entries(modules).map(([ path, mod ]) => {
   const file = path.split('/').pop().replace('.js', '');
   let holding = 0;
-  let costWithFee = 0;
-  let income = 0;
-  let outcome = 0;
+  let costWithFee = 0; // 当前仓位成本（持仓降为0时重置）
+  let income = 0; // 累计卖出（全部历史）
+  let outcome = 0; // 累计买入（全部历史）
   let totalFee = 0;
+  let realizedPnl = 0; // 已实现盈亏（每次清仓时结算）
   for (const month of mod.data) {
     for (const tran of month.trans) {
       totalFee += tran.fee;
@@ -287,9 +288,24 @@ const stockRows = Object.entries(modules).map(([ path, mod ]) => {
         income += tran.price * tran.number;
         costWithFee -= tran.price * tran.number - tran.fee;
       }
+      // 持仓降为 0 视为全部平仓，将当前仓位盈亏结转到已实现收益
+      if (holding === 0) {
+        realizedPnl += -costWithFee; // costWithFee 此时为负值代表盈利
+        costWithFee = 0;
+      }
     }
   }
-  return { name: file.toUpperCase(), file, holding, costWithFee, income, outcome, totalFee, fallbackPrice: mod.currentPrice || 0 };
+  return {
+    name: file.toUpperCase(),
+    file,
+    holding,
+    costWithFee,
+    income,
+    outcome,
+    totalFee,
+    realizedPnl,
+    fallbackPrice: mod.currentPrice || 0,
+  };
 });
 
 // 实时行情：订阅有持仓的股票代码
