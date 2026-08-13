@@ -558,6 +558,7 @@ const data = [
       // 260807 11 PUT 到期被行权，以行权价 11 买入 200 股（2 张合约）
       { day: 9, price: 11, number: 200, direction: BUY, fee: 0, desc: '260807 11 PUT 被行权，买入 200 股' },
       { day: 10, direction: OPTION, optionType: 'PUT', strike: 10, premium: 45, number: 1, fee: 2.06, desc: '卖出 260814 10 PUT @ 0.45' },
+      { day: 12, direction: OPTION, optionType: 'PUT', strike: 9.5, premium: 22, number: 1, fee: 2.06, desc: '卖出 260814 9.5 PUT @ 0.22' },
     ]
   }
 ];
