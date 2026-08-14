@@ -1,6 +1,6 @@
 import { BUY, SELL } from "../const.js";
 
-const currentPrice = 360;
+const currentPrice = 0;
 const data = [ {
   month: '202412',
   trans: [

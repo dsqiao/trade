@@ -1,7 +1,7 @@
 import { BUY, SELL, OPTION } from "../const.js";
 
 // 当前股价
-const currentPrice = 10.19;
+const currentPrice = 0;
 // 交易数据
 const data = [
   {

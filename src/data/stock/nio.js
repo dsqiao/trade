@@ -1,6 +1,6 @@
 import { BUY, OTHER, SELL } from "../const.js";
 
-const currentPrice = 4.56;
+const currentPrice = 0;
 const data = [ {
   month: '202312',
   trans: [
@@ -76,6 +76,11 @@ const data = [ {
   month: '202602',
   trans: [
     { day: 12, price: 0, number: 0, direction: OTHER, fee: 20.70, desc: '企业行动费用' },
+  ]
+}, {
+  month: '202608',
+  trans: [
+    { day: 13, price: 4.475, number: 335, direction: BUY, fee: 2.70 },
   ]
 } ];
 
