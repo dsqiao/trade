@@ -1,6 +1,32 @@
 <script setup>
-import { ref, watch, nextTick, onUnmounted } from 'vue';
+import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import { BUY } from './data/const.js';
+
+// 主题切换逻辑
+const isDark = ref(true);
+
+function initTheme() {
+  const saved = localStorage.getItem('trade-theme');
+  if (saved) {
+    isDark.value = saved === 'dark';
+  }
+  applyTheme();
+}
+
+function applyTheme() {
+  document.documentElement.setAttribute(
+    'data-theme',
+    isDark.value ? 'dark' : 'light'
+  );
+}
+
+function toggleTheme() {
+  isDark.value = !isDark.value;
+  localStorage.setItem('trade-theme', isDark.value ? 'dark' : 'light');
+  applyTheme();
+}
+
+initTheme();
 
 const modules = import.meta.glob('./data/stock/*.js', { eager: true });
 const subModules = import.meta.glob('./data/sub/stock/*.js', { eager: true });
@@ -77,13 +103,23 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
         ref="sidebarRef"
         class="sidebar"
       >
-        <button
-          class="sidebar-toggle"
-          :title="collapsed ? '展开导航' : '收起导航'"
-          @click="collapsed = !collapsed"
-        >
-          <span class="toggle-icon">{{ collapsed ? '☰' : '✕' }}</span>
-        </button>
+        <div class="sidebar-header">
+          <button
+            class="sidebar-toggle"
+            :title="collapsed ? '展开导航' : '收起导航'"
+            @click="collapsed = !collapsed"
+          >
+            <span class="toggle-icon">{{ collapsed ? '☰' : '✕' }}</span>
+          </button>
+          <button
+            v-show="!collapsed"
+            class="theme-toggle"
+            :title="isDark ? '切换亮色模式' : '切换暗色模式'"
+            @click="toggleTheme"
+          >
+            <span class="theme-icon">{{ isDark ? '☀️' : '🌙' }}</span>
+          </button>
+        </div>
 
         <nav
           v-show="!collapsed"
@@ -229,14 +265,14 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   max-height: calc(100vh - 60px);
   padding: 14px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  background: var(--sidebar-bg, linear-gradient(135deg, #1a1a2e 0%, #16213e 100%));
+  border: 1px solid var(--sidebar-border, rgba(255, 255, 255, 0.06));
+  box-shadow: 0 8px 32px var(--sidebar-shadow, rgba(0, 0, 0, 0.45));
   overflow-y: auto;
-  transition: width 0.25s ease, padding 0.25s ease, top 0.25s ease, left 0.25s ease, transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-/* 折叠态：收缩成一个很小的半透明按钮，吸附在屏幕左侧垂直居中，尽量不遮挡内容 */
+/* 折叠态：收缩成一个很小的半透明按钮 */
 .nav-collapsed .sidebar {
   top: 50%;
   left: 8px;
@@ -251,6 +287,14 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   overflow: visible;
 }
 
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 /* 折叠按钮 */
 .sidebar-toggle {
   display: flex;
@@ -261,8 +305,8 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   flex-shrink: 0;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--btn-bg, rgba(255, 255, 255, 0.06));
+  color: var(--btn-color, rgba(255, 255, 255, 0.75));
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -272,13 +316,39 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   color: #fff;
 }
 
-/* 折叠态的按钮：更小、半透明，避免存在感过强遮挡内容 */
+/* 主题切换按钮 */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  background: var(--btn-bg, rgba(255, 255, 255, 0.06));
+  color: var(--btn-color, rgba(255, 255, 255, 0.75));
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(99, 130, 255, 0.25);
+  transform: rotate(15deg);
+}
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* 折叠态的按钮 */
 .nav-collapsed .sidebar-toggle {
   width: 26px;
   height: 26px;
   border-radius: 50%;
   opacity: 0.5;
-  background: rgba(26, 26, 46, 0.65);
+  background: var(--collapsed-btn-bg, rgba(26, 26, 46, 0.65));
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   transition: opacity 0.2s ease, background 0.2s ease;
@@ -298,7 +368,7 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   line-height: 1;
 }
 
-/* 主内容区：全宽，不被侧栏挤压 */
+/* 主内容区 */
 .content {
   width: 100%;
   min-width: 0;
@@ -322,10 +392,10 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--nav-label-color, rgba(255, 255, 255, 0.4));
   padding: 4px 10px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--nav-label-bg, rgba(255, 255, 255, 0.04));
   white-space: nowrap;
 }
 
@@ -338,7 +408,7 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
 
 .nav-link {
   font-size: 0.85rem;
-  color: rgba(200, 200, 220, 0.8);
+  color: var(--nav-link-color, rgba(200, 200, 220, 0.8));
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -347,29 +417,29 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
 }
 
 .nav-link:hover {
-  color: #fff;
+  color: var(--nav-link-hover-color, #fff);
   background: rgba(99, 130, 255, 0.15);
 }
 
 .nav-link.router-link-active {
-  color: #fff;
+  color: var(--nav-link-active-color, #fff);
   background: rgba(99, 130, 255, 0.25);
   box-shadow: 0 0 8px rgba(99, 130, 255, 0.2);
 }
 
 .nav-link.cleared {
-  color: rgba(160, 160, 180, 0.5);
+  color: var(--nav-link-cleared-color, rgba(160, 160, 180, 0.5));
   font-style: italic;
 }
 
 .nav-link.cleared:hover {
-  color: rgba(200, 200, 220, 0.8);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--nav-link-color, rgba(200, 200, 220, 0.8));
+  background: var(--nav-label-bg, rgba(255, 255, 255, 0.06));
 }
 
 .cleared-toggle {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--cleared-toggle-color, rgba(255, 255, 255, 0.35));
   cursor: pointer;
   padding: 5px 12px;
   border-radius: 4px;
@@ -378,7 +448,7 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
 }
 
 .cleared-toggle:hover {
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  background: var(--nav-label-bg, rgba(255, 255, 255, 0.05));
 }
 </style>

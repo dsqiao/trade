@@ -120,26 +120,26 @@ const sum = computed(() => {
 .stat-card {
   padding: 16px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
 }
 .stat-card.highlight {
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
 }
 .stat-label {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-faint);
   margin-bottom: 8px;
 }
 .stat-value {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   font-variant-numeric: tabular-nums;
 }
 .stat-card.highlight .stat-value {
-  color: #00e5ff;
+  color: var(--accent);
 }
 .month-block {
   margin-bottom: 22px;
@@ -147,7 +147,7 @@ const sum = computed(() => {
 .month-title {
   font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-muted);
   margin-bottom: 8px;
 }
 .record-table {
@@ -156,14 +156,14 @@ const sum = computed(() => {
 }
 .record-table th,
 .record-table td {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   padding: 8px 12px;
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
 .record-table th {
-  background-color: #2a2a2a;
-  color: rgba(255, 255, 255, 0.7);
+  background-color: var(--table-head-bg);
+  color: var(--text-muted);
   font-weight: 600;
 }
 .record-table .hkd2usd {
@@ -177,6 +177,6 @@ const sum = computed(() => {
 }
 .desc {
   text-align: left;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
 }
 </style>

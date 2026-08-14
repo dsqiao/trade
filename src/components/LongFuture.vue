@@ -191,9 +191,9 @@ watch(
 }
 .price-input {
   width: 7rem;
-  border: rgb(172, 172, 172) 1px solid;
-  background-color: rgb(35, 35, 35);
-  color: rgb(172, 172, 172);
+  border: var(--border-color) 1px solid;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
 }
 
 .date {

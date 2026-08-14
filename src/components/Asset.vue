@@ -57,11 +57,11 @@ const calculateTotal = (item) => {
 }
 .asset-table th,
 .asset-table td {
-  border: 1px solid #333;
+  border: 1px solid var(--border-color);
   text-align: center;
   padding: 8px;
 }
 .asset-table th {
-  background-color: #343434;
+  background-color: var(--bg-secondary);
 }
 </style>

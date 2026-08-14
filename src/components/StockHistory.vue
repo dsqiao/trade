@@ -384,14 +384,14 @@ export default {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(20, 24, 36, 0.85);
+  background: var(--panel-bg);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 .switch-label {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 /* 顶部标题 */
@@ -402,7 +402,7 @@ export default {
   gap: 18px;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--card-border);
 }
 .stock-name {
   margin: 0;
@@ -420,16 +420,16 @@ export default {
   gap: 8px;
   padding: 4px 14px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
 }
 .price-label {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-faint);
 }
 .price-value {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-strong);
   font-variant-numeric: tabular-nums;
 }
 .live-badge {
@@ -453,7 +453,7 @@ export default {
   padding: 22px 28px;
   border-radius: 16px;
   margin-bottom: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
 }
 .hero-card.positive {
   background: linear-gradient(135deg, rgba(0, 200, 120, 0.18), rgba(0, 120, 80, 0.05));
@@ -464,7 +464,7 @@ export default {
 .hero-label {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 .hero-value {
@@ -486,46 +486,46 @@ export default {
 .stat-card {
   padding: 16px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 .stat-card:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--accent-soft);
   transform: translateY(-2px);
 }
 .stat-label {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-faint);
   margin-bottom: 8px;
 }
 .stat-value {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   font-variant-numeric: tabular-nums;
 }
 .stat-value .unit {
   font-size: 0.85rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-faint);
 }
 
 /* 成本分析面板 */
 .cost-panel {
   padding: 20px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   margin-bottom: 28px;
 }
 .panel-title {
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   margin-bottom: 14px;
   padding-left: 10px;
-  border-left: 3px solid #00e5ff;
+  border-left: 3px solid var(--accent);
 }
 .cost-grid {
   display: grid;
@@ -538,29 +538,29 @@ export default {
   align-items: center;
   padding: 10px 14px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
 }
 .cost-item.highlight {
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
 }
 .cost-label {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
 }
 .cost-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   font-variant-numeric: tabular-nums;
 }
-.cost-item.highlight .cost-value { color: #00e5ff; }
+.cost-item.highlight .cost-value { color: var(--accent); }
 
 /* 区块标题 */
 .section-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   margin: 28px 0 16px;
   display: flex;
   align-items: center;
@@ -582,7 +582,7 @@ export default {
   margin-bottom: 0.6rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-muted);
 }
 
 .desc {
@@ -603,12 +603,12 @@ export default {
   user-select: none;
   padding: 8px 14px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   transition: background 0.2s ease;
 }
 
 .monthlyReport-header:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--accent-soft);
 }
 
 .monthlyReport-header .arrow {
@@ -618,7 +618,7 @@ export default {
 
 .monthlyReport-header .count {
   font-size: 0.85rem;
-  color: rgb(150, 150, 150);
+  color: var(--text-faint);
 }
 
 .monthlyReport-body {
@@ -626,7 +626,7 @@ export default {
   padding-left: 14px;
   line-height: 1.9;
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 /* 定制化每一列的宽度 */

@@ -22,45 +22,53 @@
     <span class="content-span">{{ ((totalInflowInCNY - totalOutflowInCNY) / (totalInflowInUSDC - totalOutflowInUSDC)).toFixed(3) }}</span>
   </div>
 
-  <div v-for="(month, monthIndex) in cashflow"
-       :key="monthIndex"
-  >
-    <div class="monthTitle">
-      {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 净入金：` }}
-      {{ `${month.record.reduce((sum, item) => item.direction === BUY ? sum + item.num : sum - item.num, 0)} U` }}
-    </div>
-    <div v-for="(item, index) in month.record"
-         :key="index"
+  <div class="transaction-section">
+    <div
+      v-for="(month, monthIndex) in cashflow"
+      :key="monthIndex"
+      class="month-block"
     >
-      <!-- 筛选 BN v-if="item.platform === 1" -->
-      <div :class="item.direction === BUY ? 'in' : 'out'"
-           class="transaction"
-      >
-        <span class="date">
-          {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日 ` }}
-        </span>
-        <span class="unit">
-          {{ (item.cny / item.num).toFixed(4) }}
-        </span>
-        <span class="num">
-          {{ item.num }}
-        </span>
-        <span class="total">
-          {{ (item.cny || 0).toFixed(3) }}
-        </span>
-        <span class="direction">
-          {{ item.direction === BUY ? '入金' : '出金' }}
-        </span>
-        <span 
-          class="platform"
-          :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')"
-        >
-          {{ parsePlatform(item.platform) }}
-        </span>
-        <span class="desc">
-          {{ item.desc || '/' }}
-        </span>
+      <div class="monthTitle">
+        {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 净入金：` }}
+        {{ `${month.record.reduce((sum, item) => item.direction === BUY ? sum + item.num : sum - item.num, 0)} U` }}
       </div>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>均价</th>
+            <th>数量(U)</th>
+            <th>金额(CNY)</th>
+            <th>方向</th>
+            <th>平台</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(item, index) in month.record"
+            :key="index"
+            :class="item.direction === BUY ? 'buy' : 'sell'"
+          >
+            <td class="date">
+              {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月 ${item.day} 日` }}
+            </td>
+            <td class="unit">{{ (item.cny / item.num).toFixed(4) }}</td>
+            <td class="num">{{ item.num }}</td>
+            <td class="total">{{ (item.cny || 0).toFixed(3) }}</td>
+            <td class="direction">{{ item.direction === BUY ? '入金' : '出金' }}</td>
+            <td class="platform">
+              <span
+                class="platform-badge"
+                :class="item.platform === 0 ? 'okx' : (item.platform === 1 ? 'bn' : 'ac')"
+              >
+                {{ parsePlatform(item.platform) }}
+              </span>
+            </td>
+            <td class="desc">{{ item.desc || '/' }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -110,67 +118,71 @@ for (let month of cashflow) {
 .title-span {
   width: 10rem;
 }
-.transaction>span {
-  display: inline-block;
-  border: 1px black solid;
-  height: 2rem;
-  line-height: 2rem;
-  padding-left: 1rem;
-}
 
+/* 交易明细区域使用全宽，避免表格列被压缩换行 */
+.transaction-section {
+  max-width: 100%;
+}
+.month-block {
+  margin-bottom: 8px;
+  overflow-x: auto;
+}
 .monthTitle {
-  height: 4rem;
-  line-height: 5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
 }
 
-.in>span {
-  background-color: rgb(33, 83, 33);
-}
-
-.out>span {
-  background-color: rgb(85, 23, 23);
-}
-
+/* 定制化每一列的宽度（与 StockHistory 风格一致） */
 .date {
-  width: 10rem;
+  width: 14%;
+  min-width: 140px;
 }
-
 .unit {
-  width: 5rem;
+  width: 10%;
+  min-width: 80px;
 }
-
 .num {
-  width: 4rem;
+  width: 8%;
+  min-width: 64px;
 }
-
 .total {
-  width: 5rem;
+  width: 10%;
+  min-width: 80px;
 }
-
 .direction {
-  width: 6rem;
+  width: 8%;
+  min-width: 56px;
 }
-
 .platform {
-  width: 6rem;
+  width: 8%;
+  min-width: 64px;
 }
-
-.okx {
-  background-color: rgb(29, 29, 29) !important;
-  color: white;
-}
-
-.bn {
-  background-color: rgb(255, 180, 40) !important;
-  color: white;
-}
-
-.ac {
-  background-color: rgb(220, 220, 220) !important;
-  color: rgb(45, 45, 45);
-}
-
 .desc {
-  width: 30rem;
+  min-width: 160px;
+}
+
+/* 平台徽章：保留品牌色，做成小圆角徽章 */
+.platform-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.platform-badge.okx {
+  background-color: rgb(29, 29, 29);
+  color: #fff;
+}
+.platform-badge.bn {
+  background-color: rgb(255, 180, 40);
+  color: #fff;
+}
+.platform-badge.ac {
+  background-color: rgb(220, 220, 220);
+  color: rgb(45, 45, 45);
 }
 </style>

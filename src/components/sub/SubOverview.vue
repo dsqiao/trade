@@ -400,13 +400,13 @@ const piePaths = computed(() => {
   padding: 22px 28px;
   border-radius: 16px;
   margin-bottom: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
   background: linear-gradient(135deg, rgba(0, 200, 120, 0.18), rgba(0, 120, 80, 0.05));
 }
 .hero-label {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 .hero-value {
@@ -419,7 +419,7 @@ const piePaths = computed(() => {
 .hero-sub {
   margin-top: 6px;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
 .section {
@@ -428,10 +428,10 @@ const piePaths = computed(() => {
 .section-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   margin-bottom: 14px;
   padding-left: 10px;
-  border-left: 3px solid #00e5ff;
+  border-left: 3px solid var(--accent);
 }
 .stat-grid {
   display: grid;
@@ -442,31 +442,31 @@ const piePaths = computed(() => {
 .stat-card {
   padding: 16px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
 }
 .stat-card.highlight {
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
 }
 .stat-label {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-faint);
   margin-bottom: 8px;
 }
 .stat-value {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   font-variant-numeric: tabular-nums;
 }
 .stat-card.highlight .stat-value {
-  color: #00e5ff;
+  color: var(--accent);
 }
 .stat-hint {
   margin-top: 6px;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-faint);
 }
 .record-table {
   width: 100%;
@@ -474,14 +474,14 @@ const piePaths = computed(() => {
 }
 .record-table th,
 .record-table td {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   padding: 8px 12px;
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
 .record-table th {
-  background-color: #2a2a2a;
-  color: rgba(255, 255, 255, 0.7);
+  background-color: var(--table-head-bg);
+  color: var(--text-muted);
   font-weight: 600;
 }
 .record-table .name {
@@ -489,22 +489,22 @@ const piePaths = computed(() => {
 }
 .name {
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
 }
 .total-row {
-  background-color: rgba(0, 229, 255, 0.08);
+  background-color: var(--accent-soft);
   font-weight: 700;
-  color: #00e5ff;
+  color: var(--accent);
 }
 .link {
-  color: #00e5ff;
+  color: var(--accent);
   text-decoration: none;
 }
 .link:hover {
   text-decoration: underline;
 }
 .empty {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-faint);
   padding: 20px;
 }
 .positive {
@@ -518,7 +518,7 @@ const piePaths = computed(() => {
 .note {
   margin-top: 12px;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-faint);
   line-height: 1.6;
 }
 .pie-wrapper {
@@ -548,18 +548,18 @@ const piePaths = computed(() => {
   flex-shrink: 0;
 }
 .legend-label {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-muted);
   min-width: 60px;
 }
 .legend-pct {
   font-weight: 600;
-  color: #e8e8ec;
+  color: var(--text-strong);
   min-width: 48px;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 .legend-val {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
 </style>
