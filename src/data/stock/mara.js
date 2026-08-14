@@ -82,13 +82,13 @@ const data = [
       { day: 15, price: 18.0, number: 50, direction: BUY, fee: 1.15, t: 15 },
       { day: 15, price: 19.1, number: 50, direction: SELL, fee: 1.17, t: 15 },
 
-      { day: 20, price: 20.902, number: 50, direction: SELL, fee: 0.55 }, // 5HKD 抵扣
-      { day: 20, price: 21.2, number: 50, direction: SELL, fee: 1.19 },
+      { day: 20, price: 20.902, number: 50, direction: SELL, fee: 0.55, t: 159 }, // 5HKD 抵扣
+      { day: 20, price: 21.2, number: 50, direction: SELL, fee: 1.19, t: 159 },
       // 赚 0.4 * 50 = 20
       { day: 20, price: 21.5, number: 50, direction: SELL, fee: 1.19, t: 16, desc: '之前fee记录成1.1了,少了0.09的误差' },
       { day: 20, price: 21.1, number: 50, direction: BUY, fee: 1.15, t: 16 },
 
-      { day: 20, price: 21.8, number: 50, direction: SELL, fee: 1.19 },
+      { day: 20, price: 21.8, number: 50, direction: SELL, fee: 1.19, t: 159 },
       // 赚 0.4 * 50 = 20
       { day: 20, price: 22.1, number: 50, direction: SELL, fee: 1.19, t: 17 },
       { day: 20, price: 21.7, number: 50, direction: BUY, fee: 1.15, t: 17 },
@@ -102,15 +102,14 @@ const data = [
       { day: 21, price: 21.159, number: 50, direction: BUY, fee: 1.15, t: 20 },
       { day: 21, price: 21.6, number: 50, direction: SELL, fee: 1.19, t: 20 },
 
-      { day: 22, price: 21.1, number: 50, direction: BUY, fee: 1.15 },
-      { day: 22, price: 21, number: 50, direction: BUY, fee: 1.15 },
-      { day: 23, price: 20.485, number: 50, direction: BUY, fee: 1.15 },
+      { day: 22, price: 21.1, number: 50, direction: BUY, fee: 1.15, t: 159 },
+      { day: 22, price: 21, number: 50, direction: BUY, fee: 1.15, t: 159 },
+      { day: 23, price: 20.485, number: 50, direction: BUY, fee: 1.15, t: 159 },
 
       { day: 30, price: 19.8, number: 50, direction: BUY, fee: 0.51, t: 21 }, // 5 HKD 抵扣
       { day: 30, price: 20.8, number: 50, direction: SELL, fee: 0.55, t: 21 }, // 5 HKD 抵扣
-      { day: 30, price: 20.2, number: 50, direction: BUY, fee: 1.15 },
-
-      { day: 31, price: 19.8, number: 50, direction: BUY, fee: 1.15 },
+      { day: 30, price: 20.2, number: 50, direction: BUY, fee: 1.15, t: 160 },
+      { day: 31, price: 19.8, number: 50, direction: BUY, fee: 1.15, t: 160 },
       { day: 31, price: 19, number: 27, direction: BUY, fee: 1.08, t: 22 },
     ],
   },
@@ -120,54 +119,54 @@ const data = [
       { day: 3, price: 20.1, number: 27, direction: SELL, fee: 0.48, t: 22 }, // 5 HKD
       { day: 3, price: 20.8, number: 50, direction: SELL, fee: 0.56, t: 23 }, // 5 HKD
       { day: 3, price: 20, number: 50, direction: BUY, fee: 1.15, t: 23 },
-      { day: 4, price: 21.1, number: 50, direction: SELL, fee: 1.19 },
-      { day: 5, price: 20.625, number: 50, direction: BUY, fee: 1.15 },
-      { day: 5, price: 21, number: 50, direction: SELL, fee: 1.19 },
-      { day: 7, price: 20, number: 50, direction: BUY, fee: 1.15 },
-      { day: 10, price: 19, number: 34, direction: BUY, fee: 1.1 },
-      { day: 12, price: 20, number: 34, direction: SELL, fee: 0.49 }, // 5 HKD
-      { day: 14, price: 19, number: 36, direction: BUY, fee: 0.47 }, // 5 HKD
-      { day: 17, price: 20, number: 36, direction: SELL, fee: 0.5 }, // 5 HKD
-      { day: 21, price: 19, number: 38, direction: BUY, fee: 0.47 }, // 5 HKD
-      { day: 26, price: 20, number: 38, direction: SELL, fee: 1.14 },
+      { day: 4, price: 21.1, number: 50, direction: SELL, fee: 1.19, t: 152 },
+      { day: 5, price: 20.625, number: 50, direction: BUY, fee: 1.15, t: 152 },
+      { day: 5, price: 21, number: 50, direction: SELL, fee: 1.19, t: 153 },
+      { day: 7, price: 20, number: 50, direction: BUY, fee: 1.15, t: 153 },
+      { day: 10, price: 19, number: 34, direction: BUY, fee: 1.1, t: 154 },
+      { day: 12, price: 20, number: 34, direction: SELL, fee: 0.49, t: 154 }, // 5 HKD
+      { day: 14, price: 19, number: 36, direction: BUY, fee: 0.47, t: 155 }, // 5 HKD
+      { day: 17, price: 20, number: 36, direction: SELL, fee: 0.5, t: 155 }, // 5 HKD
+      { day: 21, price: 19, number: 38, direction: BUY, fee: 0.47, t: 156 }, // 5 HKD
+      { day: 26, price: 20, number: 38, direction: SELL, fee: 1.14, t: 156 },
     ],
   },
   {
     month: "202407",
     trans: [
-      { day: 1, price: 22, number: 50, direction: SELL, fee: 0.55 }, // 5 HKD
-      { day: 3, price: 21, number: 50, direction: BUY, fee: 0.52 }, // 5 HKD
-      { day: 9, price: 19, number: 52, direction: BUY, fee: 1.16 },
-      { day: 12, price: 20, number: 52, direction: SELL, fee: 1.2 },
-      { day: 15, price: 24, number: 50, direction: SELL, fee: 1.19 },
-      { day: 16, price: 25, number: 50, direction: SELL, fee: 1.19 },
-      { day: 16, price: 26, number: 50, direction: SELL, fee: 1.2 },
-      { day: 16, price: 27.05, number: 50, direction: SELL, fee: 1.2 }, // 夜盘
-      { day: 17, price: 26, number: 50, direction: BUY, fee: 1.15 }, // 夜盘
-      { day: 17, price: 27, number: 50, direction: SELL, fee: 1.2 }, // 夜盘
-      { day: 17, price: 25.8076, number: 50, direction: BUY, fee: 1.15 }, // 盘前
-      { day: 17, price: 27, number: 50, direction: SELL, fee: 1.2 },
-      { day: 17, price: 26, number: 50, direction: BUY, fee: 1.15 },
-      { day: 17, price: 25, number: 50, direction: BUY, fee: 1.15 },
-      { day: 18, price: 26.1, number: 50, direction: SELL, fee: 1.2 },
-      { day: 18, price: 25, number: 50, direction: BUY, fee: 1.15 },
-      { day: 18, price: 24, number: 50, direction: BUY, fee: 1.15 },
-      { day: 19, price: 25, number: 50, direction: SELL, fee: 1.19 },
+      { day: 1, price: 22, number: 50, direction: SELL, fee: 0.55, t: 157 }, // 5 HKD
+      { day: 3, price: 21, number: 50, direction: BUY, fee: 0.52, t: 157 }, // 5 HKD
+      { day: 9, price: 19, number: 52, direction: BUY, fee: 1.16, t: 158 },
+      { day: 12, price: 20, number: 52, direction: SELL, fee: 1.2, t: 158 },
+      { day: 15, price: 24, number: 50, direction: SELL, fee: 1.19, t: 160 },
+      { day: 16, price: 25, number: 50, direction: SELL, fee: 1.19, t: 160 },
+      { day: 16, price: 26, number: 50, direction: SELL, fee: 1.2, t: 161 },
+      { day: 16, price: 27.05, number: 50, direction: SELL, fee: 1.2, t: 161 }, // 夜盘
+      { day: 17, price: 26, number: 50, direction: BUY, fee: 1.15, t: 146 }, // 夜盘
+      { day: 17, price: 27, number: 50, direction: SELL, fee: 1.2, t: 146 }, // 夜盘
+      { day: 17, price: 25.8076, number: 50, direction: BUY, fee: 1.15, t: 147 }, // 盘前
+      { day: 17, price: 27, number: 50, direction: SELL, fee: 1.2, t: 147 },
+      { day: 17, price: 26, number: 50, direction: BUY, fee: 1.15, t: 161 },
+      { day: 17, price: 25, number: 50, direction: BUY, fee: 1.15, t: 148 },
+      { day: 18, price: 26.1, number: 50, direction: SELL, fee: 1.2, t: 148 },
+      { day: 18, price: 25, number: 50, direction: BUY, fee: 1.15, t: 161 },
+      { day: 18, price: 24, number: 50, direction: BUY, fee: 1.15, t: 149 },
+      { day: 19, price: 25, number: 50, direction: SELL, fee: 1.19, t: 149 },
       // 周一
       { day: 22, price: 24, number: 50, direction: BUY, fee: 1.15 },
       // 周二
       { day: 23, price: 23, number: 50, direction: BUY, fee: 1.15 },
       { day: 23, price: 22, number: 50, direction: BUY, fee: 1.15 },
       // 周三
-      { day: 24, price: 21, number: 50, direction: BUY, fee: 1.15 },
+      { day: 24, price: 21, number: 50, direction: BUY, fee: 1.15, t: 150 },
       // 周四
-      { day: 25, price: 20, number: 50, direction: BUY, fee: 1.15 },
-      { day: 25, price: 21, number: 50, direction: SELL, fee: 1.19 },
+      { day: 25, price: 20, number: 50, direction: BUY, fee: 1.15, t: 150 },
+      { day: 25, price: 21, number: 50, direction: SELL, fee: 1.19, t: 150 },
       // 周五
-      { day: 26, price: 22, number: 50, direction: SELL, fee: 1.19 },
-      { day: 26, price: 21, number: 50, direction: BUY, fee: 1.15 },
+      { day: 26, price: 22, number: 50, direction: SELL, fee: 1.19, t: 150 },
+      { day: 26, price: 21, number: 50, direction: BUY, fee: 1.15, t: 151 },
       // 周一
-      { day: 28, price: 22.1802, number: 50, direction: SELL, fee: 1.19 },
+      { day: 28, price: 22.1802, number: 50, direction: SELL, fee: 1.19, t: 151 },
       { day: 29, price: 21, number: 50, direction: BUY, fee: 1.15 },
       { day: 30, price: 20, number: 50, direction: BUY, fee: 1.15 },
     ],
