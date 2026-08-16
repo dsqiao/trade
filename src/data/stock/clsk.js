@@ -1,4 +1,4 @@
-import { BUY, SELL } from '../const.js';
+import { BUY, SELL, OPTION } from '../const.js';
 
 const currentPrice = 0;
 const data = [ {
@@ -94,6 +94,12 @@ const data = [ {
   trans: [
     { day: 3, price: 16, number: 100, direction: SELL, fee: 0.69 },
     { day: 6, price: 17, number: 100, direction: SELL, fee: 1.33 },
+  ]
+}, {
+  month: '202608',
+  trans: [
+    { day: 14, direction: OPTION, optionType: 'PUT', strike: 12, premium: 12, number: 1, fee: 2.06, desc: '卖出 20260814 12 PUT @ 0.12' },
+    { day: 14, direction: OPTION, optionType: 'PUT', strike: 11, premium: 16, number: 1, fee: 2.06, desc: '卖出 20260821 11 PUT @ 0.16' },
   ]
 } ];
 export {
