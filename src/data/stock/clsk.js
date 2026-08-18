@@ -100,6 +100,8 @@ const data = [ {
   trans: [
     { day: 14, direction: OPTION, optionType: 'PUT', strike: 12, premium: 12, number: 1, fee: 2.06, desc: '卖出 20260814 12 PUT @ 0.12' },
     { day: 14, direction: OPTION, optionType: 'PUT', strike: 11, premium: 16, number: 1, fee: 2.06, desc: '卖出 20260821 11 PUT @ 0.16' },
+    { day: 17, direction: OPTION, optionType: 'PUT', strike: 12.5, premium: 76, number: 1, fee: 2.06, desc: '卖出 20260821 12.5 PUT @ 0.76' },
+    { day: 17, direction: OPTION, optionType: 'PUT', strike: 12, premium: 47, number: 1, fee: 2.06, desc: '卖出 20260821 12 PUT @ 0.47' },
   ]
 } ];
 export {
