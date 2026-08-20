@@ -57,7 +57,9 @@ const data = [ {
     { day: 17, price: 482.955, number: 5, direction: BUY, fee: 1.03, t: 6 },
     { day: 17, price: 485.12, number: 5, direction: SELL, fee: 1.09, t: 6 },
     { day: 17, price: 481.49, number: 5, direction: BUY, fee: 0.40, t: 7 },
-    { day: 19, price: 485, number: 5, direction: SELL, fee: 0, t: 7 },
+    { day: 19, price: 485, number: 5, direction: SELL, fee: 0.46, t: 7 },
+    { day: 20, price: 480, number: 5, direction: BUY, fee: 0, t: 8 },
+    { day: 20, price: 484, number: 5, direction: SELL, fee: 0, t: 8 },
   ]
 } ];
 
