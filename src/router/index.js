@@ -8,6 +8,7 @@ import Asset from "@/components/Asset.vue";
 import SubOverview from "@/components/sub/SubOverview.vue";
 import SubFunding from "@/components/sub/SubFunding.vue";
 import SubExchange from "@/components/sub/SubExchange.vue";
+import GridDashboard from "@/components/GridDashboard.vue";
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: "/cashflow",
     name: "cashflow",
     component: CashFlow,
+  },
+  {
+    path: "/grid",
+    name: "grid",
+    component: GridDashboard,
   },
   {
     path: "/future/:coin",

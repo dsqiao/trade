@@ -16,32 +16,102 @@
       <div v-for="pos in stackedPositions.positions"
            :key="pos.id"
            class="position"
-           :title="`${pos.label || pos.id}: ${pos.from} - ${pos.to}`"
            :style="{
              left: toPercent(priceToRatio(pos.from)),
              width: toPercent(priceToRatio(pos.to) - priceToRatio(pos.from)),
              top: `${baseTop + laneHeight * pos.lane}px`,
              backgroundColor: pos.color || '#17a2b8'
            }"
+           @mouseenter="showTip(pos, $event)"
+           @mousemove="moveTip($event)"
+           @mouseleave="hideTip"
       >
         <span class="pos-label">{{ pos.label || `${pos.from}-${pos.to}` }}</span>
+      </div>
+
+      <!-- vertical markers (e.g. current price) spanning the whole axis -->
+      <div v-for="(m, mi) in normalizedMarkers"
+           :key="'marker-' + mi"
+           class="marker"
+           :title="m.title || (m.label ? `${m.label}: ${m.value}` : String(m.value))"
+           :style="{
+             left: toPercent(priceToRatio(m.value)),
+             backgroundColor: m.color || '#ef4444'
+           }"
+      >
+        <span v-if="m.label"
+              class="marker-label"
+              :style="{ color: m.color || '#ef4444' }"
+        >{{ m.label }}</span>
+      </div>
+    </div>
+
+    <!-- 悬浮浮窗：鼠标移到某个单子上时展示其完整属性 -->
+    <div v-if="tip.visible"
+         class="pos-tooltip"
+         :style="{ left: `${tip.x}px`, top: `${tip.y}px` }"
+    >
+      <div class="tip-title">
+        <span class="tip-chip"
+              :style="{ background: tip.color }"
+        />
+        {{ tip.id }}
+      </div>
+      <div v-for="(row, ri) in tip.detail"
+           :key="ri"
+           class="tip-row"
+      >
+        <span class="tip-label">{{ row.label }}</span>
+        <span class="tip-value">{{ row.value }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
 
 const props = defineProps({
   minPrice: { type: Number, required: true },
   maxPrice: { type: Number, required: true },
   positions: { type: Array, default: () => [] },
+  markers: { type: Array, default: () => [] }, // [{ value, label?, color?, title? }] 贯穿竖线，如当前价
   tickStep: { type: Number, default: 0.5 },
   decimals: { type: Number, default: 2 },
   scale: { type: String, default: 'linear', validator: v => [ 'linear', 'log' ].includes(v) },
   logTickDensity: { type: String, default: 'normal', validator: v => [ 'sparse', 'normal', 'dense' ].includes(v) },
 });
+
+// 悬浮浮窗状态：鼠标移入某个区间条时显示其完整属性，移出时隐藏。
+// 坐标相对 .axis-wrapper（position: relative）计算，跟随鼠标。
+const tip = reactive({ visible: false, x: 0, y: 0, id: '', color: '', detail: [] });
+
+function tipXY(e) {
+  const wrap = e.currentTarget.closest('.axis-wrapper');
+  const rect = wrap ? wrap.getBoundingClientRect() : { left: 0, top: 0 };
+  return { x: e.clientX - rect.left + 12, y: e.clientY - rect.top + 12 };
+}
+
+function showTip(pos, e) {
+  const { x, y } = tipXY(e);
+  tip.visible = true;
+  tip.x = x;
+  tip.y = y;
+  tip.id = pos.id;
+  tip.color = pos.color || '#17a2b8';
+  tip.detail = pos.detail || [];
+}
+
+function moveTip(e) {
+  if (!tip.visible) return;
+  const { x, y } = tipXY(e);
+  tip.x = x;
+  tip.y = y;
+}
+
+function hideTip() {
+  tip.visible = false;
+}
 
 // Logarithmic scale helpers
 const toLogScale = (price) => {
@@ -118,6 +188,13 @@ const normalizedPositions = computed(() => {
     .filter(p => p.to > p.from);
 });
 
+// markers within axis range only
+const normalizedMarkers = computed(() => {
+  return props.markers.filter(m =>
+    m && m.value != null && m.value >= props.minPrice && m.value <= props.maxPrice
+  );
+});
+
 // stacking config
 const baseTop = 30;       // px, baseline where the first lane starts
 const laneHeight = 22;    // px, vertical spacing between lanes (includes bar height)
@@ -151,7 +228,7 @@ const axisStyle = computed(() => {
 </script>
 
 <style scoped>
-.axis-wrapper { width: 100%; }
+.axis-wrapper { width: 100%; position: relative; }
 .axis {
   position: relative;
   /* height dynamically adjusted via inline style */
@@ -179,6 +256,12 @@ const axisStyle = computed(() => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.12s, box-shadow 0.12s;
+}
+.position:hover {
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 .pos-label {
   font-size: 12px;
@@ -187,4 +270,62 @@ const axisStyle = computed(() => {
   padding: 0 6px;
   white-space: nowrap;
 }
+.marker {
+  position: absolute;
+  top: 16px;
+  bottom: 4px;
+  width: 2px;
+  transform: translateX(-50%);
+  z-index: 5;
+  box-shadow: 0 0 6px currentColor;
+}
+.marker-label {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+}
+/* 悬浮浮窗 */
+.pos-tooltip {
+  position: absolute;
+  z-index: 20;
+  min-width: 160px;
+  max-width: 240px;
+  padding: 8px 10px;
+  background: rgba(31, 41, 55, 0.96);
+  color: #f9fafb;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  font-size: 12px;
+  line-height: 1.6;
+  pointer-events: none;
+}
+.tip-title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.tip-chip {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+.tip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tip-label { color: #9ca3af; }
+.tip-value { color: #f9fafb; font-variant-numeric: tabular-nums; }
+
 </style>

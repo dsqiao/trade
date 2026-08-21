@@ -155,6 +155,10 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
             <span class="nav-label">Crypto</span>
             <div class="nav-links">
               <router-link
+                to="/grid"
+                class="nav-link"
+              >网格单</router-link>
+              <router-link
                 to="/coin-history/sui"
                 class="nav-link"
               >SUI-USDC</router-link>
