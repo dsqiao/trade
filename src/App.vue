@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue';
+import { ref, watch, nextTick, onUnmounted } from 'vue';
 import { BUY } from './data/const.js';
 
 // 主题切换逻辑
