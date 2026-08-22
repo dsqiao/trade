@@ -157,7 +157,7 @@ onUnmounted(() => document.removeEventListener('mousedown', handleClickOutside))
               <router-link
                 to="/grid"
                 class="nav-link"
-              >网格单</router-link>
+              >grid</router-link>
               <router-link
                 to="/coin-history/sui"
                 class="nav-link"

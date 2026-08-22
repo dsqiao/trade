@@ -89,7 +89,7 @@
                 />
                 {{ g.id }}
               </td>
-              <td class="mono">{{ formatNum(g.lower) }} – {{ formatNum(g.upper) }}</td>
+              <td class="mono">{{ formatRaw(g.lower) }} – {{ formatRaw(g.upper) }}</td>
               <td>{{ g.gridCount }}</td>
               <td class="mono">{{ formatNum(gridStep(g)) }}</td>
               <td class="mono">{{ (g.principal / g.gridCount).toFixed(1) }} U</td>
@@ -233,7 +233,7 @@ const coinGroups = computed(() => {
       color: g.status === RUNNING ? (g.color || '#888') : '#9ca3af',
       label: `${g.id} · ${g.gridCount}格`,
       detail: [
-        { label: '区间', value: `${formatNum(g.lower)} – ${formatNum(g.upper)}` },
+        { label: '区间', value: `${formatRaw(g.lower)} – ${formatRaw(g.upper)}` },
         { label: '网格数', value: `${g.gridCount}` },
         { label: '每格价差', value: formatNum(gridStep(g)) },
         { label: '每格金额', value: `${(g.principal / g.gridCount).toFixed(1)} U` },
@@ -275,11 +275,21 @@ const runningCount = computed(() => grids.filter(g => g.status === RUNNING).leng
 const totalPrincipal = computed(() => grids.reduce((s, g) => s + g.principal, 0));
 
 // ---- 工具函数 ----
+// 原样展示用户录入的价格：录入什么显示什么，不四舍五入、不强制补零。
+// 用 Number 规整掉浮点尾巴（如 0.903 保持 0.903），null 显示 '-'。
+function formatRaw(v) {
+  if (v == null || v === '') return '-';
+  const n = Number(v);
+  return Number.isNaN(n) ? String(v) : String(n);
+}
+
+// 展示计算得到的值（每格价差、当前价等）：最多 6 位小数，并去掉末尾多余的 0，
+// 既避免 33.33333... 无限小数，又不会把有效位强行四舍五入丢掉。
 function formatNum(v) {
   if (v == null) return '-';
-  if (Math.abs(v) >= 100) return Number(v).toFixed(0);
-  if (Math.abs(v) >= 1) return Number(v).toFixed(2);
-  return Number(v).toFixed(4);
+  const n = Number(v);
+  if (Number.isNaN(n)) return String(v);
+  return String(Number(n.toFixed(6)));
 }
 
 function gridStep(g) {
