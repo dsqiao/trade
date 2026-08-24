@@ -81,6 +81,7 @@ const data = [ {
   month: '202608',
   trans: [
     { day: 13, price: 4.475, number: 335, direction: BUY, fee: 2.70 },
+    { day: 24, price: 4.40, number: 340, direction: BUY, fee: 0 },
   ]
 } ];
 
