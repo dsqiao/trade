@@ -106,6 +106,7 @@ const data = [ {
     { day: 18, direction: OPTION, optionType: 'PUT', strike: 10.5, premium: 20, number: 1, fee: 2.06, desc: '卖出 260828 10.5 PUT @ 0.20' },
     { day: 22, direction: BUY, price: 12.5, number: 100, fee: 0, desc: '260821 12.5 PUT 被行权买入' },
     { day: 22, direction: BUY, price: 12, number: 100, fee: 0, desc: '260821 12 PUT 被行权买入' },
+    { day: 25, direction: OPTION, optionType: 'PUT', strike: 11.5, premium: 26, number: 1, fee: 2.06, desc: '卖出 260828 11.5 PUT @ 0.26' },
   ]
 } ];
 export {
