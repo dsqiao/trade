@@ -162,8 +162,8 @@
             <td class="date2">
               {{ getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day) }}
             </td>
-            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `期权(${tran.optionType || '-'})` : '其他')) }}</td>
-            <td class="price">{{ tran.direction === 3 ? `行权 ${tran.strike} / 权益金 ${tran.premium}` : tran.price }}</td>
+            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `${tran.optionSide === 0 ? '买' : '卖'}期权(${tran.optionType || '-'})` : '其他')) }}</td>
+            <td class="price">{{ tran.direction === 3 ? `行权 ${tran.strike} / 权益金 ${tran.optionSide === 0 ? '-' : '+'}${tran.premium}` : tran.price }}</td>
             <td class="sign">*</td>
             <td class="number">{{ tran.number }}</td>
             <td class="fee">{{ tran.fee }}</td>
@@ -244,8 +244,11 @@ const calculateData = () => {
     for (const tran of month.trans) {
       totalFee.value += tran.fee;
       if (tran.direction === OPTION) {
-        // 期权：净收益 = 权益金(premium) − 手续费。计入期权收益，并降低持仓成本（等效增加总盈利）
-        const net = (tran.premium || 0) - tran.fee;
+        // 期权净收益 = 收到/付出的权益金 − 手续费。
+        // optionSide: SELL(默认) = 卖出期权收权益金(premium 为收入)；BUY = 买入期权付权益金(premium 为支出)。
+        // 兼容旧数据：未写 optionSide 视为 SELL。
+        const signedPremium = tran.optionSide === BUY ? -(tran.premium || 0) : (tran.premium || 0);
+        const net = signedPremium - tran.fee;
         optionIncome.value += net;
         costWithFee.value -= net;
         tran.currentHolding = holdingNum.value; // 期权不改变持股数量
