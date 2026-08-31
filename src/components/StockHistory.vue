@@ -162,7 +162,7 @@
             <td class="date2">
               {{ getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day) }}
             </td>
-            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `${tran.optionSide === 0 ? '买' : '卖'}期权(${tran.optionType || '-'})` : '其他')) }}</td>
+            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `${tran.optionSide === 0 ? 'buy' : 'sell'} ${(tran.optionType || '').toLowerCase()}` : '其他')) }}</td>
             <td class="price">{{ tran.direction === 3 ? `行权 ${tran.strike} / 权益金 ${tran.optionSide === 0 ? '-' : '+'}${tran.premium}` : tran.price }}</td>
             <td class="sign">*</td>
             <td class="number">{{ tran.number }}</td>
