@@ -108,10 +108,10 @@ const data = [ {
     { day: 22, direction: BUY, price: 12, number: 100, fee: 0, desc: '260821 12 PUT 被行权买入', t: 19 },
     { day: 25, direction: OPTION, optionType: 'PUT', strike: 11.5, premium: 26, number: 1, fee: 2.06, desc: '卖出 260828 11.5 PUT @ 0.26' },
     { day: 27, direction: SELL, price: 13, number: 100, fee: 1.36, t: 19 },
-    { day: 28, direction: OPTION, optionType: 'PUT', strike: 12, premium: 8, number: 1, fee: 0, desc: '卖出 20260828 12 PUT @0.08' }, // fee todo
-    { day: 28, direction: OPTION, optionSide: BUY, optionType: 'PUT', strike: 11.5, premium: 43, number: 1, fee: 0, desc: '买入 260904 11.5 PUT @0.43' }, // fee todo
-    { day: 28, direction: OPTION, optionSide: SELL, optionType: 'PUT', strike: 11.5, premium: 39, number: 1, fee: 0, desc: '卖出平仓 260904 11.5 PUT @0.39' }, // fee todo
-    { day: 28, direction: BUY, price: 11.70, number: 100, fee: 0, }, // fee todo
+    { day: 28, direction: OPTION, optionType: 'PUT', strike: 12, premium: 8, number: 1, fee: 1.56, desc: '卖出 20260828 12 PUT @0.08' },
+    { day: 28, direction: OPTION, optionSide: BUY, optionType: 'PUT', strike: 11.5, premium: 43, number: 1, fee: 2.04, desc: '买入 260904 11.5 PUT @0.43 返现 5 USD' },
+    { day: 28, direction: OPTION, optionSide: SELL, optionType: 'PUT', strike: 11.5, premium: 39, number: 1, fee: 2.06, desc: '卖出平仓 260904 11.5 PUT @0.39' },
+    { day: 28, direction: BUY, price: 11.70, number: 100, fee: 1.31, },
     { day: 30, direction: BUY, price: 12, number: 100, fee: 0, desc: '260828 12 PUT 被行权买入' },
   ]
 } ];
