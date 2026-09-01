@@ -117,6 +117,11 @@ const data = [ {
     { day: 31, direction: SELL, price: 11.6, number: 100, fee: 0, t: 20 }, // fee todo
     { day: 31, direction: OPTION, optionType: 'PUT', optionSide: SELL, strike: 11.5, premium: 36, number: 1, fee: 0 }, // fee todo
   ]
+}, {
+  month: '202609',
+  trans: [
+    { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', strike: 11, premium: 39, number: 2, fee: 0, desc: '卖出 260904 11 PUT @0.39' }, // fee todo
+  ]
 } ];
 export {
   currentPrice,
