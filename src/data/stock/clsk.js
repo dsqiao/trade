@@ -115,12 +115,12 @@ const data = [ {
     { day: 30, direction: BUY, price: 12, number: 100, fee: 0, desc: '260828 12 PUT 被行权买入' },
     { day: 31, direction: BUY, price: 11.4, number: 100, fee: 1.31, t: 20 },
     { day: 31, direction: SELL, price: 11.6, number: 100, fee: 0.72, t: 20, desc: '5 HKD 平台费抵扣' },
-    { day: 31, direction: OPTION, optionType: 'PUT', optionSide: SELL, premium: 36, number: 1, fee: 2.06 },
+    { day: 31, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 36, number: 1, fee: 2.06, desc: '卖出 260904 11.5 PUT @0.36' },
   ]
 }, {
   month: '202609',
   trans: [
-    { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 0, desc: '卖出 260904 11 PUT @0.39' }, // fee todo
+    { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 2.58, desc: '卖出 260904 11 PUT @0.39' }, // fee todo
   ]
 } ];
 export {

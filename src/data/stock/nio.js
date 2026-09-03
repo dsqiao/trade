@@ -87,8 +87,8 @@ const data = [ {
 }, {
   month: '202609',
   trans: [
-    { day: 1, price: 4.03, number: 372, direction: BUY, fee: 0 },
-    { day: 1, price: 3.84, number: 390, direction: BUY, fee: 0 },
+    { day: 1, price: 4.03, number: 372, direction: BUY, fee: 2.36, desc: '5 HKD 平台费抵扣' },
+    { day: 1, price: 3.84, number: 390, direction: BUY, fee: 3.13 },
   ]
 } ];
 
