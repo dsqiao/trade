@@ -121,8 +121,8 @@ const data = [ {
   month: '202609',
   trans: [
     { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 2.58, desc: '卖出 260904 11 PUT @0.39' },
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 0, desc: '卖出 260904 12.5 CALL @0.05' }, // fee todo
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 0, desc: '卖出 260904 13 CALL @0.09', }, // fee todo,
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, desc: '卖出 260904 12.5 CALL @0.05' }, // fee todo
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, desc: '卖出 260904 13 CALL @0.09', }, // fee todo,
   ]
 } ];
 export {
