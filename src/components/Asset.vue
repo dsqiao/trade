@@ -32,9 +32,9 @@
 <script setup>
 import { data, AssetCategory, AssetCurrency } from '../data/assets.js';
 import { parseNumber } from '@/utils/index.js';
-const assetKeys = Object.keys(data[0]).filter(
-  key => key !== 'date' && key !== 'exchangeRate'
-);
+// 列基于完整资产清单 AssetCategory，而不是 data[0]。
+// 否则像 OKX 这类首行数据里还没出现的资产会整列缺失。
+const assetKeys = AssetCategory.map(asset => asset.name);
 
 
 const calculateTotal = (item) => {
