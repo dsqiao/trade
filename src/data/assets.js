@@ -137,7 +137,7 @@ const data = [ {
   [AssetName.BOC]: 116.75,
   [AssetName.CMB]: 53.33,
 }, {
-  date: 'Sat 2026-08-22 10:25:55',
+  date: 'Sat 2026-08-22 10:25',
   exchangeRate: 6.72,
   [AssetName.BINANCE]: 203.10,
   [AssetName.SOLANA]: 21.68,
@@ -147,7 +147,7 @@ const data = [ {
   [AssetName.BOCHK]: 2001.39,
   [AssetName.BOC]: 1050.62,
 }, {
-  date: 'Sat 2026-09-05 11:01:33',
+  date: 'Sat 2026-09-05 11:01',
   exchangeRate: 6.70,
   [AssetName.BINANCE]: 181.13,
   [AssetName.SOLANA]: 23.29,
