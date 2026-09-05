@@ -111,8 +111,8 @@ const data = [ {
     { day: 28, direction: OPTION, optionType: 'PUT', premium: 8, number: 1, fee: 1.56, desc: '卖出 20260828 12 PUT @0.08' },
     { day: 28, direction: OPTION, optionSide: BUY, optionType: 'PUT', premium: 43, number: 1, fee: 2.04, desc: '买入 260904 11.5 PUT @0.43 返现 5 USD' },
     { day: 28, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 1, fee: 2.06, desc: '卖出平仓 260904 11.5 PUT @0.39' },
-    { day: 28, direction: BUY, price: 11.70, number: 100, fee: 1.31 },
-    { day: 30, direction: BUY, price: 12, number: 100, fee: 0, desc: '260828 12 PUT 被行权买入' },
+    { day: 28, direction: BUY, price: 11.70, number: 100, fee: 1.31, t: 21 },
+    { day: 30, direction: BUY, price: 12, number: 100, fee: 0, t: 21, desc: '260828 12 PUT 被行权买入' },
     { day: 31, direction: BUY, price: 11.4, number: 100, fee: 1.31, t: 20 },
     { day: 31, direction: SELL, price: 11.6, number: 100, fee: 0.72, t: 20, desc: '5 HKD 平台费抵扣' },
     { day: 31, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 36, number: 1, fee: 2.06, desc: '卖出 260904 11.5 PUT @0.36' },
@@ -121,8 +121,9 @@ const data = [ {
   month: '202609',
   trans: [
     { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 2.58, desc: '卖出 260904 11 PUT @0.39' },
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, desc: '卖出 260904 12.5 CALL @0.05' }, // fee todo
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, desc: '卖出 260904 13 CALL @0.09', }, // fee todo,
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, desc: '卖出 260904 12.5 CALL @0.05' },
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, desc: '卖出 260904 13 CALL @0.09', },
+    { day: 5, direction: SELL, price: 12.5, number: 200, fee: 0, t: 21, desc: '260904 12.5 CALL 被行权' },
   ]
 } ];
 export {
