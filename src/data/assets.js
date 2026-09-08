@@ -62,7 +62,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 56238.63,
 }, {
-  date: ' Sun 2025-10-05 05:46',
+  date: '2025-10-05 05:46',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 26541.98,
   [AssetName.SOLANA]: 52.08,
@@ -71,7 +71,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 56238.63,
 }, {
-  date: 'The 2025-10-07 04:33',
+  date: '2025-10-07 04:33',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 32035.87,
   [AssetName.SOLANA]: 53.64,
@@ -80,7 +80,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20538.63,
 }, {
-  date: 'Wed 2025-10-08 05:33',
+  date: '2025-10-08 05:33',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 32177.25,
   [AssetName.SOLANA]: 51.18,
@@ -89,7 +89,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20538.63,
 }, {
-  date: 'Sun 2025-10-12 16:41',
+  date: '2025-10-12 16:41',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 14563.92,
   [AssetName.SOLANA]: 41.65,
@@ -98,7 +98,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20504.33,
 }, {
-  date: 'The 2025-10-14 04:26',
+  date: '2025-10-14 04:26',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 16840.71,
   [AssetName.SOLANA]: 47.42,
@@ -107,7 +107,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 20504.33,
 }, {
-  date: 'Wed 2025-10-29 19:24',
+  date: '2025-10-29 19:24',
   exchangeRate: 7.11,
   [AssetName.BINANCE]: 16757.49,
   [AssetName.SOLANA]: 45.42,
@@ -117,7 +117,7 @@ const data = [ {
   [AssetName.BOC]: 20456.23,
   [AssetName.CMB]: 7064.14,
 }, {
-  date: 'Wed 2025-11-05 20:37',
+  date: '2025-11-05 20:37',
   exchangeRate: 7.14,
   [AssetName.BINANCE]: 9823.53,
   [AssetName.SOLANA]: 36.14,
@@ -126,7 +126,7 @@ const data = [ {
   [AssetName.BOCHK]: 100.08,
   [AssetName.BOC]: 27127.83,
 }, {
-  date: 'Sat 2026-08-01 20:09',
+  date: '2026-08-01 20:09',
   exchangeRate: 6.76,
   [AssetName.BINANCE]: 145.96,
   [AssetName.SOLANA]: 16.64,
@@ -137,7 +137,7 @@ const data = [ {
   [AssetName.BOC]: 116.75,
   [AssetName.CMB]: 53.33,
 }, {
-  date: 'Sat 2026-08-22 10:25',
+  date: '2026-08-22 10:25',
   exchangeRate: 6.72,
   [AssetName.BINANCE]: 203.10,
   [AssetName.SOLANA]: 21.68,
@@ -147,7 +147,7 @@ const data = [ {
   [AssetName.BOCHK]: 2001.39,
   [AssetName.BOC]: 1050.62,
 }, {
-  date: 'Sat 2026-09-05 11:01',
+  date: '2026-09-05 11:01',
   exchangeRate: 6.70,
   [AssetName.BINANCE]: 181.13,
   [AssetName.SOLANA]: 23.29,
@@ -156,6 +156,17 @@ const data = [ {
   [AssetName.LONG_BRIDGE]: 81196.54,
   [AssetName.BOCHK]: 3001.39,
   [AssetName.BOC]: 97.79,
+  [AssetName.CMB]: 0,
+}, {
+  date: '2026-09-08 14:40',
+  exchangeRate: '6.70',
+  [AssetName.BINANCE]: 174.73,
+  [AssetName.SOLANA]: 23.45,
+  [AssetName.SUI]: 17977.32,
+  [AssetName.OKX]: 40499.41,
+  [AssetName.LONG_BRIDGE]: 80620.83,
+  [AssetName.BOCHK]: 3001.39,
+  [AssetName.BOC]: 97.80,
   [AssetName.CMB]: 0,
 } ];
 export { data, AssetCategory, AssetCurrency, AssetName };
