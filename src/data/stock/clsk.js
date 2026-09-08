@@ -124,6 +124,7 @@ const data = [ {
     { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, desc: '卖出 260904 12.5 CALL @0.05' },
     { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, desc: '卖出 260904 13 CALL @0.09', },
     { day: 7, direction: SELL, price: 12.5, number: 200, fee: 0.09, t: 21, desc: '260904 12.5 CALL 被行权' },
+    { day: 8, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 36, number: 1, fee: 0, desc: '卖出 260911 13.5 CALL @0.36' }, // fee todo
   ]
 } ];
 export {
