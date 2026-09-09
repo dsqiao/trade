@@ -8,8 +8,12 @@ const data = [ {
   trans: [
     { day: 26, price: 24.217, number: 10, direction: BUY, fee: 1.04 },
   ]
+}, {
+  month: '202609',
+  trans: [
+    { day: 9, price: 19.395, number: 10, direction: BUY, fee: 0 },
+  ]
 } ];
-
 export {
   data,
   currentPrice,
