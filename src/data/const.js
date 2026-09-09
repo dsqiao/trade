@@ -1,7 +1,8 @@
 const BUY = 0;
 const SELL = 1;
 const OTHER = 2;
-const OPTION = 3; // 期权（卖出/买入 PUT/CALL 权益金）
+// 期权：不再单独占用 direction 值，改用 direction(BUY/SELL) 表示买卖方向，
+// 由 optionType(PUT/CALL) 字段的存在来识别一行是否为期权。
 
 // 网格单运行状态
 const RUNNING = 'running';
@@ -23,7 +24,6 @@ export {
   BUY,
   SELL,
   OTHER,
-  OPTION,
   RUNNING,
   STOPPED,
   OptionStatus,

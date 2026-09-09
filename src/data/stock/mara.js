@@ -1,4 +1,4 @@
-import { BUY, SELL, OPTION } from "../const.js";
+import { BUY, SELL, OptionStatus } from "../const.js";
 
 // 当前股价
 const currentPrice = 0;
@@ -541,23 +541,23 @@ const data = [
       { day: 10, price: 13, number: 100, direction: BUY, fee: 1.31 },
       { day: 14, price: 11.8, number: 100, direction: BUY, fee: 1.31, t: 144 },
       { day: 23, price: 13.1, number: 100, direction: SELL, fee: 1.36, t: 144 },
-      // 期权：7/31 到期的 11.5 PUT，卖出收权益金 16 USD，手续费 2.06；premium 权益金（一张总额）
-      { day: 31, direction: OPTION, optionType: 'PUT', premium: 16, number: 1, fee: 2.06, desc: '卖出 20260731 11.5 PUT，到期被行权' },
+      // 期权：7/31 到期的 11.5 PUT，卖出成交价 0.16，手续费 2.06
+      { day: 31, direction: SELL, optionType: 'PUT', price: 0.16, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 20260731 11.5 PUT @ 0.16' },
       // 期权被行权：以行权价 11.5 买入 100 股 MARA（1 张合约 = 100 股）
       { day: 31, price: 11.5, number: 100, direction: BUY, fee: 0, desc: '11.5 PUT 被行权，买入 100 股', t: 145 },
     ]
   }, {
     month: '202608',
     trans: [
-      // 期权：卖出 260807 到期的 11 PUT1 张，成交价 0.61，收权益金 61 USD，手续费 2.06
-      { day: 3, direction: OPTION, optionType: 'PUT', premium: 61, number: 1, fee: 2.06, desc: '卖出 260807 11 PUT @ 0.61' },
+      // 期权：卖出 260807 到期的 11 PUT 1 张，成交价 0.61，手续费 2.06
+      { day: 3, direction: SELL, optionType: 'PUT', price: 0.61, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260807 11 PUT @ 0.61' },
       { day: 5, price: 12, number: 100, direction: SELL, fee: 1.35, t: 145 },
-      { day: 5, direction: OPTION, optionType: 'PUT', premium: 20, number: 1, fee: 2.06, desc: '卖出 260807 11 PUT @ 0.20' },
-      { day: 6, direction: OPTION, optionType: 'PUT', premium: 13, number: 1, fee: 2.06, desc: '卖出 260807 10 PUT @ 0.13' },
+      { day: 5, direction: SELL, optionType: 'PUT', price: 0.20, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260807 11 PUT @ 0.20' },
+      { day: 6, direction: SELL, optionType: 'PUT', price: 0.13, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260807 10 PUT @ 0.13' },
       // 260807 11 PUT 到期被行权，以行权价 11 买入 200 股（2 张合约）
       { day: 9, price: 11, number: 200, direction: BUY, fee: 0, desc: '260807 11 PUT 被行权，买入 200 股' },
-      { day: 10, direction: OPTION, optionType: 'PUT', premium: 45, number: 1, fee: 2.06, desc: '卖出 260814 10 PUT @ 0.45' },
-      { day: 12, direction: OPTION, optionType: 'PUT', premium: 22, number: 1, fee: 2.06, desc: '卖出 260814 9.5 PUT @ 0.22' },
+      { day: 10, direction: SELL, optionType: 'PUT', price: 0.45, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260814 10 PUT @ 0.45' },
+      { day: 12, direction: SELL, optionType: 'PUT', price: 0.22, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260814 9.5 PUT @ 0.22' },
       { day: 14, price: 9, number: 166, direction: BUY, fee: 0.88, t: 162 },
       { day: 16, price: 10, number: 100, direction: BUY, fee: 0, t: 163, desc: '行权买入' },
       { day: 16, price: 9.5, number: 100, direction: BUY, fee: 0, t: 163, desc: '行权买入' },

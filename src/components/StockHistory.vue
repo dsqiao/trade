@@ -10,10 +10,6 @@
         <span class="switch-label">股息</span>
         <t-switch v-model="showDividend" />
       </div>
-      <div class="floating-switch">
-        <span class="switch-label">期权</span>
-        <t-switch v-model="showOption" />
-      </div>
     </div>
 
     <!-- 顶部标题 -->
@@ -131,13 +127,12 @@
       <!-- 月份文案 -->
       <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
       <table class="transaction-table">
-        <thead v-if="month.trans.filter(tran => (!tran.t || showT) && (tran.direction !== 2 || showDividend) && (tran.direction !== 3 || showOption)).length">
+        <thead v-if="month.trans.filter(tran => (!tran.t || showT) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showT)).length">
           <tr>
             <th>日期</th>
             <th>星期</th>
             <th>方向</th>
             <th>价格</th>
-            <th>*</th>
             <th>数量</th>
             <th>手续费</th>
             <th>当前持仓</th>
@@ -151,10 +146,10 @@
           <tr
             v-for="(tran, tranIndex) in month.trans"
             :key="tranIndex"
-            v-show="(!tran.t || showT) && (tran.direction !== 2 || showDividend) && (tran.direction !== 3 || showOption)"
+            v-show="(!tran.t || showT) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showT)"
             :class="[
-              tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : (tran.direction === 3 ? 'option' : 'other')),
-              tran.t ? 'mask' : ''
+              isOption(tran) ? 'option' : (tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : 'other')),
+              (tran.t || isOptionSettled(tran)) ? 'mask' : ''
             ]"
           >
             <td class="date">
@@ -163,9 +158,13 @@
             <td class="date2">
               {{ getDayOfWeek(Number(month.month.slice(0, 4)), Number(month.month.slice(4)), tran.day) }}
             </td>
-            <td class="direction">{{ tran.direction === 0 ? '买入' : (tran.direction === 1 ? '卖出' : (tran.direction === 3 ? `${tran.optionSide === 0 ? 'buy' : 'sell'} ${(tran.optionType || '').toLowerCase()}` : '其他')) }}</td>
-            <td class="price">{{ tran.direction === 3 ? `权益金 ${tran.optionSide === 0 ? '-' : '+'}${tran.premium}` : tran.price }}</td>
-            <td class="sign">*</td>
+            <td class="direction">{{
+              isOption(tran)
+                ? `${tran.direction === 0 ? 'buy' : 'sell'} ${(tran.optionType || '').toLowerCase()}`
+                : (tran.direction === 0 ? '买入'
+                  : (tran.direction === 1 ? '卖出' : '其他'))
+            }}</td>
+            <td class="price">{{ isOption(tran) ? optionPrice(tran) : tran.price }}</td>
             <td class="number">{{ tran.number }}</td>
             <td class="fee">{{ tran.fee }}</td>
             <td class="current">{{ tran.currentHolding }}</td>
@@ -173,7 +172,7 @@
             <td class="gain">{{ tran.gain || '\\' }}</td>
             <td class="status">
               <span
-                v-if="tran.direction === 3 && tran.status"
+                v-if="isOption(tran) && tran.status"
                 class="status-tag"
                 :class="statusClass(tran.status)"
               >{{ tran.status }}</span>
@@ -194,7 +193,7 @@
 
 <script>
 import { reactive, ref, watch } from 'vue';
-import { BUY, SELL, OPTION, OptionStatus } from '../data/const.js';
+import { BUY, SELL, OptionStatus } from '../data/const.js';
 import { useRoute } from 'vue-router';
 import { getDayOfWeek } from '../utils/index.js';
 import { useRealtimePrice } from '../utils/realtimePrice.js';
@@ -210,7 +209,6 @@ const optionIncome = ref(0);    // 期权净收益（权益金 − 手续费）�
 const monthlyReport = reactive([]);  // 月度总结
 const showT = ref(true);       // 展示配对交易
 const showDividend = ref(false);  // 展示股息（direction 为 OTHER 的交易），默认关闭
-const showOption = ref(true);   // 展示期权交易（direction 为 OPTION），默认开启
 const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
 const clearData = () => {
@@ -252,13 +250,13 @@ const calculateData = () => {
   for (const month of mData) {
     for (const tran of month.trans) {
       totalFee.value += tran.fee;
-      if (tran.direction === OPTION) {
-        // 期权净收益 = 收到/付出的权益金 − 手续费。
-        // optionSide: SELL(默认) = 卖出期权收权益金(premium 为收入)；BUY = 买入期权付权益金(premium 为支出)。
-        // 兼容旧数据：未写 optionSide 视为 SELL。
-        // premium 是「一张」的权利金总额，交易 number 张需 × number
-        const premiumTotal = (tran.premium || 0) * (tran.number || 1);
-        const signedPremium = tran.optionSide === BUY ? -premiumTotal : premiumTotal;
+      if (isOption(tran)) {
+        // 期权净收益 = 收到/付出的权利金 − 手续费。
+        // direction: SELL = 卖出期权收权利金(为收入)；BUY = 买入期权付权利金(为支出)。
+        // price 为每股成交价（1 张合约 = 100 股）：一张权利金 = price × 100；交易 number 张再 × number。
+        const premiumPerContract = tran.price * 100;
+        const premiumTotal = premiumPerContract * (tran.number || 1);
+        const signedPremium = tran.direction === BUY ? -premiumTotal : premiumTotal;
         const net = signedPremium - tran.fee;
         optionIncome.value += net;
         costWithFee.value -= net;
@@ -300,6 +298,10 @@ const calculateData = () => {
         const transList = transMap.get(transItem.t);
         let gain = 0;
         for (let singleTran of transList) {
+          if (isOption(singleTran)) { // 期权不计入股票配对收益
+            gain -= singleTran.fee;
+            continue;
+          }
           if (singleTran.direction === SELL) { // 卖 stock
             gain += singleTran.price * singleTran.number;
           } else if (singleTran.direction === BUY) { // 买 stock
@@ -323,6 +325,15 @@ const calculateData = () => {
     month.monthlyProfit = profit.toFixed(3);
   }
 };
+// 是否为期权行：由 optionType(PUT/CALL) 字段的存在来判定。
+// 期权的 direction 复用 BUY/SELL 表示买卖方向。
+const isOption = (tran) => !!tran.optionType;
+// 期权成交价（每股权利金）。直接取 price。
+const optionPrice = (tran) => tran.price;
+// 期权是否已了结（已到期未行权 / 已到期已行权 / 到期前平仓）。
+// 已了结的期权行整行置灰，样式复用股票交易的 .mask。未到期(HOLDING)不置灰。
+const isOptionSettled = (tran) =>
+  isOption(tran) && !!tran.status && tran.status !== OptionStatus.HOLDING;
 // 期权状态 → 样式类名，用于给「状态」列上不同颜色
 const statusClass = (status) => {
   switch (status) {
@@ -370,9 +381,11 @@ export default {
       monthlyReport,
       getDayOfWeek,
       statusClass,
+      isOption,
+      isOptionSettled,
+      optionPrice,
       showT,
       showDividend,
-      showOption,
       showMonthlyReport,
       isLive,
     };
@@ -671,11 +684,6 @@ export default {
   width: 7%;
   min-width: 64px;
 }
-.sign {
-  width: 2%;
-  min-width: 20px;
-  text-align: center;
-}
 .number {
   width: 4%;
   min-width: 56px;
@@ -700,34 +708,22 @@ export default {
   width: 8%;
   min-width: 96px;
 }
-/* 期权状态标签 */
+/* 期权状态标签：纯文字着色，轻量不做胶囊按钮 */
 .status-tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
   font-size: 0.75rem;
-  font-weight: 600;
   white-space: nowrap;
 }
 .status-holding {
   color: #4aa3ff;
-  background: rgba(74, 163, 255, 0.14);
-  border: 1px solid rgba(74, 163, 255, 0.35);
 }
 .status-expired {
   color: #2ee59d;
-  background: rgba(46, 229, 157, 0.14);
-  border: 1px solid rgba(46, 229, 157, 0.35);
 }
 .status-exercised {
   color: #ffb454;
-  background: rgba(255, 180, 84, 0.14);
-  border: 1px solid rgba(255, 180, 84, 0.35);
 }
 .status-closed {
   color: #c08bff;
-  background: rgba(192, 139, 255, 0.14);
-  border: 1px solid rgba(192, 139, 255, 0.35);
 }
 .desc {
   min-width: 120px;
