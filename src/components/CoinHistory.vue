@@ -84,7 +84,7 @@ const mData = reactive([]);
 const coinAccumulation = ref(0);
 const uAccumulation = ref(0);
 const totalFee = ref(0);
-const showFull = ref(true);
+const showFull = ref(false);
 const threshold = ref(0);
 const clearData = () => {
   mData.length = 0;

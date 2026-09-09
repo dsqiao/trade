@@ -207,7 +207,7 @@ const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手
 const totalFee = ref(0);        // 手续费总开支
 const optionIncome = ref(0);    // 期权净收益（权益金 − 手续费），计入总盈利并降低持仓成本
 const monthlyReport = reactive([]);  // 月度总结
-const showFull = ref(true);       // 完整展示开关
+const showFull = ref(false);       // 完整展示开关
 const showDividend = ref(false);  // 展示股息（direction 为 OTHER 的交易），默认关闭
 const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
