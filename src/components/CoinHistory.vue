@@ -2,9 +2,9 @@
   <!-- 币种标题 -->
   <div class="title">{{ `${coin.toUpperCase()}-USDC` }}</div>
 
-  <!-- 展示/隐藏已配对交易对的开关 -->
+  <!-- 完整展示的开关 -->
   <div style="position: fixed; right: 30px; bottom: 30px; z-index: 99;">
-    <t-switch v-model="showT" />
+    <t-switch v-model="showFull" />
   </div>
 
   <!-- 当前交易对收益概述 -->
@@ -38,7 +38,7 @@
       <tr 
         v-for="(tran, index) of mData"
         :key="index"
-        v-show="!tran.t || showT && !(tran.t < threshold)"
+        v-show="!tran.t || showFull && !(tran.t < threshold)"
         :class="[
           tran.direction === SELL ? 'sell' : 'buy',
           tran.t ? 'mask' : '',
@@ -84,7 +84,7 @@ const mData = reactive([]);
 const coinAccumulation = ref(0);
 const uAccumulation = ref(0);
 const totalFee = ref(0);
-const showT = ref(true);
+const showFull = ref(true);
 const threshold = ref(0);
 const clearData = () => {
   mData.length = 0;

@@ -3,8 +3,8 @@
     <!-- 浮动开关 -->
     <div class="floating-switches">
       <div class="floating-switch">
-        <span class="switch-label">配对交易</span>
-        <t-switch v-model="showT" />
+        <span class="switch-label">FULL</span>
+        <t-switch v-model="showFull" />
       </div>
       <div class="floating-switch">
         <span class="switch-label">股息</span>
@@ -127,7 +127,7 @@
       <!-- 月份文案 -->
       <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
       <table class="transaction-table">
-        <thead v-if="month.trans.filter(tran => (!tran.t || showT) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showT)).length">
+        <thead v-if="month.trans.filter(tran => (!tran.t || showFull) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showFull)).length">
           <tr>
             <th>日期</th>
             <th>星期</th>
@@ -146,7 +146,7 @@
           <tr
             v-for="(tran, tranIndex) in month.trans"
             :key="tranIndex"
-            v-show="(!tran.t || showT) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showT)"
+            v-show="(!tran.t || showFull) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showFull)"
             :class="[
               isOption(tran) ? 'option' : (tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : 'other')),
               (tran.t || isOptionSettled(tran)) ? 'mask' : ''
@@ -207,7 +207,7 @@ const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手
 const totalFee = ref(0);        // 手续费总开支
 const optionIncome = ref(0);    // 期权净收益（权益金 − 手续费），计入总盈利并降低持仓成本
 const monthlyReport = reactive([]);  // 月度总结
-const showT = ref(true);       // 展示配对交易
+const showFull = ref(true);       // 完整展示开关
 const showDividend = ref(false);  // 展示股息（direction 为 OTHER 的交易），默认关闭
 const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
@@ -384,7 +384,7 @@ export default {
       isOption,
       isOptionSettled,
       optionPrice,
-      showT,
+      showFull,
       showDividend,
       showMonthlyReport,
       isLive,
