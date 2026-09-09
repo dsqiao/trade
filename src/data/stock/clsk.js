@@ -1,4 +1,4 @@
-import { BUY, SELL, OPTION } from '../const.js';
+import { BUY, SELL, OPTION, OptionStatus } from '../const.js';
 
 const currentPrice = 0;
 const data = [ {
@@ -98,35 +98,35 @@ const data = [ {
 }, {
   month: '202608',
   trans: [
-    { day: 14, direction: OPTION, optionType: 'PUT', premium: 12, number: 1, fee: 2.06, desc: '卖出 260814 12 PUT @ 0.12' },
-    { day: 14, direction: OPTION, optionType: 'PUT', premium: 16, number: 1, fee: 2.06, desc: '卖出 260821 11 PUT @ 0.16' },
-    { day: 17, direction: OPTION, optionType: 'PUT', premium: 76, number: 1, fee: 2.06, desc: '卖出 260821 12.5 PUT @ 0.76' },
-    { day: 17, direction: OPTION, optionType: 'PUT', premium: 47, number: 1, fee: 2.06, desc: '卖出 260821 12 PUT @ 0.47' },
-    { day: 18, direction: OPTION, optionType: 'PUT', premium: 19, number: 1, fee: 2.06, desc: '卖出 260821 11.5 PUT @ 0.19' },
-    { day: 18, direction: OPTION, optionType: 'PUT', premium: 20, number: 1, fee: 2.06, desc: '卖出 260828 10.5 PUT @ 0.20' },
+    { day: 14, direction: OPTION, optionType: 'PUT', premium: 12, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260814 12 PUT @ 0.12' },
+    { day: 14, direction: OPTION, optionType: 'PUT', premium: 16, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260821 11 PUT @ 0.16' },
+    { day: 17, direction: OPTION, optionType: 'PUT', premium: 76, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260821 12.5 PUT @ 0.76' },
+    { day: 17, direction: OPTION, optionType: 'PUT', premium: 47, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260821 12 PUT @ 0.47' },
+    { day: 18, direction: OPTION, optionType: 'PUT', premium: 19, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260821 11.5 PUT @ 0.19' },
+    { day: 18, direction: OPTION, optionType: 'PUT', premium: 20, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260828 10.5 PUT @ 0.20' },
     { day: 22, direction: BUY, price: 12.5, number: 100, fee: 0, desc: '260821 12.5 PUT 被行权买入' },
     { day: 22, direction: BUY, price: 12, number: 100, fee: 0, desc: '260821 12 PUT 被行权买入', t: 19 },
-    { day: 25, direction: OPTION, optionType: 'PUT', premium: 26, number: 1, fee: 2.06, desc: '卖出 260828 11.5 PUT @ 0.26' },
+    { day: 25, direction: OPTION, optionType: 'PUT', premium: 26, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260828 11.5 PUT @ 0.26' },
     { day: 27, direction: SELL, price: 13, number: 100, fee: 1.36, t: 19 },
-    { day: 28, direction: OPTION, optionType: 'PUT', premium: 8, number: 1, fee: 1.56, desc: '卖出 20260828 12 PUT @0.08' },
-    { day: 28, direction: OPTION, optionSide: BUY, optionType: 'PUT', premium: 43, number: 1, fee: 2.04, desc: '买入 260904 11.5 PUT @0.43 返现 5 USD' },
-    { day: 28, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 1, fee: 2.06, desc: '卖出平仓 260904 11.5 PUT @0.39' },
+    { day: 28, direction: OPTION, optionType: 'PUT', premium: 8, number: 1, fee: 1.56, status: OptionStatus.EXERCISED, desc: '卖出 20260828 12 PUT @0.08' },
+    { day: 28, direction: OPTION, optionSide: BUY, optionType: 'PUT', premium: 43, number: 1, fee: 2.04, status: OptionStatus.CLOSED, desc: '买入 260904 11.5 PUT @0.43 返现 5 USD' },
+    { day: 28, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 1, fee: 2.06, status: OptionStatus.CLOSED, desc: '卖出平仓 260904 11.5 PUT @0.39' },
     { day: 28, direction: BUY, price: 11.70, number: 100, fee: 1.31, t: 21 },
     { day: 30, direction: BUY, price: 12, number: 100, fee: 0, t: 21, desc: '260828 12 PUT 被行权买入' },
     { day: 31, direction: BUY, price: 11.4, number: 100, fee: 1.31, t: 20 },
     { day: 31, direction: SELL, price: 11.6, number: 100, fee: 0.72, t: 20, desc: '5 HKD 平台费抵扣' },
-    { day: 31, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 36, number: 1, fee: 2.06, desc: '卖出 260904 11.5 PUT @0.36' },
+    { day: 31, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 36, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260904 11.5 PUT @0.36' },
   ]
 }, {
   month: '202609',
   trans: [
-    { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 2.58, desc: '卖出 260904 11 PUT @0.39' },
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, desc: '卖出 260904 12.5 CALL @0.05' },
-    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, desc: '卖出 260904 13 CALL @0.09', },
+    { day: 1, direction: OPTION, optionSide: SELL, optionType: 'PUT', premium: 39, number: 2, fee: 2.58, status: OptionStatus.EXPIRED, desc: '卖出 260904 11 PUT @0.39' },
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 5, number: 2, fee: 2.08, status: OptionStatus.EXERCISED, desc: '卖出 260904 12.5 CALL @0.05' },
+    { day: 3, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 9, number: 1, fee: 1.56, status: OptionStatus.EXPIRED, desc: '卖出 260904 13 CALL @0.09', },
     { day: 7, direction: SELL, price: 12.5, number: 200, fee: 0.09, t: 21, desc: '260904 12.5 CALL 被行权' },
-    { day: 8, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 36, number: 1, fee: 0, desc: '卖出 260911 13.5 CALL @0.36' }, // fee todo
-    { day: 8, direction: OPTION, optionSide: BUY, optionType: 'CALL', premium: 53, number: 1, fee: 0, desc: '买入平仓 260911 13.5 CALL @0.53' }, // fee todo
-    { day: 8, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 60, number: 1, fee: 0, desc: '卖出 260918 14 CALL @0.59' }, // fee todo
+    { day: 8, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 36, number: 1, fee: 2.06, status: OptionStatus.CLOSED, desc: '卖出 260911 13.5 CALL @0.36' },
+    { day: 8, direction: OPTION, optionSide: BUY, optionType: 'CALL', premium: 53, number: 1, fee: 2.04, status: OptionStatus.CLOSED, desc: '买入平仓 260911 13.5 CALL @0.53' },
+    { day: 8, direction: OPTION, optionSide: SELL, optionType: 'CALL', premium: 60, number: 1, fee: 2.06, status: OptionStatus.HOLDING, desc: '卖出 260918 14 CALL @0.60' },
   ]
 } ];
 export {

@@ -143,6 +143,7 @@
             <th>当前持仓</th>
             <th>t</th>
             <th>gain</th>
+            <th>状态</th>
             <th>备注</th>
           </tr>
         </thead>
@@ -170,6 +171,14 @@
             <td class="current">{{ tran.currentHolding }}</td>
             <td class="t">{{ tran.t || '\\' }}</td>
             <td class="gain">{{ tran.gain || '\\' }}</td>
+            <td class="status">
+              <span
+                v-if="tran.direction === 3 && tran.status"
+                class="status-tag"
+                :class="statusClass(tran.status)"
+              >{{ tran.status }}</span>
+              <span v-else>\</span>
+            </td>
             <td class="desc"
                 v-if="tran.desc"
             >{{ tran.desc }}</td>
@@ -185,7 +194,7 @@
 
 <script>
 import { reactive, ref, watch } from 'vue';
-import { BUY, SELL, OPTION } from '../data/const.js';
+import { BUY, SELL, OPTION, OptionStatus } from '../data/const.js';
 import { useRoute } from 'vue-router';
 import { getDayOfWeek } from '../utils/index.js';
 import { useRealtimePrice } from '../utils/realtimePrice.js';
@@ -314,6 +323,16 @@ const calculateData = () => {
     month.monthlyProfit = profit.toFixed(3);
   }
 };
+// 期权状态 → 样式类名，用于给「状态」列上不同颜色
+const statusClass = (status) => {
+  switch (status) {
+    case OptionStatus.HOLDING:   return 'status-holding';   // 未到期
+    case OptionStatus.EXPIRED:   return 'status-expired';   // 已到期未行权
+    case OptionStatus.EXERCISED: return 'status-exercised'; // 已到期已行权
+    case OptionStatus.CLOSED:    return 'status-closed';    // 到期前平仓
+    default: return '';
+  }
+};
 export default {
   setup() {
     const route = useRoute();
@@ -350,6 +369,7 @@ export default {
       optionIncome,
       monthlyReport,
       getDayOfWeek,
+      statusClass,
       showT,
       showDividend,
       showOption,
@@ -675,6 +695,39 @@ export default {
 .gain {
   width: 15%;
   min-width: 80px;
+}
+.status {
+  width: 8%;
+  min-width: 96px;
+}
+/* 期权状态标签 */
+.status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.status-holding {
+  color: #4aa3ff;
+  background: rgba(74, 163, 255, 0.14);
+  border: 1px solid rgba(74, 163, 255, 0.35);
+}
+.status-expired {
+  color: #2ee59d;
+  background: rgba(46, 229, 157, 0.14);
+  border: 1px solid rgba(46, 229, 157, 0.35);
+}
+.status-exercised {
+  color: #ffb454;
+  background: rgba(255, 180, 84, 0.14);
+  border: 1px solid rgba(255, 180, 84, 0.35);
+}
+.status-closed {
+  color: #c08bff;
+  background: rgba(192, 139, 255, 0.14);
+  border: 1px solid rgba(192, 139, 255, 0.35);
 }
 .desc {
   min-width: 120px;
