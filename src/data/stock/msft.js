@@ -69,6 +69,8 @@ const data = [ {
   month: '202609',
   trans: [
     { day: 8, price: 490.98, number: 5, direction: BUY, fee: 1.03, t: 10 },
+    { day: 11, price: 0, number: 0, direction: OTHER, fee: -20.02, desc: '现金分红 22 股 * 0.91 USD/股' },
+    { day: 11, price: 0, number: 0, direction: OTHER, fee: 2.00, desc: 'Tax' },
   ]
 } ];
 
