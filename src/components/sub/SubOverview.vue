@@ -267,6 +267,9 @@ const exchangeDetail = (() => {
 })();
 
 // ---- 股票持仓汇总 ----
+// 成交总金额：优先用手动录入的 amount（成交价除不尽时更精确），否则回退 price × number。
+// 与 StockHistory.vue 的 tranAmount 保持一致。
+const tranAmount = (tran) => tran.amount != null ? tran.amount : tran.price * tran.number;
 const modules = import.meta.glob('../../data/sub/stock/*.js', { eager: true });
 const stockRows = Object.entries(modules).map(([ path, mod ]) => {
   const file = path.split('/').pop().replace('.js', '');
@@ -281,12 +284,12 @@ const stockRows = Object.entries(modules).map(([ path, mod ]) => {
       totalFee += tran.fee;
       if (tran.direction === BUY) {
         holding += tran.number;
-        outcome += tran.price * tran.number;
-        costWithFee += tran.price * tran.number + tran.fee;
+        outcome += tranAmount(tran);
+        costWithFee += tranAmount(tran) + tran.fee;
       } else {
         holding -= tran.number;
-        income += tran.price * tran.number;
-        costWithFee -= tran.price * tran.number - tran.fee;
+        income += tranAmount(tran);
+        costWithFee -= tranAmount(tran) - tran.fee;
       }
       // 持仓降为 0 视为全部平仓，将当前仓位盈亏结转到已实现收益
       if (holding === 0) {

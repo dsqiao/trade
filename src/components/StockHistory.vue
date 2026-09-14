@@ -164,7 +164,7 @@
                 : (tran.direction === 0 ? '买入'
                   : (tran.direction === 1 ? '卖出' : '其他'))
             }}</td>
-            <td class="price">{{ isOption(tran) ? optionPrice(tran) : tran.price }}</td>
+            <td class="price">{{ isOption(tran) ? optionPrice(tran) : stockPrice(tran) }}</td>
             <td class="number">{{ tran.number }}</td>
             <td class="fee">{{ tran.fee }}</td>
             <td class="current">{{ tran.currentHolding }}</td>
@@ -265,16 +265,16 @@ const calculateData = () => {
       } else if (tran.direction === BUY) {
         // 买入
         holdingNum.value += tran.number;
-        cost.value += tran.price * tran.number;
-        outcomeAmount.value += tran.price * tran.number;
-        costWithFee.value += (tran.price * tran.number + tran.fee);
+        cost.value += tranAmount(tran);
+        outcomeAmount.value += tranAmount(tran);
+        costWithFee.value += (tranAmount(tran) + tran.fee);
         tran.currentHolding = holdingNum.value;
       } else {
         // 卖出
         holdingNum.value -= tran.number;
-        cost.value -= tran.price * tran.number;
-        incomeAmount.value += tran.price * tran.number;
-        costWithFee.value -= (tran.price * tran.number - tran.fee);
+        cost.value -= tranAmount(tran);
+        incomeAmount.value += tranAmount(tran);
+        costWithFee.value -= (tranAmount(tran) - tran.fee);
         tran.currentHolding = holdingNum.value;
       }
       // 我们把含有 t 值的交易称为「已结算交易」，对于已结算交易对，我们放到一个 Map 中
@@ -303,9 +303,9 @@ const calculateData = () => {
             continue;
           }
           if (singleTran.direction === SELL) { // 卖 stock
-            gain += singleTran.price * singleTran.number;
+            gain += tranAmount(singleTran);
           } else if (singleTran.direction === BUY) { // 买 stock
-            gain -= singleTran.price * singleTran.number;
+            gain -= tranAmount(singleTran);
           }
           gain -= singleTran.fee; // 扣除手续费
         }
@@ -328,6 +328,11 @@ const calculateData = () => {
 // 是否为期权行：由 optionType(PUT/CALL) 字段的存在来判定。
 // 期权的 direction 复用 BUY/SELL 表示买卖方向。
 const isOption = (tran) => !!tran.optionType;
+// 股票成交总金额：优先用手动录入的 amount（成交金额除不尽时用它更精确），
+// 否则回退到 price × number。收益/成本相关计算统一走这里。
+const tranAmount = (tran) => tran.amount != null ? tran.amount : tran.price * tran.number;
+// 价格列展示：有 amount 时展示由 amount 反推的每股价（仅展示用，计算仍用 amount 保证精确）。
+const stockPrice = (tran) => tran.price != null ? tran.price : (tran.amount / tran.number).toFixed(4);
 // 期权成交价（每股权利金）。直接取 price。
 const optionPrice = (tran) => tran.price;
 // 期权是否已了结（已到期未行权 / 已到期已行权 / 到期前平仓）。
@@ -382,6 +387,7 @@ export default {
       getDayOfWeek,
       statusClass,
       isOption,
+      stockPrice,
       isOptionSettled,
       optionPrice,
       showFull,
