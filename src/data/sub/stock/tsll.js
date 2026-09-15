@@ -11,7 +11,7 @@ const data = [ {
 }, {
   month: '202609',
   trans: [
-    { day: 14, amount: 285.92, number: 30, direction: SELL, fee: 0 }, // fee todo
+    { day: 14, amount: 285.92, number: 30, direction: SELL, fee: 1.12 },
   ]
 } ];
 
