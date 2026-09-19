@@ -1,4 +1,4 @@
-import { RUNNING } from '../const.js';
+import { RUNNING, STOPPED } from '../const.js';
 
 // ETH 的所有网格单（同一币种放同一个文件，往数组里加即可）
 // 提示：id 可选，不填由系统按顺序自动生成（如 eth-1）；color 可选，不填自动分配
@@ -15,7 +15,7 @@ export const grids = [
   { range: [ 1793, 2793 ], principal: 1240, startTime: '02/06/2026, 01:00:45', gridCount: 80, status: RUNNING, desc: '' },
   { range: [ 1700, 3200 ], principal: 2800, startTime: '02/12/2026, 14:29:03', gridCount: 120, status: RUNNING, desc: '' },
   { range: [ 1683.7, 2683.7 ], principal: 3000, startTime: '02/12/2026, 23:51:42', gridCount: 80, status: RUNNING, desc: '' },
-  { range: [ 1596.8, 2596.8 ], principal: 3750, startTime: '02/13/2026, 00:28:53', gridCount: 80, status: RUNNING, desc: '' },
+  { range: [ 1596.8, 2596.8 ], principal: 3750, startTime: '02/13/2026, 00:28:53', gridCount: 80, status: STOPPED, desc: '' },
   { range: [ 1706.25, 3206.25 ], principal: 3000, startTime: '04/03/2026, 17:26:25', gridCount: 120, status: RUNNING, desc: '' },
   { range: [ 1950, 2950 ], principal: 1100, startTime: '04/18/2026, 00:55:01', gridCount: 80, status: RUNNING, desc: '' },
   { range: [ 1815, 2815 ], principal: 1000, startTime: '04/21/2026, 13:08:12', gridCount: 80, status: RUNNING, desc: '' },
