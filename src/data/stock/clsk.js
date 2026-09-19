@@ -104,7 +104,7 @@ const data = [ {
     { day: 17, direction: SELL, optionType: 'PUT', price: 0.47, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260821 12 PUT @ 0.47' },
     { day: 18, direction: SELL, optionType: 'PUT', price: 0.19, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260821 11.5 PUT @ 0.19' },
     { day: 18, direction: SELL, optionType: 'PUT', price: 0.20, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260828 10.5 PUT @ 0.20' },
-    { day: 22, direction: BUY, price: 12.5, number: 100, fee: 0, desc: '260821 12.5 PUT 被行权买入' },
+    { day: 22, direction: BUY, price: 12.5, number: 100, fee: 0, desc: '260821 12.5 PUT 被行权买入', t: 22 },
     { day: 22, direction: BUY, price: 12, number: 100, fee: 0, desc: '260821 12 PUT 被行权买入', t: 19 },
     { day: 25, direction: SELL, optionType: 'PUT', price: 0.26, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260828 11.5 PUT @ 0.26' },
     { day: 27, direction: SELL, price: 13, number: 100, fee: 1.36, t: 19 },
@@ -126,7 +126,8 @@ const data = [ {
     { day: 7, direction: SELL, price: 12.5, number: 200, fee: 0.09, t: 21, desc: '260904 12.5 CALL 被行权' },
     { day: 8, direction: SELL, optionType: 'CALL', price: 0.36, number: 1, fee: 2.06, status: OptionStatus.CLOSED, desc: '卖出 260911 13.5 CALL @0.36' },
     { day: 8, direction: BUY, optionType: 'CALL', price: 0.53, number: 1, fee: 2.04, status: OptionStatus.CLOSED, desc: '买入平仓 260911 13.5 CALL @0.53' },
-    { day: 8, direction: SELL, optionType: 'CALL', price: 0.60, number: 1, fee: 2.06, status: OptionStatus.HOLDING, desc: '卖出 260918 14 CALL @0.60' },
+    { day: 8, direction: SELL, optionType: 'CALL', price: 0.60, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260918 14 CALL @0.60' },
+    { day: 19, direction: SELL, price: 14, number: 100, fee: 0, desc: '260918 14 CALL 被行权', t: 22 },
   ]
 } ];
 export {
