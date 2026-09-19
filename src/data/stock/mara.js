@@ -554,8 +554,7 @@ const data = [
       { day: 5, price: 12, number: 100, direction: SELL, fee: 1.35, t: 145 },
       { day: 5, direction: SELL, optionType: 'PUT', price: 0.20, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260807 11 PUT @ 0.20' },
       { day: 6, direction: SELL, optionType: 'PUT', price: 0.13, number: 1, fee: 2.06, status: OptionStatus.EXPIRED, desc: '卖出 260807 10 PUT @ 0.13' },
-      // 260807 11 PUT 到期被行权，以行权价 11 买入 200 股（2 张合约）
-      { day: 9, price: 11, number: 200, direction: BUY, fee: 0, desc: '260807 11 PUT 被行权，买入 200 股' },
+      { day: 9, price: 11, number: 200, direction: BUY, fee: 0, desc: '260807 11 PUT 被行权，买入 200 股', t: 167 },
       { day: 10, direction: SELL, optionType: 'PUT', price: 0.45, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260814 10 PUT @ 0.45' },
       { day: 12, direction: SELL, optionType: 'PUT', price: 0.22, number: 1, fee: 2.06, status: OptionStatus.EXERCISED, desc: '卖出 260814 9.5 PUT @ 0.22' },
       { day: 14, price: 9, number: 166, direction: BUY, fee: 0.88, t: 162 },
@@ -573,9 +572,9 @@ const data = [
       { day: 3, price: 11.5, number: 100, direction: SELL, fee: 1.35, t: 165 },
       { day: 8, price: 12, number: 100, direction: SELL, fee: 1.35, t: 166 },
       { day: 14, price: 10.97, number: 100, direction: BUY, fee: 1.31, t: 166 },
-      { day: 15, direction: SELL, optionType: 'PUT', price: 0.06, number: 2, fee: 1.48, status: OptionStatus.HOLDING, desc: '卖出 260918 10 PUT @ 0.06' },
-      { day: 18, price: 12.05, number: 100, direction: SELL, fee: 0 }, // fee todo
-      { day: 18, price: 13, number: 100, direction: SELL, fee: 0 }, // fee todo
+      { day: 15, direction: SELL, optionType: 'PUT', price: 0.06, number: 2, fee: 1.48, status: OptionStatus.EXPIRED, desc: '卖出 260918 10 PUT @ 0.06' },
+      { day: 18, price: 12.05, number: 100, direction: SELL, fee: 0, t: 167 }, // fee todo
+      { day: 18, price: 13, number: 100, direction: SELL, fee: 0, t: 167 }, // fee todo
     ]
   }
 ];
