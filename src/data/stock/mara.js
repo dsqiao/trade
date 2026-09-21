@@ -573,8 +573,8 @@ const data = [
       { day: 8, price: 12, number: 100, direction: SELL, fee: 1.35, t: 166 },
       { day: 14, price: 10.97, number: 100, direction: BUY, fee: 1.31, t: 166 },
       { day: 15, direction: SELL, optionType: 'PUT', price: 0.06, number: 2, fee: 1.48, status: OptionStatus.EXPIRED, desc: '卖出 260918 10 PUT @ 0.06' },
-      { day: 18, price: 12.05, number: 100, direction: SELL, fee: 0, t: 167 }, // fee todo
-      { day: 18, price: 13, number: 100, direction: SELL, fee: 0, t: 167 }, // fee todo
+      { day: 18, price: 12.05, number: 100, direction: SELL, fee: 1.35, t: 167 },
+      { day: 18, price: 13, number: 100, direction: SELL, fee: 1.36, t: 167 },
     ]
   }
 ];
