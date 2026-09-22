@@ -14,10 +14,10 @@ export const grids = [
   { range: [ 1856, 2856 ], principal: 1400, startTime: '02/05/2026, 19:47:29', gridCount: 80, status: RUNNING, desc: '' },
   { range: [ 1793, 2793 ], principal: 1240, startTime: '02/06/2026, 01:00:45', gridCount: 80, status: RUNNING, desc: '' },
   { range: [ 1700, 3200 ], principal: 2800, startTime: '02/12/2026, 14:29:03', gridCount: 120, status: RUNNING, desc: '' },
-  { range: [ 1683.7, 2683.7 ], principal: 3000, startTime: '02/12/2026, 23:51:42', gridCount: 80, status: RUNNING, desc: '' },
+  { range: [ 1683.7, 2683.7 ], principal: 3000, startTime: '02/12/2026, 23:51:42', gridCount: 80, status: STOPPED, desc: '' },
   { range: [ 1596.8, 2596.8 ], principal: 3750, startTime: '02/13/2026, 00:28:53', gridCount: 80, status: STOPPED, desc: '' },
   { range: [ 1706.25, 3206.25 ], principal: 3000, startTime: '04/03/2026, 17:26:25', gridCount: 120, status: RUNNING, desc: '' },
   { range: [ 1950, 2950 ], principal: 1100, startTime: '04/18/2026, 00:55:01', gridCount: 80, status: RUNNING, desc: '' },
   { range: [ 1815, 2815 ], principal: 1000, startTime: '04/21/2026, 13:08:12', gridCount: 80, status: RUNNING, desc: '' },
-  { range: [ 1755, 2755 ], principal: 2400, startTime: '04/30/2026, 21:03:00', gridCount: 80, status: RUNNING, desc: '' },
+  { range: [ 1755, 2755 ], principal: 2400, startTime: '04/30/2026, 21:03:00', gridCount: 80, status: STOPPED, desc: '' },
 ];
