@@ -180,7 +180,7 @@ const data = [ {
   [AssetName.BOC]: 91.85,
   [AssetName.CMB]: 126.6,
 }, {
-  date: '2026-09-26 10:13:57',
+  date: '2026-09-26 10:13',
   exchangeRate: '6.70',
   [AssetName.LONG_BRIDGE]: 83914.43,
   [AssetName.OKX]: 44447.02,
