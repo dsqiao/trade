@@ -130,6 +130,7 @@ const data = [ {
     { day: 19, direction: SELL, price: 14, number: 100, fee: 0.05, desc: '260918 14 CALL 被行权', t: 22 },
     { day: 25, direction: BUY, price: 13.5, number: 100, fee: 1.31, t: 23 },
     { day: 25, direction: SELL, price: 14, number: 100, fee: 1.36, t: 23 },
+    { day: 28, direction: BUY, price: 13.5, number: 100, fee: 0 }, // fee todo
   ]
 } ];
 export {
