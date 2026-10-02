@@ -86,6 +86,7 @@ const dividend = [
   { month: '202512', day: 29, direction: DIVIDEND, amount: 0.60, tax: 0.06, desc: '0.01/股 * 60 股' },
   { month: '202604', day: 2, direction: DIVIDEND, amount: 0.60, tax: 0.06, desc: '0.01/股 * 60 股' },
   { month: '202606', day: 29, direction: DIVIDEND, amount: 15, tax: 1.49, desc: '0.25/股 * 60 股' },
+  { month: '202610', day: 2, direction: DIVIDEND, amount: 14.5, tax: 1.44, desc: '0.25/股 * 58 股' },
 ];
 
 export { data, currentPrice, dividend };
