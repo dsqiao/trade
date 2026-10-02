@@ -1,6 +1,7 @@
 const BUY = 0;
 const SELL = 1;
-const OTHER = 2;
+const OTHER = 2;      // 其他（ADR 托管费、企业行动费用等杂项费用）
+const DIVIDEND = 3;   // 分红（现金分红，独立于股票交易单独统计与展示）
 // 期权：不再单独占用 direction 值，改用 direction(BUY/SELL) 表示买卖方向，
 // 由 optionType(PUT/CALL) 字段的存在来识别一行是否为期权。
 
@@ -24,6 +25,7 @@ export {
   BUY,
   SELL,
   OTHER,
+  DIVIDEND,
   RUNNING,
   STOPPED,
   OptionStatus,

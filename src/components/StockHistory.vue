@@ -7,8 +7,8 @@
         <t-switch v-model="showFull" />
       </div>
       <div class="floating-switch">
-        <span class="switch-label">股息</span>
-        <t-switch v-model="showDividend" />
+        <span class="switch-label">其他</span>
+        <t-switch v-model="showOther" />
       </div>
     </div>
 
@@ -28,11 +28,11 @@
     <!-- 核心指标：总盈利 -->
     <div
       class="hero-card"
-      :class="(mCurrentPrice * holdingNum - costWithFee) >= 0 ? 'positive' : 'negative'"
+      :class="totalProfit >= 0 ? 'positive' : 'negative'"
     >
       <div class="hero-label">总盈利</div>
       <div class="hero-value">
-        {{ (mCurrentPrice * holdingNum - costWithFee) >= 0 ? '+' : '-' }}${{ Math.abs(mCurrentPrice * holdingNum - costWithFee).toFixed(3) }}
+        {{ totalProfit >= 0 ? '+' : '-' }}${{ Math.abs(totalProfit).toFixed(3) }}
       </div>
     </div>
 
@@ -57,6 +57,13 @@
       <div class="stat-card">
         <div class="stat-label">手续费总计</div>
         <div class="stat-value">${{ totalFee.toFixed(3) }}</div>
+      </div>
+      <div
+        v-if="dividendIncome !== 0"
+        class="stat-card"
+      >
+        <div class="stat-label">累积分红（税后）</div>
+        <div class="stat-value">${{ dividendIncome.toFixed(3) }}</div>
       </div>
       <div
         v-if="optionIncome !== 0"
@@ -127,7 +134,7 @@
       <!-- 月份文案 -->
       <div class="monthTitle">{{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月, 月度收益 ${month.monthlyProfit || '未计算'}` }}</div>
       <table class="transaction-table">
-        <thead v-if="month.trans.filter(tran => (!tran.t || showFull) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showFull)).length">
+        <thead v-if="month.trans.filter(tran => (!tran.t || showFull) && (tran.direction !== 2 || showOther) && (!isOptionSettled(tran) || showFull)).length">
           <tr>
             <th>日期</th>
             <th>星期</th>
@@ -146,7 +153,7 @@
           <tr
             v-for="(tran, tranIndex) in month.trans"
             :key="tranIndex"
-            v-show="(!tran.t || showFull) && (tran.direction !== 2 || showDividend) && (!isOptionSettled(tran) || showFull)"
+            v-show="(!tran.t || showFull) && (tran.direction !== 2 || showOther) && (!isOptionSettled(tran) || showFull)"
             :class="[
               isOption(tran) ? 'option' : (tran.direction === 0 ? 'buy' : (tran.direction === 1 ? 'sell' : 'other')),
               (tran.t || isOptionSettled(tran)) ? 'mask' : ''
@@ -189,30 +196,76 @@
       </table>
     </div>
   </div>
+
+  <!-- 分红明细（与股票交易相区分，单独展示） -->
+  <div
+    v-if="mDividend.length"
+    class="transaction-section dividend-section"
+  >
+    <h2 class="section-title">
+      分红明细
+      <span class="dividend-total">税后累计 ${{ dividendIncome.toFixed(3) }}</span>
+    </h2>
+    <div class="month-block">
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>星期</th>
+            <th>分红金额</th>
+            <th>税费</th>
+            <th>税后净额</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(d, index) in mDividend"
+            :key="index"
+            class="dividend"
+          >
+            <td class="date">
+              {{ `${d.month.slice(0, 4)} 年 ${d.month.slice(4)} 月 ${d.day} 日` }}
+            </td>
+            <td class="date2">
+              {{ getDayOfWeek(Number(d.month.slice(0, 4)), Number(d.month.slice(4)), d.day) }}
+            </td>
+            <td class="price">+${{ d.amount.toFixed(2) }}</td>
+            <td class="fee">-${{ d.tax.toFixed(2) }}</td>
+            <td class="gain">${{ (d.amount - d.tax).toFixed(2) }}</td>
+            <td class="desc">{{ d.desc }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
-import { reactive, ref, watch } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import { BUY, SELL, OptionStatus } from '../data/const.js';
 import { useRoute } from 'vue-router';
 import { getDayOfWeek } from '../utils/index.js';
 import { useRealtimePrice } from '../utils/realtimePrice.js';
 const mData = reactive([]);
+const mDividend = reactive([]);  // 分红记录（与股票交易相区分）
 const mCurrentPrice = ref(0);   // 当前股价
 const holdingNum = ref(0);      // 当前持股数量
 const cost = ref(0);            // 均摊成本（不含手续费）
 const costWithFee = ref(0);     // 均摊成本（含手续费）
 const incomeAmount = ref(0);    // 入账金额（股票卖出金额，不含手续费）
 const outcomeAmount = ref(0);   // 出账金额（股票买入金额，不含手续费）
-const totalFee = ref(0);        // 手续费总开支
+const totalFee = ref(0);        // 手续费总开支（不含分红，分红单独统计）
 const optionIncome = ref(0);    // 期权净收益（权益金 − 手续费），计入总盈利并降低持仓成本
+const dividendIncome = ref(0);  // 分红净收益（税前分红 − 税费），独立于股票交易，计入总盈利
 const monthlyReport = reactive([]);  // 月度总结
 const showFull = ref(false);       // 完整展示开关
-const showDividend = ref(false);  // 展示股息（direction 为 OTHER 的交易），默认关闭
+const showOther = ref(false);  // 展示其他杂项（direction 为 OTHER 的交易，如 ADR 托管费/企业行动费用），默认关闭
 const showMonthlyReport = ref(false);  // 月度持仓总结展开状态，默认收起
 // 切换路由时，需要清空数据
 const clearData = () => {
   mData.length = 0;
+  mDividend.length = 0;
   mCurrentPrice.value = 0;
   holdingNum.value = 0;
   cost.value = 0;
@@ -221,6 +274,7 @@ const clearData = () => {
   outcomeAmount.value = 0;
   totalFee.value = 0;
   optionIncome.value = 0;
+  dividendIncome.value = 0;
   monthlyReport.length = 0;
 };
 
@@ -230,10 +284,11 @@ const needRealtime = ref(true);
 // 动态加载数据（account 为 'sub' 时读取子账号股票数据，否则读取主账号）
 const loadData = async (stock, account) => {
   try {
-    const { data, currentPrice } = account === 'sub'
+    const { data, currentPrice, dividend } = account === 'sub'
       ? await import(`../data/sub/stock/${stock.value}.js`)
       : await import(`../data/stock/${stock.value}.js`);
     mData.push(...data); // 使用 .push 方法来更新 reactive 数组
+    if (dividend) mDividend.push(...dividend); // 分红数据（可选导出）
     mCurrentPrice.value = currentPrice;
     // currentPrice 不为 0 时直接使用，不再请求实时接口
     needRealtime.value = currentPrice === 0;
@@ -244,6 +299,11 @@ const loadData = async (stock, account) => {
 
 // 计算数据
 const calculateData = () => {
+
+  // 分红：独立于股票交易统计，税后净额 = 税前分红 − 税费，不计入手续费
+  for (const d of mDividend) {
+    dividendIncome.value += (d.amount - d.tax);
+  }
 
   const transMap = new Map();
 
@@ -349,6 +409,8 @@ const statusClass = (status) => {
     default: return '';
   }
 };
+// 总盈利 = 持仓浮动盈亏（现价市值 − 含手续费成本）+ 分红净收益
+const totalProfit = computed(() => mCurrentPrice.value * holdingNum.value - costWithFee.value + dividendIncome.value);
 export default {
   setup() {
     const route = useRoute();
@@ -374,6 +436,7 @@ export default {
 
     return {
       mData,
+      mDividend,
       mCurrentPrice,
       stock,
       holdingNum,
@@ -383,6 +446,8 @@ export default {
       costWithFee,
       totalFee,
       optionIncome,
+      dividendIncome,
+      totalProfit,
       monthlyReport,
       getDayOfWeek,
       statusClass,
@@ -391,7 +456,7 @@ export default {
       isOptionSettled,
       optionPrice,
       showFull,
-      showDividend,
+      showOther,
       showMonthlyReport,
       isLive,
     };
@@ -616,6 +681,11 @@ export default {
   height: 1.1em;
   border-radius: 2px;
   background: linear-gradient(180deg, #00e5ff, #6382ff);
+}
+.section-title .dividend-total {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffb454;
 }
 
 .month-block {

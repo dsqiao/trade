@@ -1,4 +1,4 @@
-import { BUY, OTHER, SELL } from "../const.js";
+import { BUY, DIVIDEND, SELL } from "../const.js";
 
 const currentPrice = 0;
 const data = [ {
@@ -19,12 +19,6 @@ const data = [ {
     { day: 7, price: 610, number: 3, direction: BUY, fee: 1.02, t: 1 },
   ]
 }, {
-  month: '202512',
-  trans: [
-    { day: 24, price: 0, number: 0, direction: OTHER, fee: -14.18, desc: '现金分红 27 股 * 0.525 USD/股' },
-    { day: 25, price: 0, number: 0, direction: OTHER, fee: 1.42, desc: 'Tax/Dividend Fee' },
-  ]
-}, {
   month: '202601',
   trans: [
     { day: 29, price: 725.5, number: 27, direction: SELL, fee: 0.45, t: 1 },
@@ -39,4 +33,9 @@ const data = [ {
   ]
 } ];
 
-export { data, currentPrice };
+// 分红记录（独立于股票交易）。amount: 税前分红金额；tax: 预扣税/股息费用；税后净额 = amount - tax。
+const dividend = [
+  { month: '202512', day: 24, direction: DIVIDEND, amount: 14.18, tax: 1.42, desc: '现金分红 27 股 * 0.525 USD/股' },
+];
+
+export { data, currentPrice, dividend };

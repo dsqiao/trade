@@ -1,4 +1,4 @@
-import { BUY, OTHER, SELL } from "../const.js";
+import { BUY, DIVIDEND, SELL } from "../const.js";
 
 const currentPrice = 0;
 const data = [ {
@@ -17,8 +17,6 @@ const data = [ {
     { day: 6, price: 458, number: 5, direction: BUY, fee: 1.02, t: 1 },
     { day: 18, price: 499, number: 5, direction: SELL, fee: 1.05, t: 1 },
     { day: 18, price: 501.1, number: 5, direction: SELL, fee: 1.05, t: 1 },
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: -0.68, desc: '0.04/股 * 17 股' },
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: 0.07, desc: 'TAX' },
   ]
 }, {
   month: '202401',
@@ -42,8 +40,6 @@ const data = [ {
 }, {
   month: '202510',
   trans: [
-    { day: 3, price: 0, number: 0, direction: OTHER, fee: -0.20, desc: '0.01/股  * 20 股' },
-    { day: 3, price: 0, number: 0, direction: OTHER, fee: 0.02, desc: 'Tax/Dividend fee' },
     { day: 10, price: 190, number: 5, direction: BUY, fee: 1.03 },
     { day: 10, price: 186, number: 5, direction: BUY, fee: 1.03 },
     { day: 10, price: 181, number: 5, direction: BUY, fee: 1.03 },
@@ -55,24 +51,6 @@ const data = [ {
   trans: [
     { day: 6, price: 186.83, number: 5, direction: BUY, fee: 1.03 },
     { day: 7, price: 183, number: 5, direction: BUY, fee: 1.03 },
-  ]
-}, {
-  month: '202512',
-  trans: [
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: -0.6, desc: '0.01/股 * 60 股分红' },
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: 0.06, desc: 'Tax/Dividend fee' },
-  ]
-}, {
-  month: '202604',
-  trans: [
-    { day: 2, price: 0, number: 0, direction: OTHER, fee: -0.6, desc: '0.01/股 * 60 股分红' },
-    { day: 2, price: 0, number: 0, direction: OTHER, fee: 0.06, desc: 'Tax/Dividend fee' },
-  ]
-}, {
-  month: '202606',
-  trans: [
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: -15, desc: '0.25 / 股 * 60 股' },
-    { day: 29, price: 0, number: 0, direction: OTHER, fee: 1.49, desc: 'Tax/Dividend fee' },
   ]
 }, {
   month: '202607',
@@ -101,4 +79,13 @@ const data = [ {
   ]
 } ];
 
-export { data, currentPrice };
+// 分红记录（独立于股票交易）。amount: 税前分红金额；tax: 预扣税/股息费用；税后净额 = amount - tax。
+const dividend = [
+  { month: '202312', day: 29, direction: DIVIDEND, amount: 0.68, tax: 0.07, desc: '0.04/股 * 17 股' },
+  { month: '202510', day: 3, direction: DIVIDEND, amount: 0.20, tax: 0.02, desc: '0.01/股 * 20 股' },
+  { month: '202512', day: 29, direction: DIVIDEND, amount: 0.60, tax: 0.06, desc: '0.01/股 * 60 股' },
+  { month: '202604', day: 2, direction: DIVIDEND, amount: 0.60, tax: 0.06, desc: '0.01/股 * 60 股' },
+  { month: '202606', day: 29, direction: DIVIDEND, amount: 15, tax: 1.49, desc: '0.25/股 * 60 股' },
+];
+
+export { data, currentPrice, dividend };

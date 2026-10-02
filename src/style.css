@@ -15,6 +15,7 @@
   --row-sell-bg: rgb(85, 23, 23);
   --row-buy-bg: rgb(33, 83, 33);
   --row-option-bg: rgb(28, 55, 90);
+  --row-dividend-bg: rgb(74, 60, 20);
   --row-text: rgb(172, 172, 172);
   /* 组件通用语义变量（卡片/文字/表头/高亮） */
   --text-strong: #e8e8ec;
@@ -44,6 +45,7 @@
   --row-sell-bg: #fde8e8;
   --row-buy-bg: #e8f5e9;
   --row-option-bg: #e3f2fd;
+  --row-dividend-bg: #fff8e1;
   --row-text: #333333;
   --sidebar-bg: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
   --sidebar-border: rgba(0, 0, 0, 0.08);
@@ -156,6 +158,11 @@ html {
 
 .transaction-table .option td {
   background-color: var(--row-option-bg);
+  color: var(--row-text);
+}
+
+.transaction-table .dividend td {
+  background-color: var(--row-dividend-bg);
   color: var(--row-text);
 }
 
