@@ -159,7 +159,7 @@ const data = [ {
   [AssetName.CMB]: 0,
 }, {
   date: '2026-09-08 14:40',
-  exchangeRate: '6.70',
+  exchangeRate: 6.70,
   [AssetName.BINANCE]: 174.73,
   [AssetName.SOLANA]: 23.45,
   [AssetName.SUI]: 17977.32,
@@ -170,7 +170,7 @@ const data = [ {
   [AssetName.CMB]: 0,
 }, {
   date: '2026-09-19 08:12',
-  exchangeRate: '6.68',
+  exchangeRate: 6.68,
   [AssetName.LONG_BRIDGE]: 85476.86,
   [AssetName.OKX]: 41795.80,
   [AssetName.BINANCE]: 182.74,
@@ -181,7 +181,7 @@ const data = [ {
   [AssetName.CMB]: 126.6,
 }, {
   date: '2026-09-26 10:13',
-  exchangeRate: '6.70',
+  exchangeRate: 6.70,
   [AssetName.LONG_BRIDGE]: 83914.43,
   [AssetName.OKX]: 44447.02,
   [AssetName.BINANCE]: 220.07,
@@ -190,5 +190,19 @@ const data = [ {
   [AssetName.BOCHK]: 3001.39,
   [AssetName.BOC]: 91.89,
   [AssetName.CMB]: 126.66,
+}, {
+  date: '2026-10-03 11:35',
+  exchangeRate: 6.70,
+  [AssetName.BINANCE]: 181.46,
+  [AssetName.OKX]: 45213.79,
+  [AssetName.LONG_BRIDGE]: 85644.40,
+  [AssetName.SUI]: 25489.88,
+  [AssetName.SOLANA]: 27.24,
+}, {
+  date: '2026-10-04 15:42',
+  exchangeRate: 6.70,
+  [AssetName.OKX]: 45612.48,
+  [AssetName.LONG_BRIDGE]: 85644.39,
+  [AssetName.SUI]: 25805.21,
 } ];
 export { data, AssetCategory, AssetCurrency, AssetName };
