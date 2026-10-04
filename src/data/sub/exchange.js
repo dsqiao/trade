@@ -31,6 +31,11 @@ const exchange = [ {
   record: [
     { day: 28, fromCcy: CCY.HKD, fromAmount: 2500, toCcy: CCY.USD, toAmount: 318.25, fee: 0, desc: '' },
   ]
+}, {
+  month: '202609',
+  record: [
+    { day: 26, fromCcy: CCY.HKD, fromAmount: 2500, toCcy: CCY.USD, toAmount: 318.00, fee: 0, desc: '' },
+  ]
 } ];
 
 export {
