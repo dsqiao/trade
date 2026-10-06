@@ -77,6 +77,11 @@ const data = [ {
     { day: 17, price: 220.52, number: 5, direction: SELL, fee: 1.06 },
     { day: 28, price: 230.2, number: 5, direction: SELL, fee: 1.06 },
   ]
+}, {
+  month: '202610',
+  trans: [
+    { day: 5, price: 240, number: 5, direction: SELL, fee: 1.05 },
+  ]
 } ];
 
 // 分红记录（独立于股票交易）。amount: 税前分红金额；tax: 预扣税/股息费用；税后净额 = amount - tax。
