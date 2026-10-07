@@ -309,6 +309,7 @@ const calculateData = () => {
 
   for (const month of mData) {
     for (const tran of month.trans) {
+      tran.fee = tran.fee ?? 0;
       totalFee.value += tran.fee;
       if (isOption(tran)) {
         // 期权净收益 = 收到/付出的权利金 − 手续费。
