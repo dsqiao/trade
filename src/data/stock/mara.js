@@ -511,7 +511,7 @@ const data = [
       { day: 18, price: 13.765, number: 100, direction: SELL, fee: 1.36, t: 140 },
       { day: 18, price: 14.06, number: 100, direction: SELL, fee: 1.36, t: 131 },
       { day: 18, price: 13.89, number: 100, direction: BUY, fee: 1.31, t: 131 },
-      { day: 22, price: 15.6107, number: 100, direction: SELL, fee: 0.36, },
+      { day: 22, price: 15.6107, number: 100, direction: SELL, fee: 0.36, t: 170 },
       { day: 22, price: 16, number: 160, direction: SELL, fee: 0.94, t: 132 },
       { day: 22, price: 16.35, number: 100, direction: SELL, fee: 0.73, t: 133 },
       { day: 22, price: 15.75, number: 100, direction: BUY, fee: 1.31, t: 133 },
@@ -537,8 +537,8 @@ const data = [
       { day: 6, price: 13.3, number: 100, direction: SELL, fee: 1.36, t: 142 },
       { day: 7, price: 12, number: 100, direction: BUY, fee: 0.68, t: 143 },
       { day: 9, price: 13.2, number: 100, direction: SELL, fee: 1.36, t: 143 },
-      { day: 9, price: 14.4, number: 100, direction: SELL, fee: 0.73 },
-      { day: 10, price: 13, number: 100, direction: BUY, fee: 1.31 },
+      { day: 9, price: 14.4, number: 100, direction: SELL, fee: 0.73, t: 169 },
+      { day: 10, price: 13, number: 100, direction: BUY, fee: 1.31, t: 169 },
       { day: 14, price: 11.8, number: 100, direction: BUY, fee: 1.31, t: 144 },
       { day: 23, price: 13.1, number: 100, direction: SELL, fee: 1.36, t: 144 },
       // 期权：7/31 到期的 11.5 PUT，卖出成交价 0.16，手续费 2.06
@@ -575,7 +575,7 @@ const data = [
       { day: 15, direction: SELL, optionType: 'PUT', price: 0.06, number: 2, fee: 1.48, status: OptionStatus.EXPIRED, desc: '卖出 260918 10 PUT @ 0.06' },
       { day: 18, price: 12.05, number: 100, direction: SELL, fee: 1.35, t: 167 },
       { day: 18, price: 13, number: 100, direction: SELL, fee: 1.36, t: 167 },
-      { day: 29, price: 11.95, number: 100, direction: BUY, fee: 1.31 },
+      { day: 29, price: 11.95, number: 100, direction: BUY, fee: 1.31, t: 170 },
       { day: 30, price: 11.60, number: 100, direction: BUY, fee: 1.31, t: 168 },
     ]
   }, {
