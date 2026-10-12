@@ -75,13 +75,13 @@ const data = [ {
     { day: 10, price: 220, number: 5, direction: BUY, fee: 1.03, t: 5 },
     { day: 14, price: 210, number: 5, direction: BUY, fee: 1.03, t: 6 },
     { day: 17, price: 220.52, number: 5, direction: SELL, fee: 1.06 },
-    { day: 28, price: 230.2, number: 5, direction: SELL, fee: 1.06 },
+    { day: 28, price: 230.2, number: 5, direction: SELL, fee: 1.06, t: 7 },
   ]
 }, {
   month: '202610',
   trans: [
     { day: 5, price: 240, number: 5, direction: SELL, fee: 1.05 },
-    { day: 9, price: 229.8, number: 5, direction: BUY, fee: 0.40, desc: '5 HKD' },
+    { day: 9, price: 229.8, number: 5, direction: BUY, fee: 0.40, desc: '5 HKD', t: 7 },
   ]
 } ];
 
