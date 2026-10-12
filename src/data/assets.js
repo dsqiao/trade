@@ -204,5 +204,11 @@ const data = [ {
   [AssetName.OKX]: 45612.48,
   [AssetName.LONG_BRIDGE]: 85644.39,
   [AssetName.SUI]: 25805.21,
+}, {
+  date: '2026-10-12 15:33',
+  exchangeRate: 6.68,
+  [AssetName.OKX]: 44797.54,
+  [AssetName.LONG_BRIDGE]: 82071.28,
+  [AssetName.SUI]: 24824.64,
 } ];
 export { data, AssetCategory, AssetCurrency, AssetName };
