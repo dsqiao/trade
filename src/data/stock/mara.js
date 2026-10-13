@@ -589,6 +589,7 @@ const data = [
       { day: 8, price: 9.7, number: 100, direction: BUY, fee: 1.31 },
       { day: 9, price: 9.65, number: 200, direction: BUY, fee: 1.61 },
       { day: 9, price: 9.5, number: 150, direction: BUY, fee: 1.46 },
+      { day: 12, price: 9.4, number: 150, direction: BUY, fee: 0.83, desc: '5 HKD 抵扣' },
     ]
   }
 ];
