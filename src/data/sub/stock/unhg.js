@@ -1,4 +1,4 @@
-import { BUY } from '../../const.js';
+import { BUY, SELL } from '../../const.js';
 
 // 当前股价（兜底价，配置 Finnhub token 后会被实时价覆盖）
 const currentPrice = 0;
@@ -12,6 +12,11 @@ const data = [ {
   month: '202609',
   trans: [
     { day: 9, price: 19.395, number: 10, direction: BUY, fee: 1.04 },
+  ]
+}, {
+  month: '202610',
+  trans: [
+    { day: 20, price: 22, number: 10, direction: SELL, fee: 1.05 },
   ]
 } ];
 export {
