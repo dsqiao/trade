@@ -26,12 +26,13 @@
         >
           {{ parseNumber(row[asset]) || '-' }}
         </td>
-        <td>{{ calculateTotal(row) }}</td>
+        <td :class="totalClass(row)">{{ parseNumber(rawTotal(row)) }}</td>
       </tr>
     </tbody>
   </table>
 </template>
 <script setup>
+import { computed } from 'vue';
 import { data, AssetCategory, AssetCurrency } from '../data/assets.js';
 import { parseNumber } from '@/utils/index.js';
 // 列基于完整资产清单 AssetCategory，而不是 data[0]。
@@ -49,7 +50,8 @@ const getWeekday = (dateStr) => {
 };
 
 
-const calculateTotal = (item) => {
+// 计算某一行的 total 原始数值（未格式化，用于比较大小）
+const rawTotal = (item) => {
   let usdTotal = 0;
   let cnyTotal = 0;
   for (const asset of AssetCategory) {
@@ -59,7 +61,21 @@ const calculateTotal = (item) => {
       else if (asset.currency === AssetCurrency.CNY) cnyTotal += item[name];
     }
   }
-  return parseNumber(usdTotal * item.exchangeRate + cnyTotal);
+  return usdTotal * item.exchangeRate + cnyTotal;
+};
+
+// 所有行的 total，用于定位最高 / 最低值
+const totals = computed(() => data.map(rawTotal));
+const maxTotal = computed(() => Math.max(...totals.value));
+const minTotal = computed(() => Math.min(...totals.value));
+
+// 最高值标红，最低值标绿（最高与最低相等时不着色）
+const totalClass = (item) => {
+  if (maxTotal.value === minTotal.value) return '';
+  const value = rawTotal(item);
+  if (value === maxTotal.value) return 'total-max';
+  if (value === minTotal.value) return 'total-min';
+  return '';
 };
 </script>
 <style scoped>
@@ -75,5 +91,13 @@ const calculateTotal = (item) => {
 }
 .asset-table th {
   background-color: var(--bg-secondary);
+}
+.asset-table td.total-max {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+.asset-table td.total-min {
+  color: #2ee59d;
+  font-weight: bold;
 }
 </style>
