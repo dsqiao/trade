@@ -29,6 +29,14 @@ npm run dev
 npm run build
 ```
 
+### Deploy only the sub account page
+
+GitHub Actions builds a standalone site containing only the sub account overview and its funding, exchange, and stock-history pages. On pushes to `main`, it deploys the site to GitHub Pages; the overview is the site homepage at https://dsqiao.github.io/trade/. The standalone build does not include the Finnhub API token, so live stock quotes require a public-safe price source or configured fallback prices.
+
+Enable GitHub Pages for this repository and select **GitHub Actions** as the deployment source. The published page is publicly accessible; stock, funding, and exchange data in `src/data/sub/` will be included in the site.
+
+To build the standalone site locally, run `npm run build:sub`; its files are written to `dist-sub/`.
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
