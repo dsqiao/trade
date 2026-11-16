@@ -79,6 +79,16 @@
           <div class="stat-label">持仓成本（含费）</div>
           <div class="stat-value">$ {{ parseNumber(stockSum.costWithFee) }}</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-label">股票总收益（含已实现）</div>
+          <div
+            class="stat-value"
+            :class="stockTotalPnl === null ? '' : stockTotalPnl >= 0 ? 'positive' : 'negative'"
+          >
+            {{ stockTotalPnl === null ? '-' : `${stockTotalPnl >= 0 ? '+' : ''}$ ${parseNumber(stockTotalPnl)}` }}
+          </div>
+          <div class="stat-hint">当前持仓浮动收益 + 已实现收益</div>
+        </div>
       </div>
 
       <table class="record-table">
@@ -331,6 +341,20 @@ const stockSum = stockRows.reduce(
   },
   { income: 0, outcome: 0, costWithFee: 0 }
 );
+
+// 汇总口径与明细中的历史收益一致；有持仓但没有有效现价时不展示不完整的总数。
+const stockTotalPnl = computed(() => {
+  let total = 0;
+  for (const s of stockRows) {
+    total += s.realizedPnl;
+    if (s.holding > 0) {
+      const price = priceOf(s);
+      if (price <= 0) return null;
+      total += price * s.holding - s.costWithFee;
+    }
+  }
+  return total;
+});
 
 // ---- 现金余额 ----
 const hkdCash = fundingSum.depositHKD - fundingSum.withdrawHKD - exchangeDetail.hkdOut + exchangeDetail.hkdIn;
