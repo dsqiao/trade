@@ -39,32 +39,34 @@
       <div class="month-title">
         {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}
       </div>
-      <table class="record-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>换出</th>
-            <th>换入</th>
-            <th>汇率</th>
-            <th>手续费</th>
-            <th>备注</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(item, i) in month.record"
-            :key="i"
-            :class="item.fromCcy === CCY.HKD ? 'hkd2usd' : 'usd2hkd'"
-          >
-            <td>{{ `${month.month.slice(4)} 月 ${item.day} 日` }}</td>
-            <td class="amount">{{ parseNumber(item.fromAmount) }} {{ item.fromCcy }}</td>
-            <td class="amount">{{ parseNumber(item.toAmount) }} {{ item.toCcy }}</td>
-            <td>{{ rateOf(item) }}</td>
-            <td>{{ item.fee || 0 }}</td>
-            <td class="desc">{{ item.desc || '/' }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-scroll">
+        <table class="record-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>换出</th>
+              <th>换入</th>
+              <th>汇率</th>
+              <th>手续费</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(item, i) in month.record"
+              :key="i"
+              :class="item.fromCcy === CCY.HKD ? 'hkd2usd' : 'usd2hkd'"
+            >
+              <td>{{ `${month.month.slice(4)} 月 ${item.day} 日` }}</td>
+              <td class="amount">{{ parseNumber(item.fromAmount) }} {{ item.fromCcy }}</td>
+              <td class="amount">{{ parseNumber(item.toAmount) }} {{ item.toCcy }}</td>
+              <td>{{ rateOf(item) }}</td>
+              <td>{{ item.fee || 0 }}</td>
+              <td class="desc">{{ item.desc || '/' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -152,6 +154,7 @@ const sum = computed(() => {
 }
 .record-table {
   width: 100%;
+  min-width: 680px;
   border-collapse: collapse;
 }
 .record-table th,

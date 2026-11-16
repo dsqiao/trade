@@ -39,32 +39,34 @@
       <div class="month-title">
         {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}
       </div>
-      <table class="record-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>方向</th>
-            <th>金额</th>
-            <th>币种</th>
-            <th>手续费</th>
-            <th>备注</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(item, i) in month.record"
-            :key="i"
-            :class="item.direction === DEPOSIT ? 'in' : 'out'"
-          >
-            <td>{{ `${month.month.slice(4)} 月 ${item.day} 日` }}</td>
-            <td>{{ item.direction === DEPOSIT ? '入金' : '出金' }}</td>
-            <td class="amount">{{ parseNumber(item.amount) }}</td>
-            <td>{{ item.ccy }}</td>
-            <td>{{ item.fee || 0 }}</td>
-            <td class="desc">{{ item.desc || '/' }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-scroll">
+        <table class="record-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>方向</th>
+              <th>金额</th>
+              <th>币种</th>
+              <th>手续费</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(item, i) in month.record"
+              :key="i"
+              :class="item.direction === DEPOSIT ? 'in' : 'out'"
+            >
+              <td>{{ `${month.month.slice(4)} 月 ${item.day} 日` }}</td>
+              <td>{{ item.direction === DEPOSIT ? '入金' : '出金' }}</td>
+              <td class="amount">{{ parseNumber(item.amount) }}</td>
+              <td>{{ item.ccy }}</td>
+              <td>{{ item.fee || 0 }}</td>
+              <td class="desc">{{ item.desc || '/' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -145,6 +147,7 @@ const sum = computed(() => {
 }
 .record-table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
 }
 .record-table th,

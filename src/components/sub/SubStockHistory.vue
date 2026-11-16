@@ -27,32 +27,34 @@
       <div class="month-title">
         {{ `${month.month.slice(0, 4)} 年 ${month.month.slice(4)} 月` }}
       </div>
-      <table class="record-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>方向</th>
-            <th>成交价</th>
-            <th>数量</th>
-            <th>成交金额</th>
-            <th>手续费</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(tran, index) in month.trans"
-            :key="index"
-            :class="tran.direction === BUY ? 'buy' : 'sell'"
-          >
-            <td>{{ `${month.month.slice(4)} 月 ${tran.day} 日` }}</td>
-            <td>{{ tran.direction === BUY ? '买入' : '卖出' }}</td>
-            <td>{{ tran.price != null ? '$ ' + parseNumber(tran.price) : '-' }}</td>
-            <td>{{ tran.number }}</td>
-            <td>$ {{ parseNumber(tranAmount(tran)) }}</td>
-            <td>$ {{ parseNumber(tran.fee || 0) }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-scroll">
+        <table class="record-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>方向</th>
+              <th>成交价</th>
+              <th>数量</th>
+              <th>成交金额</th>
+              <th>手续费</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(tran, index) in month.trans"
+              :key="index"
+              :class="tran.direction === BUY ? 'buy' : 'sell'"
+            >
+              <td>{{ `${month.month.slice(4)} 月 ${tran.day} 日` }}</td>
+              <td>{{ tran.direction === BUY ? '买入' : '卖出' }}</td>
+              <td>{{ tran.price != null ? '$ ' + parseNumber(tran.price) : '-' }}</td>
+              <td>{{ tran.number }}</td>
+              <td>$ {{ parseNumber(tranAmount(tran)) }}</td>
+              <td>$ {{ parseNumber(tran.fee || 0) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <div
@@ -157,6 +159,7 @@ const sellTotal = computed(() => stock.value?.data.reduce(
 }
 .record-table {
   width: 100%;
+  min-width: 560px;
   border-collapse: collapse;
 }
 .record-table th,

@@ -171,3 +171,10 @@ html {
 }
 
 /* 表格样式 END */
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
